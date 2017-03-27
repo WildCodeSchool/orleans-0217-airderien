@@ -1,5 +1,9 @@
 <!-- footer -->
 <!-- Footer
+<?php
+    include 'header.php';
+?>
+
 ============================================= -->
 <footer id="footer" class="dark">
 
@@ -84,6 +88,10 @@
     </div><!-- #copyrights end -->
 
 </footer><!-- #footer end -->
+
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="js/functions.js"></script>
 
 <!--            <footer>-->
 <!--                <div class="copyright">-->

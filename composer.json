@@ -1,0 +1,12 @@
+{
+    "name": "root/orleans-0217-airderien",
+    "authors": [
+        {
+            "name": "Fanny-Jan",
+            "email": "fanny.jan12@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.2"
+    }
+}
