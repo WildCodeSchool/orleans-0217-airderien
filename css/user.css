@@ -36,6 +36,18 @@ nav.sidebar, .main{
 /*small/medium side display*/
 @media (min-width: 768px) {
 
+    /* couleur titre nav*/
+    .navbar-inverse .navbar-brand {
+        color: black;
+        font-size: 35px;
+    }
+
+    /*couleur texte nav*/
+    .navbar-inverse .navbar-nav > li > a {
+        color: black;
+        font-size: 20px;
+    }
+
     /*Allow main to be next to Nav*/
     .main{
         position: absolute;
@@ -101,11 +113,12 @@ nav.sidebar, .main{
     nav.sidebar{
         width: 320px;
         height: 100%;
-        margin-left: -280px;
+        margin-left: -270px;
         float: left;
         z-index: 8000;
         margin-bottom: 0px;
         background-image: url("../img/nav2.png");
+        text-align: center;
     }
 
     /*give sidebar 100% width;*/
@@ -156,3 +169,7 @@ section{
     padding-left: 15px;
 }
 
+.slidenav {
+    border-style: none;
+    margin-bottom: 20px;
+}
