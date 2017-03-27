@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand  toggle-btn" href="#">Titre Spectacl <span style="font-size:16px;" class="pull-right hidden-xs"></span></a>
+            <a class="navbar-brand  toggle-btn" href="#">Titre Spectacle <span style="font-size:16px;" class="pull-right hidden-xs"></span></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
