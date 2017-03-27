@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "root/orleans-0217-airderien",
     "authors": [
         {
@@ -9,4 +10,22 @@
     "require": {
         "twig/twig": "^2.2"
     }
+=======
+    "name": "root/air-de-rien",
+    "authors": [
+        {
+            "name": "Biovor",
+            "email": "duriez.ludovic@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.3",
+        "michelf/php-markdown": "^1.7"
+    },
+
+    "autoload": {
+        "psr-4": {"wcs\\": "src/"}
+    }
+
+>>>>>>> 8bfbd561462b18372cf1c47e9d28cb1f2408f0aa
 }
