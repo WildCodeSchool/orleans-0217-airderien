@@ -4,7 +4,7 @@
     include 'header.php';
 ?>
 
-============================================= -->
+
 <footer id="footer" class="dark">
 
     <div class="container">
