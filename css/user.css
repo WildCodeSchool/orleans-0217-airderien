@@ -148,8 +148,12 @@ nav.sidebar, .main{
 
     /*Show all nav*/
     nav.sidebar{
-        margin-left: 0px;
+        margin-left: -400px;
         float: left;
+    }
+
+    nav.sidebar:hover{
+        margin-left: -400px;
     }
     /*Show hidden items on nav*/
     nav.sidebar .forAnimate{
