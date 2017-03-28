@@ -56,6 +56,26 @@
 
 </head>
 
+
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '270998296683406',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <body class="stretched">
 
 	<!-- Document Wrapper
@@ -161,7 +181,7 @@
 
 					</nav><!-- #primary-menu end -->
 
-					
+
 
 
 				</div>
@@ -510,6 +530,7 @@
 	<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
 	<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
 	<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script type="text/javascript" src="../js/script.js"></script>
 
 	<script type="text/javascript">
 
