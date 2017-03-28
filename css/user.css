@@ -179,6 +179,7 @@ section{
     margin-bottom: 20px;
 }
 
+
 /*************************  CONTENT  ********************************************************
 
  */
@@ -258,3 +259,8 @@ p{
 /*font-family: 'Amatic SC', cursive;*/
 /*font-family: 'Josefin Slab', serif;*/
 /*font-family: 'Raleway', sans-serif;*/
+=======
+.fbb{
+    margin-left: 40px;
+}
+

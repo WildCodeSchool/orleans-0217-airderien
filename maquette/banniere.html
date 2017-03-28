@@ -56,6 +56,26 @@
 
 </head>
 
+
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '270998296683406',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <body class="stretched">
 
 	<!-- Document Wrapper
@@ -171,7 +191,7 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<a class="navbar-brand  toggle-btn" href="#">Titre Spectacl <span style="font-size:16px;" class="pull-right hidden-xs"></span></a>
+								<a class="navbar-brand  toggle-btn" href="#">Titre Spectacle <span style="font-size:16px;" class="pull-right hidden-xs"></span></a>
 							</div>
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
@@ -184,6 +204,7 @@
 									<li class="slidenav"><a href="#">Revue de Presse<span style="font-size:25px" class="pull-right hidden-xs showopacity fa fa-newspaper-o"></span></a></li>
 								</ul>
 							</div>
+							<div class="fb-page fbb" data-href="https://www.facebook.com/fauteuil.de.massage/" data-tabs="timeline" data-width="270" data-height="360" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/fauteuil.de.massage/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/fauteuil.de.massage/">Relax-Forme</a></blockquote></div>
 						</div>
 					</nav>
 
@@ -534,6 +555,7 @@
 	<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
 	<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
 	<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script type="text/javascript" src="../js/script.js"></script>
 
 	<script type="text/javascript">
 
