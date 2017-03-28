@@ -1,5 +1,6 @@
 body,html{
     height: 100%;
+    font-family: 'Raleway', sans-serif;
 }
 
 /* remove outer padding */
@@ -177,3 +178,83 @@ section{
     border-style: none;
     margin-bottom: 20px;
 }
+
+/*************************  CONTENT  ********************************************************
+
+ */
+h2, h3, h4{
+    font-family: 'Fredericka the Great', cursive;
+    color: #bc1a3a;
+}
+
+.heading-block h1, .heading-block h2, .heading-block h3, .heading-block h4, .emphasis-title h1, .emphasis-title h2{
+    color: #bc1a3a;
+}
+
+.line, .double-line{
+    border-top: 1px solid #1ABC9C;
+}
+
+.feature-box h3{
+    color: #bc1a3a;
+}
+
+.feature-box.media-box.fbox-bg .fbox-desc {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e5e5e5;
+    border-radius: 5px;
+    padding: 25px;
+    padding-top: 15px;
+}
+
+.button-dark {
+    background-color: #bc1a3a;
+}
+
+.team-content{
+    font-size: 14px;
+}
+
+p{
+    font-size: 20px;
+    color: #777;
+    margin-top: 15px;
+}
+
+.restaurant-reviews .flex-control-nav {
+    top: auto;
+    bottom: 25px;
+}
+
+.auteur{
+
+}
+
+/*************************   NAVBAR ********************************************************
+
+ */
+#page-menu-wrap .menu-title{
+    font-family: 'Fredericka the Great', cursive;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #bc1a3a;
+}
+
+.one-page-menu li{
+    font-family: 'Fredericka the Great', cursive;
+    text-transform: uppercase;
+}
+
+/*************************  FOOTER ********************************************************
+
+ */
+
+.dark #copyrights{
+
+}
+
+/*font-family: 'Fredericka the Great', cursive;*/
+/*font-family: 'Amatic SC', cursive;*/
+/*font-family: 'Josefin Slab', serif;*/
+/*font-family: 'Raleway', sans-serif;*/
