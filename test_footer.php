@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
     <link rel="stylesheet" href="css/animate.css" type="text/css" />
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="css/user.css" type="text/css" />
 
     <meta charset="utf-8">
 </head>
@@ -46,9 +47,9 @@
 <!---->
 <!--     style="z-index: 15; min-width: 400px; max-width: 400px; white-space: normal; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(255, 255, 255, 1.00);text-transform:left;"><iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/168251554&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe> </div>-->
 
-<iframe width="50%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/278303476&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
-<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
-<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false"></iframe>
+<!--<iframe width="50%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/278303476&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>-->
+<!--<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>-->
+<!--<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false"></iframe>-->
 
 <!--<div class="embed-responsive embed-responsive-4by3">-->
 <!--    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0"></iframe>-->
@@ -56,31 +57,77 @@
 <!--</div>-->
 
 
-<div class="container" style="height=300px;">
-    <div class="span8">
-        <div id="myCarousel" class="carousel slide">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-                <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item active">
-                    <iframe src="//www.youtube.com/embed/-w-58hQ9dLk?controls=0" allowfullscreen="" width="100%" height="100%" frameborder="0"></iframe>
-                </div>
-                <div class="item">
-                    <iframe src="//www.youtube.com/embed/SEBLt6Kd9EY?controls=0" allowfullscreen="" width="100%" height="100%" frameborder="0"></iframe>
-                </div>
-                <div class="item">
-                    <iframe src="//www.youtube.com/embed/IkTw7J-hGmg?controls=0" allowfullscreen="" width="100%" height="100%" frameborder="0"></iframe>
-                </div>
+<!--<div class="container" style="height=700px;">-->
+<!--    <div class="span8">-->
+<!--        <div id="myCarousel" class="carousel slide">-->
+<!--            <ol class="carousel-indicators">-->
+<!--                <li data-target="#myCarousel" data-slide-to="0" class=""></li>-->
+<!--                <li data-target="#myCarousel" data-slide-to="1" class="active"></li>-->
+<!--                <li data-target="#myCarousel" data-slide-to="2" class=""></li>-->
+<!--            </ol>-->
+<!--            <div class="carousel-inner">-->
+<!--                <div class="item active embed-responsive embed-responsive-4by3">-->
+<!--                    <iframe src="//www.youtube.com/embed/-w-58hQ9dLk?controls=0" allowfullscreen="" width="50%" height="200" frameborder="0"></iframe>-->
+<!--                </div>-->
+<!--                <div class="item embed-responsive embed-responsive-4by3">-->
+<!--                    <iframe src="//www.youtube.com/embed/SEBLt6Kd9EY?controls=0" allowfullscreen="" width="50%" height="200" frameborder="0"></iframe>-->
+<!--                </div>-->
+<!--                <div class="item embed-responsive embed-responsive-4by3">-->
+<!--                    <iframe src="//www.youtube.com/embed/IkTw7J-hGmg?controls=0" allowfullscreen="" width="50%" height="200" frameborder="0"></iframe>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>-->
+<!--            <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<!--<div class="fslider flex-thumb-grid grid-12 bottommargin-lg" data-pagi="false" data-arrows="true" data-thumbs="true">-->
+<!--    <div class="flexslider">-->
+<!--        <div class="slider-wrap">-->
+<!--            <div class="slide" data-thumb="../img/photos/groupe1.jpg"><img src="../img/photos/groupe1.jpg" alt="Image"></div>-->
+<!--            <div class="slide" data-thumb="../img/photos/sophie+nadine2.jpg"><img src="../img/photos/sophie+nadine2.jpg" alt="Image"></div>-->
+<!--            <div class="slide" data-thumb="../img/photos/nadine_so_jerome2%20.jpg"><img src="../img/photos/nadine_so_jerome2%20.jpg" alt="Image"></div>-->
+<!--            <div class="slide" data-thumb="../img/photos/so+stephane2.jpg"><img src="../img/photos/so+stephane2.jpg" alt="Image"></div>-->
+<!--            <div class="slide" data-thumb="../img/photos/sophie+nath.jpg"><img src="../img/photos/sophie+nath.jpg" alt="Image"></div>-->
+<!--            <div class="slide" data-thumb="../img/photos/trio2.jpg"><img src="../img/photos/trio2.jpg" alt="Image"></div>-->
+<!---->
+<!--            <div class="slide" data-thumb="img/photos/trio2.jpg"><iframe>https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0"></iframe></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+<div class="container clearfix">
+    <div class="center">
+        <p>Nos Videos</p>
+        <a href="#myModal1" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>
+        <a href="#myModal1" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>
+
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal1 mfp-hide" id="myModal1">
+        <div class="block divcenter" style="background-color: #FFF; max-width: 600px;">
+            <div class="center clearfix" style="padding: 50px;">
+                <h3 class="uppercase">Check out a Video</h3>
+                <iframe src="https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0" width="500" height="210" allowfullscreen></iframe>
+                <p class="lead nobottommargin topmargin-sm">Media embedded from Vimeo</p>
             </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
         </div>
     </div>
-</div>
 
+</div>
+<!--https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0"></iframe>-->
+
+
+<script type="text/javascript" src="maquette/js/jquery.js"></script>
+<script type="text/javascript" src="maquette/js/plugins.js"></script>
+<script type="text/javascript" src="maquette/js/functions.js"></script>
 
 <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
 <script type="text/javascript">
