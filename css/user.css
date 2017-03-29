@@ -237,6 +237,10 @@ p{
     width: 754px;
 }
 
+#soundcloud{
+    margin-top: 60px;
+}
+
 /*************************   NAVBAR ********************************************************
 
  */
@@ -256,15 +260,12 @@ p{
 
  */
 
-.dark #copyrights{
-
-}
 
 /*font-family: 'Fredericka the Great', cursive;*/
 /*font-family: 'Amatic SC', cursive;*/
 /*font-family: 'Josefin Slab', serif;*/
 /*font-family: 'Raleway', sans-serif;*/
-=======
+
 .fbb{
     margin-left: 40px;
 }

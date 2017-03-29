@@ -98,30 +98,59 @@
 <!--    </div>-->
 <!--</div>-->
 
-
-
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--<a class="btn btn-primary" data-toggle="modal" href="#modal-video"><i class="fa fa-play"></i> watch video</a>-->
 <div class="container clearfix">
     <div class="center">
         <p>Nos Videos</p>
-        <a href="#myModal1" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>
-        <a href="#myModal1" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>
-
+        <a data-toggle="modal" href="#modal-video" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>
+        <a data-toggle="modal" href="#modal-video" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>
+        <a data-toggle="modal" href="#modal-video" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>
     </div>
 
+    <div class="modal fade" id="modal-video" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer <i class="fa fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <iframe type="text/html" width="570" height="360" src="//www.youtube.com/embed/GShZUiyqEH0?rel=0?wmode=transparent&amp;fs=1&amp;rel=0&amp;enablejsapi=1&amp;version=3" frameborder="0" allowfullscreen=""></iframe>
 
 
-    <!-- Modal -->
-    <div class="modal1 mfp-hide" id="myModal1">
-        <div class="block divcenter" style="background-color: #FFF; max-width: 600px;">
-            <div class="center clearfix" style="padding: 50px;">
-                <h3 class="uppercase">Check out a Video</h3>
-                <iframe src="https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0" width="500" height="210" allowfullscreen></iframe>
-                <p class="lead nobottommargin topmargin-sm">Media embedded from Vimeo</p>
+                    <p>Titre vidéo</p>
+                </div>
             </div>
         </div>
     </div>
-
 </div>
+
+
+
+<!--<div class="container clearfix">-->
+<!--    <div class="center">-->
+<!--        <p>Nos Videos</p>-->
+<!--        <a href="#myModal1" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>-->
+<!--        <a href="#myModal1" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>-->
+<!---->
+<!--    </div>-->
+<!---->
+<!---->
+<!---->
+<!--    <!-- Modal -->
+<!--    <div class="modal1 mfp-hide" id="myModal1">-->
+<!--        <div class="block divcenter" style="background-color: #FFF; max-width: 600px;">-->
+<!--            <div class="center clearfix" style="padding: 50px;">-->
+<!--                <h3 class="uppercase">Check out a Video</h3>-->
+<!--                <iframe src="https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0" width="500" height="210" allowfullscreen></iframe>-->
+<!--                <p class="lead nobottommargin topmargin-sm">Media embedded from Vimeo</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--</div>-->
 <!--https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0"></iframe>-->
 
 
