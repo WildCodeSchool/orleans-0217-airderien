@@ -16,6 +16,13 @@ h2, h3, h4{
     border-top: 1px solid #1ABC9C;
 }
 
+.team-image a{
+    width: 90%;
+}
+.team-image img{
+    width: 90%;
+}
+
 .feature-box h3{
     color: #bc1a3a;
 }
