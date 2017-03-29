@@ -98,29 +98,50 @@
 <!--    </div>-->
 <!--</div>-->
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<!--<a class="btn btn-primary" data-toggle="modal" href="#modal-video"><i class="fa fa-play"></i> watch video</a>-->
-<div class="container clearfix">
-    <div class="center">
-        <p>Nos Videos</p>
-        <a data-toggle="modal" href="#modal-video" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>
-        <a data-toggle="modal" href="#modal-video" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>
-        <a data-toggle="modal" href="#modal-video" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>
-    </div>
+<!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+<!--<!--<a class="btn btn-primary" data-toggle="modal" href="#modal-video"><i class="fa fa-play"></i> watch video</a>-->
+<!--<div class="container clearfix">-->
+<!--    <div class="center">-->
+<!--        <p>Nos Videos</p>-->
+<!--        <a data-toggle="modal" href="#modal-video" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>-->
+<!--        <a data-toggle="modal" href="#modal-video" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>-->
+<!--        <a data-toggle="modal" href="#modal-video" data-lightbox="inline" class="button button-large button-rounded"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 100px;"></a>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="modal fade" id="modal-video" style="display: none;">-->
+<!--        <div class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer <i class="fa fa-times"></i></button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                    <iframe type="text/html" width="570" height="360" src="//www.youtube.com/embed/GShZUiyqEH0?rel=0?wmode=transparent&amp;fs=1&amp;rel=0&amp;enablejsapi=1&amp;version=3" frameborder="0" allowfullscreen=""></iframe>-->
+<!---->
+<!---->
+<!--                    <p>Titre vidéo</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-    <div class="modal fade" id="modal-video" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer <i class="fa fa-times"></i></button>
-                </div>
-                <div class="modal-body">
-                    <iframe type="text/html" width="570" height="360" src="//www.youtube.com/embed/GShZUiyqEH0?rel=0?wmode=transparent&amp;fs=1&amp;rel=0&amp;enablejsapi=1&amp;version=3" frameborder="0" allowfullscreen=""></iframe>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- triggering Link -->
+<a id="videoLink" href="#0" class="video-hp" data-toggle="modal" data-target="#introVideo"><img src="img/WCS.r.png">toggle video</a>
 
 
-                    <p>Titre vidéo</p>
+<!-- Intro video -->
+<div class="modal fade" id="introVideo" tabindex="-1" role="dialog" aria-labelledby="introductionVideo" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item allowfullscreen"></iframe>
                 </div>
             </div>
         </div>
@@ -128,6 +149,26 @@
 </div>
 
 
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="maquette/js/jquery.js"></script>
+<script type="text/javascript" src="maquette/js/plugins.js"></script>
+<script type="text/javascript" src="maquette/js/functions.js"></script>
+
+<script type="text/javascript">
+    //JS
+
+    $('#videoLink').click(function () {
+        var src = 'https://www.youtube.com/embed/VI04yNch1hU;autoplay=1';
+        $('#introVideo iframe').attr('src', src);
+    });
+
+
+    $('#introVideo button.close').on('hidden.bs.modal', function () {
+        $('#introVideo iframe').removeAttr('src');
+    })
+</script>
 
 <!--<div class="container clearfix">-->
 <!--    <div class="center">-->
@@ -154,34 +195,34 @@
 <!--https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0"></iframe>-->
 
 
-<script type="text/javascript" src="maquette/js/jquery.js"></script>
-<script type="text/javascript" src="maquette/js/plugins.js"></script>
-<script type="text/javascript" src="maquette/js/functions.js"></script>
 
-<script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
-<script type="text/javascript">
-    (function(){
-        var widgetIframe = document.getElementById('sc-widget'),
-            widget       = SC.Widget(widgetIframe);
 
-        widget.bind(SC.Widget.Events.READY, function() {
-            widget.bind(SC.Widget.Events.PLAY, function() {
-                // get information about currently playing sound
-                widget.getCurrentSound(function(currentSound) {
-                    console.log('sound ' + currentSound.get('') + 'began to play');
-                });
-            });
-            // get current level of volume
-            widget.getVolume(function(volume) {
-                console.log('current volume value is ' + volume);
-            });
-            // set new volume level
-            widget.setVolume(50);
-            // get the value of the current position
-        });
 
-    }());
-</script>
+<!---->
+<!--<script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>-->
+<!--<script type="text/javascript">-->
+<!--    (function(){-->
+<!--        var widgetIframe = document.getElementById('sc-widget'),-->
+<!--            widget       = SC.Widget(widgetIframe);-->
+<!---->
+<!--        widget.bind(SC.Widget.Events.READY, function() {-->
+<!--            widget.bind(SC.Widget.Events.PLAY, function() {-->
+<!--                // get information about currently playing sound-->
+<!--                widget.getCurrentSound(function(currentSound) {-->
+<!--                    console.log('sound ' + currentSound.get('') + 'began to play');-->
+<!--                });-->
+<!--            });-->
+<!--            // get current level of volume-->
+<!--            widget.getVolume(function(volume) {-->
+<!--                console.log('current volume value is ' + volume);-->
+<!--            });-->
+<!--            // set new volume level-->
+<!--            widget.setVolume(50);-->
+<!--            // get the value of the current position-->
+<!--        });-->
+<!---->
+<!--    }());-->
+<!--</script>-->
 
 
 </body>
