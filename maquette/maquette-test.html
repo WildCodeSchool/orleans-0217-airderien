@@ -91,8 +91,8 @@
 
                         <div class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder"
 
-                             data-x="597"
-                             data-y="230"
+                             data-x="0"
+                             data-y="300"
                              data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.easeOutQuad;"
                              data-speed="800"
                              data-start="1200"
@@ -102,11 +102,11 @@
                              data-elementdelay="0.01"
                              data-endelementdelay="0.1"
                              data-endspeed="1000"
-                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px;">Comme l'air de rien</div>
+                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px;">Devine qui vient diner ce soir</div>
 
                         <div class="tp-caption customin ltl tp-resizeme revo-slider-desc-text tleft"
-                             data-x="600"
-                             data-y="340"
+                             data-x="400"
+                             data-y="400"
                              data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.easeOutQuad;"
                              data-speed="800"
                              data-start="1400"
@@ -116,10 +116,10 @@
                              data-elementdelay="0.01"
                              data-endelementdelay="0.1"
                              data-endspeed="1000"
-                             data-endeasing="Power4.easeIn" style="z-index: 3; max-width: 900px; white-space: normal; font-size: 30px;">Bienvenue dans notre compagnie de theatre !</div>
+                             data-endeasing="Power4.easeIn" style="z-index: 3; max-width: 900px; white-space: normal; font-size: 30px;">Bienvenue dans notre spectacle !</div>
 
                         <div class="tp-caption customin ltl tp-resizeme"
-                             data-x="600"
+                             data-x="500"
                              data-y="450"
                              data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.easeOutQuad;"
                              data-speed="800"
@@ -153,7 +153,7 @@
 
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
-            <div id="logo"></div>
+            <div id="logo"><img src="../img/Placeholder+Logo.png"></div>
 
             <!-- Primary Navigation
             ============================================= -->
@@ -192,10 +192,10 @@
                 <ul>
                     <li class="current"><a href="#"><div>Acceuil</div></a></li>
                     <li><a href="#personnages"><div>Les Personnages</div></a></li>
+                    <li><a href="#galerie"><div>Galerie Multimedia</div></a></li>
                     <li><a href="#calendrier"><div>Notre Calendrier</div></a></li>
-                    <li><a href="#"><div>Galerie Multimedia</div></a></li>
-                    <li><a href="#"><div>Revue de Presse</div></a></li>
-                    <li><a href="#"><div>Contact</div></a></li>
+                    <li><a href="#presse"><div>Revue de Presse</div></a></li>
+                    <li><a href="#contact"><div>Contact</div></a></li>
                 </ul>
             </nav>
 
@@ -215,9 +215,9 @@
     <div class="content-wrap">
 
         <div class="container clearfix">
-
+            <span id="titre"></span>
             <div class="heading-block title-center page-section">
-                <h2 id="titre">Devine qui vient dîner se soir ?</h2>
+                <h2>Devine qui vient dîner se soir ?</h2>
                 <span></span>
             </div>
 
@@ -233,8 +233,8 @@
 
             <div class="clear"></div>
             <div class="clear"></div>
-
-            <div id="personnages" class="heading-block title-center page-section ancre">
+            <span id="personnages" class="ancre"></span>
+            <div class="heading-block title-center page-section">
                 <h2>Nos Personnages</h2>
                 <span></span>
             </div>
@@ -327,9 +327,9 @@
             </div>
 
             <div class="clear"></div>
-
-            <div id="section-gallery" class="heading-block center topmargin page-section">
-                <h2>Gallerie</h2>
+            <span id="galerie" class="ancre"></span>
+            <div class="heading-block center topmargin page-section">
+                <h2>Galerie</h2>
                 <span></span>
             </div>
 
@@ -368,11 +368,12 @@
                 </div>
             </div>
 
-
+            <div>
             <iframe id="soundcloud" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
+            </div>
 
-
-            <div id="calendrier" class="heading-block title-center topmargin-lg page-section ancre" >
+            <span id="calendrier" class="ancre"></span>
+            <div class="heading-block title-center topmargin-lg page-section" >
                 <h2>Calendrier</h2>
                 <span>Liste de nos évènements</span>
             </div>
@@ -401,7 +402,7 @@
                 </div>
             </div>
 
-            <div class="clear"></div>
+            <div id="presse" class="clear"></div>
 
         </div>
 
@@ -443,8 +444,8 @@
 
         <div class="section notopmargin footer-stick">
             <div class="container clearfix">
-
-                <div id="section-rsvp" class="heading-block title-center topmargin page-section">
+                <span id="contact" class="ancre"></span>
+                <div class="heading-block title-center topmargin page-section">
                     <h2>Contact</h2>
                     <span>Envoyez nous un message !</span>
                 </div>
@@ -566,7 +567,6 @@
     </div><!-- #copyrights end -->
 
 </footer><!-- #footer end -->
-
 <!-- Go To Top
 ============================================= -->
 
@@ -599,7 +599,6 @@
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
 <script type="text/javascript" src="../js/script.js"></script>
-
 
 
 </body>
