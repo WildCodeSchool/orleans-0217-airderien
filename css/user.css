@@ -1,4 +1,11 @@
+
+body{
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+
 /*************************  CONTENT  *********************************************************/
+
 .ancre{
     padding-top: 100px;
 }
@@ -94,6 +101,7 @@ p{
     text-transform: uppercase;
 }
 
+
 /*************************  FOOTER ********************************************************
 
  */
@@ -109,4 +117,34 @@ p{
 
 #footer .footer-widgets-wrap{
     padding: 20px;
+}
+
+
+/*************************  hub ********************************************************/
+
+.hub1{
+    position:relative; /* absolute */
+    display:block;
+    float:left;
+    border-left:4px solid gray;
+    width:60%;
+    height:100%;
+    overflow:hidden; /* hidden*/
+}
+
+.hub2{
+    position:relative; /* absolute */
+    display:block;
+    width: 40%;
+    max-height: 100%;
+    overflow:hidden; /* hidden*/
+}
+
+.flex-cont{
+    display: flex;
+}
+
+.oo{
+    height: 100%;
+    width: 100%;
 }
