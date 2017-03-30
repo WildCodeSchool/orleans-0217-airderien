@@ -6,18 +6,38 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>air de rien</title>
-    <link href="https://fonts.googleapis.com/css?family=Boogaloo|Gloria+Hallelujah|Indie+Flower|Oxygen" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-    <link rel="stylesheet" type="text/css" href="css/user.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
     <link rel="stylesheet" href="css/dark.css" type="text/css" />
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
     <link rel="stylesheet" href="css/animate.css" type="text/css" />
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
-    <link rel="stylesheet" href="css/user.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Boogaloo|Gloria+Hallelujah|Indie+Flower|Oxygen" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-icons.css">
 
-    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/responsive.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../css/user.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&amp;subset=latin-ext" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="css/settings.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/layers.css">
+    <link rel="stylesheet" type="text/css" href="css/navigation.css">
 </head>
 
 
@@ -25,7 +45,43 @@
 <body>
 
 
+<!-- triggering Link -->
+<a id="videoLink" href="#0" class="video-hp" data-toggle="modal" data-target="#introVideo"><img src="img/someImage.jpg">toggle video</a>
+<a href="#" class="portfolio-link" data-toggle="modal" data-frame="iframe" data-target="#portfolioModal1" data-theVideo="http://www.youtube.com/embed/xxxxxxxx">
 
+<!-- Intro video -->
+<div class="modal fade" id="introVideo" tabindex="-1" role="dialog" aria-labelledby="introductionVideo" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item allowfullscreen"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"> </script>
+
+<script>
+    //JS
+
+    $('#videoLink').click(function () {
+        var src = 'https://www.youtube.com/embed/VI04yNch1hU;autoplay=1';
+        // $('#introVideo').modal('show'); <-- remove this line
+        $('#introVideo iframe').attr('src', src);
+    });
+
+
+    $('#introVideo button.close').on('hidden.bs.modal', function () {
+        $('#introVideo iframe').removeAttr('src');
+    })
+</script>
 <!-- LAYER NR. 11 -->
 <!--<div class="tp-caption   tp-resizeme  soundcloudwrapper"-->
 <!--     id="slide-1494-layer-6"-->
@@ -127,48 +183,48 @@
 <!--    </div>-->
 <!--</div>-->
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-<!-- triggering Link -->
-<a id="videoLink" href="#0" class="video-hp" data-toggle="modal" data-target="#introVideo"><img src="img/WCS.r.png">toggle video</a>
-
-
-<!-- Intro video -->
-<div class="modal fade" id="introVideo" tabindex="-1" role="dialog" aria-labelledby="introductionVideo" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item allowfullscreen"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"> </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<script type="text/javascript" src="maquette/js/jquery.js"></script>
-<script type="text/javascript" src="maquette/js/plugins.js"></script>
-<script type="text/javascript" src="maquette/js/functions.js"></script>
-
-<script type="text/javascript">
-    //JS
-
-    $('#videoLink').click(function () {
-        var src = 'https://www.youtube.com/embed/VI04yNch1hU;autoplay=1';
-        $('#introVideo iframe').attr('src', src);
-    });
-
-
-    $('#introVideo button.close').on('hidden.bs.modal', function () {
-        $('#introVideo iframe').removeAttr('src');
-    })
-</script>
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">-->
+<!--<!-- triggering Link -->
+<!--<a id="videoLink" href="#0" class="video-hp" data-toggle="modal" data-target="#introVideo"><img src="img/WCS.r.png">toggle video</a>-->
+<!---->
+<!---->
+<!--<!-- Intro video -->
+<!--<div class="modal fade" id="introVideo" tabindex="-1" role="dialog" aria-labelledby="introductionVideo" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-lg">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <div class="embed-responsive embed-responsive-16by9">-->
+<!--                    <iframe class="embed-responsive-item allowfullscreen"></iframe>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!---->
+<!---->
+<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"> </script>-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<!---->
+<!--<script type="text/javascript" src="maquette/js/jquery.js"></script>-->
+<!--<script type="text/javascript" src="maquette/js/plugins.js"></script>-->
+<!--<script type="text/javascript" src="maquette/js/functions.js"></script>-->
+<!---->
+<!--<script type="text/javascript">-->
+<!--    //JS-->
+<!---->
+<!--    $('#videoLink').click(function () {-->
+<!--        var src = 'https://www.youtube.com/embed/VI04yNch1hU;autoplay=1';-->
+<!--        $('#introVideo iframe').attr('src', src);-->
+<!--    });-->
+<!---->
+<!---->
+<!--    $('#introVideo button.close').on('hidden.bs.modal', function () {-->
+<!--        $('#introVideo iframe').removeAttr('src');-->
+<!--    })-->
+<!--</script>-->
 
 <!--<div class="container clearfix">-->
 <!--    <div class="center">-->
