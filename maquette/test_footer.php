@@ -1,13 +1,11 @@
+<?php
+?>
+
 <!DOCTYPE html>
-<html dir="ltr" lang="en-US">
+
+<html xmlns="http://www.w3.org/1999/html">
 <head>
-
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="SemiColonWeb" />
-
-    <!-- Stylesheets
-    ============================================= -->
-
+    <title>air de rien</title>
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -40,36 +38,12 @@
     <link rel="stylesheet" type="text/css" href="css/settings.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/layers.css">
     <link rel="stylesheet" type="text/css" href="css/navigation.css">
-
-    <!-- Document Title
-    ============================================= -->
-    <title>Air de Rien</title>
-
-    <style>
-
-
-
-        .revo-slider-desc-text {
-            font-size: 20px;
-            font-family: 'Lato', sans-serif;
-            width: 650px;
-            text-align: center;
-            line-height: 1.5;
-        }
-
-
-
-
-        .tp-caption { white-space: nowrap; }
-
-    </style>
-
 </head>
 
-<body class="stretched ">
 
-<!-- Document Wrapper
-============================================= -->
+
+<body data-spy="scroll" data-target="spy-scroll-id">
+
 <div id="wrapper" class="clearfix">
 
     <section id="slider" class="slider-parallax revslider-wrap full-screen clearfix">
@@ -143,8 +117,6 @@
     </section>
 </div>
 
-<!-- Header
-    ============================================= -->
 <header id="header">
 
     <div id="header-wrap">
@@ -179,23 +151,25 @@
 
 </header><!-- #header end -->
 
-
 <div id="page-menu">
 
     <div id="page-menu-wrap">
 
-        <div class="container-fluid clearfix">
+        <div class="container clearfix">
 
-            <div class="menu-title">Devine qui vient dîner se soir</div>
+            <div class="menu-title">Explore <span>CANVAS</span></div>
 
             <nav>
                 <ul>
-                    <li class="content"><a  href="#" data-href="#"><div>Acceuil</div></a></li>
-                    <li><a href="#" data-href="#personnages"><div>Les Personnages</div></a></li>
-                    <li><a href="#" data-href="#galerie"><div>Galerie Multimedia</div></a></li>
-                    <li><a href="#" data-href="#calendrier"><div>Notre Calendrier</div></a></li>
-                    <li><a href="#" data-href="#presse"><div>Revue de Presse</div></a></li>
-                    <li><a href="#" data-href="#contact"><div>Contact</div></a></li>
+                    <li><a href="#" data-href="#header"><div>Start</div></a></li>
+                    <li><a href="#" data-href="#personnages"><div>About</div></a></li>
+                    <li><a href="#" data-href="#galerie"><div>Work</div></a></li>
+                    <li><a href="#" data-href="#section-team"><div>Team</div></a></li>
+                    <li><a href="#" data-href="#section-services"><div>Services</div></a></li>
+                    <li><a href="#" data-href="#section-pricing"><div>Pricing</div></a></li>
+                    <li><a href=""><div>Blog</div></a></li>
+                    <li><a href="#" data-href="#section-testimonials" class="no-offset"><div>Testimonials</div></a></li>
+                    <li><a href="#" data-href="#section-contact"><div>Contact</div></a></li>
                 </ul>
             </nav>
 
@@ -207,14 +181,13 @@
 
 </div><!-- #page-menu end -->
 
-
-<!-- Content
-    ============================================= -->
 <section id="content">
 
     <div class="content-wrap">
 
+
         <div class="container clearfix">
+            <section id="" class="page-section">
             <span id="titre"></span>
             <div class="heading-block title-center page-section">
                 <h2>Devine qui vient dîner se soir ?</h2>
@@ -231,9 +204,12 @@
 
                 Angelo, père hyperprotecteur veut garder sa fille adorée pour lui,et ne cache pas sa désapprobation .Sa femme, la compréhensive Claudia aura forte a faire pour le raisonner,et apaiser les tensions de cette journée.Sans compter que Claire mettra tout en œuvre pour le reconquérir pour enfin devenir la maitresse des lieux.Heureusement il peut compter sur sa soeur Camille , et sur sa tante ,Juliette pour l'aider à surmonter l' atmosphère étouffante de ce rendez-vous familial.</p>
 
+            </section>
+
+            <section id="personnages" class="page-section ancre">
             <div class="clear"></div>
             <div class="clear"></div>
-            <span id="personnages" class="ancre"></span>
+            <span class="ancre"></span>
             <div class="heading-block title-center page-section">
                 <h2>Nos Personnages</h2>
                 <span></span>
@@ -325,9 +301,11 @@
                     </div>
                 </div>
             </div>
+        </section>
 
+            <section id="galerie" class="page-section ancre">
             <div class="clear"></div>
-            <span id="galerie" class="ancre"></span>
+            <span id="" class="ancre"></span>
             <div class="heading-block center topmargin page-section">
                 <h2>Galerie</h2>
                 <span>Nos photos</span>
@@ -352,79 +330,6 @@
                 <span>Nos videos</span>
             </div>
 
-            <div style="display:flex; justify-content: center;">
-                <div class="col_one_third" style="max-width: 180px;">
-                    <div class="feature-box center media-box fbox-bg">
-                        <div class="fbox-desc" style="padding: 5px;">
-                            <a data-toggle="modal" href="#modal-video1" data-lightbox="inline"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 180px;"></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade" id="modal-video1" style="display: none;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer <i class="fa fa-times"></i></button>
-                            </div>
-                            <div class="modal-body">
-                                <!--<iframe width="570" height="360" src="//www.youtube.com/embed/GShZUiyqEH0?rel=0?wmode=transparent&amp;fs=1&amp;rel=0&amp;enablejsapi=1&amp;version=3" frameborder="0" allowfullscreen=""></iframe>-->
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0" allowfullscreen></iframe>
-
-                                <p>Titre vidéo</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col_one_third" style="max-width: 180px;">
-                    <div class="feature-box center media-box fbox-bg">
-                        <div class="fbox-desc" style="padding: 5px;">
-                            <a data-toggle="modal" href="#modal-video2" data-lightbox="inline"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 180px;"></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade" id="modal-video2" style="display: none;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer <i class="fa fa-times"></i></button>
-                            </div>
-                            <div class="modal-body">
-                                <!--<iframe width="570" height="360" src="//www.youtube.com/embed/GShZUiyqEH0?rel=0?wmode=transparent&amp;fs=1&amp;rel=0&amp;enablejsapi=1&amp;version=3" frameborder="0" allowfullscreen=""></iframe>-->
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0" allowfullscreen></iframe>
-
-                                <p>Titre vidéo</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col_one_third" style="max-width: 180px;">
-                    <div class="feature-box center media-box fbox-bg">
-                        <div class="fbox-desc" style="padding: 5px;">
-                            <a data-toggle="modal" href="#modal-video3" data-lightbox="inline"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 180px;"></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade" id="modal-video3" style="display: none;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer <i class="fa fa-times"></i></button>
-                            </div>
-                            <div class="modal-body">
-                                <!--<iframe width="570" height="360" src="//www.youtube.com/embed/GShZUiyqEH0?rel=0?wmode=transparent&amp;fs=1&amp;rel=0&amp;enablejsapi=1&amp;version=3" frameborder="0" allowfullscreen=""></iframe>-->
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0" allowfullscreen></iframe>
-
-                                <p>Titre vidéo</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
             <div class="heading-block title-center topmargin-lg page-section">
@@ -433,8 +338,9 @@
             </div>
 
             <div>
-            <iframe id="soundcloud" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
+                <iframe id="soundcloud" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
             </div>
+            </section>
 
             <span id="calendrier" class="ancre"></span>
             <div class="heading-block title-center topmargin-lg page-section" >
@@ -556,90 +462,46 @@
 
 </section><!-- #content end -->
 
-
-
-<!-- Footer
-    ============================================= -->
-<footer id="footer" class="dark">
-
-    <div class="container-fluid">
-
-        <!-- Footer Widgets
-        ============================================= -->
-        <div class="footer-widgets-wrap clearfix">
-            <div class="row">
-                <div class="col-md-3 col-md-offset-2">
-                    <div class="heading-block center nobottommargin">
-                        <h2>airderien@mail.com <strong>06.06.06.06.06</strong></h2>
-                        <img src="../img/Placeholder+Logo.png"/>
-                    </div>
-                </div>
-                <div class="col-md-4 col-md-offset-2">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fnouveautheatredelile&tabs=timeline&width=500&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=270998296683406" width="500" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-                </div>
-            </div>
-        </div><!-- .footer-widgets-wrap end -->
-
-    </div>
-    <!-- Copyrights
-    ============================================= -->
-    <div id="copyrights">
-
-        <div class="container clearfix">
-
-            <div class="col_half">
-                Copyrights &copy; 2017 Tout droits réservés Comme l'air de rien<br>
-                <div class="copyright-links"><a href="#">Mentions légales</a> / <a href="#">Wild code school</a></div>
-            </div>
-
-            <div class="col_half col_last tright">
-                <div class="fright clearfix">
-                    <a href="#" class="social-icon si-light si-rounded si-facebook">
-                        <i class="icon-facebook"></i>
-                        <i class="icon-facebook"></i>
-                    </a>
-
-                    <a href="#" class="social-icon si-light si-rounded si-soundcloud">
-                        <i class="icon-soundcloud"></i>
-                        <i class="icon-soundcloud"></i>
-                    </a>
-
-                    <a href="#" class="social-icon  si-light si-rounded si-youtube">
-                        <i class="icon-youtube"></i>
-                        <i class="icon-youtube"></i>
-                    </a>
-
-                    <a href="#" class="social-icon  si-light  si-rounded si-email3">
-                        <i class="icon-email3"></i>
-                        <i class="icon-email3"></i>
-                    </a>
-
-                    <a href="#" class="social-icon si-borderless">
-                        <img src="../img/logo_nb_pastille.png" onmouseover="this.src='../img/logo_orange_pastille.png'" onmouseout="this.src='../img/logo_nb_pastille.png'" />
-                    </a>
-
-                </div>
-
-                <div class="clear"></div>
-
-            </div>
-
-        </div>
-
-    </div><!-- #copyrights end -->
-
-</footer><!-- #footer end -->
-<!-- Go To Top
-============================================= -->
-
-<div id="gotoTop" class="icon-angle-up"></div>
-
-<!-- External JavaScripts
-============================================= -->
-
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--<!-- triggering Link -->
+<!--<a id="videoLink" href="#0" class="video-hp" data-toggle="modal" data-target="#introVideo"><img src="img/someImage.jpg">toggle video</a>-->
+<!--<a href="#" class="portfolio-link" data-toggle="modal" data-frame="iframe" data-target="#portfolioModal1" data-theVideo="http://www.youtube.com/embed/xxxxxxxx">-->
+<!---->
+<!--<!-- Intro video -->
+<!--<div class="modal fade" id="introVideo" tabindex="-1" role="dialog" aria-labelledby="introductionVideo" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-lg">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <div class="embed-responsive embed-responsive-16by9">-->
+<!--                    <iframe class="embed-responsive-item allowfullscreen"></iframe>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!---->
+<!---->
+<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"> </script>-->
+<!---->
+<!--<script>-->
+<!--    //JS-->
+<!---->
+<!--    $('#videoLink').click(function () {-->
+<!--        var src = 'https://www.youtube.com/embed/VI04yNch1hU;autoplay=1';-->
+<!--        // $('#introVideo').modal('show'); <-- remove this line-->
+<!--        $('#introVideo iframe').attr('src', src);-->
+<!--    });-->
+<!---->
+<!---->
+<!--    $('#introVideo button.close').on('hidden.bs.modal', function () {-->
+<!--        $('#introVideo iframe').removeAttr('src');-->
+<!--    })-->
+<!--</script>-->
+<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
 <script type="text/javascript" src="js/jquery.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
 <script type="text/javascript" src="js/plugins.js"></script>
 
 
