@@ -51,7 +51,7 @@
                     <div id="home-logo-left" class="home-logo block-3 w100">
                         <div class="wrapper-3">
                             <div class="home-box fittext w60">
-                                <h5><a href="http://air.local/maquette/maquette-test.html">Plus d'info sur notre compagnie ici... </a></h5>
+                                <h5><a href="http://air.local/compagnie/maquette-compagnie.html">Plus d'info sur notre compagnie ici... </a></h5>
                             </div>
                         </div>
                     </div>
