@@ -11,66 +11,48 @@ $(document).ready(function() {
             function() {$('#home-over-right').stop().animate({ opacity: 0 }, "fast");});
     };
 
-    var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-        menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-        showLeftPush = document.getElementById( 'showLeftPush' ),
-        showRightPush = document.getElementById( 'showRightPush' ),
-        body = document.body;
-    showLeftPush.onclick = function() {
-        classie.toggle( this, 'active' );
-        classie.toggle( body, 'cbp-spmenu-push-toright' );
-        classie.toggle( menuLeft, 'cbp-spmenu-open' );
-        disableOther( 'showRightPush' );
-    };
-    showRightPush.onclick = function() {
-        classie.toggle( this, 'active' );
-        classie.toggle( body, 'cbp-spmenu-push-toleft' );
-        classie.toggle( menuRight, 'cbp-spmenu-open' );
-        disableOther( 'showLeftPush' );
-    };
-    function disableOther( button ) {
-        if( button !== 'showLeftPush' ) {classie.toggle( showLeftPush, 'disabled' );};
-        if( button !== 'showRightPush' ) {classie.toggle( showRightPush, 'disabled' );};
-    };
+});
 
-    var myWidth = $(window).width();
-    if (myWidth >= 600) {
-        $('.buttonset p a').click(function() {
-            if ($('#style-closed').length){
-                $('#style-closed').remove();
-            } else {
-                $('head').append('<style id="style-closed">'
-                    + '.buttonset p#left-button:before {content:"je veux VOIR du thÃªatre";}'
-                    + '.buttonset p#left-button:after {content:none;}'
-                    + 'a#showLeftPush:before {content:none;}'
-                    + 'a#showLeftPush:after {content:"\u2192";}'
-                    + '.buttonset p#right-button:before {content:none;}'
-                    + '.buttonset p#right-button:after {content:"je veux FAIRE du thÃ©Ã¢tre";}'
-                    + 'a#showRightPush:before {content:"\u2190";}'
-                    + 'a#showRightPush:after {content:none;}'
-                    + '</style>');
+
+(function( $ ){
+
+    $.fn.fitText = function( kompressor, options ) {
+
+        // Setup options
+        var compressor = kompressor || 1,
+            settings = $.extend({
+                'minFontSize' : Number.NEGATIVE_INFINITY,
+                'maxFontSize' : Number.POSITIVE_INFINITY
+            }, options);
+
+        return this.each(function(){
+
+            // Store the object
+            var $this = $(this);
+
+            // Resizer() resizes items based on the object width divided by the compressor * 10
+            var resizer = function () {
+                $this.css('font-size', Math.max(Math.min($this.width() / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
             };
+
+            // Call once to set.
+            resizer();
+
+            // Call on resize. Opera debounces their resize by default.
+            $(window).on('resize.fittext orientationchange.fittext', resizer);
+
         });
-    };
-    if (myWidth < 600) {
-        $('.buttonset p a').click(function() {
-            if ($('#style-closed').length){
-                $('#style-closed').remove();
-            } else {
-                $('head').append('<style id="style-closed">'
-                    + '.buttonset p#left-button:before {content:none;}'
-                    + '.buttonset p#left-button:after {content:none;}'
-                    + 'a#showLeftPush:before {content:none;}'
-                    + 'a#showLeftPush:after {content:"\u2192";}'
-                    + '.buttonset p#right-button:before {content:none;}'
-                    + '.buttonset p#right-button:after {content:none;}'
-                    + 'a#showRightPush:before {content:"\u2190";}'
-                    + 'a#showRightPush:after {content:none;}'
-                    + '</style>');
-            };
-        });
+
     };
 
+})( jQuery );
 
-
+$(document).ready(function() {
+    $(".fittext").fitText();
+    $(".left-background").backstretch("images/bd.jpg");
+    $(".right-background").backstretch("images/bg.jpg");
+    $('#home-left .home-over').niceScroll({styler:"fb",cursorcolor:"#7e646f"});
+    $("#home-right .home-over").niceScroll({styler:"fb",cursorcolor:"#fff"});
+    $(".left-side").niceScroll({styler:"fb",cursorcolor:"#7e646f"});
+    $(".right-side").niceScroll({styler:"fb",cursorcolor:"#fff"});
 });

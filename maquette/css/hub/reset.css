@@ -1,11 +1,7 @@
-@charset "utf-8";
-/* CSS Document */
 
 * {-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
 
-/* =============================================================================
-   RESET BY ERIC MEYER
-   ========================================================================== */
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -55,7 +51,6 @@ table {
     border-spacing: 0;
 }
 
-/*! normalize.css 2012-07-07T09:50 UTC - http://github.com/necolas/normalize.css */
 
 /* =============================================================================
    HTML5 display definitions
@@ -249,7 +244,6 @@ small {
 
 /*
  * Prevents `sub` and `sup` affecting `line-height` in all browsers.
- * gist.github.com/413930
  */
 
 sub,
@@ -316,7 +310,6 @@ nav ol {
 /*
  * 1. Removes border when inside `a` element in IE6/7/8/9, FF3.
  * 2. Improves image quality when scaled in IE7.
- *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
 
 img {
