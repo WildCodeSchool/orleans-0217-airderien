@@ -1,0 +1,25 @@
+.compagnie{
+    color: #1abc9c;
+}
+
+#page-menu-wrap .menu-title{
+    color: white;
+}
+
+
+#page-menu-wrap{
+    background-color: #bc1a3a;
+}
+
+.line, .double-line{
+    border-top: 1px solid #bc1a3a;
+}
+
+h2, h3, h4{
+    color: #87132a;
+}
+
+.heading-block h1, .heading-block h2, .heading-block h3, .heading-block h4, .emphasis-title h1, .emphasis-title h2{
+    color: #87132a;
+}
+

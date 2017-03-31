@@ -53,6 +53,10 @@ h2, h3, h4{
     padding-top: 15px;
 }
 
+.feature-box h3 span.subtitle{
+    font-family: 'Raleway', sans-serif;
+}
+
 .button-dark {
     background-color: #bc1a3a;
 }
@@ -84,6 +88,8 @@ p{
 #soundcloud{
     margin-top: 60px;
 }
+
+
 
 
 /*************************   NAVBAR ********************************************************
@@ -127,6 +133,8 @@ p{
 #footer .footer-widgets-wrap{
     padding: 20px;
 }
+
+
 
 
 /*************************  hub ********************************************************/
