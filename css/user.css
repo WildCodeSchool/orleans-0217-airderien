@@ -116,6 +116,15 @@ p{
     font-size: 19px;
 }
 
+.compagnie{
+    color: #1abc9c;
+}
+
+.container-fluid .pti-footer{
+    background-color: white;
+    border-top: 2px solid #bc1a3a;
+}
+
 
 /*************************  FOOTER ********************************************************
 
