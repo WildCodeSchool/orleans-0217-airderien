@@ -49,8 +49,8 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $(".fittext").fitText();
-    $(".left-background").backstretch("../maquette/images/bd.jpg");
-    $(".right-background").backstretch("../maquette/images/bg.jpg");
+    $(".left-background").backstretch("../public/images/bg.jpg");
+    $(".right-background").backstretch("../public/images/bg2.jpg");
     $('#home-left .home-over').niceScroll({styler:"fb",cursorcolor:"#7e646f"});
     $("#home-right .home-over").niceScroll({styler:"fb",cursorcolor:"#fff"});
     $(".left-side").niceScroll({styler:"fb",cursorcolor:"#7e646f"});

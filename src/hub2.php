@@ -6,8 +6,8 @@
     <title>Comme l'air de rien</title>
 
     <link rel="icon" type="image/png" href="../img/flav.png" />
-    <link href="css/reset.css" media="all" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" media="all" rel="stylesheet" type="text/css">
+    <link href="../public/css/reset.css" media="all" rel="stylesheet" type="text/css">
+    <link href="../public/css/style-hub.css" media="all" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway&amp;subset=latin-ext" rel="stylesheet">
 
@@ -62,7 +62,7 @@
                                 <hr>
                                 <nav id="nav-do" class="nav">
                                     <ul>
-                                        <li class="txtleft"><img src="../img/Placeholder+Logo.png"></li>
+                                        <li class="txtleft"><img src="../public/images/Placeholder+Logo.png"></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -134,9 +134,9 @@
 </div>
 
 
-<script type='text/javascript' src='js/jquery-1.11.1.min.js'></script>
-<script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+<script type='text/javascript' src='../public/js/jquery-1.11.1.min.js'></script>
+<script type="text/javascript" src="../public/js/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="../public/js/main.js"></script>
 
 </body>
 </html>
