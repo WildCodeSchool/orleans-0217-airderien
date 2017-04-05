@@ -53,6 +53,4 @@ $(document).ready(function() {
     $(".right-background").backstretch("../public/images/bg2.jpg");
     $('#home-left .home-over').niceScroll({styler:"fb",cursorcolor:"#7e646f"});
     $("#home-right .home-over").niceScroll({styler:"fb",cursorcolor:"#fff"});
-    $(".left-side").niceScroll({styler:"fb",cursorcolor:"#7e646f"});
-    $(".right-side").niceScroll({styler:"fb",cursorcolor:"#fff"});
 });
