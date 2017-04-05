@@ -6,7 +6,7 @@
  * Time: 10:35
  */
 
-namespace air_de_rien;
+namespace air_de_rien\controller;
 
 
 class Controller

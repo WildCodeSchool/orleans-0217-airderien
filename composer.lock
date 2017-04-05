@@ -4,12 +4,6 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "6d76acbb773e7b5fcfbd95f40da51004",
-    "content-hash": "2bbdb82df619bba089dabc18b6843a1f",
-    "packages": [
-        {
-=======
     "hash": "1b4b10f7d1948f6a7ef6c6cd50896b19",
     "content-hash": "62fd14f7e53cb2bd1c1839bf987fe1fb",
     "packages": [
@@ -65,7 +59,6 @@
             "time": "2016-10-29 18:58:20"
         },
         {
->>>>>>> 8bfbd561462b18372cf1c47e9d28cb1f2408f0aa
             "name": "symfony/polyfill-mbstring",
             "version": "v1.3.0",
             "source": {
