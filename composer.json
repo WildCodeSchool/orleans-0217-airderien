@@ -1,4 +1,5 @@
 {
+
     "name": "root/air-de-rien",
     "authors": [
         {
@@ -9,10 +10,11 @@
     "require": {
         "twig/twig": "^2.3",
         "michelf/php-markdown": "^1.7"
+
     },
 
     "autoload": {
-        "psr-4": {"wcs\\": "src/"}
+        "psr-4": {"air_de_rien\\": "src/"}
     }
 
 
