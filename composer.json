@@ -1,17 +1,21 @@
 {
-    "name": "root/orleans-0217-airderien",
+
+    "name": "root/air-de-rien",
     "authors": [
         {
-            "name": "Fanny-Jan",
-            "email": "fanny.jan12@gmail.com"
+            "name": "Biovor",
+            "email": "duriez.ludovic@gmail.com"
         }
     ],
     "require": {
-        "twig/twig": "^2.2"
+        "twig/twig": "^2.3",
+        "michelf/php-markdown": "^1.7"
+
     },
 
     "autoload": {
         "psr-4": {"air_de_rien\\": "src/"}
     }
+
 
 }

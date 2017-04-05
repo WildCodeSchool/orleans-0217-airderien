@@ -1,0 +1,59 @@
+
+@media screen  and (max-width:1024px) {
+    #home .nav {width:100%; text-align:center;}
+    #home .nav ul {display:inline-block; border-left:1px solid #fff; border-right:1px solid #fff; padding:0 50px;}
+    #home .nav ul li {float:none; width:100%; text-align:center;}
+    #home .nav ul li a {font-size:1em;}
+    #home hr {display:none;}
+}
+@media screen  and (max-width:680px) {
+    #home-left h2 {font-size:2.3em;}
+    #home-right h2 {font-size:2.6em;}
+    #home h3 {font-size:1.4em;}
+    #home h4 {font-size:1em;}
+    #home .nav ul {display:inline-block; border-left:none; border-right:none; padding:0;}
+}
+
+
+@media screen and (max-height:480px) {
+    .desktop {display:none;}
+    .mobile {display:block;}
+    #home-mobile-top {background:rgba(40,213,227,1);}
+    #home-mobile-bottom {background:rgba(188,26,58,1);}
+    .block {position:relative;}
+    .wrapper {position:absolute; top:50%; height:240px; margin-top:-120px; line-height:240px;}
+    .home-mobile-logo {left:0;}
+    .home-mobile-title {left:50%;}
+    .home-box {line-height:1.2; display:inline-block; vertical-align:middle; *display:inline; *zoom:1;}
+    .home-mobile-logo h2 {font-family:'OrangeJuice'; text-transform:lowercase; text-align:center; padding:0;}
+    #home-mobile-top .home-mobile-title h2 {font-size:3em; line-height:.1em;}
+    #home-mobile-bottom .home-mobile-title h2 {font-size:3.5em; line-height:.1em;}
+    #home-mobile-top .home-mobile-title h3, #home-mobile-bottom .home-mobile-title h3 {font-size:1.7em; line-height:.4em;}
+    #home-mobile-top .home-mobile-title h4, #home-mobile-bottom .home-mobile-title h4 {font-size:1.3em; line-height:.1em;}
+}
+@media screen and (max-height:300px) {
+    .wrapper {height:150px; margin-top:-75px; line-height:150px;}
+}
+@media screen and (max-height:200px) {
+    .wrapper {height:100px; margin-top:-50px; line-height:100px;}
+}
+@media screen and (min-width: 769px) and (max-height: 480px) {
+    .home-mobile-logo h2 {font-size:3em; line-height:.3em;}
+}
+@media screen and (max-width: 768px) and (max-height: 480px) {
+    .home-mobile-logo h2 {font-size:2.5em; line-height:.2em;}
+}
+@media screen and (max-width: 500px) and (max-height: 480px) {
+    .home-mobile-logo h2 {font-size:2em; line-height:0px;}
+}
+@media screen and (max-width: 420px) and (max-height: 480px) {
+    .home-mobile-logo {display:none;}
+    .home-mobile-title {width:100%; left:0;}
+}
+
+
+@media screen and (max-width: 640px) {
+    h1, .h1-like {font-size:2.5em;}
+    h2, .h2-like {font-size:1.5em;}
+
+}
