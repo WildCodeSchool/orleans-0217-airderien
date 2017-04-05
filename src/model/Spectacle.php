@@ -12,9 +12,9 @@ namespace air_de_rien\model;
 class Spectacle
 {
     private $id;
-    private $titre_spec;
-    private $photo_spec;
-    private $description_spec;
+    private $titre_spect;
+    private $photo_spect;
+    private $description_spect;
 
     /**
      * @return mixed
@@ -37,54 +37,54 @@ class Spectacle
     /**
      * @return mixed
      */
-    public function getTitreSpec()
+    public function getTitreSpect()
     {
-        return $this->titre_spec;
+        return $this->titre_spect;
     }
 
     /**
-     * @param mixed $titre_spec
+     * @param mixed $titre_spect
      * @return Spectacle
      */
-    public function setTitreSpec($titre_spec)
+    public function setTitreSpect($titre_spect)
     {
-        $this->titre_spec = $titre_spec;
+        $this->titre_spect = $titre_spect;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getPhotoSpec()
+    public function getPhotoSpect()
     {
-        return $this->photo_spec;
+        return $this->photo_spect;
     }
 
     /**
-     * @param mixed $photo_spec
+     * @param mixed $photo_spect
      * @return Spectacle
      */
-    public function setPhotoSpec($photo_spec)
+    public function setPhotoSpec($photo_spect)
     {
-        $this->photo_spec = $photo_spec;
+        $this->photo_spect = $photo_spect;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getDescriptionSpec()
+    public function getDescriptionSpect()
     {
-        return $this->description_spec;
+        return $this->description_spect;
     }
 
     /**
-     * @param mixed $description_spec
+     * @param mixed $description_spect
      * @return Spectacle
      */
-    public function setDescriptionSpec($description_spec)
+    public function setDescriptionSpec($description_spect)
     {
-        $this->description_spec = $description_spec;
+        $this->description_spect = $description_spect;
         return $this;
     }
 
