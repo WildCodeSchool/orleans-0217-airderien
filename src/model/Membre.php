@@ -16,6 +16,9 @@ class Membre
     private $prenom_membre;
     private $lien_photo_membre;
     private $description_membre;
+    private $facebook_membre;
+    private $mail_membre;
+    private $lien_membre;
 
     /**
      * @return mixed
@@ -104,6 +107,60 @@ class Membre
     public function setDescriptionMembre($description_membre)
     {
         $this->description_membre = $description_membre;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFacebookMembre()
+    {
+        return $this->facebook_membre;
+    }
+
+    /**
+     * @param mixed $facebook_membre
+     * @return Membre
+     */
+    public function setFacebookMembre($facebook_membre)
+    {
+        $this->facebook_membre = $facebook_membre;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMailMembre()
+    {
+        return $this->mail_membre;
+    }
+
+    /**
+     * @param mixed $mail_membre
+     * @return Membre
+     */
+    public function setMailMembre($mail_membre)
+    {
+        $this->mail_membre = $mail_membre;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLienMembre()
+    {
+        return $this->lien_membre;
+    }
+
+    /**
+     * @param mixed $lien_membre
+     * @return Membre
+     */
+    public function setLienMembre($lien_membre)
+    {
+        $this->lien_membre = $lien_membre;
         return $this;
     }
 

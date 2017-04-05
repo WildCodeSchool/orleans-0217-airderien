@@ -15,6 +15,9 @@ class Media
     private $titre_media;
     private $lien_media;
     private $spectacle_id;
+    private $afficher;
+    private $affectation;
+
 
     /**
      * @return mixed
@@ -85,6 +88,42 @@ class Media
     public function setSpectacleId($spectacle_id)
     {
         $this->spectacle_id = $spectacle_id;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAfficher()
+    {
+        return $this->afficher;
+    }
+
+    /**
+     * @param mixed $afficher
+     * @return Media
+     */
+    public function setAfficher($afficher)
+    {
+        $this->afficher = $afficher;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAffectation()
+    {
+        return $this->affectation;
+    }
+
+    /**
+     * @param mixed $affectation
+     * @return Media
+     */
+    public function setAffectation($affectation)
+    {
+        $this->affectation = $affectation;
         return $this;
     }
 
