@@ -261,11 +261,14 @@
                     <div class="fslider restaurant-reviews" data-arrows="false" data-animation="slide">
                         <div class="flexslider">
                             <div class="slider-wrap">
+                                <?php foreach ($articles as $article) :?>
                                 <div class="slide" style="margin-top: -20px;">
-                                    <p class="lead">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in justo purus. Suspendisse potenti. Vivamus libero odio, sollicitudin nec orci sit amet, cursus dictum lacus. Donec at purus augue. Donec lobortis euismod turpis eu bibendum. Proin consectetur turpis hendrerit sapien pellentesque tincidunt. Donec nisi quam, imperdiet ac lacus sed, sodales auctor mi. Donec sit amet eros sed lectus scelerisque consectetur. Curabitur tristique dignissim risus ac eleifend."</p>
-                                    <span class="auteur"><strong>John Doe</strong>, La République du Centre, 21/02/2017</span><br>
+                                    <p class="lead"><?=$article->getTexteArticle()?></p>
+                                    <span class="auteur"><strong><?=$article->getAuteur()?></strong>, <?=$article->getJournal()?>, <?=$article->getDateArticle()?></span><br>
                                 </div>
+                                <?php endforeach ?>
                             </div>
+
                         </div>
                     </div>
 

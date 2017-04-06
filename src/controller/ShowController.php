@@ -18,10 +18,12 @@ class ShowController extends Controller
         $personnages = $db -> findAllSpect('personnage', $id);
         $medias = $db -> findAllSpect('media', $id);
         $dates = $db -> findAllSpect('calendrier', $id);
+        $articles = $db -> findAllSpect('revueDePresse', $id);
         return $this->render('spectacle/spectacleView.php', ['spectacle'=>$spectacle,
                                                              'personnages'=>$personnages,
                                                              'medias'=>$medias,
-                                                             'dates'=>$dates]);
+                                                             'dates'=>$dates,
+                                                             'articles'=>$articles]);
 
     }
 }
