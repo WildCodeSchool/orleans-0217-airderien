@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Boogaloo|Gloria+Hallelujah|Indie+Flower|Oxygen" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="../../public/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
 
     <link rel="stylesheet" href="../../public/css/responsive.css" type="text/css" />

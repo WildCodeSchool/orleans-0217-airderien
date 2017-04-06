@@ -75,6 +75,11 @@
 
 <div id="gotoTop" class="icon-angle-up"></div>
 
+
+</body>
+</html>
+
+
 <!-- External JavaScripts
 ============================================= -->
 
@@ -104,5 +109,4 @@
 <script type="text/javascript" src="js/script.js"></script>
 
 
-</body>
-</html>
+

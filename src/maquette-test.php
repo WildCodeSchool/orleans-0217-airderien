@@ -137,9 +137,7 @@
         <div class="container-fluid clearfix">
 
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-
-
-            <div><a href="../public/hub2.html.twig"> <img src="../public/images/Placeholder+Logo.png" href="hub2.html"></a> </div>
+            <div><a href="../public/hub2.html.twig"> <img src="../public/images/Placeholder+Logo.png"></a> </div>
 
 
             <!-- Primary Navigation
