@@ -54,4 +54,22 @@ class DB
         $res = $prep->fetchAll(\PDO::FETCH_CLASS, __NAMESPACE__ . '\model\\'.ucfirst($table));
         return $res[0];
     }
+
+    /**
+     *requete permettant de récupérer un enregistrement de la table $table et d'instancier
+     * un objet \model\$table
+     * @param $table
+     * @param $id
+     * @return mixed
+     */
+    public function findAllSpect($table, $id) {
+        $req = "SELECT * FROM $table WHERE spectacle_id=:id";
+        $prep = $this->db->prepare($req);
+        $prep->bindValue(':id', $id, \PDO::PARAM_INT);
+
+        $prep->execute();
+
+        $res = $prep->fetchAll(\PDO::FETCH_CLASS, __NAMESPACE__ . '\model\\'.ucfirst($table));
+        return $res[0];
+    }
 }

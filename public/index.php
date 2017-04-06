@@ -12,8 +12,8 @@ $render = $spectacle->listAll();
 
 }
 elseif ($route == 'showSpectacle') {
-$spectacle = new \air_de_rien\controller\SpectacleController();
-$render = $spectacle->show($_GET['id']);
+$spectacle = new \air_de_rien\controller\ShowController();
+$render = $spectacle->showSpectacle($_GET['id']) ;
 
 }
 //elseif ($route == 'addEleve') {
@@ -22,6 +22,6 @@ $render = $spectacle->show($_GET['id']);
 //}
 
 
-
+require '../src/view/header.php';
 echo $render;
 require '../src/view/footer.php';
