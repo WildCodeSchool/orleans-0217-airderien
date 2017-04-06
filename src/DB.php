@@ -70,6 +70,6 @@ class DB
         $prep->execute();
 
         $res = $prep->fetchAll(\PDO::FETCH_CLASS, __NAMESPACE__ . '\model\\'.ucfirst($table));
-        return $res[0];
+        return $res;
     }
 }

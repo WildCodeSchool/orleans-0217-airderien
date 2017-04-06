@@ -2,7 +2,6 @@
 
 <body class="stretched ">
 
-
 <!-- Document Wrapper
 ============================================= -->
 <div id="wrapper" class="clearfix">
@@ -146,11 +145,14 @@
             </div>
 
             <div class="row">
-                <?php foreach ($personnages as $personnage) : ?>
-                <div class="col-md-6 bottommargin" style="min-height: 230px;">
+
+                <?php
+                foreach ($personnages as $personnage):?>
+
+                    <div class="col-md-6 bottommargin" style="min-height: 230px;">
                     <div class="team team-list clearfix">
                         <div class="team-image" style="width: 25%;">
-                            <img class="img-circle" src="" alt="Sophie">
+                            <img class="img-circle" src="../public/images/photos/sophie.jpg" alt="Sophie">
                         </div>
                         <div class="team-desc">
                             <div class="team-title"><h4><?=$personnage->getPrenomPersonnage()?></h4><span>(Sophie)</span></div>
@@ -159,8 +161,117 @@
                         </div>
                     </div>
                 </div>
+
+         <?php endforeach?>
             </div>
-            <?php endforeach ?>
+
+            <!-- Medias
+                ============================================= -->
+
+            <div class="clear"></div>
+            <span id="galerie" class="ancre"></span>
+            <div class="heading-block center topmargin page-section">
+                <h2>Galerie</h2>
+                <span>Nos photos</span>
+            </div>
+
+            <div class="fslider flex-thumb-grid grid-12 bottommargin-lg" data-pagi="false" data-arrows="false" data-thumbs="true">
+                <div class="flexslider">
+                    <div class="slider-wrap">
+                        <?php foreach ($medias as $media) :?>
+                        <div class="slide" data-thumb="../public/images/photos/<?=$media->getLienMedia()?>">
+                            <img src="../public/images/photos/<?=$media->getLienMedia()?>" alt="Image"></div>
+                        <?php endforeach ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="heading-block title-center topmargin-lg page-section">
+                <h2></h2>
+                <span>Nos videos</span>
+            </div>
+
+            <div style="display:flex; justify-content: center;">
+                <div class="col_one_third" style="max-width: 180px;">
+                    <div class="feature-box center media-box fbox-bg">
+                        <div class="fbox-desc" style="padding: 5px;">
+                            <a data-toggle="modal" href="#modal-video1" data-lightbox="inline"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 180px;"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modal-video1" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer <i class="fa fa-times"></i></button>
+                            </div>
+                            <div class="modal-body">
+                                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+
+                                <p>Titre vidéo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="heading-block title-center topmargin-lg page-section">
+                    <h2></h2>
+                    <span>Notre musique</span>
+                </div>
+
+                <div>
+                    <iframe id="soundcloud" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
+                </div>
+
+
+                <!-- Calendrier
+                ============================================= -->
+                <span id="calendrier" class="ancre"></span>
+                <div class="heading-block title-center topmargin-lg page-section" >
+                    <h2>Calendrier</h2>
+                    <span>Liste de nos évènements</span>
+                </div>
+
+                <?php foreach ($dates as $date) :?>
+                <div class="col_one_third">
+                    <div class="feature-box center media-box fbox-bg">
+                        <div class="fbox-desc">
+                            <h3><?=$date->getDateSpectacle()?><span class="subtitle"><?=$date->getLieuSpectacle()?></span></h3>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach ?>
+
+
+            <div id="presse" class="clear"></div>
+
+        </div>
+
+
+        <div class="noborder footer-stick topmargin-lg" style=" padding: 80px;" data-stellar-background-ratio="0.3">
+            <div class="container clearfix">
+                <div class=" nobottommargin">
+
+                    <div class="heading-block title-center nobottomborder" style="margin-top: -60px;">
+                        <h2>Revue de Presse</h2>
+                    </div>
+
+                    <div class="fslider restaurant-reviews" data-arrows="false" data-animation="slide">
+                        <div class="flexslider">
+                            <div class="slider-wrap">
+                                <div class="slide" style="margin-top: -20px;">
+                                    <p class="lead">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in justo purus. Suspendisse potenti. Vivamus libero odio, sollicitudin nec orci sit amet, cursus dictum lacus. Donec at purus augue. Donec lobortis euismod turpis eu bibendum. Proin consectetur turpis hendrerit sapien pellentesque tincidunt. Donec nisi quam, imperdiet ac lacus sed, sodales auctor mi. Donec sit amet eros sed lectus scelerisque consectetur. Curabitur tristique dignissim risus ac eleifend."</p>
+                                    <span class="auteur"><strong>John Doe</strong>, La République du Centre, 21/02/2017</span><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
 
         </div>

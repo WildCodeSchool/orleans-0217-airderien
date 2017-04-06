@@ -89,7 +89,9 @@ p{
     margin-top: 60px;
 }
 
-
+.feature-box.media-box.fbox-bg .fbox-desc{
+    margin: 5px;
+}
 
 
 /*************************   NAVBAR ********************************************************

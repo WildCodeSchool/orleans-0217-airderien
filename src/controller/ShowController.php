@@ -16,7 +16,12 @@ class ShowController extends Controller
         $db = new DB();
         $spectacle = $db -> findOne('spectacle', $id);
         $personnages = $db -> findAllSpect('personnage', $id);
-        return $this->render('spectacle/spectacleView.php', ['spectacle'=>$spectacle, 'personnages'=>$personnages]);
+        $medias = $db -> findAllSpect('media', $id);
+        $dates = $db -> findAllSpect('calendrier', $id);
+        return $this->render('spectacle/spectacleView.php', ['spectacle'=>$spectacle,
+                                                             'personnages'=>$personnages,
+                                                             'medias'=>$medias,
+                                                             'dates'=>$dates]);
 
     }
 }
