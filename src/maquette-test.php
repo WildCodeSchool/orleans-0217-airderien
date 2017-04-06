@@ -1,18 +1,3 @@
-<?php
-use air_de_rien\model;
-include '../config/connect.php';
-require 'model/Spectacle.php';
-
-$db = new PDO(DSN, USER, PASS);
-$query = "SELECT * FROM spectacle WHERE id=1";
-$res = $db->query($query);
-$spectacle = $res->fetchObject(model\Spectacle::class); // fetchAll(PDO::FETCH_CLASS, model\Spectacle::class);
-
-echo $spectacle->getTitreSpec();
-var_dump($spectacle);
-die('END');
-
-?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
@@ -154,7 +139,7 @@ die('END');
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
 
-            <a href="../public/hub2.html.twig"> <img src="../public/images/Placeholder+Logo.png" href="hub2.html"></a> </div>
+            <div><a href="../public/hub2.html.twig"> <img src="../public/images/Placeholder+Logo.png" href="hub2.html"></a> </div>
 
 
             <!-- Primary Navigation
