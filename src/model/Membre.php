@@ -43,7 +43,7 @@ class Membre
      */
     public function getNomMembre()
     {
-        return $this->nomMembre;
+        return ucfirst($this->nomMembre);
     }
 
     /**
@@ -61,7 +61,7 @@ class Membre
      */
     public function getPrenomMembre()
     {
-        return $this->prenomMembre;
+        return ucfirst($this->prenomMembre);
     }
 
     /**

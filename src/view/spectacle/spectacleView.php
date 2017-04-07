@@ -146,23 +146,26 @@
 
             <div class="row">
 
-                <?php foreach ($personnages as $personnage):?>
-
-                    <div class="col-md-6 bottommargin" style="min-height: 230px;">
-                    <div class="team team-list clearfix">
-                        <div class="team-image" style="width: 25%;">
-                            <img class="img-circle" src="../public/images/photos/sophie.jpg" alt="sophie">
-
+                <?php foreach ($personnages as $personnage){
+                    foreach ($membres as $membre) {
+                        if ( $membre->getId() == $personnage->getMembreId()) {
+                            echo '<div class="col-md-6 bottommargin" style="min-height: 230px;">
+                            <div class="team team-list clearfix">
+                                <div class="team-image" style="width: 25%;">
+                                    <img class="img-circle" src="../public/images/photos/' . $membre->getLienPhotoMembre() . '" alt="' . $membre->getPrenomMembre() . '">
                         </div>
                         <div class="team-desc">
-                            <div class="team-title"><h4><?=$personnage->getPrenomPersonnage()?></h4><span>sophie</span></div>
-                            <div class="team-content"><?=$personnage->getDescriptionPersonnage()?></div>
+                            <div class="team-title"><h4>' . $personnage->getPrenomPersonnage() . '</h4><span>' . $membre->getPrenomMembre() . '</span></div>
+                            <div class="team-content">' . $personnage->getDescriptionPersonnage() . '</div>
                             <div class="line topmargin-sm nobottommargin"></div>
                         </div>
                     </div>
-                </div>
+                </div>';
+                    }
+                }
+            }
+                ?>
 
-         <?php endforeach?>
 
             </div>
 
@@ -186,6 +189,8 @@
                     </div>
                 </div>
             </div>
+
+
 
             <div class="heading-block title-center topmargin-lg page-section">
                 <h2></h2>

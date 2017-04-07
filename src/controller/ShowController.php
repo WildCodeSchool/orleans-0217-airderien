@@ -16,7 +16,7 @@ class ShowController extends Controller
         $db = new DB();
         $spectacle = $db -> findOne('spectacle', $id);
         $personnages = $db -> findAllSpect('personnage', $id);
-        $membres = $db -> findAllSpect('membre', $id);
+        $membres = $db -> findAll('membre');
         $photos = $db -> findAllMedia('media', 'photo', $id);
         $videos = $db -> findAllMedia('media', 'video', $id);
         $sons = $db -> findAllMedia('media', 'son', $id);
