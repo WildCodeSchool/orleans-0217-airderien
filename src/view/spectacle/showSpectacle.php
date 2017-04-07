@@ -1,0 +1,1 @@
+<h2><?= $spectacle->getTi</h2>
