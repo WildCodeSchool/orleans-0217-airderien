@@ -17,7 +17,7 @@ class SpectacleFilter extends InputFilter
 public function __construct()
 {
     $this->add([
-        'name'=>'titre_spectacle',
+        'name'=>'titreSpectacle',
         'allow_empty'=>false,
         'required'=>true,
         'filter'=>[StringToUpper::class],
@@ -27,7 +27,7 @@ public function __construct()
     ]);
 
     $this->add([
-        'name'=>'description_spectacle',
+        'name'=>'descriptionSpectacle',
         'allow_empty'=>true,
         'required'=>false,
     ]);

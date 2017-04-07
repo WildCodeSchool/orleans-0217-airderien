@@ -3,23 +3,22 @@
 require '../config/connect.php';
 require __DIR__ . '/../vendor/autoload.php';
 
-$route = $_GET['route'] ?? 'listEleve';
+$route = $_GET['route'] ?? 'listSpectacle';
 $render = '';
 
-if ($route == 'listEleve') {
-$eleve = new \air_de_rien\controller\EleveController();
-$render = $eleve->listAll();
+if ($route == 'listSpectacle') {
+    $spectacle = new \air_de_rien\controller\SpectacleController();
+    $render = $spectacle->listAll();
 
-} elseif ($route == 'showEleve') {
-$eleve = new \air_de_rien\controller\EleveController();
-$render = $eleve->show($_GET['id']);
+} elseif ($route == 'showSpectacle') {
+    $spectacle = new \air_de_rien\controller\SpectacleController();
+    $render = $spectacle->show($_GET['id']);
 
-} elseif ($route == 'addEleve') {
-$eleve = new \air_de_rien\controller\EleveController();
-$render = $eleve->add();
+} elseif ($route == 'addSpectacle') {
+    $spectacle = new \air_de_rien\controller\SpectacleController();
+    $render = $spectacle->add();
 }
 
-
-
+require '../src/view/header.php';
 echo $render;
 require '../src/view/footer.php';

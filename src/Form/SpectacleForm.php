@@ -23,7 +23,7 @@ public function __construct($name = null, array $options = [])
 
     $this->add([
         'type'=>Text::class,
-        'name'=>'titre_spectacle',
+        'name'=>'titreSectacle',
         'option'=>[
         'label'=>'Titre du spectacle',
         ],
@@ -31,7 +31,7 @@ public function __construct($name = null, array $options = [])
 
     $this->add([
         'type'=>Textarea::class,
-        'name'=>'description_spectacle',
+        'name'=>'descriptionSpectacle',
         'option'=>[
             'label'=>'Description du spectacle',
         ],

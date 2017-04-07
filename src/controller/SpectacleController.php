@@ -29,7 +29,7 @@ class SpectacleController extends Controller
         // requette sql pour récupérer tous les élèves dans un tableau d'objet Spectacle
         $spectacles = $db -> findAll('spectace');
         // affichage de la vue HTML
-        return $this ->render('spectacle\listAllSpectacle.php',['spectacles'=>$spectacles);
+        return $this ->render('spectacle\listAllSpectacle.php',['spectacles'=>$spectacles]);
     }
 
     public function show($id)
@@ -38,19 +38,20 @@ class SpectacleController extends Controller
         $spectacle = $db -> findone('spectacle',$id);
         return $this->render('spectale/showSpectacle.php',['spectacle]'=>$spectacle]);
     }
-    public function add(){
+    public function add()
+    {
         $form = new SpectacleForm();
 
-        if(isset($_POST['Valider'])){
+        if (isset($_POST['Valider'])) {
             $filter = new SpectacleFilter();
             $form->setInputFilter($filter);
             $form->setData($_POST);
 
-            if ($form->isValid()){
+            if ($form->isValid()) {
                 echo 'Le Spectacle est validé';
             }
         }
+        return $this->render('spectacle/addSpectacle.php',['form'=>$form]);
     }
 
-    return $this->render('spectacle/addSpectacle.php',['form'=>$form]);
 }
