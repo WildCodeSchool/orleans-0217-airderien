@@ -12,9 +12,9 @@ namespace air_de_rien\model;
 class Calendrier
 {
     private $id;
-    private $lieu_spectacle;
-    private $date_spectacle;
-    private $spectacle_id;
+    private $lieuSpectacle;
+    private $dateSpectacle;
+    private $spectacleId;
 
     /**
      * @return mixed
@@ -39,16 +39,16 @@ class Calendrier
      */
     public function getLieuSpectacle()
     {
-        return $this->lieu_spectacle;
+        return $this->lieuSpectacle;
     }
 
     /**
-     * @param mixed $lieu_spectacle
+     * @param mixed $lieuSpectacle
      * @return Calendrier
      */
-    public function setLieuSpectacle($lieu_spectacle)
+    public function setLieuSpectacle($lieuSpectacle)
     {
-        $this->lieu_spectacle = $lieu_spectacle;
+        $this->lieuSpectacle = $lieuSpectacle;
         return $this;
     }
 
@@ -57,16 +57,16 @@ class Calendrier
      */
     public function getDateSpectacle()
     {
-        return $this->date_spectacle;
+        return $this->dateSpectacle;
     }
 
     /**
-     * @param mixed $date_spectacle
+     * @param mixed $dateSpectacle
      * @return Calendrier
      */
-    public function setDateSpectacle($date_spectacle)
+    public function setDateSpectacle($dateSpectacle)
     {
-        $this->date_spectacle = $date_spectacle;
+        $this->dateSpectacle = $dateSpectacle;
         return $this;
     }
 
@@ -75,16 +75,16 @@ class Calendrier
      */
     public function getSpectacleId()
     {
-        return $this->spectacle_id;
+        return $this->spectacleId;
     }
 
     /**
-     * @param mixed $spectacle_id
+     * @param mixed $spectacleId
      * @return Calendrier
      */
-    public function setSpectacleId($spectacle_id)
+    public function setSpectacleId($spectacleId)
     {
-        $this->spectacle_id = $spectacle_id;
+        $this->spectacleId = $spectacleId;
         return $this;
     }
 

@@ -12,11 +12,11 @@ namespace air_de_rien\model;
 class RevueDePresse
 {
     private $id;
-    private $titre_article;
-    private $texte_article;
-    private $lien_photo_article;
-    private $date_article;
-    private $spectacle_id;
+    private $titreArticle;
+    private $texteArticle;
+    private $lienPhotoArticle;
+    private $dateArticle;
+    private $spectacleId;
     private $journal;
     private $auteur;
 
@@ -43,16 +43,16 @@ class RevueDePresse
      */
     public function getTitreArticle()
     {
-        return $this->titre_article;
+        return $this->titreArticle;
     }
 
     /**
-     * @param mixed $titre_article
+     * @param mixed $titreArticle
      * @return RevueDePresse
      */
-    public function setTitreArticle($titre_article)
+    public function setTitreArticle($titreArticle)
     {
-        $this->titre_article = $titre_article;
+        $this->titreArticle = $titreArticle;
         return $this;
     }
 
@@ -61,16 +61,16 @@ class RevueDePresse
      */
     public function getTexteArticle()
     {
-        return $this->texte_article;
+        return $this->texteArticle;
     }
 
     /**
-     * @param mixed $texte_article
+     * @param mixed $texteArticle
      * @return RevueDePresse
      */
-    public function setTexteArticle($texte_article)
+    public function setTexteArticle($texteArticle)
     {
-        $this->texte_article = $texte_article;
+        $this->texteArticle = $texteArticle;
         return $this;
     }
 
@@ -79,16 +79,16 @@ class RevueDePresse
      */
     public function getLienPhotoArticle()
     {
-        return $this->lien_photo_article;
+        return $this->lienPhotoArticle;
     }
 
     /**
-     * @param mixed $lien_photo_article
+     * @param mixed $lienPhotoArticle
      * @return RevueDePresse
      */
-    public function setLienPhotoArticle($lien_photo_article)
+    public function setLienPhotoArticle($lienPhotoArticle)
     {
-        $this->lien_photo_article = $lien_photo_article;
+        $this->lienPhotoArticle = $lienPhotoArticle;
         return $this;
     }
 
@@ -97,16 +97,16 @@ class RevueDePresse
      */
     public function getDateArticle()
     {
-        return $this->date_article;
+        return $this->dateArticle;
     }
 
     /**
-     * @param mixed $date_article
+     * @param mixed $dateArticle
      * @return RevueDePresse
      */
-    public function setDateArticle($date_article)
+    public function setDateArticle($dateArticle)
     {
-        $this->date_article = $date_article;
+        $this->dateArticle = $dateArticle;
         return $this;
     }
 
@@ -115,16 +115,16 @@ class RevueDePresse
      */
     public function getSpectacleId()
     {
-        return $this->spectacle_id;
+        return $this->spectacleId;
     }
 
     /**
-     * @param mixed $spectacle_id
+     * @param mixed $spectacleId
      * @return RevueDePresse
      */
-    public function setSpectacleId($spectacle_id)
+    public function setSpectacleId($spectacleId)
     {
-        $this->spectacle_id = $spectacle_id;
+        $this->spectacleId = $spectacleId;
         return $this;
     }
 

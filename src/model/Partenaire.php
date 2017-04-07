@@ -12,9 +12,9 @@ namespace air_de_rien\model;
 class Partenaire
 {
     private $id;
-    private $nom_partenaire;
-    private $lien_logo_partenaire;
-    private $lien_site_partenaire;
+    private $nomPartenaire;
+    private $lienLogoPartenaire;
+    private $lienSitePartenaire;
 
     /**
      * @return mixed
@@ -39,16 +39,16 @@ class Partenaire
      */
     public function getNomPartenaire()
     {
-        return $this->nom_partenaire;
+        return $this->nomPartenaire;
     }
 
     /**
-     * @param mixed $nom_partenaire
+     * @param mixed $nomPartenaire
      * @return Partenaire
      */
-    public function setNomPartenaire($nom_partenaire)
+    public function setNomPartenaire($nomPartenaire)
     {
-        $this->nom_partenaire = $nom_partenaire;
+        $this->nomPartenaire = $nomPartenaire;
         return $this;
     }
 
@@ -57,16 +57,16 @@ class Partenaire
      */
     public function getLienLogoPartenaire()
     {
-        return $this->lien_logo_partenaire;
+        return $this->lienLogoPartenaire;
     }
 
     /**
-     * @param mixed $lien_logo_partenaire
+     * @param mixed $lienLogoPartenaire
      * @return Partenaire
      */
-    public function setLienLogoPartenaire($lien_logo_partenaire)
+    public function setLienLogoPartenaire($lienLogoPartenaire)
     {
-        $this->lien_logo_partenaire = $lien_logo_partenaire;
+        $this->lienLogoPartenaire = $lienLogoPartenaire;
         return $this;
     }
 
@@ -75,16 +75,16 @@ class Partenaire
      */
     public function getLienSitePartenaire()
     {
-        return $this->lien_site_partenaire;
+        return $this->lienSitePartenaire;
     }
 
     /**
-     * @param mixed $lien_site_partenaire
+     * @param mixed $lienSitePartenaire
      * @return Partenaire
      */
-    public function setLienSitePartenaire($lien_site_partenaire)
+    public function setLienSitePartenaire($lienSitePartenaire)
     {
-        $this->lien_site_partenaire = $lien_site_partenaire;
+        $this->lienSitePartenaire = $lienSitePartenaire;
         return $this;
     }
 

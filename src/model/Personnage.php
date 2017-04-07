@@ -12,12 +12,12 @@ namespace air_de_rien\model;
 class Personnage
 {
     private $id;
-    private $nom_personnage;
-    private $prenom_personnage;
-    private $description_personnage;
-    private $photo_personnage;
-    private $spectacle_id;
-    private $membre_id;
+    private $nomPersonnage;
+    private $prenomPersonnage;
+    private $descriptionPersonnage;
+    private $photoPersonnage;
+    private $spectacleId;
+    private $membreId;
 
     /**
      * @return mixed
@@ -42,16 +42,16 @@ class Personnage
      */
     public function getNomPersonnage()
     {
-        return $this->nom_personnage;
+        return $this->nomPersonnage;
     }
 
     /**
-     * @param mixed $nom_personnage
+     * @param mixed $nomPersonnage
      * @return Personnage
      */
-    public function setNomPersonnage($nom_personnage)
+    public function setNomPersonnage($nomPersonnage)
     {
-        $this->nom_personnage = $nom_personnage;
+        $this->nomPersonnage = $nomPersonnage;
         return $this;
     }
 
@@ -60,16 +60,16 @@ class Personnage
      */
     public function getPrenomPersonnage()
     {
-        return $this->prenom_personnage;
+        return $this->prenomPersonnage;
     }
 
     /**
-     * @param mixed $prenom_personnage
+     * @param mixed $prenomPersonnage
      * @return Personnage
      */
-    public function setPrenomPersonnage($prenom_personnage)
+    public function setPrenomPersonnage($prenomPersonnage)
     {
-        $this->prenom_personnage = $prenom_personnage;
+        $this->prenomPersonnage = $prenomPersonnage;
         return $this;
     }
 
@@ -78,16 +78,16 @@ class Personnage
      */
     public function getDescriptionPersonnage()
     {
-        return $this->description_personnage;
+        return $this->descriptionPersonnage;
     }
 
     /**
-     * @param mixed $description_personnage
+     * @param mixed $descriptionPersonnage
      * @return Personnage
      */
-    public function setDescriptionPersonnage($description_personnage)
+    public function setDescriptionPersonnage($descriptionPersonnage)
     {
-        $this->description_personnage = $description_personnage;
+        $this->descriptionPersonnage = $descriptionPersonnage;
         return $this;
     }
 
@@ -96,16 +96,16 @@ class Personnage
      */
     public function getPhotoPersonnage()
     {
-        return $this->photo_personnage;
+        return $this->photoPersonnage;
     }
 
     /**
-     * @param mixed $photo_personnage
+     * @param mixed $photoPersonnage
      * @return Personnage
      */
-    public function setPhotoPersonnage($photo_personnage)
+    public function setPhotoPersonnage($photoPersonnage)
     {
-        $this->photo_personnage = $photo_personnage;
+        $this->photoPersonnage = $photoPersonnage;
         return $this;
     }
 
@@ -114,16 +114,16 @@ class Personnage
      */
     public function getSpectacleId()
     {
-        return $this->spectacle_id;
+        return $this->spectacleId;
     }
 
     /**
-     * @param mixed $spectacle_id
+     * @param mixed $spectacleId
      * @return Personnage
      */
-    public function setSpectacleId($spectacle_id)
+    public function setSpectacleId($spectacleId)
     {
-        $this->spectacle_id = $spectacle_id;
+        $this->spectacleId = $spectacleId;
         return $this;
     }
 
@@ -132,16 +132,16 @@ class Personnage
      */
     public function getMembreId()
     {
-        return $this->membre_id;
+        return $this->membreId;
     }
 
     /**
-     * @param mixed $membre_id
+     * @param mixed $membreId
      * @return Personnage
      */
-    public function setMembreId($membre_id)
+    public function setMembreId($membreId)
     {
-        $this->membre_id = $membre_id;
+        $this->membreId = $membreId;
         return $this;
     }
 

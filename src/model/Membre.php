@@ -12,13 +12,13 @@ namespace air_de_rien\model;
 class Membre
 {
     private $id;
-    private $nom_membre;
-    private $prenom_membre;
-    private $lien_photo_membre;
-    private $description_membre;
-    private $facebook_membre;
-    private $mail_membre;
-    private $lien_membre;
+    private $nomMembre;
+    private $prenomMembre;
+    private $lienPhotoMembre;
+    private $descriptionMembre;
+    private $facebookMembre;
+    private $mailMembre;
+    private $lienMembre;
 
     /**
      * @return mixed
@@ -43,16 +43,16 @@ class Membre
      */
     public function getNomMembre()
     {
-        return $this->nom_membre;
+        return $this->nomMembre;
     }
 
     /**
-     * @param mixed $nom_membre
+     * @param mixed $nomMembre
      * @return Membre
      */
-    public function setNomMembre($nom_membre)
+    public function setNomMembre($nomMembre)
     {
-        $this->nom_membre = $nom_membre;
+        $this->nomMembre = $nomMembre;
         return $this;
     }
 
@@ -61,16 +61,16 @@ class Membre
      */
     public function getPrenomMembre()
     {
-        return $this->prenom_membre;
+        return $this->prenomMembre;
     }
 
     /**
-     * @param mixed $prenom_membre
+     * @param mixed $prenomMembre
      * @return Membre
      */
-    public function setPrenomMembre($prenom_membre)
+    public function setPrenomMembre($prenomMembre)
     {
-        $this->prenom_membre = $prenom_membre;
+        $this->prenomMembre = $prenomMembre;
         return $this;
     }
 
@@ -79,16 +79,16 @@ class Membre
      */
     public function getLienPhotoMembre()
     {
-        return $this->lien_photo_membre;
+        return $this->lienPhotoMembre;
     }
 
     /**
-     * @param mixed $lien_photo_membre
+     * @param mixed $lienPhotoMembre
      * @return Membre
      */
-    public function setLienPhotoMembre($lien_photo_membre)
+    public function setLienPhotoMembre($lienPhotoMembre)
     {
-        $this->lien_photo_membre = $lien_photo_membre;
+        $this->lienPhotoMembre = $lienPhotoMembre;
         return $this;
     }
 
@@ -97,16 +97,16 @@ class Membre
      */
     public function getDescriptionMembre()
     {
-        return $this->description_membre;
+        return $this->descriptionMembre;
     }
 
     /**
-     * @param mixed $description_membre
+     * @param mixed $descriptionMembre
      * @return Membre
      */
-    public function setDescriptionMembre($description_membre)
+    public function setDescriptionMembre($descriptionMembre)
     {
-        $this->description_membre = $description_membre;
+        $this->descriptionMembre = $descriptionMembre;
         return $this;
     }
 
@@ -115,16 +115,16 @@ class Membre
      */
     public function getFacebookMembre()
     {
-        return $this->facebook_membre;
+        return $this->facebookMembre;
     }
 
     /**
-     * @param mixed $facebook_membre
+     * @param mixed $facebookMembre
      * @return Membre
      */
-    public function setFacebookMembre($facebook_membre)
+    public function setFacebookMembre($facebookMembre)
     {
-        $this->facebook_membre = $facebook_membre;
+        $this->facebookMembre = $facebookMembre;
         return $this;
     }
 
@@ -133,16 +133,16 @@ class Membre
      */
     public function getMailMembre()
     {
-        return $this->mail_membre;
+        return $this->mailMembre;
     }
 
     /**
-     * @param mixed $mail_membre
+     * @param mixed $mailMembre
      * @return Membre
      */
-    public function setMailMembre($mail_membre)
+    public function setMailMembre($mailMembre)
     {
-        $this->mail_membre = $mail_membre;
+        $this->mailMembre = $mailMembre;
         return $this;
     }
 
@@ -151,18 +151,19 @@ class Membre
      */
     public function getLienMembre()
     {
-        return $this->lien_membre;
+        return $this->lienMembre;
     }
 
     /**
-     * @param mixed $lien_membre
+     * @param mixed $lienMembre
      * @return Membre
      */
-    public function setLienMembre($lien_membre)
+    public function setLienMembre($lienMembre)
     {
-        $this->lien_membre = $lien_membre;
+        $this->lienMembre = $lienMembre;
         return $this;
     }
+
 
 
 }

@@ -12,10 +12,10 @@ namespace air_de_rien\model;
 class Compagnie
 {
     private $id;
-    private $lien_photo_compagnie;
-    private $description_compagnie;
-    private $email_compagnie;
-    private $tel_compagnie;
+    private $lienPhotoCompagnie;
+    private $descriptionCompagnie;
+    private $emailCompagnie;
+    private $telCompagnie;
 
     /**
      * @return mixed
@@ -40,16 +40,16 @@ class Compagnie
      */
     public function getLienPhotoCompagnie()
     {
-        return $this->lien_photo_compagnie;
+        return $this->lienPhotoCompagnie;
     }
 
     /**
-     * @param mixed $lien_photo_compagnie
+     * @param mixed $lienPhotoCompagnie
      * @return Compagnie
      */
-    public function setLienPhotoCompagnie($lien_photo_compagnie)
+    public function setLienPhotoCompagnie($lienPhotoCompagnie)
     {
-        $this->lien_photo_compagnie = $lien_photo_compagnie;
+        $this->lienPhotoCompagnie = $lienPhotoCompagnie;
         return $this;
     }
 
@@ -58,16 +58,16 @@ class Compagnie
      */
     public function getDescriptionCompagnie()
     {
-        return $this->description_compagnie;
+        return $this->descriptionCompagnie;
     }
 
     /**
-     * @param mixed $description_compagnie
+     * @param mixed $descriptionCompagnie
      * @return Compagnie
      */
-    public function setDescriptionCompagnie($description_compagnie)
+    public function setDescriptionCompagnie($descriptionCompagnie)
     {
-        $this->description_compagnie = $description_compagnie;
+        $this->descriptionCompagnie = $descriptionCompagnie;
         return $this;
     }
 
@@ -76,16 +76,16 @@ class Compagnie
      */
     public function getEmailCompagnie()
     {
-        return $this->email_compagnie;
+        return $this->emailCompagnie;
     }
 
     /**
-     * @param mixed $email_compagnie
+     * @param mixed $emailCompagnie
      * @return Compagnie
      */
-    public function setEmailCompagnie($email_compagnie)
+    public function setEmailCompagnie($emailCompagnie)
     {
-        $this->email_compagnie = $email_compagnie;
+        $this->emailCompagnie = $emailCompagnie;
         return $this;
     }
 
@@ -94,18 +94,20 @@ class Compagnie
      */
     public function getTelCompagnie()
     {
-        return $this->tel_compagnie;
+        return $this->telCompagnie;
     }
 
     /**
-     * @param mixed $tel_compagnie
+     * @param mixed $telCompagnie
      * @return Compagnie
      */
-    public function setTelCompagnie($tel_compagnie)
+    public function setTelCompagnie($telCompagnie)
     {
-        $this->tel_compagnie = $tel_compagnie;
+        $this->telCompagnie = $telCompagnie;
         return $this;
     }
+
+
 
 
 }

@@ -7,10 +7,52 @@
  */
 
 namespace air_de_rien\controller;
+use Twig_Environment;
+use Twig_Extension_Debug;
+use Twig_Loader_Filesystem;
 
 
 class Controller
 {
+    /**
+     * @var Twig_Environment
+     */
+    private $twig;
+
+    /**
+     * @return Twig_Environment
+     */
+    public function getTwig()
+    {
+        return $this->twig;
+    }
+
+    /**
+     * @param Twig_Environment $twig
+     * @return Controller
+     */
+    public function setTwig($twig)
+    {
+        $this->twig = $twig;
+        return $this;
+    }
+
+
+
+
+
+    public function __construct()
+    {
+        $loader = new Twig_Loader_Filesystem(dirname(dirname(__DIR__)).'/src/view');
+        $twig = new Twig_Environment($loader,[
+            'cache' => false, // __DIR__.'tmp'
+            'debug' => true,
+        ]);
+        $twig->addExtension ( new Twig_Extension_Debug ());
+        $this->setTwig($twig);
+
+    }
+
     /**
      * function permettant de faire le rendu d'une vue
      * @param $path
@@ -33,4 +75,8 @@ class Controller
 
         return $buffer;
     }
+
+
+
 }
+

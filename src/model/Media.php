@@ -12,12 +12,11 @@ namespace air_de_rien\model;
 class Media
 {
     private $id;
-    private $titre_media;
-    private $lien_media;
-    private $spectacle_id;
+    private $titreMedia;
+    private $lienMedia;
+    private $spectacleId;
     private $afficher;
     private $affectation;
-
 
     /**
      * @return mixed
@@ -42,16 +41,16 @@ class Media
      */
     public function getTitreMedia()
     {
-        return $this->titre_media;
+        return $this->titreMedia;
     }
 
     /**
-     * @param mixed $titre_media
+     * @param mixed $titreMedia
      * @return Media
      */
-    public function setTitreMedia($titre_media)
+    public function setTitreMedia($titreMedia)
     {
-        $this->titre_media = $titre_media;
+        $this->titreMedia = $titreMedia;
         return $this;
     }
 
@@ -60,16 +59,16 @@ class Media
      */
     public function getLienMedia()
     {
-        return $this->lien_media;
+        return $this->lienMedia;
     }
 
     /**
-     * @param mixed $lien_media
+     * @param mixed $lienMedia
      * @return Media
      */
-    public function setLienMedia($lien_media)
+    public function setLienMedia($lienMedia)
     {
-        $this->lien_media = $lien_media;
+        $this->lienMedia = $lienMedia;
         return $this;
     }
 
@@ -78,16 +77,16 @@ class Media
      */
     public function getSpectacleId()
     {
-        return $this->spectacle_id;
+        return $this->spectacleId;
     }
 
     /**
-     * @param mixed $spectacle_id
+     * @param mixed $spectacleId
      * @return Media
      */
-    public function setSpectacleId($spectacle_id)
+    public function setSpectacleId($spectacleId)
     {
-        $this->spectacle_id = $spectacle_id;
+        $this->spectacleId = $spectacleId;
         return $this;
     }
 

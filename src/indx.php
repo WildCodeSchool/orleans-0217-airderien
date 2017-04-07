@@ -14,7 +14,6 @@ if($page === 'home'){
     echo $twig->render('hub2.html.twig',[
 
     ]);
-}
 
 
 ?>
