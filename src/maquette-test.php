@@ -237,8 +237,7 @@
                         </div>
                         <div class="team-desc">
                             <div class="team-title"><h4>Juliette</h4><span>(Nathalie E)</span></div>
-                            <div class="team-content">Sœur d' Alix,artiste peintre.
-                                Elle a élevé ses neveux et les considèrent comme les enfants quelle n' à jamais eus.</div>
+                            <div class="team-content">Sœur d' Alix,artiste peintre.Elle a élevé ses neveux et les considèrent comme les enfants quelle n' à jamais eus.</div>
                             <div class="line topmargin-sm nobottommargin"></div>
                         </div>
                     </div>

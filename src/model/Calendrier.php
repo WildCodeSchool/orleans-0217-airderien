@@ -9,6 +9,7 @@
 namespace air_de_rien\model;
 
 
+
 class Calendrier
 {
     private $id;
@@ -57,6 +58,7 @@ class Calendrier
      */
     public function getDateSpectacle()
     {
+
         return $this->date_spectacle;
     }
 
@@ -86,6 +88,20 @@ class Calendrier
     {
         $this->spectacle_id = $spectacle_id;
         return $this;
+    }
+
+    public function datePropre()
+    {
+        $datesql=$this->getDateSpectacle();
+
+        list($date, $time) = explode(" ", $datesql);
+        list($year, $month, $day) = explode("-", $date);
+        list($hour, $min, $sec) = explode(":", $time);
+
+        $months = array("janvier", "février", "mars", "avril", "mai", "juin",
+            "juillet", "août", "septembre", "octobre", "novembre", "décembre");
+
+        return $datesql = "$day ".$months[$month-1]." $year à ${hour}h${min}";
     }
 
 

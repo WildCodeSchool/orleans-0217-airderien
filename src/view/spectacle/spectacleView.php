@@ -36,7 +36,7 @@
                              data-elementdelay="0.01"
                              data-endelementdelay="0.1"
                              data-endspeed="1000"
-                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; background-color: rgba(0,0,0,0.6); border-radius: 10px;">Devine qui vient diner ce soir</div>
+                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; font-family: 'Fredericka the Great', cursive; background-color: rgba(0,0,0,0.6); border-radius: 10px;"><?=$spectacle->getTitreSpect()?></div>
 
                         <div class="tp-caption customin ltl tp-resizeme"
                              data-x="500"
@@ -78,7 +78,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Les spectacles <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../maquette/maquette-test.html">Devine qui vient dîner se soir</a></li>
+                            <li><a href="../maquette/maquette-test.html"><?=$spectacle->getTitreSpect()?></a></li>
                             <li><a href="#">Un autre spectacle</a></li>
                             <li><a href="#">Encore un autre spectacle</a></li>
                         </ul>
@@ -146,16 +146,16 @@
 
             <div class="row">
 
-                <?php
-                foreach ($personnages as $personnage):?>
+                <?php foreach ($personnages as $personnage):?>
 
                     <div class="col-md-6 bottommargin" style="min-height: 230px;">
                     <div class="team team-list clearfix">
                         <div class="team-image" style="width: 25%;">
-                            <img class="img-circle" src="../public/images/photos/sophie.jpg" alt="Sophie">
+                            <img class="img-circle" src="../public/images/photos/sophie.jpg" alt="sophie">
+
                         </div>
                         <div class="team-desc">
-                            <div class="team-title"><h4><?=$personnage->getPrenomPersonnage()?></h4><span>(Sophie)</span></div>
+                            <div class="team-title"><h4><?=$personnage->getPrenomPersonnage()?></h4><span>sophie</span></div>
                             <div class="team-content"><?=$personnage->getDescriptionPersonnage()?></div>
                             <div class="line topmargin-sm nobottommargin"></div>
                         </div>
@@ -163,6 +163,7 @@
                 </div>
 
          <?php endforeach?>
+
             </div>
 
             <!-- Medias
@@ -178,9 +179,9 @@
             <div class="fslider flex-thumb-grid grid-12 bottommargin-lg" data-pagi="false" data-arrows="false" data-thumbs="true">
                 <div class="flexslider">
                     <div class="slider-wrap">
-                        <?php foreach ($medias as $media) :?>
-                        <div class="slide" data-thumb="../public/images/photos/<?=$media->getLienMedia()?>">
-                            <img src="../public/images/photos/<?=$media->getLienMedia()?>" alt="Image"></div>
+                        <?php foreach ($photos as $photo) :?>
+                        <div class="slide" data-thumb="../public/images/photos/<?=$photo->getLienMedia()?>">
+                            <img src="../public/images/photos/<?=$photo->getLienMedia()?>" alt="Image"></div>
                         <?php endforeach ?>
                     </div>
                 </div>
@@ -192,6 +193,7 @@
             </div>
 
             <div style="display:flex; justify-content: center;">
+                <?php foreach ($videos as $video) :?>
                 <div class="col_one_third" style="max-width: 180px;">
                     <div class="feature-box center media-box fbox-bg">
                         <div class="fbox-desc" style="padding: 5px;">
@@ -199,6 +201,7 @@
                         </div>
                     </div>
                 </div>
+                <?php endforeach ?>
 
                 <div class="modal fade" id="modal-video1" style="display: none;">
                     <div class="modal-dialog">
@@ -235,10 +238,10 @@
                 </div>
 
                 <?php foreach ($dates as $date) :?>
-                <div class="col_one_third">
+                <div class="col-md-4">
                     <div class="feature-box center media-box fbox-bg">
                         <div class="fbox-desc">
-                            <h3><?=$date->getDateSpectacle()?><span class="subtitle"><?=$date->getLieuSpectacle()?></span></h3>
+                            <h3><?=$date->datePropre()?><span class="subtitle"><?=$date->getLieuSpectacle()?></span></h3>
                         </div>
                     </div>
                 </div>

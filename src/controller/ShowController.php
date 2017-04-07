@@ -16,12 +16,18 @@ class ShowController extends Controller
         $db = new DB();
         $spectacle = $db -> findOne('spectacle', $id);
         $personnages = $db -> findAllSpect('personnage', $id);
-        $medias = $db -> findAllSpect('media', $id);
+        $membres = $db -> findAllSpect('membre', $id);
+        $photos = $db -> findAllMedia('media', 'photo', $id);
+        $videos = $db -> findAllMedia('media', 'video', $id);
+        $sons = $db -> findAllMedia('media', 'son', $id);
         $dates = $db -> findAllSpect('calendrier', $id);
         $articles = $db -> findAllSpect('revueDePresse', $id);
         return $this->render('spectacle/spectacleView.php', ['spectacle'=>$spectacle,
                                                              'personnages'=>$personnages,
-                                                             'medias'=>$medias,
+                                                             'membres'=>$membres,
+                                                             'photos'=>$photos,
+                                                             'videos'=>$videos,
+                                                             'sons'=>$sons,
                                                              'dates'=>$dates,
                                                              'articles'=>$articles]);
 
