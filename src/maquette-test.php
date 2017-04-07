@@ -1,3 +1,18 @@
+<?php
+use air_de_rien\model;
+include '../config/connect.php';
+require 'model/Spectacle.php';
+
+$db = new PDO(DSN, USER, PASS);
+$query = "SELECT * FROM spectacle WHERE id=1";
+$res = $db->query($query);
+$spectacle = $res->fetchObject(model\Spectacle::class); // fetchAll(PDO::FETCH_CLASS, model\Spectacle::class);
+
+echo $spectacle->getTitreSpec();
+var_dump($spectacle);
+die('END');
+
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
@@ -204,7 +219,7 @@
         <div class="container clearfix">
             <span id="titre"></span>
             <div class="heading-block title-center page-section">
-                <h2>Devine qui vient dîner ce soir ?</h2>
+                <h2><?/*$spectacle->getTitreSpec()*/?></h2>
                 <span></span>
             </div>
 
