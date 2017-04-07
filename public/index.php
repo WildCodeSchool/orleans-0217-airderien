@@ -23,14 +23,9 @@ elseif ($route == 'test') {
 }
 
 
-
-
-require '../src/view/headerV2.html';
-
 require '../src/view/header.php';
-
 echo $render;
-require '../src/view/footerV2.html';
+require '../src/view/footer.php';
 
 
 

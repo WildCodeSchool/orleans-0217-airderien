@@ -64,7 +64,7 @@ class DB
      * @return mixed
      */
     public function findAllSpect($table, $id) {
-        $req = "SELECT * FROM $table WHERE spectacle_id=:id";
+        $req = "SELECT * FROM $table WHERE spectacleId=:id";
         $prep = $this->db->prepare($req);
         $prep->bindValue(':id', $id, \PDO::PARAM_INT);
 
@@ -82,7 +82,7 @@ class DB
      * @return mixed
      */
     public function findAllMedia($table, $genre, $id) {
-        $req = "SELECT * FROM $table WHERE genre='$genre' AND spectacle_id=:id ";
+        $req = "SELECT * FROM $table WHERE genre='$genre' AND spectacleId=:id ";
         $prep = $this->db->prepare($req);
         $prep->bindValue(':id', $id, \PDO::PARAM_INT);
 

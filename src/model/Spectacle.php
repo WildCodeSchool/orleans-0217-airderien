@@ -12,9 +12,9 @@ namespace air_de_rien\model;
 class Spectacle
 {
     private $id;
-    private $titreSpec;
-    private $photoSpec;
-    private $descriptionSpec;
+    private $titreSpect;
+    private $photoSpect;
+    private $descriptionSpect;
 
     /**
      * @return mixed
@@ -37,54 +37,54 @@ class Spectacle
     /**
      * @return mixed
      */
-    public function getTitreSpec()
+    public function getTitreSpect()
     {
-        return $this->titreSpec;
+        return $this->titreSpect;
     }
 
     /**
      * @param mixed $titreSpec
      * @return Spectacle
      */
-    public function setTitreSpec($titreSpec)
+    public function setTitreSpect($titreSpect)
     {
-        $this->titreSpec = $titreSpec;
+        $this->titreSpect = $titreSpect;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getPhotoSpec()
+    public function getPhotoSpect()
     {
-        return $this->photoSpec;
+        return $this->photoSpect;
     }
 
     /**
      * @param mixed $photoSpec
      * @return Spectacle
      */
-    public function setPhotoSpec($photoSpec)
+    public function setPhotoSpect($photoSpect)
     {
-        $this->photoSpec = $photoSpec;
+        $this->photoSpect = $photoSpect;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getDescriptionSpec()
+    public function getDescriptionSpect()
     {
-        return $this->descriptionSpec;
+        return $this->descriptionSpect;
     }
 
     /**
      * @param mixed $descriptionSpec
      * @return Spectacle
      */
-    public function setDescriptionSpec($descriptionSpec)
+    public function setDescriptionSpect($descriptionSpect)
     {
-        $this->descriptionSpec = $descriptionSpec;
+        $this->descriptionSpect = $descriptionSpect;
         return $this;
     }
 
