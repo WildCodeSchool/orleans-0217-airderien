@@ -9,6 +9,7 @@
 namespace air_de_rien\model;
 
 
+
 class Calendrier
 {
     private $id;
@@ -58,6 +59,7 @@ class Calendrier
     public function getDateSpectacle()
     {
         return $this->dateSpectacle;
+
     }
 
     /**

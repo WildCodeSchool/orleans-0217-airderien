@@ -1,18 +1,3 @@
-<?php
-use air_de_rien\model;
-include '../config/connect.php';
-require 'model/Spectacle.php';
-
-$db = new PDO(DSN, USER, PASS);
-$query = "SELECT * FROM spectacle WHERE id=1";
-$res = $db->query($query);
-$spectacle = $res->fetchObject(model\Spectacle::class); // fetchAll(PDO::FETCH_CLASS, model\Spectacle::class);
-
-echo $spectacle->getTitreSpec();
-var_dump($spectacle);
-die('END');
-
-?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
@@ -146,40 +131,28 @@ die('END');
 <!-- Header
     ============================================= -->
 <header id="header">
-
     <div id="header-wrap">
-
         <div class="container-fluid clearfix">
-
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+            <div id="logo"> <a href=""> <img src="../public/images/Placeholder+Logo.png" ></a> </div>
 
-
-            <a href="../public/hub2.html.twig"> <img src="../public/images/Placeholder+Logo.png" href="hub2.html"></a> </div>
-
-
-            <!-- Primary Navigation
-            ============================================= -->
+            <!-- Primary Navigation ============================================= -->
             <nav id="primary-menu" class="style-2 center">
-
                 <ul class="one-page-menu">
-                    <li><a href="maquette-compagnie.php" data-href="#most-toppest"><div class="compagnie">La compagnie</div></a></li>
+                    <li><a href="#" data-href="#most-toppest"><div class="compagnie">La compagnie</div></a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Les spectacles <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Devine qui vient dîner ce soir</a></li>
+                            <li><a href="../maquette/maquette-test.html">Devine qui vient dîner se soir</a></li>
                             <li><a href="#">Un autre spectacle</a></li>
                             <li><a href="#">Encore un autre spectacle</a></li>
                         </ul>
                     </li>
                 </ul>
-
             </nav><!-- #primary-menu end -->
-
         </div>
-
     </div>
-
-</header><!-- #header end -->
+</header>
 
 
 <div id="page-menu">
@@ -264,8 +237,7 @@ die('END');
                         </div>
                         <div class="team-desc">
                             <div class="team-title"><h4>Juliette</h4><span>(Nathalie E)</span></div>
-                            <div class="team-content">Sœur d' Alix,artiste peintre.
-                                Elle a élevé ses neveux et les considèrent comme les enfants quelle n' à jamais eus.</div>
+                            <div class="team-content">Sœur d' Alix,artiste peintre.Elle a élevé ses neveux et les considèrent comme les enfants quelle n' à jamais eus.</div>
                             <div class="line topmargin-sm nobottommargin"></div>
                         </div>
                     </div>
@@ -438,7 +410,6 @@ die('END');
             </div>
 
             <div>
-
             <iframe id="soundcloud" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
             </div>
 
