@@ -6,7 +6,7 @@
  * Time: 11:28
  */
 
-namespace air_de_rien;
+namespace air_de_rien\model;
 
 
 
@@ -16,6 +16,24 @@ class DB
      * @var \PDO
      */
     private $db;
+
+    /**
+     * @return \PDO
+     */
+    public function getDb()
+    {
+        return $this->db;
+    }
+
+    /**
+     * @param \PDO $db
+     * @return DB
+     */
+    public function setDb($db)
+    {
+        $this->db = $db;
+        return $this;
+    }
 
     /**
      * DB constructor.
@@ -35,7 +53,7 @@ class DB
     public function findAll($table) {
         $req = "SELECT * FROM $table";
         $res = $this->db->query($req);
-        return $res->fetchAll(\PDO::FETCH_CLASS, __NAMESPACE__ . '\model\\'.ucfirst($table));
+        return $res->fetchAll(\PDO::FETCH_CLASS, __NAMESPACE__ . '\\'.ucfirst($table));
     }
 
     /**
@@ -52,7 +70,9 @@ class DB
 
         $prep->execute();
 
-        $res = $prep->fetchAll(\PDO::FETCH_CLASS, __NAMESPACE__ . '\model\\'.ucfirst($table));
+        $res = $prep->fetchAll(\PDO::FETCH_CLASS, __NAMESPACE__ . '\\'.ucfirst($table));
         return $res[0];
     }
+
+
 }

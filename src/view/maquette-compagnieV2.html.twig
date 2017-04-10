@@ -1,5 +1,7 @@
-<!-- Content
-    ============================================= -->
+
+{#{{ dump() }}#}
+<!--===========================Description==================================== -->
+
 <section id="content">
 
     <div class="content-wrap">
@@ -12,12 +14,12 @@
                 <span></span>
             </div>
 
-            <p>{{ compagnie.description_compagnie }}</p>
+            <p>{{ compagnie.descriptionCompagnie }}</p>
 
             <div class="clear"></div>
             <div class="clear"></div>
 
-<!--========================================================================= -->
+            <!--==============================Membres==================================== -->
 
             <span id="personnages" class="ancre"></span>
             <div class="heading-block title-center page-section">
@@ -26,33 +28,39 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6 bottommargin" style="min-height: 260px;">
-                    <div class="team team-list clearfix">
-                        <div class="team-image" style="width: 25%;">
-                            <img class="img-circle" src="../../public/images/photos/sophie.jpg" alt="Sophie">
-                        </div>
-                        <div class="team-desc">
-                            <div class="team-title"><h4>Prénom Nom</h4><span></span></div>
-                            <div class="team-content">Fusce sit amet viverra justo. Pellentesque convallis eget nisi quis ultrices. Etiam iaculis quis nulla a molestie. Etiam ex purus, commodo vitae sem in, lacinia efficitur nulla. Curabitur ullamcorper lobortis enim a gravida. Maecenas orci dui, hendrerit nec lacinia ac, varius non metus. Nam dapibus neque ligula, ut lobortis leo aliquam aliquam.</div>
-                            <div class="line topmargin-sm nobottommargin"></div>
-                            <a href="#" class="social-icon si-borderless si-small si-facebook" title="Facebook">
+                {% for membre in membres  %}
+                    <div class="col-md-6 bottommargin" style="min-height: 260px;">
+                        <div class="team team-list clearfix">
+                            <div class="team-image" style="width: 25%;">
+                                <img class="img-circle" src="../../public/images/photos/{{ membre.lienPhotoMembre }}"
+                                     alt="Sophie">
+                            </div>
+                            <div class="team-desc">
+                                <div class="team-title"><h4>{{ membre.prenomMembre }}</h4><span></span></div>
+                                <div class="team-content">{{ membre.descriptionMembre }}</div>
+                                <div class="line topmargin-sm nobottommargin"></div>
+                                <a href="{{ membre.facebookMembre }}" class="social-icon si-borderless si-small si-facebook"
+                                   title="Facebook">
                                     <i class="icon-facebook"></i>
                                     <i class="icon-facebook"></i>
                                 </a>
-                                <a href="#" class="social-icon si-borderless si-small si-email3" title="Email">
+                                <a href="{{ membre.mailMembre }}" class="social-icon si-borderless si-small si-email3"
+                                   title="Email">
                                     <i class="icon-email3"></i>
                                     <i class="icon-email3"></i>
                                 </a>
-                                <a href="http://compagnie-du-petit-matin.fr/" target="lien" class="social-icon si-borderless si-small" style="width: 150px; color: #1abc9c">
+                                <a href="{{ membre.lienMembre }}" target="lien" class="social-icon si-borderless si-small"
+                                   style="width: 150px; color: #1abc9c">
                                     Ma compagnie
                                 </a>
-                                
+
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
 
-<!--========================================================================= -->
+            <!--===============================Galerie Photos========================== -->
 
 
             <div class="clear"></div>
@@ -62,20 +70,20 @@
                 <span></span>
             </div>
 
-            <div class="fslider flex-thumb-grid grid-12 bottommargin-lg" data-pagi="false" data-arrows="false" data-thumbs="true">
+            <div class="fslider flex-thumb-grid grid-12 bottommargin-lg" data-pagi="false" data-arrows="false"
+                 data-thumbs="true">
                 <div class="flexslider">
                     <div class="slider-wrap">
-                        <div class="slide" data-thumb="../public/images/photos/groupe1.jpg"><img src="../../public/images/photos/groupe1.jpg" alt="Image"></div>
-                        <div class="slide" data-thumb="../public/images/photos/sophie+nadine2.jpg"><img src="../../public/images/photos/sophie+nadine2.jpg" alt="Image"></div>
-                        <div class="slide" data-thumb="../public/images/photos/nadine_so_jerome2%20.jpg"><img src="../../public/images/photos/nadine_so_jerome2%20.jpg" alt="Image"></div>
-                        <div class="slide" data-thumb="../public/images/photos/so+stephane2.jpg"><img src="../../public/images/photos/so+stephane2.jpg" alt="Image"></div>
-                        <div class="slide" data-thumb="../public/images/photos/sophie+nath.jpg"><img src="../../public/images/photos/sophie+nath.jpg" alt="Image"></div>
-                        <div class="slide" data-thumb="../public/images/photos/trio2.jpg"><img src="../../public/images/photos/trio2.jpg" alt="Image"></div>
+                        {% for media in medias %}
+                            <div class="slide" data-thumb="../public/images/photos/{{ media.lienMedia }}">
+                                <img src="../../public/images/photos/{{ media.lienMedia }}" alt="{{ media.titreMedia }}">
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
 
-<!--========================================================================= -->
+            <!--==============================Videos================================== -->
 
             <div class="heading-block title-center topmargin-lg page-section">
                 <h2></h2>
@@ -83,41 +91,51 @@
             </div>
 
             <div style="display:flex; justify-content: center;">
+                {% for video in videos %}
                 <div class="col_one_third" style="max-width: 180px;">
                     <div class="feature-box center media-box fbox-bg">
                         <div class="fbox-desc" style="padding: 5px;">
-                            <a data-toggle="modal" href="#modal-video1" data-lightbox="inline"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 180px;"></a>
+                            <a data-toggle="modal" href="#modal-video{{ video.id }}" data-lightbox="inline">
+                                <img src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg" style="height: 180px;"></a>
                         </div>
                     </div>
                 </div>
 
-                <div class="modal fade" id="modal-video1" style="display: none;">
+                <div class="modal fade" id="modal-video{{ video.id }}" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer <i class="fa fa-times"></i></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer
+                                    <i class="fa fa-times"></i></button>
                             </div>
                             <div class="modal-body">
-                                <!--<iframe width="570" height="360" src="//www.youtube.com/embed/GShZUiyqEH0?rel=0?wmode=transparent&amp;fs=1&amp;rel=0&amp;enablejsapi=1&amp;version=3" frameborder="0" allowfullscreen=""></iframe>-->
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0" allowfullscreen></iframe>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.lienMedia }}"
+                                        frameborder="0" allowfullscreen></iframe>
 
-                                <p>Titre vidéo</p>
+                                <p>{{ video.titreMedia }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
+
+            <!--==============================Son================================== -->
+
             <div>
-            <iframe id="soundcloud" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
+                <iframe id="soundcloud" width="100%" height="300" scrolling="no" frameborder="no"
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;
+                        color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;
+                        show_user=true&amp;show_reposts=false"></iframe>
             </div>
 
 
 
-<!--========================================================================= -->
+            <!--============================Le handicap=================================== -->
 
             <div id="presse" class="clear"></div>
 
-        
+
 
 
             <div class="heading-block title-center page-section" style="padding-top: 50px;">
@@ -125,7 +143,15 @@
                 <span></span>
             </div>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat lacinia massa, vel consectetur massa facilisis in. Maecenas rhoncus, lacus et fringilla pretium, odio libero volutpat leo, at iaculis turpis lacus eget quam. Sed sagittis euismod nulla, ac faucibus nibh pellentesque a. Cras faucibus eget metus eget rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam bibendum nunc turpis, a hendrerit lacus laoreet id. Duis feugiat, nunc non eleifend imperdiet, sem quam condimentum sapien, vel vulputate ex tortor quis libero. Fusce eu arcu vel mauris gravida pulvinar non quis enim. Morbi vitae odio ligula. Sed egestas dapibus lorem. Praesent a ex venenatis, ultrices diam sed, varius dui. Fusce finibus metus sed risus suscipit ullamcorper. Maecenas dictum viverra quam eu porttitor. Morbi gravida quam et orci euismod, ac sollicitudin odio sollicitudin.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat lacinia massa, vel
+                consectetur massa facilisis in. Maecenas rhoncus, lacus et fringilla pretium, odio libero volutpat leo,
+                at iaculis turpis lacus eget quam. Sed sagittis euismod nulla, ac faucibus nibh pellentesque a. Cras
+                faucibus eget metus eget rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+                cubilia Curae; Aliquam bibendum nunc turpis, a hendrerit lacus laoreet id. Duis feugiat, nunc non
+                eleifend imperdiet, sem quam condimentum sapien, vel vulputate ex tortor quis libero. Fusce eu arcu vel
+                mauris gravida pulvinar non quis enim. Morbi vitae odio ligula. Sed egestas dapibus lorem. Praesent a ex
+                venenatis, ultrices diam sed, varius dui. Fusce finibus metus sed risus suscipit ullamcorper. Maecenas
+                dictum viverra quam eu porttitor. Morbi gravida quam et orci euismod, ac sollicitudin odio sollicitudin.</p>
 
 
         </div>
@@ -134,7 +160,7 @@
         <div class="noborder footer-stick topmargin-lg" style=" padding: 80px;" data-stellar-background-ratio="0.3">
 
 
-<!--========================================================================= -->
+            <!--===========================Revue de Presse================================ -->
 
             <div class="container clearfix">
                 <div class=" nobottommargin">
@@ -146,22 +172,15 @@
                     <div class="fslider restaurant-reviews" data-arrows="false" data-animation="slide">
                         <div class="flexslider">
                             <div class="slider-wrap">
+                                {% for revue in revues %}
                                 <div class="slide" style="margin-top: -20px;">
-                                    <p class="lead">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in justo purus. Suspendisse potenti. Vivamus libero odio, sollicitudin nec orci sit amet, cursus dictum lacus. Donec at purus augue. Donec lobortis euismod turpis eu bibendum. Proin consectetur turpis hendrerit sapien pellentesque tincidunt. Donec nisi quam, imperdiet ac lacus sed, sodales auctor mi. Donec sit amet eros sed lectus scelerisque consectetur. Curabitur tristique dignissim risus ac eleifend."</p>
-                                    <span class="auteur"><strong>John Doe</strong>, La République du Centre, 21/02/2017</span><br>
-
-                                </div>
-                                <div class="slide" style="margin-top: -20px;">
-                                    <p class="lead">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in justo purus. Suspendisse potenti. Vivamus libero odio, sollicitudin nec orci sit amet, cursus dictum lacus. Donec at purus augue. Donec lobortis euismod turpis eu bibendum. Proin consectetur turpis hendrerit sapien pellentesque tincidunt. Donec nisi quam, imperdiet ac lacus sed, sodales auctor mi. Donec sit amet eros sed lectus scelerisque consectetur. Curabitur tristique dignissim risus ac eleifend."</p>
-                                    <span class="auteur"><strong>Mary Jane</strong>, Le journal du Centre, 21/02/2017</span><br>
-
-                                </div>
-                                <div class="slide" style="margin-top: -20px;">
-                                    <p class="lead">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in justo purus. Suspendisse potenti. Vivamus libero odio, sollicitudin nec orci sit amet, cursus dictum lacus. Donec at purus augue. Donec lobortis euismod turpis eu bibendum. Proin consectetur turpis hendrerit sapien pellentesque tincidunt. Donec nisi quam, imperdiet ac lacus sed, sodales auctor mi. Donec sit amet eros sed lectus scelerisque consectetur. Curabitur tristique dignissim risus ac eleifend."</p>
-                                    <span class="auteur"><strong>Luis Frank</strong>, France, 21/02/2017</span><br>
-
-                                </div>
-                            </div>
+                                    <h4>{{ revue.titreArticle }}</h4>
+                                    <p class="lead">"{{ revue.texteArticle }}"</p>
+                                    <span class="auteur"><strong>{{ revue.auteur }}</strong>, {{ revue.journal }},
+                                        {{ revue.dateArticle }}
+                                    </span><br>
+                                 </div>
+                                {% endfor %}
                         </div>
                     </div>
 
@@ -171,28 +190,31 @@
 
         <div class="clear"></div>
 
-<!--========================================================================= -->
+        <!--======================Calendrier========================================== -->
 
         <span id="calendrier" class="ancre"></span>
-            <div class=" container clearfix">
-        <div class="heading-block title-center topmargin-lg page-section" style="padding-top: 50px;">
-            <h2>Nos réalisations</h2>
-            <span>Liste de nos évènements</span>
-        </div>
-
-        <div class="col_one_third">
-            <div class="feature-box center media-box fbox-bg">
-                <div class="fbox-desc">
-                    <h3>Devine qui vient dîner ce soir<span class="subtitle"><a href="../maquette/maquette-test.html">Plus d'informations</a></span></h3>
+        <div class=" container clearfix">
+            <div class="heading-block title-center topmargin-lg page-section" style="padding-top: 50px;">
+                <h2>Nos réalisations</h2>
+                <span>Liste de nos évènements</span>
+            </div>
+            <div class="row">
+            {% for spectacle in spectacles %}
+            <div class="col-md-4 center">
+                <div class="feature-box center media-box fbox-bg">
+                    <div class="fbox-desc">
+                        <h3>{{ spectacle.titreSpect }}<span class="subtitle"><a href="#">
+                                    Plus d'informations</a></span></h3>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
+            </div>
         </div>
 
-            </div>
 
 
-
-<!--========================================================================= -->
+        <!--======================Contact============================================= -->
 
         <div class="section notopmargin footer-stick">
             <div class="container clearfix">
@@ -205,24 +227,30 @@
                 <div class="contact-widget">
                     <div class="contact-form-result"></div>
 
-                    <form id="wedding-rsvp-form" action="mailto:team.wcs.cladr@gmail.com" method="post" style="max-width: 700px;" class="bottommargin-lg divcenter" enctype="text/plain" role="form">
+                    <form id="wedding-rsvp-form" action="mailto:team.wcs.cladr@gmail.com" method="post" style="max-width: 700px;"
+                          class="bottommargin-lg divcenter" enctype="text/plain" role="form">
 
                         <div class="form-process"></div>
 
                         <div class="col_full">
-                            <input type="text" name="name" id="name" required class="form-control required input-lg" placeholder="Votre Nom">
+                            <input type="text" name="name" id="name" required class="form-control required input-lg"
+                                   placeholder="Votre Nom">
                         </div>
 
                         <div class="col_full">
-                            <input type="text" name="email" id="email" required class="form-control required email input-lg" placeholder="Votre adresse mail">
+                            <input type="text" name="email" id="email" required class="form-control required email input-lg"
+                                   placeholder="Votre adresse mail">
                         </div>
 
                         <div class="col_full">
-                            <input type="text" name="objet" id="guests" required class="form-control required input-lg" placeholder="Objet">
+                            <input type="text" name="objet" id="guests" required class="form-control required input-lg"
+                                   placeholder="Objet">
                         </div>
 
                         <div class="col_full">
-                            <textarea class="form-control input-lg" rows="5" name="message" required placeholder="Votre message"></textarea>
+                            <textarea class="form-control input-lg" rows="5" name="message" required placeholder="Votre message">
+
+                            </textarea>
                         </div>
 
                         <div class="col_full hidden">
@@ -230,7 +258,8 @@
                         </div>
 
                         <div class="col_full nobottommargin">
-                            <button type="submit" name="btn-submit" id="btn-submit" class="button button-3d btn-block nomargin button-dark button-xlarge" value="submit">Submit</button>
+                            <button type="submit" name="btn-submit" id="btn-submit" class="button button-3d btn-block nomargin
+                            button-dark button-xlarge" value="submit">Submit</button>
                         </div>
 
                     </form>
@@ -240,8 +269,6 @@
 
         </div>
 
+        <!--========================================================================= -->
     </div>
-
-</section><!-- #content end -->
-
-<!--========================================================================= -->
+</section>

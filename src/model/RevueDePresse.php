@@ -19,6 +19,25 @@ class RevueDePresse
     private $spectacleId;
     private $journal;
     private $auteur;
+    private $afficher;
+
+    /**
+     * @return mixed
+     */
+    public function getAfficher()
+    {
+        return $this->afficher;
+    }
+
+    /**
+     * @param mixed $afficher
+     * @return RevueDePresse
+     */
+    public function setAfficher($afficher)
+    {
+        $this->afficher = $afficher;
+        return $this;
+    }
 
     /**
      * @return mixed
