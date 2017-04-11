@@ -20,6 +20,10 @@ elseif ($route == 'test') {
     $compagnie = new \air_de_rien\controller\CompagnieController();
     $render = $compagnie->listAll();
 }
+elseif ($route == 'showPersonnage') {
+    $personnage = new \air_de_rien\controller\PersonnageController();
+    $render = $personnage->index();
+}
 elseif ($route == 'addPersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->add();

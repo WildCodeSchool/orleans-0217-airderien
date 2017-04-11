@@ -57,24 +57,34 @@ var_dump($_POST);
     <div class="form-group">
         <label for="nomPersonnage" class="col-sm-2 control-label">Nom :</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" name="nomPersonnage" id="nomPersonnage" placeholder="Nom"
-                   value="<?php echo $value->getNomPersonnage(); ?>" />
+
+<!--            <input type="text" class="form-control" name="nomPersonnage" id="nomPersonnage" placeholder="Nom"-->
+<!--                   value="--><?php //echo $value->getNomPersonnage(); ?><!--" />-->
+
+            <input type="text" class="form-control" name="nomPersonnage" id="nomPersonnage"
+                   placeholder="Nom" value="<?php echo $form->get('nomPersonnage')->getValue(); ?>" />
         </div>
     </div>
 
     <div class="form-group">
         <label for="prenomPersonnage" class="col-sm-2 control-label">Prenom :</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" name="prenomPersonnage" id="prenomPersonnage" placeholder="Prenom"
-                   value="<?php echo $value->getPrenomPersonnage(); ?>" />
+<!--            <input type="text" class="form-control" name="prenomPersonnage" id="prenomPersonnage" placeholder="Prenom"-->
+<!--                   value="--><?php //echo $value->getPrenomPersonnage(); ?><!--" />-->
+
+            <input type="text" class="form-control" name="prenomPersonnage" id="prenomPersonnage"
+                   placeholder="Prenom" value="<?php echo $form->get('prenomPersonnage')->getValue(); ?>" />
         </div>
     </div>
 
     <div class="form-group">
         <label for="nomPersonnage" class="col-sm-2 control-label">Description :</label>
         <div class="col-sm-2">
+<!--            <input type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"-->
+<!--                   placeholder="Description" value="--><?php //echo $value->getNomPersonnage(); ?><!--" />-->
+
             <input type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
-                   placeholder="Description" value="<?php echo $value->getDescriptionPersonnage(); ?>" />
+                   placeholder="Description" value="<?php echo $form->get('descriptionPersonnage')->getValue(); ?>" />
         </div>
     </div>
 
@@ -86,7 +96,7 @@ var_dump($_POST);
 
     <!--    <input type="hidden" name="csrf" value="--><?php //echo $form->get('csrf')->getValue(); ?><!--">-->
 
-        <input type="hidden" name="id" value=" <?php echo $value->getId();?> ">
+<!--        <input type="hidden" name="id" value=" --><?php //echo $value->getId();?><!-- ">-->
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
