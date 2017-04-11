@@ -27,7 +27,7 @@ class SpectacleController extends Controller
         // connection à la bdd
         $db = new DB();
         // requette sql pour récupérer tous les élèves dans un tableau d'objet Spectacle
-        $spectacles = $db -> findAll('spectace');
+        $spectacles = $db -> findAll('spectacle');
         // affichage de la vue HTML
         return $this ->render('spectacle\listAllSpectacle.php',['spectacles'=>$spectacles]);
     }
@@ -36,7 +36,7 @@ class SpectacleController extends Controller
     {
         $db = new DB();
         $spectacle = $db -> findone('spectacle',$id);
-        return $this->render('spectale/showSpectacle.php',['spectacle]'=>$spectacle]);
+        return $this->render('spectacle/showSpectacle.php',['spectacle]'=>$spectacle]);
     }
     public function add()
     {
@@ -51,6 +51,7 @@ class SpectacleController extends Controller
                 echo 'Le Spectacle est validé';
             }
         }
+        var_dump($_POST);
         return $this->render('spectacle/addSpectacle.php',['form'=>$form]);
     }
 

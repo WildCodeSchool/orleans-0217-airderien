@@ -11,20 +11,19 @@ $form->prepare();
 ?>
 <?php /*include '../header.php'; */?>
 
-<form name="formAddSpectacle" method="post" action="showSpectacle.php">
+<form name="formAddSpectacle" method="post" <!--action="addSpectacle.php-->">
     <div class="form-group">
-        <label for="titreSpectacle">Titre</label>
+        <label for="titreSpect">Titre</label>
         <div>
-            <input type="text" class="form-control" name="titreSpectacle" id="titreSpectacle" placeholder="Inscrivez le nom du spectacle"/>
+            <input type="text" class="form-control" name="titreSpect" id="titreSpect" placeholder="Inscrivez le nom du spectacle"/>
         </div>
     </div>
     <div class="form-group">
-        <label for="description_spectacle">Texte de présentation</label>
+        <label for="descriptionSpect">Texte de présentation</label>
         <div>
-            <textarea class="form-control" rows="5" name="descriptionSpectacle" id="descriptionSpectacle" placeholder="Renseignez ici un texte de présentation du spectacle"></textarea>
+            <textarea class="form-control" rows="5" name="descriptionSpect" id="descriptionSpect" placeholder="Renseignez ici un texte de présentation du spectacle"></textarea>
         </div>
     </div>
     <input type="hidden" name="csrf" value="<?= $form->get('csrf')->getValue();?>" />
-    <input class="btn btn-primary" type="submit" value="Valier" name="valider" id="valider" />
+    <input class="btn btn-primary" type="submit" value="Valider" name="valider" id="valider" />
 </form>
-
