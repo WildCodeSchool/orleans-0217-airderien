@@ -147,36 +147,6 @@ p{
 
 
 
-
-/*************************  hub ********************************************************/
-
-.hub1{
-    position:relative; /* absolute */
-    display:block;
-    float:left;
-    border-left:4px solid gray;
-    width:60%;
-    height:100%;
-    overflow:hidden; /* hidden*/
-}
-
-.hub2{
-    position:relative; /* absolute */
-    display:block;
-    width: 40%;
-    max-height: 100%;
-    overflow:hidden; /* hidden*/
-}
-
-.flex-cont{
-    display: flex;
-}
-
-.oo{
-    height: 100%;
-    width: 100%;
-}
-
 /*************************BANNIER ********************************************************/
 
 .revo-slider-desc-text {
