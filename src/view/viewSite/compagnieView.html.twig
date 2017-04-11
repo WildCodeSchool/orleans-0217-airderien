@@ -1,32 +1,33 @@
+{#{{ dump() }}#}
 
 <body class="stretched">
 
-<!-- Document Wrapper
-============================================= -->
+<!--===========================Bannier==================================== -->
+
 <div id="wrapper" class="clearfix">
 
     <section id="slider" class="slider-parallax revslider-wrap full-screen clearfix">
 
-        <!--
-        #################################
-             - THEMEPUNCH BANNER -
-        #################################
-        -->
         <div class="tp-banner-container">
             <div class="tp-banner" >
                 <ul>    <!-- SLIDE  -->
-                    <li class="dark" data-transition="fade" data-slotamount="1" data-masterspeed="1500" data-delay="12000"  data-saveperformance="off">
+                    <li class="dark" data-transition="fade" data-slotamount="1" data-masterspeed="1500"
+                        data-delay="12000"  data-saveperformance="off">
+
                         <!-- MAIN IMAGE -->
-                        <img src="../../../public/images/bg.jpg" alt="kenburns1" data-bgposition="left center" data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="130" data-scaleend="100" data-bgpositionend="right center">
+                        <img src="images/{{ compagnie.lienPhotoCompagnie }}" alt="{{ compagnie.lienPhotoCompagnie }}"
+                             data-bgposition="left center"
+                             data-kenburns="on"
+                             data-duration="12000" data-ease="Linear.easeNone" data-scalestart="130" data-scaleend="100"
+                             data-bgpositionend="right center">
+
                         <!-- LAYERS -->
-
-
-
                         <div class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder"
 
                              data-x="0"
                              data-y="300"
-                             data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.easeOutQuad;"
+                             data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.
+                             easeOutQuad;"
                              data-speed="800"
                              data-start="1200"
                              data-easing="easeOutQuad"
@@ -36,15 +37,14 @@
                              data-endelementdelay="0.1"
                              data-endspeed="1000"
 
-                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; background-color: rgba(0,0,0,0.6); border-radius: 10px;">Comme L'Air De Rien</div>
-
-
-
+                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; background-color: rgba(0,0,0,0.6); border-radius: 10px;">Comme L'Air De Rien
+                        </div>
 
                         <div class="tp-caption customin ltl tp-resizeme"
                              data-x="0"
                              data-y="450"
-                             data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.easeOutQuad;"
+                             data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.
+                             easeOutQuad;"
                              data-speed="800"
                              data-start="1550"
                              data-easing="easeOutQuad"
@@ -53,40 +53,30 @@
                              data-elementdelay="0.01"
                              data-endelementdelay="0.1"
                              data-endspeed="1000"
-                             data-endeasing="Power4.easeIn" style="z-index: 3; background-color: rgba(0,0,0,0.6);"><a href="#titre" class="button button-white button-light button-border button-large button-rounded tright nomargin"><span>Continuer</span> <i class="icon-angle-right"></i></a></div>
-
-
+                             data-endeasing="Power4.easeIn" style="z-index: 3; background-color: rgba(0,0,0,0.6);"><a href="#titre" class="button button-white
+                             button-light button-border button-large button-rounded tright nomargin"><span>Continuer
+                                </span> <i class="icon-angle-right"></i></a></div>
                     </li>
-
-
                 </ul>
             </div>
         </div>
-
     </section>
 </div>
 
-<!-- Header
-    ============================================= -->
+<!--===========================1er nav==================================== -->
+
 <header id="header">
-
     <div id="header-wrap">
-
         <div class="container-fluid clearfix">
-
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-
             <div id="logo">
                 <a href="index.php"> <img src="images/Placeholder+Logo.png"></a> </div>
-
-            <!-- Primary Navigation
-            ============================================= -->
             <nav id="primary-menu" class="style-2 center">
-
                 <ul class="one-page-menu">
                     <li><a href="#" data-href="#most-toppest"><div class="compagnie">La compagnie</div></a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Les spectacles <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Les spectacles <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="index.php?route=Spectacle&id=1">Devine qui vient dîner se soir</a></li>
                             <li><a href="#">Un autre spectacle</a></li>
@@ -94,54 +84,43 @@
                         </ul>
                     </li>
                 </ul>
-
-            </nav><!-- #primary-menu end -->
-
+            </nav>
         </div>
-
     </div>
+</header>
 
-</header><!-- #header end -->
-
+<!--===========================2éme nav==================================== -->
 
 <div id="page-menu">
-
     <div id="page-menu-wrap">
-
         <div class="container-fluid clearfix">
-
             <div class="menu-title">Comme L'Air De Rien</div>
-
             <nav>
                 <ul>
                     <li class="current"><a href="#"><div>Acceuil</div></a></li>
                     <li><a href="#personnages"><div>Nos Membres</div></a></li>
                     <li><a href="#galerie"><div>Galerie Multimedia</div></a></li>
-                    <li><a href="#presse"><div>Le Handicap</div></a></li>
+                    <li><a href="#handicap"><div>La Maladie de ...</div></a></li>
                     <li><a href="#presse"><div>Revue de Presse</div></a></li>
                     <li><a href="#calendrier"><div>Nos Réalisations</div></a></li>
                     <li><a href="#contact"><div>Contact</div></a></li>
                 </ul>
             </nav>
-
             <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
-
         </div>
-
     </div>
-
 </div>
 
-
-<!--===========================Description==================================== -->
+<!--======================================================================== -->
 
 <section id="content">
-
     <div class="content-wrap">
-
-
         <div class="container clearfix">
+
+            <!--===========================Description==================================== -->
+
             <span id="titre"></span>
+
             <div class="heading-block title-center page-section">
                 <h2>Comme L'air De Rien</h2>
                 <span></span>
@@ -149,12 +128,10 @@
 
             <p>{{ compagnie.descriptionCompagnie }}</p>
 
-            <div class="clear"></div>
-            <div class="clear"></div>
-
             <!--==============================Membres==================================== -->
 
             <span id="personnages" class="ancre"></span>
+
             <div class="heading-block title-center page-section">
                 <h2>Nos Membres</h2>
                 <span></span>
@@ -172,8 +149,8 @@
                                 <div class="team-title"><h4>{{ membre.prenomMembre }}</h4><span></span></div>
                                 <div class="team-content">{{ membre.descriptionMembre }}</div>
                                 <div class="line topmargin-sm nobottommargin"></div>
-                                <a href="{{ membre.facebookMembre }}" class="social-icon si-borderless si-small si-facebook"
-                                   title="Facebook">
+                                <a href="{{ membre.facebookMembre }}" class="social-icon si-borderless si-small
+                                si-facebook" title="Facebook">
                                     <i class="icon-facebook"></i>
                                     <i class="icon-facebook"></i>
                                 </a>
@@ -182,8 +159,8 @@
                                     <i class="icon-email3"></i>
                                     <i class="icon-email3"></i>
                                 </a>
-                                <a href="{{ membre.lienMembre }}" target="lien" class="social-icon si-borderless si-small"
-                                   style="width: 150px; color: #1abc9c">
+                                <a href="{{ membre.lienMembre }}" target="lien" class="social-icon si-borderless
+                                si-small" style="width: 150px; color: #1abc9c">
                                     Ma compagnie
                                 </a>
 
@@ -195,12 +172,12 @@
 
             <!--===============================Galerie Photos========================== -->
 
-
-            <div class="clear"></div>
-            <span id="galerie" class="ancre"></span>
             <div class="heading-block center topmargin page-section">
+
+                <span id="galerie" class="ancre"></span>
+
                 <h2>Galerie</h2>
-                <span></span>
+                <span>Photos</span>
             </div>
 
             <div class="fslider flex-thumb-grid grid-12 bottommargin-lg" data-pagi="false" data-arrows="false"
@@ -208,8 +185,8 @@
                 <div class="flexslider">
                     <div class="slider-wrap">
                         {% for media in medias %}
-                            <div class="slide" data-thumb="../public/images/photos/{{ media.lienMedia }}">
-                                <img src="../../public/images/photos/{{ media.lienMedia }}" alt="{{ media.titreMedia }}">
+                            <div class="slide" data-thumb="images/photos/{{ media.lienMedia }}">
+                                <img src="images/photos/{{ media.lienMedia }}" alt="{{ media.titreMedia }}">
                             </div>
                         {% endfor %}
                     </div>
@@ -225,31 +202,32 @@
 
             <div style="display:flex; justify-content: center;">
                 {% for video in videos %}
-                <div class="col_one_third" style="max-width: 180px;">
-                    <div class="feature-box center media-box fbox-bg">
-                        <div class="fbox-desc" style="padding: 5px;">
-                            <a data-toggle="modal" href="#modal-video{{ video.id }}" data-lightbox="inline">
-                                <img src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg" style="height: 180px;"></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade" id="modal-video{{ video.id }}" style="display: none;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer
-                                    <i class="fa fa-times"></i></button>
-                            </div>
-                            <div class="modal-body">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.lienMedia }}"
-                                        frameborder="0" allowfullscreen></iframe>
-
-                                <p>{{ video.titreMedia }}</p>
+                    <div class="col_one_third" style="max-width: 180px;">
+                        <div class="feature-box center media-box fbox-bg">
+                            <div class="fbox-desc" style="padding: 5px;">
+                                <a data-toggle="modal" href="#modal-video{{ video.id }}" data-lightbox="inline">
+                                    <img src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg"
+                                         style="height: 180px;"></a>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                    <div class="modal fade" id="modal-video{{ video.id }}" style="display: none;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer
+                                        <i class="fa fa-times"></i></button>
+                                </div>
+                                <div class="modal-body">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video
+                                    .lienMedia }}" frameborder="0" allowfullscreen></iframe>
+
+                                    <p>{{ video.titreMedia }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
             </div>
 
@@ -262,16 +240,12 @@
                         show_user=true&amp;show_reposts=false"></iframe>
             </div>
 
-
-
             <!--============================Le handicap=================================== -->
 
-            <div id="presse" class="clear"></div>
-
-
-
-
             <div class="heading-block title-center page-section" style="padding-top: 50px;">
+
+                <span id="handicap" class="ancre"></span>
+
                 <h2>Le handicap</h2>
                 <span></span>
             </div>
@@ -279,24 +253,21 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat lacinia massa, vel
                 consectetur massa facilisis in. Maecenas rhoncus, lacus et fringilla pretium, odio libero volutpat leo,
                 at iaculis turpis lacus eget quam. Sed sagittis euismod nulla, ac faucibus nibh pellentesque a. Cras
-                faucibus eget metus eget rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                cubilia Curae; Aliquam bibendum nunc turpis, a hendrerit lacus laoreet id. Duis feugiat, nunc non
+                faucibus eget metus eget rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                posuerecubilia Curae; Aliquam bibendum nunc turpis, a hendrerit lacus laoreet id. Duis feugiat, nunc non
                 eleifend imperdiet, sem quam condimentum sapien, vel vulputate ex tortor quis libero. Fusce eu arcu vel
                 mauris gravida pulvinar non quis enim. Morbi vitae odio ligula. Sed egestas dapibus lorem. Praesent a ex
                 venenatis, ultrices diam sed, varius dui. Fusce finibus metus sed risus suscipit ullamcorper. Maecenas
-                dictum viverra quam eu porttitor. Morbi gravida quam et orci euismod, ac sollicitudin odio sollicitudin.</p>
-
-
-        </div>
-
-
-        <div class="noborder footer-stick topmargin-lg" style=" padding: 80px;" data-stellar-background-ratio="0.3">
+                dictum viverra quam eu porttitor. Morbi gravida quam et orci euismod, ac sollicitudin odio sollicitudin.
+            </p>
 
 
             <!--===========================Revue de Presse================================ -->
 
-            <div class="container clearfix">
+            <div class="noborder footer-stick topmargin-lg" style=" padding: 80px;" data-stellar-background-ratio="0.3">
                 <div class=" nobottommargin">
+
+                    <span id="presse" class="ancre"></span>
 
                     <div class="heading-block title-center nobottomborder" style="margin-top: -60px;">
                         <h2>Revue de Presse</h2>
@@ -321,87 +292,32 @@
                 </div>
             </div>
 
-        <div class="clear"></div>
 
-        <!--======================Calendrier========================================== -->
 
-        <span id="calendrier" class="ancre"></span>
-        <div class=" container clearfix">
+            <!--======================Calendrier========================================== -->
+
             <div class="heading-block title-center topmargin-lg page-section" style="padding-top: 50px;">
+
+                <span id="calendrier" class="ancre"></span>
+
                 <h2>Nos réalisations</h2>
                 <span>Liste de nos évènements</span>
             </div>
             <div class="row">
-            {% for spectacle in spectacles %}
-            <div class="col-md-4 center">
-                <div class="feature-box center media-box fbox-bg">
-                    <div class="fbox-desc">
-                        <h3>{{ spectacle.titreSpect }}<span class="subtitle"><a href="#">
+                {% for spectacle in spectacles %}
+                    <div class="col-md-4 center">
+                        <div class="feature-box center media-box fbox-bg">
+                            <div class="fbox-desc">
+                                <h3>{{ spectacle.titreSpect }}<span class="subtitle"><a href="#">
                                     Plus d'informations</a></span></h3>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-            </div>
-        </div>
 
-
-
-        <!--======================Contact============================================= -->
-
-        <div class="section notopmargin footer-stick">
-            <div class="container clearfix">
-                <span id="contact" class="ancre"></span>
-                <div class="heading-block title-center topmargin page-section">
-                    <h2>Contact</h2>
-                    <span>Envoyez nous un message !</span>
-                </div>
-
-                <div class="contact-widget">
-                    <div class="contact-form-result"></div>
-
-                    <form id="wedding-rsvp-form" action="mailto:team.wcs.cladr@gmail.com" method="post" style="max-width: 700px;"
-                          class="bottommargin-lg divcenter" enctype="text/plain" role="form">
-
-                        <div class="form-process"></div>
-
-                        <div class="col_full">
-                            <input type="text" name="name" id="name" required class="form-control required input-lg"
-                                   placeholder="Votre Nom">
-                        </div>
-
-                        <div class="col_full">
-                            <input type="text" name="email" id="email" required class="form-control required email input-lg"
-                                   placeholder="Votre adresse mail">
-                        </div>
-
-                        <div class="col_full">
-                            <input type="text" name="objet" id="guests" required class="form-control required input-lg"
-                                   placeholder="Objet">
-                        </div>
-
-                        <div class="col_full">
-                            <textarea class="form-control input-lg" rows="5" name="message" required placeholder="Votre message">
-
-                            </textarea>
-                        </div>
-
-                        <div class="col_full hidden">
-                            <input type="text" id="botcheck" name="botcheck" value="" class="form-control" />
-                        </div>
-
-                        <div class="col_full nobottommargin">
-                            <button type="submit" name="btn-submit" id="btn-submit" class="button button-3d btn-block nomargin
-                            button-dark button-xlarge" value="submit">Submit</button>
-                        </div>
-
-                    </form>
-
-                </div>
-            </div>
+            <!--======================================================================== -->
 
         </div>
-
-        <!--========================================================================= -->
     </div>
 </section>
