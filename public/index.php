@@ -26,11 +26,11 @@ elseif ($route == 'showPersonnage') {
 }
 elseif ($route == 'addPersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
-    $render = $personnage->add();
+    $render = $personnage->addPersonnage();
 }
 elseif ($route == 'updatePersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
-    $render = $personnage->updatePersonnage();
+    $render = $personnage->updatePersonnage($_GET['id']);
 }
 elseif ($route == 'deletePersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();

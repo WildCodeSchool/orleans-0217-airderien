@@ -53,38 +53,28 @@ var_dump($_POST);
 </div><!-- #page-menu end -->
 
 
-<form name="addPersoForm" method="post" action="index.php?route=addPersonnage" class="form-horizontal">
+<form name="addPersoForm" method="post" action="index.php?route=<?= $typeAction ?>Personnage" class="form-horizontal">
     <div class="form-group">
         <label for="nomPersonnage" class="col-sm-2 control-label">Nom :</label>
         <div class="col-sm-2">
-
-<!--            <input type="text" class="form-control" name="nomPersonnage" id="nomPersonnage" placeholder="Nom"-->
-<!--                   value="--><?php //echo $value->getNomPersonnage(); ?><!--" />-->
-
             <input type="text" class="form-control" name="nomPersonnage" id="nomPersonnage"
-                   placeholder="Nom" value="<?php echo $form->get('nomPersonnage')->getValue(); ?>" />
+                   placeholder="Nom" value="<?php echo $personnage->getNomPersonnage(); ?>" />
         </div>
     </div>
 
     <div class="form-group">
         <label for="prenomPersonnage" class="col-sm-2 control-label">Prenom :</label>
         <div class="col-sm-2">
-<!--            <input type="text" class="form-control" name="prenomPersonnage" id="prenomPersonnage" placeholder="Prenom"-->
-<!--                   value="--><?php //echo $value->getPrenomPersonnage(); ?><!--" />-->
-
             <input type="text" class="form-control" name="prenomPersonnage" id="prenomPersonnage"
-                   placeholder="Prenom" value="<?php echo $form->get('prenomPersonnage')->getValue(); ?>" />
+                   placeholder="Prenom" value="<?php echo $personnage->getPrenomPersonnage(); ?>" />
         </div>
     </div>
 
     <div class="form-group">
         <label for="nomPersonnage" class="col-sm-2 control-label">Description :</label>
         <div class="col-sm-2">
-<!--            <input type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"-->
-<!--                   placeholder="Description" value="--><?php //echo $value->getNomPersonnage(); ?><!--" />-->
-
             <input type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
-                   placeholder="Description" value="<?php echo $form->get('descriptionPersonnage')->getValue(); ?>" />
+                   placeholder="Description" value="<?php echo $personnage->getDescriptionPersonnage(); ?>" />
         </div>
     </div>
 
@@ -100,7 +90,7 @@ var_dump($_POST);
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" name="Envoyer" value="Envoyer" class="btn btn-default">Envoyer</button>
+            <button type="submit" name="submit" value="submit" class="btn btn-default">Envoyer</button>
         </div>
     </div>
 
@@ -133,7 +123,8 @@ var_dump($_POST);
             <div class="col-lg-4 thumbnail text-center">
                 <h3><?php echo $personnage->getNomPersonnage();?>  <?php echo $personnage->getPrenomPersonnage();?></h3>
                 <p><?php echo $personnage->getDescriptionPersonnage(); ?></p>
-                <form action="index.php?route=updatePersonnage" method="post">
+
+                <form action="index.php?route=updatePersonnage" method="GET">
                     <input type="hidden" name="id" value="<?php echo $personnage->getId(); ?>">
                     <input class="btn btn-warning" type="submit" name="updatePersonnage" value="Modifier">
                 </form>

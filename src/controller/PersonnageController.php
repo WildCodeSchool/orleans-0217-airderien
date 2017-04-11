@@ -30,15 +30,35 @@ class PersonnageController extends Controller
         $form->setInputFilter($filter);
         $requete = new PersonnageRequete();
         $personnages = $requete-> findAll('personnage');
-        return $this->render('admin/PersonnageView.php', ['personnages'=>$personnages,
+        $personnage = new Personnage();
+        return $this->render('admin/PersonnageView.php', ['personnages'=>$personnages,'personnage'=>$personnage,'typeAction'=>'add',
                                                               'form'=>$form]);
     }
 
-    public function add()
+    public function addPersonnage()
     {
-        $add = new PersonnageRequete();
-        $add->addOrUpdate();
-        return $this->index();
+        $requete = new PersonnageRequete();
+        $form = new PersonnageForm();
+        $filter = new PersonnageFilter();
+        $form->setInputFilter($filter);
+
+        $personnages = $requete->findAll('personnage');
+
+        $personnage = new Personnage();
+        if (isset($_POST['submit'])) {
+            $requete->addOrUpdate($_POST);
+            return $this->index();
+//            return $this->render('admin/PersonnageView.php', ['personnages'=>$personnages,
+//                'form'=>$form,
+//                'personnage'=>$personnage,
+//                'typeAction'=>'show']);
+        }
+        return $this->render('admin/PersonnageView.php', ['personnages'=>$personnages,
+            'form'=>$form,
+            'personnage'=>$personnage,
+            'typeAction'=>'add'
+
+        ]);
     }
     public function deletePersonnage()
     {
@@ -46,9 +66,9 @@ class PersonnageController extends Controller
         $del->deletePersonnage();
         return $this->index();
     }
-    public function updatePersonnage()
+    public function updatePersonnage($id)
     {
-        if (isset($_POST['id'])) {
+        if (isset($id)) {
             $form = new PersonnageForm();
             $filter = new PersonnageFilter();
             $form->setInputFilter($filter);
@@ -56,12 +76,12 @@ class PersonnageController extends Controller
             $requete = new PersonnageRequete();
 
             $personnages = $requete->findAll('personnage');
-            $value = $requete->findOne('personnage', $_POST['id']);
+            $personnage = $requete->findOne('personnage', $id);
 
             return $this->render('admin/PersonnageView.php', ['personnages'=>$personnages,
                                                                   'form'=>$form,
-                                                                  'value'=>$value,
-
+                                                                  'personnage'=>$personnage,
+                                                                'typeAction'=>'update'
                                                                     ]);
         }
     }
