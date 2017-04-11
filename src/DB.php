@@ -15,7 +15,7 @@ class DB
     /**
      * @var \PDO
      */
-    private $db;
+    protected $db;
 
     /**
      * DB constructor.

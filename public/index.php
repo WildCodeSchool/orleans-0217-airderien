@@ -19,7 +19,18 @@ $render = $spectacle->showSpectacle($_GET['id']) ;
 elseif ($route == 'test') {
     $compagnie = new \air_de_rien\controller\CompagnieController();
     $render = $compagnie->listAll();
-
+}
+elseif ($route == 'addPersonnage') {
+    $personnage = new \air_de_rien\controller\PersonnageController();
+    $render = $personnage->add();
+}
+elseif ($route == 'updatePersonnage') {
+    $personnage = new \air_de_rien\controller\PersonnageController();
+    $render = $personnage->updatePersonnage();
+}
+elseif ($route == 'deletePersonnage') {
+    $personnage = new \air_de_rien\controller\PersonnageController();
+    $render = $personnage->deletePersonnage();
 }
 
 
