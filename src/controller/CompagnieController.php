@@ -16,18 +16,18 @@ class CompagnieController extends Controller
     /**
      * @return string
      */
-    public function listAll () {
+    public function pageCompagnie () {
         $db = new DB();
         $compagnieRequete = new CompagnieRequete();
 
         $compagnie = $db->findOne('compagnie',1);
         $membres = $db->findAll('membre');
         $spectacle = $db->findAll('spectacle');
-        $galerie = $compagnieRequete->findAllMedia('media','photo');
-        $video = $compagnieRequete->findAllMedia('media','video');
+        $galerie = $compagnieRequete->findAllMediaCompagnie('media','photo');
+        $video = $compagnieRequete->findAllMediaCompagnie('media','video');
         $revue = $compagnieRequete->findAllPresse('revueDePresse');
         return $this->getTwig()
-                    ->render('maquette-compagnieV2.html.twig',
+                    ->render('viewSite/compagnieView.html.twig',
                              ['compagnie'=> $compagnie,
                               'membres' => $membres,
                               'medias'  => $galerie,

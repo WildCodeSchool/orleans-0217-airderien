@@ -176,3 +176,18 @@ p{
     height: 100%;
     width: 100%;
 }
+
+/*************************BANNIER ********************************************************/
+
+.revo-slider-desc-text {
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    width: 650px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+
+
+
+.tp-caption { white-space: nowrap; }

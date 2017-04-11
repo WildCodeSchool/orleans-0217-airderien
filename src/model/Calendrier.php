@@ -16,6 +16,7 @@ class Calendrier
     private $lieuSpectacle;
     private $dateSpectacle;
     private $spectacleId;
+    private $dateformat;
 
     /**
      * @return mixed
@@ -23,6 +24,24 @@ class Calendrier
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateformat()
+    {
+        return $dateformat = $this->datePropre();
+    }
+
+    /**
+     * @param mixed $dateformat
+     * @return Calendrier
+     */
+    public function setDateformat($dateformat)
+    {
+        $this->dateformat = $dateformat;
+        return $this;
     }
 
     /**

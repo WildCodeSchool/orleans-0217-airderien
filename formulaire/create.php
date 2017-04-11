@@ -14,7 +14,7 @@ $journal= $_POST['journal'];
 $auteur= $_POST['auteur'];
 $dateArticle= $_POST['date_article'];
 
-$req1 = $db -> exec("INSERT INTO spectacle (titre_spect,description_spect,photo_spect) VALUES ('$titreSpect','$descriptionSpect','$photoSpect')");
+$req1 = $db -> exec("INSERT INTO viewSite (titre_spect,description_spect,photo_spect) VALUES ('$titreSpect','$descriptionSpect','$photoSpect')");
 $req2 = $db -> exec("INSERT INTO revue_de_presse (titre_article,texte_article,journal,auteur,date_article) VALUES ('$titreArticle','$texteArticle','$journal','$auteur','$dateArticle')");
 
 header('location:index.php');

@@ -22,7 +22,7 @@ class CompagnieRequete extends DB
      * @param $id
      * @return mixed
      */
-    public function findAllMedia($table, $genre) {
+    public function findAllMediaCompagnie($table, $genre) {
         $req = "SELECT * FROM $table WHERE genre='$genre' AND affectation=1 ";
         $prep = $this->getDb()->prepare($req);
 
@@ -47,6 +47,16 @@ class CompagnieRequete extends DB
 
         $res = $prep->fetchAll(\PDO::FETCH_CLASS, __NAMESPACE__ . '\\'.ucfirst($table));
         return $res;
+    }
+
+    public function findCompagnie() {
+        $req = "SELECT * FROM compagnie WHERE id=1";
+        $prep = $this->getDb()->prepare($req);
+
+        $prep->execute();
+
+        $res = $prep->fetchAll(\PDO::FETCH_CLASS, __NAMESPACE__ . '\\'.ucfirst('compagnie'));
+        return $res[0];
     }
 
 }

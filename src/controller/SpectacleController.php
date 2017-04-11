@@ -2,7 +2,7 @@
 
 namespace air_de_rien\controller;
 
-use air_de_rien\DB;
+use air_de_rien\model\DB;
 
 class SpectacleController extends Controller
 {
@@ -15,21 +15,21 @@ class SpectacleController extends Controller
         // connection à la bdd
         $db = new DB();
         // requete sql pour récupérer tous les spectacles dans un tableau d'objets Spectacle
-        $spectacles = $db -> findAll('spectacle');
+        $spectacles = $db -> findAll('viewSite');
         // affichage de la vue HTML
-        return $this->render('spectacle/spectacleView.php', ['spectacles'=>$spectacles]);
+        return $this->render('viewSite/spectacleView.html.twig', ['spectacles'=>$spectacles]);
     }
 
     /**
-     * récupération de spectacle correspondant à l'id $id et affichage des informations de ce spectacle uniquement
+     * récupération de viewSite correspondant à l'id $id et affichage des informations de ce viewSite uniquement
      * @param $id
      * @return string
      */
     public function show($id)
     {
         $db = new DB();
-        $spectacle = $db -> findOne('spectacle', $id);
-        return $this->render('spectacle/spectacleView.php', ['spectacle'=>$spectacle]);
+        $spectacle = $db -> findOne('viewSite', $id);
+        return $this->render('viewSite/spectacleView.html.twig', ['viewSite'=>$spectacle]);
 
     }
 }

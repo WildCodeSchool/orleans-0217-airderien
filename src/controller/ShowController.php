@@ -2,12 +2,12 @@
 
 namespace air_de_rien\controller;
 
-use air_de_rien\DB;
+use air_de_rien\model\DB;
 
 class ShowController extends Controller
 {
     /**
-     * récupération de spectacle correspondant à l'id $id et affichage des informations de ce spectacle uniquement
+     * récupération de viewSite correspondant à l'id $id et affichage des informations de ce viewSite uniquement
      * @param $id
      * @return string
      */
@@ -22,7 +22,8 @@ class ShowController extends Controller
         $sons = $db -> findAllMedia('media', 'son', $id);
         $dates = $db -> findAllSpect('calendrier', $id);
         $articles = $db -> findAllSpect('revueDePresse', $id);
-        return $this->render('spectacle/spectacleView.php', ['spectacle'=>$spectacle,
+        return $this->getTwig()
+                    ->render('viewSite/spectacleView.html.twig', ['spectacles'=>$spectacle,
                                                              'personnages'=>$personnages,
                                                              'membres'=>$membres,
                                                              'photos'=>$photos,

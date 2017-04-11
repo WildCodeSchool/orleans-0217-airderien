@@ -1,9 +1,3 @@
-<?php
-include 'connect.php';
-$pdo = new PDO(DSN, USER, PASS);
-?>
-
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
@@ -25,10 +19,11 @@ $pdo = new PDO(DSN, USER, PASS);
     <link href="https://fonts.googleapis.com/css?family=Boogaloo|Gloria+Hallelujah|Indie+Flower|Oxygen" rel="stylesheet">
    
     <link rel="stylesheet" type="text/css" href="../public/css/font-awesome.min.css">
+    
+
     <link rel="stylesheet" href="../public/css/responsive.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../public/css/user.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/compagnie.css">
-
+    <link rel="stylesheet" type="text/css" href="../public/css/spectacle.css">
 
 
     <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
@@ -70,7 +65,7 @@ $pdo = new PDO(DSN, USER, PASS);
 
 </head>
 
-<body class="stretched">
+<body class="stretched ">
 
 <!-- Document Wrapper
 ============================================= -->
@@ -88,7 +83,7 @@ $pdo = new PDO(DSN, USER, PASS);
                 <ul>    <!-- SLIDE  -->
                     <li class="dark" data-transition="fade" data-slotamount="1" data-masterspeed="1500" data-delay="12000"  data-saveperformance="off">
                         <!-- MAIN IMAGE -->
-                        <img src="../public/images/bg.jpg" alt="kenburns1"  data-bgposition="left center" data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="130" data-scaleend="100" data-bgpositionend="right center">
+                        <img src="../public/images/bg2.jpg"  alt="kenburns1"  data-bgposition="left center" data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="130" data-scaleend="100" data-bgpositionend="right center">
                         <!-- LAYERS -->
 
 
@@ -106,14 +101,10 @@ $pdo = new PDO(DSN, USER, PASS);
                              data-elementdelay="0.01"
                              data-endelementdelay="0.1"
                              data-endspeed="1000"
+                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; background-color: rgba(0,0,0,0.6); border-radius: 10px;">Devine qui vient diner ce soir</div>
 
-                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; background-color: rgba(0,0,0,0.6); border-radius: 10px;">Comme L'Air De Rien</div>
-
-
-                        
-
-                        <div class="tp-caption customin ltl tp-resizeme"
-                             data-x="0"
+                             <div class="tp-caption customin ltl tp-resizeme"
+                             data-x="500"
                              data-y="450"
                              data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.easeOutQuad;"
                              data-speed="800"
@@ -140,20 +131,13 @@ $pdo = new PDO(DSN, USER, PASS);
 <!-- Header
     ============================================= -->
 <header id="header">
-
     <div id="header-wrap">
-
         <div class="container-fluid clearfix">
-
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+            <div id="logo"> <a href=""> <img src="../public/images/Placeholder+Logo.png" ></a> </div>
 
-            <div id="logo">
-                <a href="../public/hub2.html.twig"> <img src="../public/images/Placeholder+Logo.png" href="hub2.html"></a> </div>
-
-            <!-- Primary Navigation
-            ============================================= -->
+            <!-- Primary Navigation ============================================= -->
             <nav id="primary-menu" class="style-2 center">
-
                 <ul class="one-page-menu">
                     <li><a href="#" data-href="#most-toppest"><div class="compagnie">La compagnie</div></a></li>
                     <li class="dropdown">
@@ -165,14 +149,10 @@ $pdo = new PDO(DSN, USER, PASS);
                         </ul>
                     </li>
                 </ul>
-
             </nav><!-- #primary-menu end -->
-
         </div>
-
     </div>
-
-</header><!-- #header end -->
+</header>
 
 
 <div id="page-menu">
@@ -181,17 +161,16 @@ $pdo = new PDO(DSN, USER, PASS);
 
         <div class="container-fluid clearfix">
 
-            <div class="menu-title">Comme L'Air De Rien</div>
+            <div class="menu-title">Devine qui vient dîner ce soir</div>
 
             <nav>
                 <ul>
-                    <li class="current"><a href="#"><div>Acceuil</div></a></li>
-                    <li><a href="#personnages"><div>Nos Membres</div></a></li>
-                    <li><a href="#galerie"><div>Galerie Multimedia</div></a></li>
-                    <li><a href="#presse"><div>Le Handicap</div></a></li>
-                    <li><a href="#presse"><div>Revue de Presse</div></a></li>
-                    <li><a href="#calendrier"><div>Nos Réalisations</div></a></li>
-                    <li><a href="#contact"><div>Contact</div></a></li>
+                    <li class="content"><a  href="#" data-href="#"><div>Acceuil</div></a></li>
+                    <li><a href="#" data-href="#personnages"><div>Les Personnages</div></a></li>
+                    <li><a href="#" data-href="#galerie"><div>Galerie Multimedia</div></a></li>
+                    <li><a href="#" data-href="#calendrier"><div>Notre Calendrier</div></a></li>
+                    <li><a href="#" data-href="#presse"><div>Revue de Presse</div></a></li>
+                    <li><a href="#" data-href="#contact"><div>Contact</div></a></li>
                 </ul>
             </nav>
 
@@ -210,172 +189,112 @@ $pdo = new PDO(DSN, USER, PASS);
 
     <div class="content-wrap">
 
-
         <div class="container clearfix">
             <span id="titre"></span>
             <div class="heading-block title-center page-section">
-                <h2>Comme L'air De Rien</h2>
+                <h2><?/*$viewSite->getTitreSpec()*/?></h2>
                 <span></span>
             </div>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat lacinia massa, vel consectetur massa facilisis in. Maecenas rhoncus, lacus et fringilla pretium, odio libero volutpat leo, at iaculis turpis lacus eget quam. Sed sagittis euismod nulla, ac faucibus nibh pellentesque a. Cras faucibus eget metus eget rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam bibendum nunc turpis, a hendrerit lacus laoreet id. Duis feugiat, nunc non eleifend imperdiet, sem quam condimentum sapien, vel vulputate ex tortor quis libero. Fusce eu arcu vel mauris gravida pulvinar non quis enim. Morbi vitae odio ligula. Sed egestas dapibus lorem. Praesent a ex venenatis, ultrices diam sed, varius dui. Fusce finibus metus sed risus suscipit ullamcorper. Maecenas dictum viverra quam eu porttitor. Morbi gravida quam et orci euismod, ac sollicitudin odio sollicitudin.</p>
+            <p class="bottommargin">Dans un vignoble réputé sur la cote bourguignonne,un événement se prépare
+
+                Simon ,le fils de la maison est amoureux, il a hâte de présenter l'élue de son coeur à sa famille,la jolie Angelina
+
+                Mais sa mère,l' intransigeante Alix a d autres projets pour lui.elle pense que Claire,son bras droit,ex fiancée de Simon est la femme idéale pour le seconder à la tête du domaine familial .
+
+                Simon déterminé organise un diner auquel il convie ses futurs beaux parents,mais rien ne se passe comme prévu
+
+                Angelo, père hyperprotecteur veut garder sa fille adorée pour lui,et ne cache pas sa désapprobation .Sa femme, la compréhensive Claudia aura forte a faire pour le raisonner,et apaiser les tensions de cette journée.Sans compter que Claire mettra tout en œuvre pour le reconquérir pour enfin devenir la maitresse des lieux.Heureusement il peut compter sur sa soeur Camille , et sur sa tante ,Juliette pour l'aider à surmonter l' atmosphère étouffante de ce rendez-vous familial.</p>
 
             <div class="clear"></div>
             <div class="clear"></div>
-
             <span id="personnages" class="ancre"></span>
             <div class="heading-block title-center page-section">
-                <h2>Nos Membres</h2>
+                <h2>Nos Personnages</h2>
                 <span></span>
             </div>
 
             <div class="row">
-                <div class="col-md-6 bottommargin" style="min-height: 260px;">
+                <div class="col-md-6 bottommargin" style="min-height: 230px;">
                     <div class="team team-list clearfix">
                         <div class="team-image" style="width: 25%;">
                             <img class="img-circle" src="../public/images/photos/sophie.jpg" alt="Sophie">
                         </div>
                         <div class="team-desc">
-                            <div class="team-title"><h4>Prénom Nom</h4><span></span></div>
-                            <div class="team-content">Fusce sit amet viverra justo. Pellentesque convallis eget nisi quis ultrices. Etiam iaculis quis nulla a molestie. Etiam ex purus, commodo vitae sem in, lacinia efficitur nulla. Curabitur ullamcorper lobortis enim a gravida. Maecenas orci dui, hendrerit nec lacinia ac, varius non metus. Nam dapibus neque ligula, ut lobortis leo aliquam aliquam.</div>
+                            <div class="team-title"><h4>Alix</h4><span>(Sophie)</span></div>
+                            <div class="team-content">Mère de Simon et Camille,sœur de Juliette.
+                                Droite,conformiste,elle a consacré sa vie au domaine viticole familial,et laissé de côté sa vie de femme après son divorce.
+                                Présidente,directrice générale,elle veut tout maîtriser,le domaine et la vie de son entourage</div>
                             <div class="line topmargin-sm nobottommargin"></div>
-                            <a href="#" class="social-icon si-borderless si-small si-facebook" title="Facebook">
-                                    <i class="icon-facebook"></i>
-                                    <i class="icon-facebook"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-small si-email3" title="Email">
-                                    <i class="icon-email3"></i>
-                                    <i class="icon-email3"></i>
-                                </a>
-                                <a href="http://compagnie-du-petit-matin.fr/" target="lien" class="social-icon si-borderless si-small" style="width: 150px; color: #1abc9c">
-                                    Ma compagnie
-                                </a>
-                                
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 bottommargin" style="min-height: 260px;">
+                <div class="col-md-6 bottommargin" style="min-height: 230px;">
                     <div class="team team-list clearfix">
                         <div class="team-image" style="width: 25%;">
                             <img class="img-circle" src="../public/images/photos/nath.jpg" alt="Nathalie">
                         </div>
-                       <div class="team-desc">
-                            <div class="team-title"><h4>Prénom Nom</h4><span></span></div>
-                            <div class="team-content">Fusce sit amet viverra justo. Pellentesque convallis eget nisi quis ultrices. Etiam iaculis quis nulla a molestie. Etiam ex purus, commodo vitae sem in, lacinia efficitur nulla. Curabitur ullamcorper lobortis enim a gravida. Maecenas orci dui, hendrerit nec lacinia ac, varius non metus. Nam dapibus neque ligula, ut lobortis leo aliquam aliquam.</div>
+                        <div class="team-desc">
+                            <div class="team-title"><h4>Juliette</h4><span>(Nathalie E)</span></div>
+                            <div class="team-content">Sœur d' Alix,artiste peintre.Elle a élevé ses neveux et les considèrent comme les enfants quelle n' à jamais eus.</div>
                             <div class="line topmargin-sm nobottommargin"></div>
-                            <a href="#" class="social-icon si-borderless si-small si-facebook" title="Facebook">
-                                    <i class="icon-facebook"></i>
-                                    <i class="icon-facebook"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-small si-email3" title="Email">
-                                    <i class="icon-email3"></i>
-                                    <i class="icon-email3"></i>
-                                </a>
-                                <a href="http://compagnie-du-petit-matin.fr/" target="lien" class="social-icon si-borderless si-small" style="width: 150px; color: #1abc9c">
-                                    Ma compagnie
-                                </a>
-                                
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 bottommargin" style="min-height: 260px;">
+                <div class="col-md-6 bottommargin" style="min-height: 230px;">
                     <div class="team team-list clearfix">
                         <div class="team-image" style="width: 25%;">
                             <img class="img-circle" src="../public/images/photos/stephane.jpg" alt="Stéphane">
                         </div>
                         <div class="team-desc">
-                            <div class="team-title"><h4>Prénom Nom</h4><span></span></div>
-                            <div class="team-content">Fusce sit amet viverra justo. Pellentesque convallis eget nisi quis ultrices. Etiam iaculis quis nulla a molestie. Etiam ex purus, commodo vitae sem in, lacinia efficitur nulla. Curabitur ullamcorper lobortis enim a gravida. Maecenas orci dui, hendrerit nec lacinia ac, varius non metus. Nam dapibus neque ligula, ut lobortis leo aliquam aliquam.</div>
+                            <div class="team-title"><h4>Simon</h4><span>(Stéphane)</span></div>
+                            <div class="team-content">Fils d' Alix.A fait de brillantes études, ,il est la fierté de sa mère.
+                                Directeur commercial dans l' entreprise,il vient de rencontrer l' amour de sa vie Angelina.Mais son choix contrarie fortement sa mère.</div>
                             <div class="line topmargin-sm nobottommargin"></div>
-                            <a href="#" class="social-icon si-borderless si-small si-facebook" title="Facebook">
-                                    <i class="icon-facebook"></i>
-                                    <i class="icon-facebook"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-small si-email3" title="Email">
-                                    <i class="icon-email3"></i>
-                                    <i class="icon-email3"></i>
-                                </a>
-                                <a href="http://compagnie-du-petit-matin.fr/" target="lien" class="social-icon si-borderless si-small" style="width: 150px; color: #1abc9c">
-                                    Ma compagnie
-                                </a>
-                                
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 bottommargin" style="min-height: 260px;">
+                <div class="col-md-6 bottommargin" style="min-height: 230px;">
                     <div class="team team-list clearfix">
                         <div class="team-image" style="width: 25%;">
                             <img class="img-circle" src="../public/images/photos/karine.jpg" alt="Karine">
                         </div>
                         <div class="team-desc">
-                            <div class="team-title"><h4>Prénom Nom</h4><span></span></div>
-                            <div class="team-content">Fusce sit amet viverra justo. Pellentesque convallis eget nisi quis ultrices. Etiam iaculis quis nulla a molestie. Etiam ex purus, commodo vitae sem in, lacinia efficitur nulla. Curabitur ullamcorper lobortis enim a gravida. Maecenas orci dui, hendrerit nec lacinia ac, varius non metus. Nam dapibus neque ligula, ut lobortis leo aliquam aliquam.</div>
+                            <div class="team-title"><h4>Camille</h4><span>(Karine)</span></div>
+                            <div class="team-content">Fille d' Alix,rebelle en conflit permanent avec sa mère,elle part retrouver son père à San Francisco pour y effectuer un stage dans un grand chais californien.
+                                Très complice avec son frère et sa tante ,elle travaille à la vinification,elle est le nez du domaine.</div>
                             <div class="line topmargin-sm nobottommargin"></div>
-                            <a href="#" class="social-icon si-borderless si-small si-facebook" title="Facebook">
-                                    <i class="icon-facebook"></i>
-                                    <i class="icon-facebook"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-small si-email3" title="Email">
-                                    <i class="icon-email3"></i>
-                                    <i class="icon-email3"></i>
-                                </a>
-                                <a href="http://compagnie-du-petit-matin.fr/" target="lien" class="social-icon si-borderless si-small" style="width: 150px; color: #1abc9c">
-                                    Ma compagnie
-                                </a>
-                                
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 bottommargin" style="min-height: 260px;">
+                <div class="col-md-6 bottommargin" style="min-height: 230px;">
                     <div class="team team-list clearfix">
                         <div class="team-image" style="width: 25%;">
                             <img class="img-circle" src="../public/images/photos/karine.jpg" alt="Karine">
                         </div>
                         <div class="team-desc">
-                            <div class="team-title"><h4>Prénom Nom</h4><span></span></div>
-                            <div class="team-content">Fusce sit amet viverra justo. Pellentesque convallis eget nisi quis ultrices. Etiam iaculis quis nulla a molestie. Etiam ex purus, commodo vitae sem in, lacinia efficitur nulla. Curabitur ullamcorper lobortis enim a gravida. Maecenas orci dui, hendrerit nec lacinia ac, varius non metus. Nam dapibus neque ligula, ut lobortis leo aliquam aliquam.</div>
+                            <div class="team-title"><h4>Camille</h4><span>(Karine)</span></div>
+                            <div class="team-content">Fille d' Alix,rebelle en conflit permanent avec sa mère,elle part retrouver son père à San Francisco pour y effectuer un stage dans un grand chais californien.
+                                Très complice avec son frère et sa tante ,elle travaille à la vinification,elle est le nez du domaine.</div>
                             <div class="line topmargin-sm nobottommargin"></div>
-                            <a href="#" class="social-icon si-borderless si-small si-facebook" title="Facebook">
-                                    <i class="icon-facebook"></i>
-                                    <i class="icon-facebook"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-small si-email3" title="Email">
-                                    <i class="icon-email3"></i>
-                                    <i class="icon-email3"></i>
-                                </a>
-                                <a href="http://compagnie-du-petit-matin.fr/" target="lien" class="social-icon si-borderless si-small" style="width: 150px; color: #1abc9c">
-                                    Ma compagnie
-                                </a>
-                                
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 bottommargin" style="min-height: 260px;">
+                <div class="col-md-6 bottommargin" style="min-height: 230px;">
                     <div class="team team-list clearfix">
                         <div class="team-image" style="width: 25%;">
                             <img class="img-circle" src="../public/images/photos/karine.jpg" alt="Karine">
                         </div>
                         <div class="team-desc">
-                            <div class="team-title"><h4>Prénom Nom</h4><span></span></div>
-                            <div class="team-content">Fusce sit amet viverra justo. Pellentesque convallis eget nisi quis ultrices. Etiam iaculis quis nulla a molestie. Etiam ex purus, commodo vitae sem in, lacinia efficitur nulla. Curabitur ullamcorper lobortis enim a gravida. Maecenas orci dui, hendrerit nec lacinia ac, varius non metus. Nam dapibus neque ligula, ut lobortis leo aliquam aliquam.</div>
+                            <div class="team-title"><h4>Camille</h4><span>(Karine)</span></div>
+                            <div class="team-content">Fille d' Alix,rebelle en conflit permanent avec sa mère,elle part retrouver son père à San Francisco pour y effectuer un stage dans un grand chais californien.
+                                Très complice avec son frère et sa tante ,elle travaille à la vinification,elle est le nez du domaine.</div>
                             <div class="line topmargin-sm nobottommargin"></div>
-                            <a href="#" class="social-icon si-borderless si-small si-facebook" title="Facebook">
-                                    <i class="icon-facebook"></i>
-                                    <i class="icon-facebook"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-small si-email3" title="Email">
-                                    <i class="icon-email3"></i>
-                                    <i class="icon-email3"></i>
-                                </a>
-                                <a href="http://compagnie-du-petit-matin.fr/" target="lien" class="social-icon si-borderless si-small" style="width: 150px; color: #1abc9c">
-                                    Ma compagnie
-                                </a>
-                                
                         </div>
                     </div>
                 </div>
@@ -385,7 +304,7 @@ $pdo = new PDO(DSN, USER, PASS);
             <span id="galerie" class="ancre"></span>
             <div class="heading-block center topmargin page-section">
                 <h2>Galerie</h2>
-                <span></span>
+                <span>Nos photos</span>
             </div>
 
             <div class="fslider flex-thumb-grid grid-12 bottommargin-lg" data-pagi="false" data-arrows="false" data-thumbs="true">
@@ -393,13 +312,14 @@ $pdo = new PDO(DSN, USER, PASS);
                     <div class="slider-wrap">
                         <div class="slide" data-thumb="../public/images/photos/groupe1.jpg"><img src="../public/images/photos/groupe1.jpg" alt="Image"></div>
                         <div class="slide" data-thumb="../public/images/photos/sophie+nadine2.jpg"><img src="../public/images/photos/sophie+nadine2.jpg" alt="Image"></div>
-                        <div class="slide" data-thumb="../public/images/photos/nadine_so_jerome2%20.jpg"><img src="../public/images/photos/nadine_so_jerome2%20.jpg" alt="Image"></div>
+                        <div class="slide" data-thumb=".../public/images/photos/nadine_so_jerome2.jpg"><img src="../public/images/photos/nadine_so_jerome2%20.jpg" alt="Image"></div>
                         <div class="slide" data-thumb="../public/images/photos/so+stephane2.jpg"><img src="../public/images/photos/so+stephane2.jpg" alt="Image"></div>
                         <div class="slide" data-thumb="../public/images/photos/sophie+nath.jpg"><img src="../public/images/photos/sophie+nath.jpg" alt="Image"></div>
                         <div class="slide" data-thumb="../public/images/photos/trio2.jpg"><img src="../public/images/photos/trio2.jpg" alt="Image"></div>
                     </div>
                 </div>
             </div>
+
 
             <div class="heading-block title-center topmargin-lg page-section">
                 <h2></h2>
@@ -447,7 +367,7 @@ $pdo = new PDO(DSN, USER, PASS);
                             </div>
                             <div class="modal-body">
                                 <!--<iframe width="570" height="360" src="//www.youtube.com/embed/GShZUiyqEH0?rel=0?wmode=transparent&amp;fs=1&amp;rel=0&amp;enablejsapi=1&amp;version=3" frameborder="0" allowfullscreen=""></iframe>-->
-                                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0" allowfullscreen></iframe>
 
                                 <p>Titre vidéo</p>
                             </div>
@@ -472,8 +392,8 @@ $pdo = new PDO(DSN, USER, PASS);
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer <i class="fa fa-times"></i></button>
                             </div>
                             <div class="modal-body">
-
-                                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                                
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/Jc-2VY_TDYQ" frameborder="0" allowfullscreen></iframe>
 
                                 <p>Titre vidéo</p>
                             </div>
@@ -482,24 +402,48 @@ $pdo = new PDO(DSN, USER, PASS);
                 </div>
             </div>
 
+
+
+            <div class="heading-block title-center topmargin-lg page-section">
+                <h2></h2>
+                <span>Notre musique</span>
+            </div>
+
             <div>
             <iframe id="soundcloud" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/3452858&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
             </div>
 
-
-
-            <div id="presse" class="clear"></div>
-
-        
-
-
-            <div class="heading-block title-center page-section" style="padding-top: 50px;">
-                <h2>Le handicap</h2>
-                <span></span>
+            <span id="calendrier" class="ancre"></span>
+            <div class="heading-block title-center topmargin-lg page-section" >
+                <h2>Calendrier</h2>
+                <span>Liste de nos évènements</span>
             </div>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat lacinia massa, vel consectetur massa facilisis in. Maecenas rhoncus, lacus et fringilla pretium, odio libero volutpat leo, at iaculis turpis lacus eget quam. Sed sagittis euismod nulla, ac faucibus nibh pellentesque a. Cras faucibus eget metus eget rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam bibendum nunc turpis, a hendrerit lacus laoreet id. Duis feugiat, nunc non eleifend imperdiet, sem quam condimentum sapien, vel vulputate ex tortor quis libero. Fusce eu arcu vel mauris gravida pulvinar non quis enim. Morbi vitae odio ligula. Sed egestas dapibus lorem. Praesent a ex venenatis, ultrices diam sed, varius dui. Fusce finibus metus sed risus suscipit ullamcorper. Maecenas dictum viverra quam eu porttitor. Morbi gravida quam et orci euismod, ac sollicitudin odio sollicitudin.</p>
+            <div class="col_one_third">
+                <div class="feature-box center media-box fbox-bg">
+                    <div class="fbox-desc">
+                        <h3>11 Février 2017<span class="subtitle">Dijon, CDN Théâtre Dijon Bourgogne</span></h3>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col_one_third">
+                <div class="feature-box center media-box fbox-bg">
+                    <div class="fbox-desc">
+                        <h3>20 Mars<span class="subtitle">Théâtre d'Orléans, Boulevard Aristide Briand</span></h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col_one_third col_last">
+                <div class="feature-box center media-box fbox-bg">
+                    <div class="fbox-desc">
+                        <h3>20 Mars<span class="subtitle">Théâtre d'Orléans, Boulevard Aristide Briand</span></h3>
+                    </div>
+                </div>
+            </div>
+
+            <div id="presse" class="clear"></div>
 
         </div>
 
@@ -537,43 +481,6 @@ $pdo = new PDO(DSN, USER, PASS);
                 </div>
             </div>
         </div>
-
-        <div class="clear"></div>
-
-        <span id="calendrier" class="ancre"></span>
-            <div class=" container clearfix">
-        <div class="heading-block title-center topmargin-lg page-section" style="padding-top: 50px;">
-            <h2>Nos réalisations</h2>
-            <span>Liste de nos évènements</span>
-        </div>
-
-        <div class="col_one_third">
-            <div class="feature-box center media-box fbox-bg">
-                <div class="fbox-desc">
-                    <h3>Devine qui vient dîner ce soir<span class="subtitle"><a href="../maquette/maquette-test.html">Plus d'informations</a></span></h3>
-                </div>
-            </div>
-        </div>
-
-        <div class="col_one_third">
-            <div class="feature-box center media-box fbox-bg">
-                <div class="fbox-desc">
-                    <h3>Devine qui vient dîner ce soir<span class="subtitle"><a href="#">Plus d'informations</a></span></h3>
-                </div>
-            </div>
-        </div>
-
-        <div class="col_one_third col_last">
-            <div class="feature-box center media-box fbox-bg">
-                <div class="fbox-desc">
-                    <h3>Devine qui vient dîner ce soir<span class="subtitle"><a href="">Plus d'informations</a></span></h3>
-                </div>
-            </div>
-        </div>
-            </div>
-
-
-
 
 
         <div class="section notopmargin footer-stick">
@@ -632,7 +539,7 @@ $pdo = new PDO(DSN, USER, PASS);
     ============================================= -->
 <footer id="footer" class="dark">
 
-    <div class="container-fluid">
+    <div class="container-fluid pti-footer">
 
         <!-- Footer Widgets
         ============================================= -->
@@ -641,7 +548,7 @@ $pdo = new PDO(DSN, USER, PASS);
                 <div class="col-md-3 col-md-offset-2">
                     <div class="heading-block center nobottommargin">
                         <h2>airderien@mail.com <strong>06.06.06.06.06</strong></h2>
-                        <img src="../img/Placeholder+Logo.png"/>
+                        <img src="../public/images/Placeholder+Logo.png"/>
                     </div>
                 </div>
                 <div class="col-md-4 col-md-offset-2">
@@ -685,7 +592,7 @@ $pdo = new PDO(DSN, USER, PASS);
                     </a>
 
                     <a href="#" class="social-icon si-borderless">
-                        <img src="../img/logo_nb_pastille.png" onmouseover="this.src='../img/logo_orange_pastille.png'" onmouseout="this.src='../img/logo_nb_pastille.png'" />
+                        <img src="../public/images/logo_nb_pastille.png" onmouseover="this.src='../img/logo_orange_pastille.png'" onmouseout="this.src='../public/images/logo_nb_pastille.png'" />
                     </a>
 
                 </div>
@@ -730,7 +637,7 @@ $pdo = new PDO(DSN, USER, PASS);
 <script type="text/javascript" src="../public/include/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
 <script type="text/javascript" src="../public/include/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
 <script type="text/javascript" src="../public/include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
-<script type="text/javascript" src="../js/script.js"></script>
+<script type="text/javascript" src="../public/js/script.js"></script>
 
 
 </body>

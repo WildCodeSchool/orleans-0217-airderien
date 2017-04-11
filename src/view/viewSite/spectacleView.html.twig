@@ -1,4 +1,4 @@
-
+{#{{ dump() }}#}
 
 <body class="stretched ">
 
@@ -18,8 +18,11 @@
                 <ul>    <!-- SLIDE  -->
                     <li class="dark" data-transition="fade" data-slotamount="1" data-masterspeed="1500" data-delay="12000"  data-saveperformance="off">
                         <!-- MAIN IMAGE -->
-                        <img src="../public/images/<?=$spectacle->getPhotoSpect()?>"  alt="kenburns1"  data-bgposition="left center" data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="130" data-scaleend="100" data-bgpositionend="right center">
+                        <img src="images/{{ spectacles.photoSpect }}"
+                             alt="kenburns1"
+                             data-bgposition="left center" data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="130" data-scaleend="100" data-bgpositionend="right center">
                         <!-- LAYERS -->
+
 
 
 
@@ -36,7 +39,7 @@
                              data-elementdelay="0.01"
                              data-endelementdelay="0.1"
                              data-endspeed="1000"
-                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; font-family: 'Fredericka the Great', cursive; background-color: rgba(0,0,0,0.6); border-radius: 10px;"><?=$spectacle->getTitreSpect()?></div>
+                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; font-family: 'Fredericka the Great', cursive; background-color: rgba(0,0,0,0.6); border-radius: 10px;">{{ spectacles.titreSpect }}</div>
 
                         <div class="tp-caption customin ltl tp-resizeme"
                              data-x="500"
@@ -51,8 +54,6 @@
                              data-endelementdelay="0.1"
                              data-endspeed="1000"
                              data-endeasing="Power4.easeIn" style="z-index: 3; background-color: rgba(0,0,0,0.6);"><a href="#titre" class="button button-white button-light button-border button-large button-rounded tright nomargin"><span>Continuer</span> <i class="icon-angle-right"></i></a></div>
-
-
                     </li>
 
 
@@ -69,16 +70,16 @@
     <div id="header-wrap">
         <div class="container-fluid clearfix">
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-            <div id="logo"> <a href=""> <img src="../public/images/Placeholder+Logo.png" ></a> </div>
+            <div id="logo"> <a href="index.php"> <img src="images/Placeholder+Logo.png" ></a> </div>
 
             <!-- Primary Navigation ============================================= -->
             <nav id="primary-menu" class="style-2 center">
                 <ul class="one-page-menu">
-                    <li><a href="#" data-href="#most-toppest"><div class="compagnie">La compagnie</div></a></li>
+                    <li><a href="index.php?route=Compagnie" data-href="#most-toppest"><div class="compagnie">La compagnie</div></a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Les spectacles <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../maquette/maquette-test.html"><?=$spectacle->getTitreSpect()?></a></li>
+                            <li><a href="#">{{ spectacles.titreSpect }}</a></li>
                             <li><a href="#">Un autre spectacle</a></li>
                             <li><a href="#">Encore un autre spectacle</a></li>
                         </ul>
@@ -128,11 +129,11 @@
         <div class="container clearfix">
             <span id="titre"></span>
             <div class="heading-block title-center page-section">
-                <h2><?=$spectacle->getTitreSpect()?></h2>
+                <h2>{{ spectacles.titreSpect }}</h2>
                 <span></span>
             </div>
 
-            <p class="bottommargin"><?=$spectacle->getDescriptionSpect()?></p>
+            <p class="bottommargin">{{ spectacles.descriptionSpect }}</p>
 
             <div class="clear"></div>
 
@@ -140,31 +141,33 @@
             <div class="clear"></div>
             <span id="personnages" class="ancre"></span>
             <div class="heading-block title-center page-section">
+
+
                 <h2>Nos Personnages</h2>
                 <span></span>
             </div>
 
             <div class="row">
+                {% for personnage in personnages %}
+                    {% for membre in membres %}
+                        {% if membre.id == personnage.membreId  %}
+                            <div class="col-md-6 bottommargin" style="min-height: 230px;">
+                                <div class="team team-list clearfix">
+                                    <div class="team-image" style="width: 25%;">
+                                        <img class="img-circle" src="../public/images/photos/{{ membre.lienPhotoMembre }}"
+                                     alt="{{ membre.prenomMembre }}">
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-title"><h4>{{ personnage.prenomPersonnage }}</h4><span>{{ membre.prenomMembre}} </span></div>
+                                        <div class="team-content">{{ personnage.descriptionPersonnage}}</div>
+                                        <div class="line topmargin-sm nobottommargin"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
 
-                <?php foreach ($personnages as $personnage){
-                    foreach ($membres as $membre) {
-                        if ( $membre->getId() == $personnage->getMembreId()) {
-                            echo '<div class="col-md-6 bottommargin" style="min-height: 230px;">
-                            <div class="team team-list clearfix">
-                                <div class="team-image" style="width: 25%;">
-                                    <img class="img-circle" src="../public/images/photos/' . $membre->getLienPhotoMembre() . '" alt="' . $membre->getPrenomMembre() . '">
-                        </div>
-                        <div class="team-desc">
-                            <div class="team-title"><h4>' . $personnage->getPrenomPersonnage() . '</h4><span>' . $membre->getPrenomMembre() . '</span></div>
-                            <div class="team-content">' . $personnage->getDescriptionPersonnage() . '</div>
-                            <div class="line topmargin-sm nobottommargin"></div>
-                        </div>
-                    </div>
-                </div>';
-                    }
-                }
-            }
-                ?>
 
 
             </div>
@@ -182,10 +185,10 @@
             <div class="fslider flex-thumb-grid grid-12 bottommargin-lg" data-pagi="false" data-arrows="false" data-thumbs="true">
                 <div class="flexslider">
                     <div class="slider-wrap">
-                        <?php foreach ($photos as $photo) :?>
-                        <div class="slide" data-thumb="../public/images/photos/<?=$photo->getLienMedia()?>">
-                            <img src="../public/images/photos/<?=$photo->getLienMedia()?>" alt="Image"></div>
-                        <?php endforeach ?>
+                        {% for photo in photos %}
+                        <div class="slide" data-thumb="../public/images/photos/{{ photo.lienMedia }}">
+                            <img src="../public/images/photos/{{ photo.lienMedia }}" alt="Image"></div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -198,30 +201,33 @@
             </div>
 
             <div style="display:flex; justify-content: center;">
-                <?php foreach ($videos as $video) :?>
-                <div class="col_one_third" style="max-width: 180px;">
-                    <div class="feature-box center media-box fbox-bg">
-                        <div class="fbox-desc" style="padding: 5px;">
-                            <a data-toggle="modal" href="#modal-video1" data-lightbox="inline"><img src="http://img.youtube.com/vi/Jc-2VY_TDYQ/hqdefault.jpg" style="height: 180px;"></a>
-                        </div>
-                    </div>
-                </div>
-                <?php endforeach ?>
-
-                <div class="modal fade" id="modal-video1" style="display: none;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer <i class="fa fa-times"></i></button>
-                            </div>
-                            <div class="modal-body">
-                                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
-
-                                <p>Titre vidéo</p>
+                {% for video in videos %}
+                    <div class="col_one_third" style="max-width: 180px;">
+                        <div class="feature-box center media-box fbox-bg">
+                            <div class="fbox-desc" style="padding: 5px;">
+                                <a data-toggle="modal" href="#modal-video{{ video.id }}" data-lightbox="inline">
+                                    <img src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg" style="height: 180px;"></a>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                    <div class="modal fade" id="modal-video{{ video.id }}" style="display: none;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer
+                                        <i class="fa fa-times"></i></button>
+                                </div>
+                                <div class="modal-body">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.lienMedia }}"
+                                            frameborder="0" allowfullscreen></iframe>
+
+                                    <p>{{ video.titreMedia }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
 
                 <div class="heading-block title-center topmargin-lg page-section">
@@ -234,26 +240,6 @@
                 </div>
 
 
-                <!-- Calendrier
-                ============================================= -->
-                <span id="calendrier" class="ancre"></span>
-                <div class="heading-block title-center topmargin-lg page-section" >
-                    <h2>Calendrier</h2>
-                    <span>Liste de nos évènements</span>
-                </div>
-
-                <?php foreach ($dates as $date) :?>
-                <div class="col-md-4">
-                    <div class="feature-box center media-box fbox-bg">
-                        <div class="fbox-desc">
-                            <h3><?=$date->datePropre()?><span class="subtitle"><?=$date->getLieuSpectacle()?></span></h3>
-                        </div>
-                    </div>
-                </div>
-                <?php endforeach ?>
-
-
-            <div id="presse" class="clear"></div>
 
         </div>
 
@@ -269,23 +255,48 @@
                     <div class="fslider restaurant-reviews" data-arrows="false" data-animation="slide">
                         <div class="flexslider">
                             <div class="slider-wrap">
-                                <?php foreach ($articles as $article) :?>
-                                <div class="slide" style="margin-top: -20px;">
-                                    <p class="lead"><?=$article->getTexteArticle()?></p>
-                                    <span class="auteur"><strong><?=$article->getAuteur()?></strong>, <?=$article->getJournal()?>, <?=$article->getDateArticle()?></span><br>
-                                </div>
-                                <?php endforeach ?>
+                                {% for article in articles %}
+                                    <div class="slide" style="margin-top: -20px;">
+                                        <h4>{{ article.titreArticle }}</h4>
+                                        <p class="lead">"{{ article.texteArticle }}"</p>
+                                        <span class="auteur"><strong>{{ article.auteur }}</strong>, {{ article.journal }},
+                                            {{ article.dateArticle }}
+                                    </span><br>
+                                    </div>
+                                {% endfor %}
                             </div>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <span id="calendrier" class="ancre"></span>
+        <div class=" container clearfix">
+            <div class="heading-block title-center topmargin-lg page-section" style="padding-top: 50px;">
+                <h2>Calendrier</h2>
+                <span>Liste de nos évènements</span>
+            </div>
+            <div class="row">
+                {% for date in dates %}
+                    <div class="col-md-4 center">
+                        <div class="feature-box center media-box fbox-bg">
+                            <div class="fbox-desc">
+                                <h3>{{ date.dateformat }}<span class="subtitle">{{ date
+                                        .lieuSpectacle }}</span></h3>
+                            </div>
                         </div>
                     </div>
-
-                </div>
+                {% endfor %}
             </div>
         </div>
 
 
-        </div>
+
+    </div>
     </div>
 
 </section>

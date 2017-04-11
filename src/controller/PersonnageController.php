@@ -3,7 +3,7 @@
 
 namespace air_de_rien\controller;
 
-use air_de_rien\DB;
+use air_de_rien\model\DB;
 
 class PersonnageController extends Controller
 {
