@@ -20,15 +20,37 @@ elseif ($route == 'hub') {
 
 }
 
+
 elseif ($route == 'spectacle') {
     $spectacle = new \air_de_rien\controller\ShowController();
     $footer = new \air_de_rien\controller\FooterController();
     $header = new \air_de_rien\controller\HeaderController();
-    $render = $spectacle->showSpectacle($_GET['id']) ;
+    $render = $spectacle->showSpectacle($_GET['id']);
     $renderFooter = $footer->footerRender();
     $renderHeader = $header->headerRender($route);
-
 }
+
+elseif ($route == 'test') {
+    $compagnie = new \air_de_rien\controller\CompagnieController();
+    $render = $compagnie->listAll();
+}
+elseif ($route == 'showPersonnage') {
+    $personnage = new \air_de_rien\controller\PersonnageController();
+    $render = $personnage->index();
+}
+elseif ($route == 'addPersonnage') {
+    $personnage = new \air_de_rien\controller\PersonnageController();
+    $render = $personnage->add();
+}
+elseif ($route == 'updatePersonnage') {
+    $personnage = new \air_de_rien\controller\PersonnageController();
+    $render = $personnage->updatePersonnage();
+}
+elseif ($route == 'deletePersonnage') {
+    $personnage = new \air_de_rien\controller\PersonnageController();
+    $render = $personnage->deletePersonnage();
+}
+
 elseif ($route == 'compagnie') {
     $compagnie = new \air_de_rien\controller\CompagnieController();
     $footer = new \air_de_rien\controller\FooterController();
