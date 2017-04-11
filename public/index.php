@@ -3,7 +3,7 @@
 require '../config/connect.php';
 require __DIR__ . '/../vendor/autoload.php';
 
-$route = $_GET['route'] ?? 'Hub';
+$route = $_GET['route'] ?? 'hub';
 $render = '';
 $renderFooter = '';
 $renderHeader = '';
@@ -14,28 +14,28 @@ $render = $spectacle->listAll();
 
 }
 
-elseif ($route == 'Hub') {
+elseif ($route == 'hub') {
     $hub = new \air_de_rien\controller\HubController();
     $render = $hub->hubRender();
 
 }
 
-elseif ($route == 'Spectacle') {
+elseif ($route == 'spectacle') {
     $spectacle = new \air_de_rien\controller\ShowController();
     $footer = new \air_de_rien\controller\FooterController();
     $header = new \air_de_rien\controller\HeaderController();
     $render = $spectacle->showSpectacle($_GET['id']) ;
     $renderFooter = $footer->footerRender();
-    $renderHeader = $header->headerRender();
+    $renderHeader = $header->headerRender($route);
 
 }
-elseif ($route == 'Compagnie') {
+elseif ($route == 'compagnie') {
     $compagnie = new \air_de_rien\controller\CompagnieController();
     $footer = new \air_de_rien\controller\FooterController();
     $header = new \air_de_rien\controller\HeaderController();
     $render = $compagnie->pageCompagnie();
     $renderFooter = $footer->footerRender();
-    $renderHeader = $header->headerRender();
+    $renderHeader = $header->headerRender($route);
 
 }
 

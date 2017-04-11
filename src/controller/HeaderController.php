@@ -15,8 +15,10 @@ class HeaderController extends  Controller
     /**
      * @return string
      */
-    public function headerRender () {
+    public function headerRender ($route) {
         return $this->getTwig()
-            ->render('viewSite/header.html.twig');
+            ->render('viewSite/header.html.twig',[
+                'route'=> $route
+                ]);
     }
 }
