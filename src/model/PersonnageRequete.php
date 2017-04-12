@@ -20,37 +20,28 @@ class PersonnageRequete extends DB
         $prep->bindValue(':id', $_POST['id'], \PDO::PARAM_INT);
         $prep->execute();
     }
-    public function addOrUpdate()
+
+    public function addPersonnage($postClean)
     {
         $pdo = new DB();
-        if (isset($_POST)) {
-            foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
-            }
-        }
+
         $query = "INSERT INTO personnage (nomPersonnage, prenomPersonnage, descriptionPersonnage) VALUES (:nomPersonnage,:prenomPersonnage, :descriptionPersonnage)";
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':nomPersonnage', $postClean['nomPersonnage'], \PDO::PARAM_STR);
         $prep->bindValue(':prenomPersonnage', $postClean['prenomPersonnage'], \PDO::PARAM_STR);
         $prep->bindValue(':descriptionPersonnage', $postClean['descriptionPersonnage'], \PDO::PARAM_STR);
         $prep->execute();
+    }
 
-
-        if (isset($_GET)) {
-            foreach ($_GET as $key => $val) {
-                $data[$key] = htmlentities(trim($val));
-            }
-        }
-//        if (!empty($_POST['id'])) {
-            $query = "UPDATE personnage SET nomPersonnage=:nomPersonnage,prenomPersonnage=:prenomPersonnage, descriptionPersonnage=:descriptionPersonnage WHERE id=:id";
-            $prep = $pdo->db->prepare($query);
-            $prep->bindValue(':id', $_GET['id'], \PDO::PARAM_INT);
-            $prep->bindValue(':nomPersonnage', $data['nomPersonnage'], \PDO::PARAM_STR);
-            $prep->bindValue(':prenomPersonnage', $data['prenomPersonnage'], \PDO::PARAM_STR);
-            $prep->bindValue(':descriptionPersonnage', $data['descriptionPersonnage'], \PDO::PARAM_STR);
-            $prep->execute();
-            return 'modifications enregistrées';
-//        }
-
+    public function updatePersonnage($postClean)
+    {
+        $pdo = new DB();
+        $query = "UPDATE personnage SET nomPersonnage=:nomPersonnage,prenomPersonnage=:prenomPersonnage, descriptionPersonnage=:descriptionPersonnage WHERE id=:id";
+        $prep = $pdo->db->prepare($query);
+        $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
+        $prep->bindValue(':nomPersonnage', $postClean['nomPersonnage'], \PDO::PARAM_STR);
+        $prep->bindValue(':prenomPersonnage', $postClean['prenomPersonnage'], \PDO::PARAM_STR);
+        $prep->bindValue(':descriptionPersonnage', $postClean['descriptionPersonnage'], \PDO::PARAM_STR);
+        $prep->execute();
     }
 }

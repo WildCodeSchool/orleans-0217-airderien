@@ -37,43 +37,51 @@ class PersonnageController extends Controller
 
     public function addPersonnage()
     {
-        $requete = new PersonnageRequete();
         $form = new PersonnageForm();
         $filter = new PersonnageFilter();
         $form->setInputFilter($filter);
 
-        $personnages = $requete->findAll('personnage');
+        $requete = new PersonnageRequete();
 
-        $personnage = new Personnage();
-        if (isset($_POST['submit'])) {
-            $requete->addOrUpdate($_POST);
-            return $this->index();
-//            return $this->render('admin/PersonnageView.php', ['personnages'=>$personnages,
-//                'form'=>$form,
-//                'personnage'=>$personnage,
-//                'typeAction'=>'show']);
+        if (!empty($_POST)) {
+            foreach ($_POST as $key => $val) {
+                $postClean[$key] = htmlentities(trim($val));
+            }
+            $requete->addPersonnage($postClean);
+            header('Location:index.php?route=showPersonnage');
         }
-        return $this->render('admin/PersonnageView.php', ['personnages'=>$personnages,
-            'form'=>$form,
-            'personnage'=>$personnage,
-            'typeAction'=>'add'
 
+        $personnages = $requete->findAll('personnage');
+        $personnage = new Personnage();
+
+        return $this->render('admin/PersonnageView.php', ['personnages'=>$personnages,
+                                                          'form'=>$form,
+                                                          'personnage'=>$personnage,
+                                                          'typeAction'=>'add'
         ]);
     }
+
     public function deletePersonnage()
     {
         $del = new PersonnageRequete();
         $del->deletePersonnage();
-        return $this->index();
+        header('Location:index.php?route=showPersonnage');
     }
+
     public function updatePersonnage($id)
     {
-        if (isset($id)) {
             $form = new PersonnageForm();
             $filter = new PersonnageFilter();
             $form->setInputFilter($filter);
 
             $requete = new PersonnageRequete();
+            if (!empty($_POST)) {
+                foreach ($_POST as $key => $val) {
+                    $postClean[$key] = htmlentities(trim($val));
+                }
+                $requete->updatePersonnage($postClean);
+               header('Location:index.php?route=showPersonnage');
+            }
 
             $personnages = $requete->findAll('personnage');
             $personnage = $requete->findOne('personnage', $id);
@@ -83,7 +91,8 @@ class PersonnageController extends Controller
                                                                   'personnage'=>$personnage,
                                                                 'typeAction'=>'update'
                                                                     ]);
-        }
     }
+
+
 
 }

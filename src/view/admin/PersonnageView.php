@@ -86,7 +86,7 @@ var_dump($_POST);
 
     <!--    <input type="hidden" name="csrf" value="--><?php //echo $form->get('csrf')->getValue(); ?><!--">-->
 
-<!--        <input type="hidden" name="id" value=" --><?php //echo $value->getId();?><!-- ">-->
+        <input type="hidden" name="id" value=" <?php echo $personnage->getId();?> ">
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
@@ -124,7 +124,8 @@ var_dump($_POST);
                 <h3><?php echo $personnage->getNomPersonnage();?>  <?php echo $personnage->getPrenomPersonnage();?></h3>
                 <p><?php echo $personnage->getDescriptionPersonnage(); ?></p>
 
-                <form action="index.php?route=updatePersonnage" method="GET">
+                <form action="index.php" method="GET">
+                    <input type="hidden" name="route" value="updatePersonnage">
                     <input type="hidden" name="id" value="<?php echo $personnage->getId(); ?>">
                     <input class="btn btn-warning" type="submit" name="updatePersonnage" value="Modifier">
                 </form>
