@@ -12,7 +12,7 @@ var_dump($_POST);
     <div id="header-wrap">
         <div class="container-fluid clearfix">
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-            <div id="logo"> <a href=""> <img src="../public/images/Placeholder+Logo.png" ></a> </div>
+            <div id="logo"> <a href=""> <img src="images/Placeholder+Logo.png" ></a> </div>
 
             <!-- Primary Navigation ============================================= -->
             <nav id="primary-menu" class="style-2 center">
@@ -79,14 +79,38 @@ var_dump($_POST);
     </div>
 
     <div class="form-group">
-        <label for="exampleInputFile" class="col-sm-2 control-label">File input</label>
-        <input type="file" id="exampleInputFile">
+        <label for="photoPersonnage" class="col-sm-2 control-label">Photo :</label>
+        <div class="col-sm-2">
+            <input type="file" class="form-control" name="photoPersonnage" id="photoPersonnage"
+                   value="<?php echo $personnage->getPhotoPersonnage(); ?>" />
+        </div>
     </div>
 
+    <div class="form-group">
+        <label for="spectacleId" class="col-sm-2 control-label">Photo :</label>
+        <div class="col-sm-2">
+            <select id="spectacleId" class="form-control">
+                <?php foreach ($spectacles as $spectacle) :?>
+                    <option><?php echo $spectacle->getId();?> - <?php echo $spectacle->getTitreSpect();?></option>
+                <?php endforeach ?>
+            </select>
+        </div>
+    </div>
 
-    <!--    <input type="hidden" name="csrf" value="--><?php //echo $form->get('csrf')->getValue(); ?><!--">-->
+    <div class="form-group">
+        <label for="membreId" class="col-sm-2 control-label">Acteur :</label>
+        <div class="col-sm-2">
+            <select class="form-control">
+                <?php foreach ($membres as $membre) :?>
+                    <option><?php echo $membre->getPrenomMembre();?></option>
+                <?php endforeach ?>
+            </select>
+        </div>
+    </div>
 
-        <input type="hidden" name="id" value=" <?php echo $personnage->getId();?> ">
+        <input type="hidden" name="csrf" value="<?php echo $form->get('csrf')->getValue(); ?>">
+
+    <input type="hidden" name="id" value=" <?php echo $personnage->getId();?> ">
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
@@ -97,23 +121,12 @@ var_dump($_POST);
 </form>
 
 
-<!--<div class="form-group">-->
-<!--    <label for="{{ form.get('NomLDor').name }}">{{ form.get('NomLDor').label }}</label>-->
-<!--    <input required ="required" class="form-control" value="{{ value.nom }}" type="text"-->
-<!--           id="{{ form.get('NomLDor').name }}" name="{{ form.get('NomLDor').name }}" />-->
-<!--</div>-->
-
-
-
-
-
-
 
 
 
 <div class="row titre">
     <div class="col-xs-12 text-center">
-        <h3>Afficher la liste des personnages</h3>
+        <h3>Liste des personnages</h3>
     </div>
 </div>
 
@@ -121,6 +134,7 @@ var_dump($_POST);
     <div class="col-lg-10 col-lg-offset-2">
         <?php foreach ($personnages as $personnage) :?>
             <div class="col-lg-4 thumbnail text-center">
+                <img src="<?php echo $personnage->getPhotoPersonnage();?>" alt="<?php echo $personnage->getPrenomPersonnage();?>">
                 <h3><?php echo $personnage->getNomPersonnage();?>  <?php echo $personnage->getPrenomPersonnage();?></h3>
                 <p><?php echo $personnage->getDescriptionPersonnage(); ?></p>
 

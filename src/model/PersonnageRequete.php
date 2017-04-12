@@ -3,7 +3,7 @@
 
 namespace air_de_rien\model;
 
-use air_de_rien\DB;
+use air_de_rien\model\DB;
 
 class PersonnageRequete extends DB
 {
@@ -25,23 +25,32 @@ class PersonnageRequete extends DB
     {
         $pdo = new DB();
 
-        $query = "INSERT INTO personnage (nomPersonnage, prenomPersonnage, descriptionPersonnage) VALUES (:nomPersonnage,:prenomPersonnage, :descriptionPersonnage)";
+        $query = "INSERT INTO personnage (nomPersonnage, prenomPersonnage, descriptionPersonnage, photoPersonnage, spectacleId, membreId) 
+                  VALUES (:nomPersonnage,:prenomPersonnage, :descriptionPersonnage, :photoPersonnage, :spectacleId, :membreId)";
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':nomPersonnage', $postClean['nomPersonnage'], \PDO::PARAM_STR);
         $prep->bindValue(':prenomPersonnage', $postClean['prenomPersonnage'], \PDO::PARAM_STR);
         $prep->bindValue(':descriptionPersonnage', $postClean['descriptionPersonnage'], \PDO::PARAM_STR);
+        $prep->bindValue(':photoPersonnage', $postClean['photoPersonnage'], \PDO::PARAM_STR);
+        $prep->bindValue(':spectacleId', $postClean['spectacleId'], \PDO::PARAM_INT);
+        $prep->bindValue(':membreId', $postClean['membreId'], \PDO::PARAM_INT);
         $prep->execute();
     }
 
     public function updatePersonnage($postClean)
     {
         $pdo = new DB();
-        $query = "UPDATE personnage SET nomPersonnage=:nomPersonnage,prenomPersonnage=:prenomPersonnage, descriptionPersonnage=:descriptionPersonnage WHERE id=:id";
+        $query = "UPDATE personnage SET nomPersonnage=:nomPersonnage,prenomPersonnage=:prenomPersonnage, 
+        descriptionPersonnage=:descriptionPersonnage, photoPersonnage=:photoPersonnage, spectacleId=:spectacleId, idMembre=:membreId WHERE id=:id";
+
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
         $prep->bindValue(':nomPersonnage', $postClean['nomPersonnage'], \PDO::PARAM_STR);
         $prep->bindValue(':prenomPersonnage', $postClean['prenomPersonnage'], \PDO::PARAM_STR);
         $prep->bindValue(':descriptionPersonnage', $postClean['descriptionPersonnage'], \PDO::PARAM_STR);
+        $prep->bindValue(':photoPersonnage', $postClean['photoPersonnage'], \PDO::PARAM_STR);
+        $prep->bindValue(':spectacleId', $postClean['spectacleId'], \PDO::PARAM_INT);
+        $prep->bindValue(':membreId', $postClean['membreId'], \PDO::PARAM_INT);
         $prep->execute();
     }
 }
