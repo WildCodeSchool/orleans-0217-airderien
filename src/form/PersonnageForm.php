@@ -17,7 +17,7 @@ class PersonnageForm extends Form
             'type'  => Text::class,
             'name' => 'nomPersonnage',
             'options' => [
-                'label' => 'Nom',
+                'label' => 'nomPersonnage',
             ],
         ]);
 
@@ -25,22 +25,22 @@ class PersonnageForm extends Form
             'type'  => Text::class,
             'name' => 'prenomPersonnage',
             'options' => [
-                'label' => 'Prenom',
+                'label' => 'prenomPersonnage',
             ],
         ]);
         $this->add([
             'type'  => Text::class,
             'name' => 'descriptionPersonnage',
             'options' => [
-                'label' => 'Description',
+                'label' => 'descriptionPersonnage',
             ],
         ]);
 
         $this->add([
-            'type'  => Text::file,
+            'type'  => File::class,
             'name' => 'photoPersonnage',
             'options' => [
-                'label' => 'Photo',
+                'label' => 'photoPersonnage',
             ],
         ]);
 

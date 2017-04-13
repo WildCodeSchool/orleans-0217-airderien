@@ -91,7 +91,7 @@ var_dump($_POST);
         <div class="col-sm-2">
             <select id="spectacleId" class="form-control">
                 <?php foreach ($spectacles as $spectacle) :?>
-                    <option><?php echo $spectacle->getId();?> - <?php echo $spectacle->getTitreSpect();?></option>
+                    <option><?php echo $spectacle->getTitreSpect();?></option>
                 <?php endforeach ?>
             </select>
         </div>
