@@ -25,8 +25,10 @@ class PersonnageRequete extends DB
     {
         $pdo = new DB();
 
-        $query = "INSERT INTO personnage (nomPersonnage, prenomPersonnage, descriptionPersonnage, photoPersonnage, spectacleId, membreId) 
-                  VALUES (:nomPersonnage,:prenomPersonnage, :descriptionPersonnage, :photoPersonnage, :spectacleId, :membreId)";
+        $query = "INSERT INTO personnage (nomPersonnage, prenomPersonnage, descriptionPersonnage, photoPersonnage, 
+        spectacleId, membreId) VALUES (:nomPersonnage,:prenomPersonnage, :descriptionPersonnage, :photoPersonnage, 
+        :spectacleId, :membreId)";
+
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':nomPersonnage', $postClean['nomPersonnage'], \PDO::PARAM_STR);
         $prep->bindValue(':prenomPersonnage', $postClean['prenomPersonnage'], \PDO::PARAM_STR);
@@ -40,8 +42,10 @@ class PersonnageRequete extends DB
     public function updatePersonnage($postClean)
     {
         $pdo = new DB();
+
         $query = "UPDATE personnage SET nomPersonnage=:nomPersonnage,prenomPersonnage=:prenomPersonnage, 
-        descriptionPersonnage=:descriptionPersonnage, photoPersonnage=:photoPersonnage, spectacleId=:spectacleId, idMembre=:membreId WHERE id=:id";
+        descriptionPersonnage=:descriptionPersonnage, photoPersonnage=:photoPersonnage, spectacleId=:spectacleId, 
+        membreId=:membreId WHERE id=:id";
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);

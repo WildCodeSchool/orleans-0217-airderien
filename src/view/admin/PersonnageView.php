@@ -87,9 +87,9 @@ var_dump($_POST);
     </div>
 
     <div class="form-group">
-        <label for="spectacleId" class="col-sm-2 control-label">Photo :</label>
+        <label for="spectacleId" class="col-sm-2 control-label">Spectacle :</label>
         <div class="col-sm-2">
-            <select id="spectacleId" class="form-control">
+            <select id="spectacleId" class="form-control" name="spectacleId">
                 <?php foreach ($spectacles as $spectacle) :?>
                     <option value="<?= $spectacle->getId()?>"><?= $spectacle->getTitreSpect()?></option>
                 <?php endforeach ?>
@@ -100,7 +100,7 @@ var_dump($_POST);
     <div class="form-group">
         <label for="membreId" class="col-sm-2 control-label">Acteur :</label>
         <div class="col-sm-2">
-            <select class="form-control">
+            <select id="membreId" class="form-control" name="membreId">
                 <?php foreach ($membres as $membre) :?>
                     <option value="<?= $membre->getId()?>"><?php echo $membre->getPrenomMembre();?></option>
                 <?php endforeach ?>
