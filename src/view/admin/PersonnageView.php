@@ -12,7 +12,7 @@ var_dump($_POST);
     <div id="header-wrap">
         <div class="container-fluid clearfix">
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-            <div id="logo"> <a href=""> <img src="images/Placeholder+Logo.png" ></a> </div>
+            <div id="logo"> <a href=""> <img src="images/logo_airderien.png" ></a> </div>
 
             <!-- Primary Navigation ============================================= -->
             <nav id="primary-menu" class="style-2 center">
