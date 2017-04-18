@@ -21,7 +21,8 @@ class PersonnageController extends Controller
     {
         $db = new DB();
         $personnages = $db -> findAll('personnage');
-        return $this->render('admin/personnageView.php', ['personnages'=>$personnages]);
+        return $this->getTwig()
+            ->render('admin/personnageView.html.twig', ['personnages'=>$personnages]);
     }
 
 
@@ -39,7 +40,8 @@ class PersonnageController extends Controller
         $spectacles = $db -> findAll('spectacle');
         $membres = $db -> findAll('membre');
 
-        return $this->render('admin/PersonnageView.php',
+        return $this->getTwig()
+            ->render('admin/PersonnageView.html.twig',
             ['personnages'=>$personnages,
             'personnage'=>$personnage,
             'spectacles'=>$spectacles,
@@ -72,7 +74,8 @@ class PersonnageController extends Controller
         $spectacles = $db -> findAll('spectacle');
         $membres = $db -> findAll('membre');
 
-        return $this->render('admin/PersonnageView.php',
+        return $this->getTwig()
+        ->render('admin/PersonnageView.html.twig',
             ['personnages'=>$personnages,
             'form'=>$form,
             'personnage'=>$personnage,
@@ -113,7 +116,8 @@ class PersonnageController extends Controller
         $spectacles = $db -> findAll('spectacle');
         $membres = $db -> findAll('membre');
 
-        return $this->render('admin/PersonnageView.php',
+        return $this->getTwig()
+        ->render('admin/PersonnageView.html.twig',
             ['personnages'=>$personnages,
             'form'=>$form,
             'personnage'=>$personnage,
