@@ -1,5 +1,5 @@
 <FilesMatch admin.php>
-AuthUserFile ../config/.htpasswd
+AuthUserFile /home/biovor/PhpstormProjects/Air-de-rien/config/.htpasswd
 AuthName "Accès protégé trouve le MDP Banane !!"
 AuthType Basic
 Require valid-user

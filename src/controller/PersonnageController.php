@@ -63,7 +63,7 @@ class PersonnageController extends Controller
                     $postClean[$key] = htmlentities(trim($val));
                 }
                 $requete->addPersonnage($postClean);
-                header('Location:index.php?route=showPersonnage');
+                header('Location:admin.php?route=showPersonnage');
             }
 //        }
 
@@ -86,7 +86,7 @@ class PersonnageController extends Controller
     {
         $del = new PersonnageRequete();
         $del->deletePersonnage();
-        header('Location:index.php?route=showPersonnage');
+        header('Location:admin.php?route=showPersonnage');
     }
 
     public function updatePersonnage($id)
@@ -104,7 +104,7 @@ class PersonnageController extends Controller
                     $postClean[$key] = htmlentities(trim($val));
                 }
                 $requete->updatePersonnage($postClean);
-                header('Location:index.php?route=showPersonnage');
+                header('Location:admin.php?route=showPersonnage');
             }
 //        }
 
