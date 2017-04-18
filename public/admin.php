@@ -7,17 +7,21 @@ require __DIR__ . '/../vendor/autoload.php';
 $route = $_GET['route'] ?? 'showPersonnage';
 
 $render = '';
-$renderFooter = '';
-$renderHeader = '';
 
+$footer = new \air_de_rien\controller\FooterController();
+$header = new \air_de_rien\controller\HeaderController();
+$renderFooter = $footer->footerRender();
+$renderHeader = $header->headerRender($route);
 
 if ($route == 'showPersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->index();
+
 }
 elseif ($route == 'addPersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->addPersonnage();
+
 }
 elseif ($route == 'updatePersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();

@@ -12,7 +12,7 @@ var_dump($_POST);
     <div id="header-wrap">
         <div class="container-fluid clearfix">
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-            <div id="logo"> <a href=""> <img src="images/Placeholder+Logo.png" ></a> </div>
+            <div id="logo"> <a href=""> <img src="images/logo_airderien.png" ></a> </div>
 
             <!-- Primary Navigation ============================================= -->
             <nav id="primary-menu" class="style-2 center">
@@ -53,7 +53,7 @@ var_dump($_POST);
 </div><!-- #page-menu end -->
 
 
-<form name="addPersoForm" method="post" action="index.php?route=<?= $typeAction ?>Personnage" class="form-horizontal">
+<form name="addPersoForm" method="post" action="admin.php?route=<?= $typeAction ?>Personnage" class="form-horizontal">
     <div class="form-group">
         <label for="nomPersonnage" class="col-sm-2 control-label">Nom :</label>
         <div class="col-sm-2">
@@ -138,12 +138,12 @@ var_dump($_POST);
                 <h3><?php echo $personnage->getNomPersonnage();?>  <?php echo $personnage->getPrenomPersonnage();?></h3>
                 <p><?php echo $personnage->getDescriptionPersonnage(); ?></p>
 
-                <form action="index.php" method="GET">
+                <form action="admin.php" method="GET">
                     <input type="hidden" name="route" value="updatePersonnage">
                     <input type="hidden" name="id" value="<?php echo $personnage->getId(); ?>">
                     <input class="btn btn-warning" type="submit" name="updatePersonnage" value="Modifier">
                 </form>
-                <form action="index.php?route=deletePersonnage" method="post">
+                <form action="admin.php?route=deletePersonnage" method="post">
                     <input type="hidden" name="id" value="<?php echo $personnage->getId(); ?>">
                     <input class="btn btn-danger" type="submit" name="deletePersonnage" value="Supprimer">
                 </form>
