@@ -47,10 +47,12 @@ $(document).ready(function() {
 
 })( jQuery );
 
+function setBgImage(fileLeft, fileRight)
+{
+    $(".left-background").backstretch(fileLeft);
+    $(".right-background").backstretch(fileRight);
+}
+
 $(document).ready(function() {
     $(".fittext").fitText();
-    $(".left-background").backstretch("images/bg.jpg");
-    $(".right-background").backstretch("images/bg2.jpg");
-    $('#home-left .home-over').niceScroll({styler:"fb",cursorcolor:"#7e646f"});
-    $("#home-right .home-over").niceScroll({styler:"fb",cursorcolor:"#fff"});
 });

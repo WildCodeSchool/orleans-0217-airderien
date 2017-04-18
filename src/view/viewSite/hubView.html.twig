@@ -141,15 +141,15 @@
     <section id="home-mobile-top" class="w100 h50 block">
         <div class="home-mobile-logo w50 txtcenter wrapper">
             <div class="home-box">
-                <p class="p2">Plus d'info</p>
-                <p class="p2">sur la </p>
+                <h2>Plus d'info</h2>
+                <h2>sur la </h2>
             </div>
         </div>
         <div class="home-mobile-title w50 txtcenter wrapper">
             <div class="home-box">
-                <p class="p3">Comme</p>
-                <p class="p2">l'air</p>
-                <p class="p4">de rien</p>
+                <h3><a href="/les-ateliers">Compagnie</a></h3>
+                <h2><a href="/les-ateliers">Comme l'air</a></h2>
+                <h4><a href="/les-ateliers">de rien</a></h4>
             </div>
         </div>
     </section>
@@ -162,7 +162,9 @@
         </div>
         <div class="home-mobile-title w50 txtcenter wrapper">
             <div class="home-box">
-                <p class="p1 first">Devine qui vient diner se soir</p>
+                <h3><a href="/la-compagnie">Spectacle</a></h3>
+                <h2><a href="/la-compagnie">Devine qui</a></h2>
+                <h4><a href="/la-compagnie">vient diner se soir</a></h4>
             </div>
         </div>
     </section>
@@ -172,6 +174,8 @@
 <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script>
 <script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
-
+<script type="text/javascript">
+    setBgImage("images/{{ compagnie.lienPhotoCompagnie }}", "images/{{ spectacle.photoSpect }}")
+</script>
 </body>
 </html>
