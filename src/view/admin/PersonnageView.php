@@ -1,9 +1,6 @@
 <?php
 $form->prepare();
-var_dump($_POST);
-//    foreach($form->getMessages() as $name => $message) {
-//            var_dump($message);
-//    }
+
 ?>
 
 <!-- Header

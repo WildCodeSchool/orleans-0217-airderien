@@ -13,11 +13,21 @@ $header = new \air_de_rien\controller\HeaderController();
 $renderFooter = $footer->footerRender();
 $renderHeader = $header->headerRender($route);
 
-if ($route == 'showPersonnage') {
-    $personnage = new \air_de_rien\controller\PersonnageController();
-    $render = $personnage->index();
+if ($route == 'indexAdmin') {
+    $index = new \air_de_rien\controller\IndexAdminController();
+    $footer = new \air_de_rien\controller\FooterController();
+    $header = new \air_de_rien\controller\HeaderController();
+    $render = $index->pageIndexAdmin();
+    $renderFooter = $footer->footerRender();
+    $renderHeader = $header->headerRender($route);
 
 }
+
+elseif ($route == 'showPersonnage') {
+    $personnage = new \air_de_rien\controller\PersonnageController();
+    $render = $personnage->index();
+}
+
 elseif ($route == 'addPersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->addPersonnage();
