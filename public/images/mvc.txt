@@ -1,0 +1,64 @@
+Créer un MVC :
+
+Ressources :
+https://book.cakephp.org/2.0/fr/cakephp-overview/understanding-model-view-controller.html
+https://www.youtube.com/watch?v=OsCTzGASImQ&list=PLfdtiltiRHWGXVHXX09fxXDi-DqInchFD
+https://www.grafikart.fr/formations/programmation-objet-php (notamment la vidéo sur le MVC mais il faut regarder toutes les autres pour bien comprendre ce qui est long)
+
+# Fichier Amorcage (Bootstraping)
+- C'est le fichier par ou l'application va se lancer, souvent index.php (web/app.php ou web/app_dev.php dans symfony).
+
+- C'est ici que l'on peut configurer les librairies communes à toute l'application (ex. Twig, gestion de la connexion à la base de données...).
+
+- C'est également ici que l'on va pouvoir créer un système de routing. Soit simple, comme vu dans le projet de fil rouge, ou utilise une librairie externe (fastRoute, Aura Router, Zend-Router...) plus ou moins complexe à intégrer.
+
+- Remarque : les URLs saisies ne sont pas très sexy, mais il sera possible d'utiliser plus tard des systèmes de routings plus avancés ainsi que de l'URL rewriting, pour obtenir des URL mieux référençable de la forme "http://local.monprojet/article/show/1
+    
+    
+# Le modèle
+    Il a pour but de gérer les données (récupération, ajout, modification, suppression). Dans la plupart des cas, ces données sont enregistrées dans une base de données, mais ce n'est pas obligatoire (elles peuvent également se trouver dans des fichiers, être accessibles via une API, etc.).
+    Le modèle va manipuler les données (ex : pour une BDD, requêtes de type SELECT, INSERT, UPDATE, DELETE, tous le code SQL se trouve donc dans la partie Model). Dans le cas d'une BDD, l'utilisation de PDO et de reqûetes préparées est fortement recommandé. 
+    Le modèle est indépendant de la vue ou du controlleur.
+    - ex : le modèle aura une classe Article, qui aura des propriétés titre, contenu, date. 
+           La classe pourra également avoir des méthodes permettant de  "synchroniser" ce dernier avec une couche physique stockant ces données (BDD, fichier...).
+    - Le controlleur pourra créer des objets Article, et acceder/modifier aux propriétés via des getters et setters.
+    
+# Le controlleur
+    Un controlleur est une classe qui possède des méthodes qui pourront être appelées via le système de routing initialisé dans le controlleur frontal. 
+    Le controlleur peut travailler avec des objets de la couche Modèle, et rendre des Vues. Il fait donc le lien entre les deux autres couches du M.V.C.
+    Généralement, il y aura une méthode par page que l'utilisateur souhaite affiché.
+    ex : la classe ArticleControlleur contiendra les méthodes list(), show(), add(), delete(), update()
+         ainsi, via ce controlleur, on pourra lister tous les articles, afficher un article précis, ajouter un article, supprimer ou modifier un article.
+    Les controlleurs doivent également afficher une vue (via une methode render, qui executera un require du fichier de la vue).
+    
+# La vue
+    Affiche un rendu pour l'utilisateur. Cette vue peut-être un fichier texte, un fichier json, etc. mais dans la grande majorité des cas pour du développement web, ce sera une page HTML. Un systeme de template comme twig peut également être utilisé de manière optionnel pour simplifié la création de ces vues. La vue a accès à un certain nombre de variables transmises à la vue par la méthode render du controlleur.
+    ex : <h1>Article <?= $article->getTitle() ?> </h1>
+         <p><?= $article->getContenu() ?></p>
+         <a href="/update/ <?= $article->getId() ?> ">Modifier</a>
+    
+CHALLENGE : 
+
+Objectif : Appliquez le modèle MVC à un site simple permettant de lister, ajouter, modifier et supprimer des livres d'une bibliothèque.
+Astuce : Inspire toi du site fil rouge réalisé lors du live coding
+
+# Créer un projet contenant l'arborescence de dossiers suivant : 
+    - public/   (fichiers devant être accessibles de l'extérieur (votre virtual host doit pointer sur ce dossier))
+        - assets/  
+            - css/
+            - js/
+            - images/
+        - index.php (controller frontal)
+    - src/  (le code de votre application)
+        - controller/ 
+        - model/
+        - views/
+    - vendor/ (optionel, généré par composer, si vous voulez utiliser l'autoload ou charger des librairies externes)   
+      
+Validation : 
+    - l'arboresence de dossiers doit correspondre à ce qui est demandé
+    - des fichiers Book.php (model), BookController.php et 4 fichiers de vue (show.php, edit.php, add.php et list.php) doivent être placés aux bon endroits dans le projet
+    - le model doit contenir les propriétés, getter et setter correspondant au livre (author, title, editor, date_publication, nb_page)
+    - le controller frontal doit permettre d'afficher les differentes vues en appelant la bonne methode du bon controleur
+    
+    OPTION : ajouter les fichiers pour gérer également des auteurs.
