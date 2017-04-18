@@ -42,6 +42,15 @@ elseif ($route == 'compagnie') {
 
 }
 
+elseif ($route == 'mentionsLegales') {
+    $mentions = new \air_de_rien\controller\MentionsLegalesController();
+    $footer = new \air_de_rien\controller\FooterController();
+    $header = new \air_de_rien\controller\HeaderController();
+    $render = $mentions->pageMentions();
+    $renderFooter = $footer->footerRender();
+    $renderHeader = $header->headerRender($route);
+}
+
 echo $renderHeader;
 echo $render;
 echo $renderFooter;
