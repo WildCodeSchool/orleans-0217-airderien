@@ -3,13 +3,13 @@
 
 namespace air_de_rien\controller;
 
-
+use air_de_rien\model\DB;
 use air_de_rien\form\RevueDePresseForm;
-use air_de_rien\form\RevurDePresseFilter;
+use air_de_rien\form\RevueDePresseFilter;
 use air_de_rien\model\RevueDePresse;
 use air_de_rien\model\RevueDePresseRequete;
 
-class RevueDePresseController
+class RevueDePresseController extends Controller
 {
     /**
      * récupération de tous les articles
@@ -26,7 +26,7 @@ class RevueDePresseController
     public function index()
     {
         $form = new RevueDePresseForm();
-        $filter = new RevurDePresseFilter();
+        $filter = new RevueDePresseFilter();
         $form->setInputFilter($filter);
 
         $requete = new RevueDePresseRequete();
@@ -44,24 +44,22 @@ class RevueDePresseController
                 'form'=>$form]);
     }
 
-    public function addPersonnage()
+    public function addPresse()
     {
         $form = new RevueDePresseForm();
-        $filter = new RevurDePresseFilter();
+        $filter = new RevueDePresseFilter();
         $form->setInputFilter($filter);
 
         $requete = new RevueDePresseRequete();
         $db = new DB();
 
-//        if ($form->isValid()) {
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = htmlentities(trim($val));
             }
-            $requete->addArticle($postClean);
+            $requete->addPresse($postClean);
             header('Location:index.php?route=showPresse');
         }
-//        }
 
         $articles = $requete->findAll('revueDePresse');
         $article = new RevueDePresse();
@@ -86,13 +84,12 @@ class RevueDePresseController
     public function updatePresse($id)
     {
         $form = new RevueDePresseForm();
-        $filter = new RevurDePresseFilter();
+        $filter = new RevueDePresseFilter();
         $form->setInputFilter($filter);
 
         $requete = new RevueDePresseRequete();
         $db = new DB();
 
-//        if ($form->isValid()) {
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = htmlentities(trim($val));
@@ -100,7 +97,6 @@ class RevueDePresseController
             $requete->updatePresse($postClean);
             header('Location:index.php?route=showPresse');
         }
-//        }
 
         $articles = $requete->findAll('revueDePresse');
         $article = $requete->findOne('revueDePresse', $id);

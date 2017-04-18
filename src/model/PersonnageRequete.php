@@ -3,7 +3,6 @@
 
 namespace air_de_rien\model;
 
-use air_de_rien\model\DB;
 
 class PersonnageRequete extends DB
 {
@@ -12,6 +11,7 @@ class PersonnageRequete extends DB
     {
         return $this->findAll('personnage');
     }
+
     public function deletePersonnage()
     {
         $pdo = new DB();

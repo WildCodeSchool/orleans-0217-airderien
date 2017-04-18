@@ -3,7 +3,6 @@
 
 namespace air_de_rien\model;
 
-use air_de_rien\model\DB;
 
 class RevueDePresseRequete extends DB
 {
@@ -12,6 +11,7 @@ class RevueDePresseRequete extends DB
     {
         return $this->findAll('revueDePresse');
     }
+
     public function deletePresse()
     {
         $pdo = new DB();
@@ -33,7 +33,7 @@ class RevueDePresseRequete extends DB
         $prep->bindValue(':dateArticle', $postClean['dateArticle'], \PDO::PARAM_STR);
         $prep->bindValue(':journal', $postClean['journal'], \PDO::PARAM_STR);
         $prep->bindValue(':auteur', $postClean['auteur'], \PDO::PARAM_STR);
-        $prep->bindValue(':spectacleId', $postClean['spectacleId'], \PDO::PARAM_INT;
+        $prep->bindValue(':spectacleId', $postClean['spectacleId'], \PDO::PARAM_INT);
         $prep->bindValue(':afficher', $postClean['afficher'], \PDO::PARAM_INT);
         $prep->execute();
     }

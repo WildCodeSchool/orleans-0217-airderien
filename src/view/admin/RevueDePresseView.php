@@ -53,53 +53,52 @@ var_dump($_POST);
 </div><!-- #page-menu end -->
 
 
-<form name="addPresseForm" method="post" action="index.php?route=<?= $typeAction ?>Personnage" class="form-horizontal">
+<form name="addPresseForm" method="post" action="index.php?route=<?= $typeAction ?>Presse" class="form-horizontal">
     <div class="form-group">
-        <label for="nomPersonnage" class="col-sm-2 control-label">Titre :</label>
+        <label for="titreArticle" class="col-sm-2 control-label">Titre :</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" name="nomPersonnage" id="nomPersonnage"
-                   placeholder="Nom" value="<?php echo $article->getTitreArticle(); ?>" />
+            <input type="text" class="form-control" name="titreArticle" id="titreArticle"
+                   placeholder="Titre" value="<?php echo $article->getTitreArticle(); ?>" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="prenomPersonnage" class="col-sm-2 control-label">Texte :</label>
+        <label for="texteArticle" class="col-sm-2 control-label">Texte :</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" name="prenomPersonnage" id="prenomPersonnage"
-                   placeholder="Prenom" value="<?php echo $article->getTexteArticle(); ?>" />
+            <input type="text" class="form-control" name="texteArticle" id="texteArticle"
+                   placeholder="Texte" value="<?php echo $article->getTexteArticle(); ?>" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="nomPersonnage" class="col-sm-2 control-label">Date :</label>
+        <label for="dateArticle" class="col-sm-2 control-label">Date :</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
-                   placeholder="Description" value="<?php echo $article->getDateArticle(); ?>" />
+            <input type="text" class="form-control" name="dateArticle" id="dateArticle"
+                   placeholder="Date" value="<?php echo $article->getDateArticle(); ?>" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="nomPersonnage" class="col-sm-2 control-label">Journal :</label>
+        <label for="journal" class="col-sm-2 control-label">Journal :</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
-                   placeholder="Description" value="<?php echo $article->getJournal(); ?>" />
+            <input type="text" class="form-control" name="journal" id="journal"
+                   placeholder="Journal" value="<?php echo $article->getJournal(); ?>" />
         </div>
     </div>
-
     <div class="form-group">
-        <label for="nomPersonnage" class="col-sm-2 control-label">Auteur :</label>
+        <label for="auteur" class="col-sm-2 control-label">Auteur :</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
-                   placeholder="Description" value="<?php echo $article->getAuteur(); ?>" />
+            <input type="text" class="form-control" name="auteur" id="auteur"
+                   placeholder="Auteur" value="<?php echo $article->getAuteur(); ?>" />
         </div>
     </div>
 
     <div class="form-group">
         <label for="spectacleId" class="col-sm-2 control-label">Spectacle :</label>
         <div class="col-sm-2">
-            <select id="spectacleId" class="form-control">
+            <select id="spectacleId" class="form-control" name="spectacleId>
                 <?php foreach ($spectacles as $spectacle) :?>
-                    <option><?php echo $spectacle->getTitreSpect();?></option>
+                    <option value="<?php echo $spectacle->getId();?>" ><?php echo $spectacle->getTitreSpect();?></option>
                 <?php endforeach ?>
             </select>
         </div>

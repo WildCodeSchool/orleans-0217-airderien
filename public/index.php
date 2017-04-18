@@ -51,7 +51,7 @@ elseif ($route == 'deletePersonnage') {
 }
 
 
-elseif ($route == 'showPress') {
+elseif ($route == 'showPresse') {
     $article = new \air_de_rien\controller\RevueDePresseController();
     $render = $article->index();
 }
