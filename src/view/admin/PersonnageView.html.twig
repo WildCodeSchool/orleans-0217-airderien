@@ -1,10 +1,3 @@
-<?php
-$form->prepare();
-var_dump($_POST);
-//    foreach($form->getMessages() as $name => $message) {
-//            var_dump($message);
-//    }
-?>
 
 <!-- Header
     ============================================= -->
@@ -53,12 +46,12 @@ var_dump($_POST);
 </div><!-- #page-menu end -->
 
 
-<form name="addPersoForm" method="post" action="admin.php?route=<?= $typeAction ?>Personnage" class="form-horizontal">
+<form name="addPersoForm" method="post" action="admin.php?route={{ typeAction }}Personnage" class="form-horizontal">
     <div class="form-group">
         <label for="nomPersonnage" class="col-sm-2 control-label">Nom :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="nomPersonnage" id="nomPersonnage"
-                   placeholder="Nom" value="<?php echo $personnage->getNomPersonnage(); ?>" />
+                   placeholder="Nom" value="{{ personnage.NomPersonnage }}" />
         </div>
     </div>
 
@@ -66,7 +59,7 @@ var_dump($_POST);
         <label for="prenomPersonnage" class="col-sm-2 control-label">Prenom :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="prenomPersonnage" id="prenomPersonnage"
-                   placeholder="Prenom" value="<?php echo $personnage->getPrenomPersonnage(); ?>" />
+                   placeholder="Prenom" value="{{ personnage.PrenomPersonnage }}" />
         </div>
     </div>
 
@@ -74,7 +67,7 @@ var_dump($_POST);
         <label for="nomPersonnage" class="col-sm-2 control-label">Description :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
-                   placeholder="Description" value="<?php echo $personnage->getDescriptionPersonnage(); ?>" />
+                   placeholder="Description" value="{{ personnage.DescriptionPersonnage }}" />
         </div>
     </div>
 
@@ -82,7 +75,7 @@ var_dump($_POST);
         <label for="photoPersonnage" class="col-sm-2 control-label">Photo :</label>
         <div class="col-sm-2">
             <input type="file" class="form-control" name="photoPersonnage" id="photoPersonnage"
-                   value="<?php echo $personnage->getPhotoPersonnage(); ?>" />
+                   value="{{ personnage.PhotoPersonnage }}" />
         </div>
     </div>
 
@@ -90,9 +83,9 @@ var_dump($_POST);
         <label for="spectacleId" class="col-sm-2 control-label">Spectacle :</label>
         <div class="col-sm-2">
             <select id="spectacleId" class="form-control" name="spectacleId">
-                <?php foreach ($spectacles as $spectacle) :?>
-                    <option value="<?= $spectacle->getId()?>"><?= $spectacle->getTitreSpect()?></option>
-                <?php endforeach ?>
+                {% for spectacle in spectacles %}
+                    <option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>
+                {% endfor %}
             </select>
         </div>
     </div>
@@ -101,16 +94,16 @@ var_dump($_POST);
         <label for="membreId" class="col-sm-2 control-label">Acteur :</label>
         <div class="col-sm-2">
             <select id="membreId" class="form-control" name="membreId">
-                <?php foreach ($membres as $membre) :?>
-                    <option value="<?= $membre->getId()?>"><?php echo $membre->getPrenomMembre();?></option>
-                <?php endforeach ?>
+                {% for membre in membres %}
+                    <option value="{{ membre.Id }}">{{ membre.PrenomMembre }}</option>
+                {% endfor %}
             </select>
         </div>
     </div>
 
-        <input type="hidden" name="csrf" value="<?php echo $form->get('csrf')->getValue(); ?>">
+        <input type="hidden" name="csrf" value="{{ form.csrf.value }}">
 
-    <input type="hidden" name="id" value=" <?php echo $personnage->getId();?> ">
+    <input type="hidden" name="id" value="{{ personnage.Id }}">
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
@@ -132,23 +125,23 @@ var_dump($_POST);
 
 <div class="row">
     <div class="col-lg-10 col-lg-offset-2">
-        <?php foreach ($personnages as $personnage) :?>
+        {% for personnage in personnages %}
             <div class="col-lg-4 thumbnail text-center">
-                <img src="<?php echo $personnage->getPhotoPersonnage();?>" alt="<?php echo $personnage->getPrenomPersonnage();?>">
-                <h3><?php echo $personnage->getNomPersonnage();?>  <?php echo $personnage->getPrenomPersonnage();?></h3>
-                <p><?php echo $personnage->getDescriptionPersonnage(); ?></p>
+                <img src="{{ personnage.PhotoPersonnage }}" alt="{{ personnage.PrenomPersonnage }}">
+                <h3>{{ personnage.NomPersonnage }} {{ personnage.PrenomPersonnage }}</h3>
+                <p>{{ personnage.DescriptionPersonnage }}</p>
 
                 <form action="admin.php" method="GET">
                     <input type="hidden" name="route" value="updatePersonnage">
-                    <input type="hidden" name="id" value="<?php echo $personnage->getId(); ?>">
+                    <input type="hidden" name="id" value="{{ personnage.Id }}">
                     <input class="btn btn-warning" type="submit" name="updatePersonnage" value="Modifier">
                 </form>
                 <form action="admin.php?route=deletePersonnage" method="post">
-                    <input type="hidden" name="id" value="<?php echo $personnage->getId(); ?>">
+                    <input type="hidden" name="id" value="{{ personnage.Id }}">
                     <input class="btn btn-danger" type="submit" name="deletePersonnage" value="Supprimer">
                 </form>
             </div>
-        <?php endforeach ?>
+        {% endfor %}
     </div>
 
 </div>
