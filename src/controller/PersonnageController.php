@@ -30,11 +30,22 @@ class PersonnageController extends Controller
         $form = new PersonnageForm();
         $filter = new PersonnageFilter();
         $form->setInputFilter($filter);
+
         $requete = new PersonnageRequete();
+        $db = new DB();
+
         $personnages = $requete-> findAll('personnage');
         $personnage = new Personnage();
-        return $this->render('admin/PersonnageView.php', ['personnages'=>$personnages,'personnage'=>$personnage,'typeAction'=>'add',
-                                                              'form'=>$form]);
+        $spectacles = $db -> findAll('spectacle');
+        $membres = $db -> findAll('membre');
+
+        return $this->render('admin/PersonnageView.php',
+            ['personnages'=>$personnages,
+            'personnage'=>$personnage,
+            'spectacles'=>$spectacles,
+            'membres'=>$membres,
+            'typeAction'=>'add',
+            'form'=>$form]);
     }
 
     public function addPersonnage()
@@ -44,22 +55,30 @@ class PersonnageController extends Controller
         $form->setInputFilter($filter);
 
         $requete = new PersonnageRequete();
+        $db = new DB();
 
-        if (!empty($_POST)) {
-            foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+//        if ($form->isValid()) {
+            if (!empty($_POST)) {
+                foreach ($_POST as $key => $val) {
+                    $postClean[$key] = htmlentities(trim($val));
+                }
+                $requete->addPersonnage($postClean);
+                header('Location:index.php?route=showPersonnage');
             }
-            $requete->addPersonnage($postClean);
-            header('Location:index.php?route=showPersonnage');
-        }
+//        }
 
         $personnages = $requete->findAll('personnage');
         $personnage = new Personnage();
+        $spectacles = $db -> findAll('spectacle');
+        $membres = $db -> findAll('membre');
 
-        return $this->render('admin/PersonnageView.php', ['personnages'=>$personnages,
-                                                          'form'=>$form,
-                                                          'personnage'=>$personnage,
-                                                          'typeAction'=>'add'
+        return $this->render('admin/PersonnageView.php',
+            ['personnages'=>$personnages,
+            'form'=>$form,
+            'personnage'=>$personnage,
+            'spectacles'=>$spectacles,
+            'membres'=>$membres,
+            'typeAction'=>'add'
         ]);
     }
 
@@ -72,27 +91,36 @@ class PersonnageController extends Controller
 
     public function updatePersonnage($id)
     {
-            $form = new PersonnageForm();
-            $filter = new PersonnageFilter();
-            $form->setInputFilter($filter);
+        $form = new PersonnageForm();
+        $filter = new PersonnageFilter();
+        $form->setInputFilter($filter);
 
-            $requete = new PersonnageRequete();
+        $requete = new PersonnageRequete();
+        $db = new DB();
+
+//        if ($form->isValid()) {
             if (!empty($_POST)) {
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = htmlentities(trim($val));
                 }
                 $requete->updatePersonnage($postClean);
-               header('Location:index.php?route=showPersonnage');
+                header('Location:index.php?route=showPersonnage');
             }
+//        }
 
-            $personnages = $requete->findAll('personnage');
-            $personnage = $requete->findOne('personnage', $id);
+        $personnages = $requete->findAll('personnage');
+        $personnage = $requete->findOne('personnage', $id);
+        $spectacles = $db -> findAll('spectacle');
+        $membres = $db -> findAll('membre');
 
-            return $this->render('admin/PersonnageView.php', ['personnages'=>$personnages,
-                                                                  'form'=>$form,
-                                                                  'personnage'=>$personnage,
-                                                                'typeAction'=>'update'
-                                                                    ]);
+        return $this->render('admin/PersonnageView.php',
+            ['personnages'=>$personnages,
+            'form'=>$form,
+            'personnage'=>$personnage,
+            'spectacles'=>$spectacles,
+            'membres'=>$membres,
+            'typeAction'=>'update'
+            ]);
     }
 
 

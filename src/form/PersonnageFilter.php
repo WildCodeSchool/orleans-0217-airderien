@@ -40,6 +40,15 @@ class PersonnageFilter extends InputFilter
             ]],
         ]);
 
+        $this->add([
+            'name' => 'photoPersonnage',
+            'allow_empty' => false,
+            'required' => true,
+            'validators' => [[
+                'name' => NotEmpty::class
+            ]],
+        ]);
+
 
     }
 }

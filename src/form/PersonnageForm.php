@@ -4,6 +4,7 @@ namespace air_de_rien\form;
 
 use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Text;
+use Zend\Form\Element\File;
 use Zend\Form\Form;
 
 class PersonnageForm extends Form
@@ -16,7 +17,7 @@ class PersonnageForm extends Form
             'type'  => Text::class,
             'name' => 'nomPersonnage',
             'options' => [
-                'label' => 'Nom',
+                'label' => 'nomPersonnage',
             ],
         ]);
 
@@ -24,21 +25,29 @@ class PersonnageForm extends Form
             'type'  => Text::class,
             'name' => 'prenomPersonnage',
             'options' => [
-                'label' => 'Prenom',
+                'label' => 'prenomPersonnage',
             ],
         ]);
         $this->add([
             'type'  => Text::class,
             'name' => 'descriptionPersonnage',
             'options' => [
-                'label' => 'Description',
+                'label' => 'descriptionPersonnage',
             ],
         ]);
 
-//        $this->add([
-//            'type'  => Csrf::class,
-//            'name' => 'csrf',
-//        ]);
+        $this->add([
+            'type'  => File::class,
+            'name' => 'photoPersonnage',
+            'options' => [
+                'label' => 'photoPersonnage',
+            ],
+        ]);
+
+        $this->add([
+            'type'  => Csrf::class,
+            'name' => 'csrf',
+        ]);
     }
 
 }

@@ -1,4 +1,13 @@
 
+h1, h2, h3, h4 {font-family:'Fredericka the Great', 'cursive'; color:white; Line-Height:0.5; text-shadow:8px 8px 1px black;}
+h1 {font-size:1.50em; margin-left: 10%; margin-right: 10%; Line-Height:0.81;}
+h2 {font-size:2em; margin:30px 0;}
+h3 {font-size:1em;}
+h4 {font-size:0.75em; margin:15px 0 0;}
+h5 {font-size:1.2em; opacity:.75; font-family: 'cursive'}
+h6 {font-size:.9em; opacity:.5;}
+
+
 @media screen  and (max-width:1024px) {
     #home .nav {width:100%; text-align:center;}
     #home .nav ul {display:inline-block; border-left:1px solid #fff; border-right:1px solid #fff; padding:0 50px;}
