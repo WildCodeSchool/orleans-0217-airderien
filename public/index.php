@@ -31,6 +31,8 @@ elseif ($route == 'spectacle') {
     $renderFooter = $footer->footerRender();
     $renderHeader = $header->headerRender($route);
 }
+
+
 elseif ($route == 'showPersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->index();
@@ -47,6 +49,24 @@ elseif ($route == 'deletePersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->deletePersonnage();
 }
+
+elseif ($route == 'showMembre') {
+    $Membre = new \air_de_rien\controller\MembreController();
+    $render = $Membre->index();
+}
+elseif ($route == 'addMembre') {
+    $Membre = new \air_de_rien\controller\MembreController();
+    $render = $Membre->addMembre();
+}
+elseif ($route == 'updateMembre') {
+    $Membre = new \air_de_rien\controller\MembreController();
+    $render = $Membre->updateMembre($_GET['id']);
+}
+elseif ($route == 'deleteMembre') {
+    $Membre = new \air_de_rien\controller\MembreController();
+    $render = $Membre->deleteMembre();
+}
+
 elseif ($route == 'compagnie') {
     $compagnie = new \air_de_rien\controller\CompagnieController();
     $footer = new \air_de_rien\controller\FooterController();
