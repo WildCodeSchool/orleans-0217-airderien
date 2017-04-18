@@ -1,0 +1,6 @@
+<FilesMatch admin.php>
+AuthUserFile ../config/.htpasswd
+AuthName "Accès protégé trouve le MDP Banane !!"
+AuthType Basic
+Require valid-user
+</FilesMatch>
