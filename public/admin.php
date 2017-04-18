@@ -4,7 +4,7 @@ require '../config/connect.php';
 require __DIR__ . '/../vendor/autoload.php';
 
 
-$route = $_GET['route'] ?? 'showPersonnage';
+$route = $_GET['route'] ?? 'indexAdmin';
 
 $render = '';
 
