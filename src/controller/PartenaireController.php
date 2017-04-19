@@ -44,6 +44,7 @@ class PartenaireController extends Controller
             ['partenaires'=>$partenaires,
             'partenaire'=>$partenaire,
             'typeAction'=>'add',
+            'titreButton'=>'Ajouter',
             'form'=>$form]);
     }
 
@@ -75,6 +76,7 @@ class PartenaireController extends Controller
             ['partenaires'=>$partenaires,
             'form'=>$form,
             'partenaire'=>$partenaire,
+            'titreButton'=>'Ajouter',
             'typeAction'=>'add'
         ]);
     }
@@ -114,6 +116,7 @@ class PartenaireController extends Controller
             ['partenaires'=>$partenaires,
             'form'=>$form,
             'partenaire'=>$partenaire,
+            'titreButton'=>'Modifier',
             'typeAction'=>'update'
             ]);
     }

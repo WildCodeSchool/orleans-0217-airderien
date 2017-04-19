@@ -42,6 +42,7 @@ class SpectacleController extends Controller
                 ['spectacles'=>$spectacles,
                     'spectacle'=>$spectacle,
                     'typeAction'=>'add',
+                    'titreButton'=>'Ajouter',
                     'form'=>$form]);
     }
 
@@ -73,7 +74,8 @@ class SpectacleController extends Controller
                 [   'spectacles'=>$spectacles,
                     'form'=>$form,
                     'spectacle'=>$spectacle,
-                    'typeAction'=>'add'
+                    'typeAction'=>'add',
+                    'titreButton'=>'Ajouter'
                 ]);
     }
 
@@ -112,7 +114,8 @@ class SpectacleController extends Controller
                 [   'spectacle'=>$spectacle,
                     'form'=>$form,
                     'spectacles'=>$spectacles,
-                    'typeAction'=>'update'
+                    'typeAction'=>'update',
+                    'titreButton'=>'Modifier'
                 ]);
     }
 

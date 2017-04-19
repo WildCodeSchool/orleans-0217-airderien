@@ -56,3 +56,6 @@ function setBgImage(fileLeft, fileRight)
 $(document).ready(function() {
     $(".fittext").fitText();
 });
+
+$ ( function () { $ ( '[data-toggle="popover"]' ). popover () });
+

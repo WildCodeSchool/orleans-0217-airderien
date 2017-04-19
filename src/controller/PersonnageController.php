@@ -35,6 +35,7 @@ class PersonnageController extends Controller
             'spectacles'=>$spectacles,
             'membres'=>$membres,
             'typeAction'=>'add',
+            'titreButton'=>'Ajouter',
             'form'=>$form]);
     }
 
@@ -67,6 +68,7 @@ class PersonnageController extends Controller
             'personnage'=>$personnage,
             'spectacles'=>$spectacles,
             'membres'=>$membres,
+            'titreButton'=>'Ajouter',
             'typeAction'=>'add'
         ]);
     }
@@ -107,6 +109,7 @@ class PersonnageController extends Controller
             'personnage'=>$personnage,
             'spectacles'=>$spectacles,
             'membres'=>$membres,
+            'titreButton'=>'Modifier',
             'typeAction'=>'update'
             ]);
     }
