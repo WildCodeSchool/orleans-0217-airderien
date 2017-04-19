@@ -63,6 +63,30 @@ class PersonnageController extends Controller
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = htmlentities(trim($val));
                 }
+//                if(isset($_FILES['photoPersonnage'])){
+//                    $errors= array();
+//                    $file_name = $_FILES['photoPersonnage']['name'];
+//                    $file_size =$_FILES['photoPersonnage']['size'];
+//                    $file_tmp =$_FILES['photoPersonnage']['tmp_name'];
+//                    $file_ext=strtolower(end(explode('.',$_FILES['photoPersonnage']['name'])));
+//
+//                    $expensions= array("jpeg","jpg","png");
+//
+//                    if(in_array($file_ext,$expensions)=== false){
+//                        $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+//                    }
+//
+//                    if($file_size > 1097152){
+//                        $errors[]='File size must be excately 1 MB';
+//                    }
+//
+//                    if(empty($errors)==true){
+//                        move_uploaded_file($file_tmp,"images/".$file_name);
+//                        echo "Success";
+//                    }else{
+//                        print_r($errors);
+//                    }
+//                }
                 $requete->addPersonnage($postClean);
                 header('Location:admin.php?route=showPersonnage');
             }

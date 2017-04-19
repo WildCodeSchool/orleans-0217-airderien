@@ -93,6 +93,23 @@ p{
     margin: 5px;
 }
 
+.carousel-inner {
+    padding: 30px;
+    height: 450px;
+}
+
+.carousel-control.left {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%)
+}
+
+.carousel-control.right {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%)
+}
+
+.carousel-control {
+    color: #bc1a3a;
+}
+
 
 /*************************   NAVBAR ********************************************************
 

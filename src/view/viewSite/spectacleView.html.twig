@@ -1,6 +1,6 @@
 
 
-<body class="stretched ">
+<body class="stretched">
 
 <!--===========================Bannier==================================== -->
 
@@ -17,15 +17,16 @@
                         <!-- MAIN IMAGE -->
                         <img src="images/{{ spectacle.photoSpect }}"
                              alt="{{ spectacle.photoSpect }}"
-                             data-bgposition="left center" data-kenburns="on" data-duration="12000"
-                             data-ease="Linear.easeNone" data-scalestart="130" data-scaleend="100"
+                             data-bgposition="left center"
+                             data-kenburns="on"
+                             data-duration="12000" data-ease="Linear.easeNone" data-scalestart="130" data-scaleend="100"
                              data-bgpositionend="right center">
 
                         <!-- LAYERS -->
                         <div class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder"
 
-                             data-x="0"
-                             data-y="300"
+                             data-x="center"
+                             data-y="center"
                              data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.
                              easeOutQuad;"
                              data-speed="800"
@@ -202,27 +203,28 @@
                             <div class="fbox-desc" style="padding: 5px;">
                                 <a data-toggle="modal" href="#modal-video{{ video.id }}" data-lightbox="inline">
                                     <img src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg"
-                                         style="height: 180px;"></a>
+                                         style="height: 150px; width: 200px;"></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="modal fade" id="modal-video{{ video.id }}" style="display: none;">
-                        <div class="modal-dialog">
+                    <div class="modal fade" id="modal-video{{ video.id }}" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer
-                                        <i class="fa fa-times"></i></button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">{{ video.titreMedia }}</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video
-                                    .lienMedia }}" frameborder="0" allowfullscreen></iframe>
-
-                                    <p>{{ video.titreMedia }}</p>
+                                    <p>test</p>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+
                 {% endfor %}
             </div>
 
@@ -243,32 +245,35 @@
 
             <!--===========================Revue de presse==================================== -->
 
-            <div class="noborder footer-stick topmargin-lg" style=" padding: 80px;" data-stellar-background-ratio="0.3">
-                <div class=" nobottommargin">
+            <div class="heading-block title-center topmargin-lg page-section" style="padding-top: 50px;">
 
-                    <span id="presse" class="ancre"></span>
+                <span id="calendrier" class="ancre"></span>
 
-                    <div class="heading-block title-center nobottomborder" style="margin-top: -60px;">
-                        <h2>Revue de Presse</h2>
-                    </div>
+                <h2>Revue De Presse</h2>
+                <span></span>
+            </div>
 
-                    <div class="fslider restaurant-reviews" data-arrows="false" data-animation="slide">
-                        <div class="flexslider">
-                            <div class="slider-wrap">
-                                {% for article in articles %}
-                                    <div class="slide" style="margin-top: -20px;">
-                                        <h4>{{ article.titreArticle }}</h4>
-                                        <p class="lead">"{{ article.texteArticle }}"</p>
-                                        <span class="auteur"><strong>{{ article.auteur }}</strong>,
-                                            {{ article.journal }},{{ article.dateArticle }}
-                                    </span><br>
-                                    </div>
-                                {% endfor %}
+            <div id="carousel-presse" class="carousel slide fade in" data-ride="carousel" data-interval="false">
+
+                <div class="carousel-inner" role="listbox">
+                    {% for article in articles %}
+                        <div class="item col-xs-8 col-xs-offset-2 {% if loop.index == 1 %}active{% endif %}">
+                            <div class="caption">
+                                <h4>{{ article.titreArticle }}</h4>
+                                <p class="lead">"{{ article.texteArticle }}"</p>
+                                <span class="auteur"><strong>{{ article.auteur }}</strong>,
+                                    {{ article.journal }},{{ article.dateArticle }}</span><br>
                             </div>
                         </div>
-
-                    </div>
+                    {% endfor %}
                 </div>
+
+                <a class="left carousel-control" href="#carousel-presse" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-presse" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                </a>
             </div>
 
             <!--===========================Calendrier==================================== -->
