@@ -41,6 +41,22 @@ elseif ($route == 'deletePersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->deletePersonnage();
 }
+elseif ($route == 'showMembre') {
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->index();
+}
+elseif ($route == 'addMembre') {
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->addMembre();
+}
+elseif ($route == 'updateMembre') {
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->updateMembre($_GET['id']);
+}
+elseif ($route == 'deleteMembre') {
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->deleteMembre();
+}
 
 echo $renderHeader;
 echo $render;
