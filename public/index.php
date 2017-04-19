@@ -11,7 +11,6 @@ $renderFooter = '';
 $renderHeader = '';
 
 
-
 if ($route == 'hub') {
     $hub = new \air_de_rien\controller\HubController();
     $render = $hub->hubRender();
