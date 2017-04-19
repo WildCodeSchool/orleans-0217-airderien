@@ -1,18 +1,10 @@
-<?php
-$form->prepare();
-var_dump($_POST);
-//    foreach($form->getMessages() as $name => $message) {
-//            var_dump($message);
-//    }
-?>
-
 <!-- Header
     ============================================= -->
 <header id="header">
     <div id="header-wrap">
         <div class="container-fluid clearfix">
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-            <div id="logo"> <a href=""> <img src="images/Placeholder+Logo.png" ></a> </div>
+            <div id="logo"> <a href=""> <img src="images/logo_airderien.png" ></a> </div>
 
             <!-- Primary Navigation ============================================= -->
             <nav id="primary-menu" class="style-2 center">
@@ -37,7 +29,7 @@ var_dump($_POST);
             <nav>
                 <ul>
                     <li class="content"><a  href="#" data-href="#"><div>Infos principales</div></a></li>
-                    <li><a href="#" data-href="#membres"><div>Les Membres</div></a></li>
+                    <li><a href="#" data-href="#personnages"><div>Les Personnages</div></a></li>
                     <li><a href="#" data-href="#galerie"><div>Galerie Multimedia</div></a></li>
                     <li><a href="#" data-href="#calendrier"><div>Le Calendrier</div></a></li>
                     <li><a href="#" data-href="#presse"><div>Les articles de presse</div></a></li>
@@ -53,12 +45,12 @@ var_dump($_POST);
 </div><!-- #page-menu end -->
 
 
-<form name="addPersoForm" method="post" action="index.php?route=<?= $typeAction ?>Membre" class="form-horizontal">
+<form name="addMembreForm" method="post" action="admin.php?route={{ typeAction }}Membre" class="form-horizontal">
     <div class="form-group">
         <label for="nomMembre" class="col-sm-2 control-label">Nom :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="nomMembre" id="nomMembre"
-                   placeholder="Nom" value="<?php echo $membre->getNomMembre(); ?>" />
+                   placeholder="Nom" value="{{ membre.NomMembre }}" />
         </div>
     </div>
 
@@ -66,7 +58,7 @@ var_dump($_POST);
         <label for="prenomMembre" class="col-sm-2 control-label">Prenom :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="prenomMembre" id="prenomMembre"
-                   placeholder="Prenom" value="<?php echo $membre->getPrenomMembre(); ?>" />
+                   placeholder="Prenom" value="{{ membre.PrenomMembre }}" />
         </div>
     </div>
 
@@ -74,15 +66,7 @@ var_dump($_POST);
         <label for="descriptionMembre" class="col-sm-2 control-label">Description :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="descriptionMembre" id="descriptionMembre"
-                   placeholder="Description" value="<?php echo $membre->getDescriptionMembre(); ?>" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="LienPhotoMembre" class="col-sm-2 control-label">Photo :</label>
-        <div class="col-sm-2">
-            <input type="file" class="form-control" name="LienPhotoMembre" id="LienPhotoMembre"
-                   value="<?php echo $membre->getLienPhotoMembre(); ?>" />
+                   placeholder="Description" value="{{ membre.DescriptionMembre }}" />
         </div>
     </div>
 
@@ -90,7 +74,7 @@ var_dump($_POST);
         <label for="facebookMembre" class="col-sm-2 control-label">Facebook :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="facebookMembre" id="facebookMembre"
-                   placeholder="www.facebook.com" value="<?php echo $membre->getFacebookMembre(); ?>" />
+                   placeholder="www.facebook.com" value="{{ membre.FacebookMembre }}" />
         </div>
     </div>
 
@@ -98,7 +82,7 @@ var_dump($_POST);
         <label for="mailMembre" class="col-sm-2 control-label">Mail :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="mailMembre" id="mailMembre"
-                   placeholder="123@mail.com" value="<?php echo $membre->getMailMembre(); ?>" />
+                   placeholder="123@mail.com" value="{{ membre.MailMembre }}" />
         </div>
     </div>
 
@@ -106,13 +90,21 @@ var_dump($_POST);
         <label for="lienMembre" class="col-sm-2 control-label">Site :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="lienMembre" id="lienMembre"
-                   placeholder="www.123.com" value="<?php echo $membre->getLienMembre(); ?>" />
+                   placeholder="www.123.com" value="{{ membre.LienMembre }}" />
         </div>
     </div>
 
-    <input type="hidden" name="csrf" value="<?php echo $form->get('csrf')->getValue(); ?>">
+    <div class="form-group">
+        <label for="LienPhotoMembre" class="col-sm-2 control-label">Photo :</label>
+        <div class="col-sm-2">
+            <input type="file"  name="LienPhotoMembre" id="LienPhotoMembre"
+                   value="{{ membre.LienPhotoMembre }}" />
+        </div>
+    </div>
 
-    <input type="hidden" name="id" value=" <?php echo $membre->getId();?> ">
+    <input type="hidden" name="csrf" value="{{ form.csrf.value }}">
+
+    <input type="hidden" name="id" value="{{ membre.Id }}">
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
@@ -134,23 +126,23 @@ var_dump($_POST);
 
 <div class="row">
     <div class="col-lg-10 col-lg-offset-2">
-        <?php foreach ($membres as $membre) :?>
+        {% for membre in membres %}
             <div class="col-lg-4 thumbnail text-center">
-                <img src="<?php echo $membre->getLienPhotoMembre();?>" alt="<?php echo $membre->getPrenomMembre();?>">
-                <h3><?php echo $membre->getNomMembre();?>  <?php echo $membre->getPrenomMembre();?></h3>
-                <p><?php echo $membre->getDescriptionMembre(); ?></p>
+                <img src="{{ membre.LienPhotoMembre }}" alt="{{ membre.PrenomMembre }}">
+                <h3>{{ membre.NomMembre }}  {{ membre.PrenomMembre }}</h3>
+                <p>{{ membre.DescriptionMembre }}</p>
 
-                <form action="index.php" method="GET">
+                <form action="admin.php" method="GET">
                     <input type="hidden" name="route" value="updateMembre">
-                    <input type="hidden" name="id" value="<?php echo $membre->getId(); ?>">
+                    <input type="hidden" name="id" value="{{ membre.Id }}">
                     <input class="btn btn-warning" type="submit" name="updateMembre" value="Modifier">
                 </form>
-                <form action="index.php?route=deleteMembre" method="post">
-                    <input type="hidden" name="id" value="<?php echo $membre->getId(); ?>">
+                <form action="admin.php?route=deleteMembre" method="post">
+                    <input type="hidden" name="id" value="{{ membre.Id}}">
                     <input class="btn btn-danger" type="submit" name="deleteMembre" value="Supprimer">
                 </form>
             </div>
-        <?php endforeach ?>
+        {% endfor %}
     </div>
 
 </div>

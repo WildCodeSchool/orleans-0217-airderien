@@ -11,17 +11,6 @@ use air_de_rien\model\MembreRequete;
 
 class MembreController extends Controller
 {
-    /**
-     * récupération de tous les membres
-     * @return string
-     */
-    public function listAll()
-    {
-        $db = new DB();
-        $membres = $db -> findAll('membre');
-        return $this->render('admin/membreView.php', ['membres'=>$membres]);
-    }
-
 
     public function index()
     {
@@ -36,8 +25,9 @@ class MembreController extends Controller
         $membre = new Membre();
         $spectacles = $db -> findAll('spectacle');
 
-        return $this->render('admin/MembreView.php',
-            ['membres'=>$membres,
+        return $this->getTwig()
+            ->render('admin/MembreView.html.twig',
+                ['membres'=>$membres,
                 'membre'=>$membre,
                 'spectacles'=>$spectacles,
                 'typeAction'=>'add',
@@ -58,15 +48,16 @@ class MembreController extends Controller
                 $postClean[$key] = htmlentities(trim($val));
             }
             $requete->addMembre($postClean);
-            header('Location:index.php?route=showMembre');
+            header('Location:admin.php?route=showMembre');
         }
 
         $membres = $requete->findAll('membre');
         $membre = new Membre();
         $spectacles = $db -> findAll('spectacle');
 
-        return $this->render('admin/MembreView.php',
-            ['membres'=>$membres,
+        return $this->getTwig()
+            ->render('admin/MembreView.html.twig',
+                ['membres'=>$membres,
                 'form'=>$form,
                 'membre'=>$membre,
                 'spectacles'=>$spectacles,
@@ -78,7 +69,7 @@ class MembreController extends Controller
     {
         $del = new MembreRequete();
         $del->deleteMembre();
-        header('Location:index.php?route=showMembre');
+        header('Location:admin.php?route=showMembre');
     }
 
     public function updateMembre($id)
@@ -95,15 +86,16 @@ class MembreController extends Controller
                 $postClean[$key] = htmlentities(trim($val));
             }
             $requete->updateMembre($postClean);
-            header('Location:index.php?route=showMembre');
+            header('Location:admin.php?route=showMembre');
         }
 
         $membres = $requete->findAll('membre');
         $membre = $requete->findOne('membre', $id);
         $spectacles = $db -> findAll('spectacle');
 
-        return $this->render('admin/MembreView.php',
-            ['membres'=>$membres,
+        return $this->getTwig()
+            ->render('admin/MembreView.html.twig',
+                ['membres'=>$membres,
                 'form'=>$form,
                 'membre'=>$membre,
                 'spectacles'=>$spectacles,

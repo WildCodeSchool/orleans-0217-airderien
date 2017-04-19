@@ -41,6 +41,7 @@ elseif ($route == 'deletePersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->deletePersonnage();
 }
+
 elseif ($route == 'showMembre') {
     $membre = new \air_de_rien\controller\MembreController();
     $render = $membre->index();
