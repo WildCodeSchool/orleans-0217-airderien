@@ -33,7 +33,7 @@ class SpectacleController extends Controller
         $requete = new SpectacleRequete();
 
 
-/*        $spectacles = $requete-> findAll('spectacle');*/
+        $spectacles = $requete-> findAll('spectacle');
         $spectacle = new Spectacle();
 
 
