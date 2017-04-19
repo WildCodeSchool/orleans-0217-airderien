@@ -22,7 +22,7 @@ class CompagnieController extends Controller
 
         $compagnie = $db->findOne('compagnie',1);
         $membres = $db->findAll('membre');
-        $spectacle = $db->findAll('spectacle');
+        $spectacles = $db->findAll('spectacle');
         $galerie = $compagnieRequete->findAllMediaCompagnie('media','photo');
         $video = $compagnieRequete->findAllMediaCompagnie('media','video');
         $revue = $compagnieRequete->findAllPresse('revueDePresse');
@@ -33,7 +33,7 @@ class CompagnieController extends Controller
                               'medias'  => $galerie,
                               'videos'   =>$video,
                               'revues'   =>$revue,
-                              'spectacles'=>$spectacle
+                              'spectacles'=>$spectacles
                              ]);
 
 

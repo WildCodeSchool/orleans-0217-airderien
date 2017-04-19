@@ -8,12 +8,12 @@ use Zend\Validator\NotEmpty;
 use Zend\Filter\Dir;
 
 
-class PersonnageFilter extends InputFilter
+class PartenaireFilter extends InputFilter
 {
     public function __construct()
     {
         $this->add([
-            'name' => 'nomPersonnage',
+            'name' => 'nomPartenaire',
             'allow_empty' => false,
             'required' => true,
             'validators' => [[
@@ -23,17 +23,7 @@ class PersonnageFilter extends InputFilter
         ]);
 
         $this->add([
-            'name' => 'prenomPersonnage',
-            'allow_empty' => false,
-            'required' => true,
-            'validators' => [[
-                'name' => NotEmpty::class
-            ]],
-
-        ]);
-
-        $this->add([
-            'name' => 'descriptionPersonnage',
+            'name' => 'lienSitePartenaire',
             'allow_empty' => false,
             'required' => true,
             'validators' => [[
@@ -54,7 +44,7 @@ class PersonnageFilter extends InputFilter
 //        ]);
 
         $this->add([
-            'name' => 'photoPersonnage',
+            'name' => 'lienLogoPartenaire',
             'allow_empty' => false,
             'required' => true,
             'destination' => '/public/images',
