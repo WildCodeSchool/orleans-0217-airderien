@@ -42,6 +42,36 @@ elseif ($route == 'deletePersonnage') {
     $render = $personnage->deletePersonnage();
 }
 
+elseif ($route == 'dateListe') {
+    $date = new \air_de_rien\controller\CalendrierController();
+    $render = $date->index();
+}
+
+elseif ($route == 'addDate') {
+    $date = new \air_de_rien\controller\CalendrierController();
+    $render = $date->addDate();
+
+}
+elseif ($route == 'updateDate') {
+    $date = new \air_de_rien\controller\CalendrierController();
+    $id = isset($_GET['id']) ? $_GET['id'] : $_POST['id'];
+    $render = $date->updateDate($id);
+}
+elseif ($route == 'deleteDate') {
+    $date = new \air_de_rien\controller\CalendrierController();
+    $render = $date->deleteDate();
+}
+
+elseif ($route == 'compagnie') {
+    $date = new \air_de_rien\controller\CompagnieController();
+    $render = $date->index();
+}
+elseif ($route == 'updateCompagnie') {
+    $compagnie = new \air_de_rien\controller\CompagnieController();
+    $render = $compagnie->updateCompagnie($_GET['id']);
+}
+
+
 echo $renderHeader;
 echo $render;
 echo $renderFooter;

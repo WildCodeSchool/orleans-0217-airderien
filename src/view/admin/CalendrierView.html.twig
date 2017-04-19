@@ -1,5 +1,4 @@
 
-
 <!-- Header
     ============================================= -->
 <header id="header">
@@ -46,37 +45,20 @@
 
 </div><!-- #page-menu end -->
 
-
-<form name="addPersoForm" method="post" action="admin.php?route={{ typeAction }}Personnage" class="form-horizontal">
+<form name="addDateForm" method="post" action="admin.php?route={{ typeAction }}Date" class="form-horizontal">
     <div class="form-group">
-        <label for="nomPersonnage" class="col-sm-2 control-label">Nom :</label>
+        <label for="lieuSpectacle" class="col-sm-2 control-label">Lieu du spectacle :</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" name="nomPersonnage" id="nomPersonnage"
-                   placeholder="Nom" value="{{ personnage.NomPersonnage }}" />
+            <input type="text" class="form-control" name="lieuSpectacle" id="lieuSpectacle"
+                   placeholder="Lieu" value="{{ date.lieuSpectacle }}" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="prenomPersonnage" class="col-sm-2 control-label">Prenom :</label>
+        <label for="dateSpectacle" class="col-sm-2 control-label">Date du spectacle :</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" name="prenomPersonnage" id="prenomPersonnage"
-                   placeholder="Prenom" value="{{ personnage.PrenomPersonnage }}" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="descriptionPersonnage" class="col-sm-2 control-label">Description :</label>
-        <div class="col-sm-2">
-            <input type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
-                   placeholder="Description" value="{{ personnage.DescriptionPersonnage }}" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="photoPersonnage" class="col-sm-2 control-label">Photo :</label>
-        <div class="col-sm-2">
-            <input type="file" class="form-control" name="photoPersonnage" id="photoPersonnage"
-                   value="{{ personnage.PhotoPersonnage }}" />
+            <input type="datetime" class="form-control" name="dateSpectacle" id="dateSpectacle"
+                   placeholder="Date et heur" value="{{ date.dateSpectacle }}" />
         </div>
     </div>
 
@@ -91,20 +73,9 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label for="membreId" class="col-sm-2 control-label">Acteur :</label>
-        <div class="col-sm-2">
-            <select id="membreId" class="form-control" name="membreId">
-                {% for membre in membres %}
-                    <option value="{{ membre.Id }}">{{ membre.PrenomMembre }}</option>
-                {% endfor %}
-            </select>
-        </div>
-    </div>
-
         <input type="hidden" name="csrf" value="{{ form.csrf.value }}">
 
-    <input type="hidden" name="id" value="{{ personnage.Id }}">
+    <input type="hidden" name="id" value="{{ date.Id }}">
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
@@ -120,26 +91,28 @@
 
 <div class="row titre">
     <div class="col-xs-12 text-center">
-        <h3>Liste des personnages</h3>
+        <h3>Liste des dates</h3>
     </div>
 </div>
 
 <div class="row">
     <div class="col-lg-10 col-lg-offset-2">
-        {% for personnage in personnages %}
-            <div class="col-lg-4 thumbnail text-center">
-                <img src="{{ personnage.PhotoPersonnage }}" alt="{{ personnage.PrenomPersonnage }}">
-                <h3>{{ personnage.NomPersonnage }} {{ personnage.PrenomPersonnage }}</h3>
-                <p>{{ personnage.DescriptionPersonnage }}</p>
-
+            {% for date in dates %}
+                <div class="col-md-4 center">
+                    <div class="feature-box center media-box fbox-bg">
+                        <div class="fbox-desc">
+                            <h3>{{ date.dateformat }}<span class="subtitle">{{ date.lieuSpectacle }}</span></h3>
+                        </div>
+                    </div>
+                </div>
                 <form action="admin.php" method="GET">
-                    <input type="hidden" name="route" value="updatePersonnage">
-                    <input type="hidden" name="id" value="{{ personnage.Id }}">
-                    <input class="btn btn-warning" type="submit" name="updatePersonnage" value="Modifier">
+                    <input type="hidden" name="route" value="updateDate">
+                    <input type="hidden" name="id" value="{{ date.Id }}">
+                    <input class="btn btn-warning" type="submit" name="updateDate" value="Modifier">
                 </form>
-                <form action="admin.php?route=deletePersonnage" method="post">
-                    <input type="hidden" name="id" value="{{ personnage.Id }}">
-                    <input class="btn btn-danger" type="submit" name="deletePersonnage" value="Supprimer">
+                <form action="admin.php?route=deleteDate" method="post">
+                    <input type="hidden" name="id" value="{{ date.Id }}">
+                    <input class="btn btn-danger" type="submit" name="deleteDate" value="Supprimer">
                 </form>
             </div>
         {% endfor %}
