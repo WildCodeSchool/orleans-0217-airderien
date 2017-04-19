@@ -1,8 +1,11 @@
 <FilesMatch admin.php>
 
 
+
 AuthUserFile /home/wilder14/Projets/air_de_rien/orleans-0217-airderien/config/.htpasswd
-AuthName "Accès protégé trouve le MDP Banane !!"
+
+
+AAuthName "Accès protégé trouve le MDP Banane !!"
 AuthType Basic
 Require valid-user
 </FilesMatch>

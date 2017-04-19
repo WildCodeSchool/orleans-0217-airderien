@@ -31,6 +31,7 @@ class MembreController extends Controller
                 'membre'=>$membre,
                 'spectacles'=>$spectacles,
                 'typeAction'=>'add',
+                'titreButton'=>'Ajouter',
                 'form'=>$form]);
     }
 
@@ -61,6 +62,7 @@ class MembreController extends Controller
                 'form'=>$form,
                 'membre'=>$membre,
                 'spectacles'=>$spectacles,
+                'titreButton'=>'Ajouter',
                 'typeAction'=>'add'
             ]);
     }
@@ -99,6 +101,7 @@ class MembreController extends Controller
                 'form'=>$form,
                 'membre'=>$membre,
                 'spectacles'=>$spectacles,
+                'titreButton'=>'Modifier',
                 'typeAction'=>'update'
             ]);
     }
