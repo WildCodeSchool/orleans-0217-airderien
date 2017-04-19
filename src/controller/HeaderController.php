@@ -21,4 +21,15 @@ class HeaderController extends  Controller
                 'route'=> $route
                 ]);
     }
+
+
+    /**
+     * @return string
+     */
+    public function headerRenderAdmin($route) {
+        return $this->getTwig()
+            ->render('admin/headerAdmin.html.twig',[
+                'route'=> $route
+            ]);
+    }
 }

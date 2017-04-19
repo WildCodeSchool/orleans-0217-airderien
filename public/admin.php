@@ -8,18 +8,12 @@ $route = $_GET['route'] ?? 'indexAdmin';
 
 $render = '';
 
-$footer = new \air_de_rien\controller\FooterController();
 $header = new \air_de_rien\controller\HeaderController();
-$renderFooter = $footer->footerRender();
-$renderHeader = $header->headerRender($route);
+$renderHeader = $header->headerRenderAdmin($route);
 
 if ($route == 'indexAdmin') {
     $index = new \air_de_rien\controller\IndexAdminController();
-    $footer = new \air_de_rien\controller\FooterController();
-    $header = new \air_de_rien\controller\HeaderController();
     $render = $index->pageIndexAdmin();
-    $renderFooter = $footer->footerRender();
-    $renderHeader = $header->headerRender($route);
 
 }
 
