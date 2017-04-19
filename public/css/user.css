@@ -22,15 +22,15 @@ body{
 
 h2, h3, h4{
     font-family: 'Fredericka the Great', cursive;
-    color: #bc1a3a;
+    color: #a70000;
 }
 
 .heading-block h1, .heading-block h2, .heading-block h3, .heading-block h4, .emphasis-title h1, .emphasis-title h2{
-    color: #bc1a3a;
+    color: #a70000;
 }
 
 .line, .double-line{
-    border-top: 1px solid #1ABC9C;
+    border-top: 1px solid #bc1a3a;
 }
 
 .team-image a{
@@ -41,7 +41,7 @@ h2, h3, h4{
 }
 
 .feature-box h3{
-    color: #bc1a3a;
+    color: #a70000;
 }
 
 .feature-box.media-box.fbox-bg .fbox-desc {
@@ -58,7 +58,7 @@ h2, h3, h4{
 }
 
 .button-dark {
-    background-color: #bc1a3a;
+    background-color: #a70000;
 }
 
 .team-content{
@@ -100,7 +100,7 @@ p{
 #page-menu-wrap .menu-title{
     font-family: 'Fredericka the Great', cursive;
     text-transform: uppercase;
-    color: #bc1a3a;
+    color: #a70000;
 }
 
 .one-page-menu li{
@@ -111,7 +111,7 @@ p{
 #primary-menu ul li > a{
     font-family: 'Fredericka the Great', cursive;
     font-size: 30px;
-    color: #bc1a3a;
+    color: #a70000;
 }
 
 #page-menu nav li a{
@@ -119,12 +119,12 @@ p{
 }
 
 .compagnie{
-    color: #1abc9c;
+    color: #bc1a3a;
 }
 
 .container-fluid .pti-footer{
     background-color: white;
-    border-top: 2px solid #bc1a3a;
+    border-top: 2px solid #a70000;
 }
 
 
