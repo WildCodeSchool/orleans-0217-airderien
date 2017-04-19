@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fanny
- * Date: 05/04/17
- * Time: 14:24
- */
 
 namespace air_de_rien\model;
 

@@ -51,20 +51,20 @@ elseif ($route == 'deletePersonnage') {
 }
 
 elseif ($route == 'showMembre') {
-    $Membre = new \air_de_rien\controller\MembreController();
-    $render = $Membre->index();
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->index();
 }
 elseif ($route == 'addMembre') {
-    $Membre = new \air_de_rien\controller\MembreController();
-    $render = $Membre->addMembre();
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->addMembre();
 }
 elseif ($route == 'updateMembre') {
-    $Membre = new \air_de_rien\controller\MembreController();
-    $render = $Membre->updateMembre($_GET['id']);
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->updateMembre($_GET['id']);
 }
 elseif ($route == 'deleteMembre') {
-    $Membre = new \air_de_rien\controller\MembreController();
-    $render = $Membre->deleteMembre();
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->deleteMembre();
 }
 
 elseif ($route == 'compagnie') {

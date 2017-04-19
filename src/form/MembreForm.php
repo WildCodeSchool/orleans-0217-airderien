@@ -6,6 +6,7 @@ namespace air_de_rien\form;
 use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Text;
 use Zend\Form\Element\File;
+use Zend\Form\Element\Email;
 use Zend\Form\Form;
 
 class MembreForm extends Form
@@ -16,32 +17,57 @@ class MembreForm extends Form
 
         $this->add([
             'type'  => Text::class,
-            'name' => 'nomPersonnage',
+            'name' => 'nomMembre',
             'options' => [
-                'label' => 'nomPersonnage',
+                'label' => 'nomMembre',
             ],
         ]);
 
         $this->add([
             'type'  => Text::class,
-            'name' => 'prenomPersonnage',
+            'name' => 'prenomMembre',
             'options' => [
-                'label' => 'prenomPersonnage',
+                'label' => 'prenomMembre',
             ],
         ]);
+
         $this->add([
             'type'  => Text::class,
-            'name' => 'descriptionPersonnage',
+            'name' => 'descriptionMembre',
             'options' => [
-                'label' => 'descriptionPersonnage',
+                'label' => 'descriptionMembre',
             ],
         ]);
 
         $this->add([
             'type'  => File::class,
-            'name' => 'photoPersonnage',
+            'name' => 'lienPhotoMembre',
             'options' => [
-                'label' => 'photoPersonnage',
+                'label' => 'lienPhotoMembre',
+            ],
+        ]);
+
+        $this->add([
+            'type'  => Text::class,
+            'name' => 'facebookMembre',
+            'options' => [
+                'label' => 'facebookMembre',
+            ],
+        ]);
+
+        $this->add([
+            'type'  => Email::class,
+            'name' => 'mailMembre',
+            'options' => [
+                'label' => 'mailMembre',
+            ],
+        ]);
+
+        $this->add([
+            'type'  => Text::class,
+            'name' => 'lienMembre',
+            'options' => [
+                'label' => 'lienMembre',
             ],
         ]);
 

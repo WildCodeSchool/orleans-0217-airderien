@@ -12,7 +12,7 @@ class MembreFilter extends InputFilter
     public function __construct()
     {
         $this->add([
-            'name' => 'nomPersonnage',
+            'name' => 'nomMembre',
             'allow_empty' => false,
             'required' => true,
             'validators' => [[
@@ -22,7 +22,7 @@ class MembreFilter extends InputFilter
         ]);
 
         $this->add([
-            'name' => 'prenomPersonnage',
+            'name' => 'prenomMembre',
             'allow_empty' => false,
             'required' => true,
             'validators' => [[
@@ -32,7 +32,7 @@ class MembreFilter extends InputFilter
         ]);
 
         $this->add([
-            'name' => 'descriptionPersonnage',
+            'name' => 'descriptionMembre',
             'allow_empty' => false,
             'required' => true,
             'validators' => [[
@@ -41,7 +41,34 @@ class MembreFilter extends InputFilter
         ]);
 
         $this->add([
-            'name' => 'photoPersonnage',
+            'name' => 'lienPhotoMembre',
+            'allow_empty' => false,
+            'required' => true,
+            'validators' => [[
+                'name' => NotEmpty::class
+            ]],
+        ]);
+
+        $this->add([
+            'name' => 'facebookMembre',
+            'allow_empty' => false,
+            'required' => true,
+            'validators' => [[
+                'name' => NotEmpty::class
+            ]],
+        ]);
+
+        $this->add([
+            'name' => 'mailMembre',
+            'allow_empty' => false,
+            'required' => true,
+            'validators' => [[
+                'name' => NotEmpty::class
+            ]],
+        ]);
+
+        $this->add([
+            'name' => 'lienMembre',
             'allow_empty' => false,
             'required' => true,
             'validators' => [[

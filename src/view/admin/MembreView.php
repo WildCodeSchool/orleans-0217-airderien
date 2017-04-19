@@ -90,7 +90,7 @@ var_dump($_POST);
         <label for="facebookMembre" class="col-sm-2 control-label">Facebook :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="facebookMembre" id="facebookMembre"
-                   placeholder="Description" value="<?php echo $membre->getFacebookMembre(); ?>" />
+                   placeholder="www.facebook.com" value="<?php echo $membre->getFacebookMembre(); ?>" />
         </div>
     </div>
 
@@ -98,7 +98,7 @@ var_dump($_POST);
         <label for="mailMembre" class="col-sm-2 control-label">Mail :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="mailMembre" id="mailMembre"
-                   placeholder="Description" value="<?php echo $membre->getMailMembre(); ?>" />
+                   placeholder="123@mail.com" value="<?php echo $membre->getMailMembre(); ?>" />
         </div>
     </div>
 
@@ -106,7 +106,7 @@ var_dump($_POST);
         <label for="lienMembre" class="col-sm-2 control-label">Site :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="lienMembre" id="lienMembre"
-                   placeholder="Description" value="<?php echo $membre->getLienMembre(); ?>" />
+                   placeholder="www.123.com" value="<?php echo $membre->getLienMembre(); ?>" />
         </div>
     </div>
 
@@ -136,7 +136,7 @@ var_dump($_POST);
     <div class="col-lg-10 col-lg-offset-2">
         <?php foreach ($membres as $membre) :?>
             <div class="col-lg-4 thumbnail text-center">
-                <img src="<?php echo $membre->getPhotoMembre();?>" alt="<?php echo $membre->getPrenomMembre();?>">
+                <img src="<?php echo $membre->getLienPhotoMembre();?>" alt="<?php echo $membre->getPrenomMembre();?>">
                 <h3><?php echo $membre->getNomMembre();?>  <?php echo $membre->getPrenomMembre();?></h3>
                 <p><?php echo $membre->getDescriptionMembre(); ?></p>
 
