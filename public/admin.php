@@ -42,6 +42,25 @@ elseif ($route == 'deletePersonnage') {
     $render = $personnage->deletePersonnage();
 }
 
+elseif ($route == 'showPartenaire') {
+    $partenaire = new \air_de_rien\controller\PartenaireController();
+    $render = $partenaire->index();
+}
+
+elseif ($route == 'addPartenaire') {
+    $partenaire = new \air_de_rien\controller\PartenaireController();
+    $render = $partenaire->addPartenaire();
+
+}
+elseif ($route == 'updatePartenaire') {
+    $partenaire = new \air_de_rien\controller\PartenaireController();
+    $render = $partenaire->updatePartenaire($_GET['id']);
+}
+elseif ($route == 'deletePartenaire') {
+    $partenaire = new \air_de_rien\controller\PartenaireController();
+    $render = $partenaire->deletePartenaire();
+}
+
 echo $renderHeader;
 echo $render;
 echo $renderFooter;
