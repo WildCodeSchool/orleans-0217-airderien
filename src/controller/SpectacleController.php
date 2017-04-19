@@ -24,7 +24,7 @@ class SpectacleController extends Controller
         $requete = new SpectacleRequete();
         $db = new DB();
 
-        $spectacles = $requete-> findAll('spectacle');
+/*        $spectacles = $requete-> findAll('spectacle');*/
         $spectacle = new Spectacle();
         $spectacles = $db -> findAll('spectacle');
 
@@ -57,7 +57,6 @@ class SpectacleController extends Controller
 
         $spectacles = $requete->findAll('spectacle');
         $spectacle = new Spectacle();
-        $spectacles = $db -> findAll('spectacle');
 
         return $this->getTwig()
             ->render('admin/SpectacleView.html.twig',
@@ -95,7 +94,6 @@ class SpectacleController extends Controller
 
         $spectacles = $requete->findAll('spectacle');
         $spectacle = $requete->findOne('spectacle', $id);
-        $spectacles = $db -> findAll('spectacle');
 
         return $this->getTwig()
             ->render('admin/SpectacleView.html.twig',
