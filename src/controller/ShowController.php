@@ -15,6 +15,7 @@ class ShowController extends Controller
     {
         $db = new DB();
         $spectacle = $db -> findOne('spectacle', $id);
+        $spectacles = $db -> findAll('spectacle');
         $personnages = $db -> findAllSpect('personnage', $id);
         $membres = $db -> findAll('membre');
         $photos = $db -> findAllMedia('media', 'photo', $id);
@@ -23,7 +24,8 @@ class ShowController extends Controller
         $dates = $db -> findAllSpect('calendrier', $id);
         $articles = $db -> findAllSpect('revueDePresse', $id);
         return $this->getTwig()
-                    ->render('viewSite/spectacleView.html.twig', ['spectacles'=>$spectacle,
+                    ->render('viewSite/spectacleView.html.twig', ['spectacle'=>$spectacle,
+                                                             'spectacles' =>$spectacles,
                                                              'personnages'=>$personnages,
                                                              'membres'=>$membres,
                                                              'photos'=>$photos,

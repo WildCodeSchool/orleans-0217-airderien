@@ -3,21 +3,20 @@
 namespace air_de_rien\controller;
 
 use air_de_rien\model\DB;
+use air_de_rien\form\SpectacleFilter;
+use air_de_rien\form\SpectacleForm;
+use air_de_rien\model\Spectacle;
+use air_de_rien\model\SpectacleRequete;
 
 class SpectacleController extends Controller
 {
-    /**
-     * récupération de tous les spectacles et affichage sur une page sous forme de vignettes
-     * @return string
-     */
+
     public function listAll()
     {
-        // connection à la bdd
         $db = new DB();
-        // requete sql pour récupérer tous les spectacles dans un tableau d'objets Spectacle
-        $spectacles = $db -> findAll('viewSite');
-        // affichage de la vue HTML
-        return $this->render('viewSite/spectacleView.html.twig', ['spectacles'=>$spectacles]);
+        $spectacles = $db -> findAll('spectacle');
+        return $this->getTwig()
+            ->render('admin/spectacleView.html.twig', ['spectacles'=>$spectacles]);
     }
 
     /**
@@ -25,11 +24,98 @@ class SpectacleController extends Controller
      * @param $id
      * @return string
      */
-    public function show($id)
+        public function index()
     {
-        $db = new DB();
-        $spectacle = $db -> findOne('viewSite', $id);
-        return $this->render('viewSite/spectacleView.html.twig', ['viewSite'=>$spectacle]);
+        $form = new SpectacleForm();
+        $filter = new SpectacleFilter();
+        $form->setInputFilter($filter);
+
+        $requete = new SpectacleRequete();
+
+
+        $spectacles = $requete-> findAll('spectacle');
+        $spectacle = new Spectacle();
+
+
+        return $this->getTwig()
+            ->render('admin/SpectacleView.html.twig',
+                ['spectacles'=>$spectacles,
+                    'spectacle'=>$spectacle,
+                    'typeAction'=>'add',
+                    'form'=>$form]);
+    }
+
+        public function addSpectacle()
+    {
+        $form = new SpectacleForm();
+        $filter = new SpectacleFilter();
+        $form->setInputFilter($filter);
+
+        $requete = new SpectacleRequete();
+
+
+//        if ($form->isValid()) {
+        if (!empty($_POST)) {
+            foreach ($_POST as $key => $val) {
+                $postClean[$key] = htmlentities(trim($val));
+            }
+            $requete->addSpectacle($postClean);
+            header('Location:admin.php?route=showSpectacle');
+        }
+//        }
+
+        $spectacles = $requete->findAll('spectacle');
+        $spectacle = new Spectacle();
+
+
+        return $this->getTwig()
+            ->render('admin/SpectacleView.html.twig',
+                [   'spectacles'=>$spectacles,
+                    'form'=>$form,
+                    'spectacle'=>$spectacle,
+                    'typeAction'=>'add'
+                ]);
+    }
+
+        public function deleteSpectacle()
+    {
+        $del = new SpectacleRequete();
+        $del->deleteSpectacle();
+        header('Location:admin.php?route=showSpectacle');
+    }
+
+        public function updateSpectacle($id)
+    {
+        $form = new SpectacleForm();
+        $filter = new SpectacleFilter();
+        $form->setInputFilter($filter);
+
+        $requete = new SpectacleRequete();
+
+
+//        if ($form->isValid()) {
+        if (!empty($_POST)) {
+            foreach ($_POST as $key => $val) {
+                $postClean[$key] = htmlentities(trim($val));
+            }
+            $requete->updateSpectacle($postClean);
+            header('Location:admin.php?route=showSpectacle');
+        }
+//        }
+
+        $spectacles = $requete->findAll('spectacle');
+        $spectacle = $requete->findOne('spectacle', $id);
+
+
+        return $this->getTwig()
+            ->render('admin/SpectacleView.html.twig',
+                [   'spectacle'=>$spectacle,
+                    'form'=>$form,
+                    'spectacles'=>$spectacles,
+                    'typeAction'=>'update'
+                ]);
+    }
+
+
 
     }
-}

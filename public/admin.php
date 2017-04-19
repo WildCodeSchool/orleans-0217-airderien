@@ -41,6 +41,61 @@ elseif ($route == 'deletePersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->deletePersonnage();
 }
+elseif ($route == 'showSpectacle') {
+    $spectacle = new \air_de_rien\controller\SpectacleController();
+    $render = $spectacle->index();
+}
+
+elseif ($route == 'addSpectacle') {
+    $spectacle = new \air_de_rien\controller\SpectacleController();
+    $render = $spectacle->addSpectacle();
+
+}
+elseif ($route == 'updateSpectacle') {
+    $spectacle = new \air_de_rien\controller\SpectacleController();
+    $render = $spectacle->updateSpectacle($_GET['id']);
+}
+elseif ($route == 'deleteSpectacle') {
+    $spectacle = new \air_de_rien\controller\SpectacleController();
+    $render = $spectacle->deleteSpectacle();
+}
+
+elseif ($route == 'showMembre') {
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->index();
+}
+elseif ($route == 'addMembre') {
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->addMembre();
+}
+elseif ($route == 'updateMembre') {
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->updateMembre($_GET['id']);
+}
+elseif ($route == 'deleteMembre') {
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->deleteMembre();
+}
+
+elseif ($route == 'showPartenaire') {
+    $partenaire = new \air_de_rien\controller\PartenaireController();
+    $render = $partenaire->index();
+}
+
+elseif ($route == 'addPartenaire') {
+    $partenaire = new \air_de_rien\controller\PartenaireController();
+    $render = $partenaire->addPartenaire();
+
+}
+elseif ($route == 'updatePartenaire') {
+    $partenaire = new \air_de_rien\controller\PartenaireController();
+    $render = $partenaire->updatePartenaire($_GET['id']);
+}
+elseif ($route == 'deletePartenaire') {
+    $partenaire = new \air_de_rien\controller\PartenaireController();
+    $render = $partenaire->deletePartenaire();
+
+}
 
 elseif ($route == 'dateListe') {
     $date = new \air_de_rien\controller\CalendrierController();
@@ -74,4 +129,4 @@ elseif ($route == 'updateCompagnie') {
 
 echo $renderHeader;
 echo $render;
-echo $renderFooter;
+

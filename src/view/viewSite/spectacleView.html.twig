@@ -1,4 +1,4 @@
-{#{{ dump() }}#}
+
 
 <body class="stretched ">
 
@@ -15,8 +15,8 @@
                         data-delay="12000"  data-saveperformance="off">
 
                         <!-- MAIN IMAGE -->
-                        <img src="images/{{ spectacles.photoSpect }}"
-                             alt="{{ spectacles.photoSpect }}"
+                        <img src="images/{{ spectacle.photoSpect }}"
+                             alt="{{ spectacle.photoSpect }}"
                              data-bgposition="left center" data-kenburns="on" data-duration="12000"
                              data-ease="Linear.easeNone" data-scalestart="130" data-scaleend="100"
                              data-bgpositionend="right center">
@@ -36,7 +36,7 @@
                              data-elementdelay="0.01"
                              data-endelementdelay="0.1"
                              data-endspeed="1000"
-                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; font-family: 'Fredericka the Great', cursive; background-color: rgba(0,0,0,0.6); border-radius: 10px;">{{ spectacles.titreSpect }}</div>
+                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; font-family: 'Fredericka the Great', cursive; background-color: rgba(0,0,0,0.6); border-radius: 10px;">{{ spectacle.titreSpect }}</div>
 
                         <div class="tp-caption customin ltl tp-resizeme"
                              data-x="500"
@@ -76,9 +76,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Les spectacles <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">{{ spectacles.titreSpect }}</a></li>
-                            <li><a href="#">Un autre spectacle</a></li>
-                            <li><a href="#">Encore un autre spectacle</a></li>
+                            {% for spectacle in spectacles %}
+                            <li><a href="#">{{ spectacle.titreSpect }}</a></li>
+                            {% endfor %}
                         </ul>
                     </li>
                 </ul>
@@ -128,11 +128,11 @@
             <span id="titre"></span>
 
             <div class="heading-block title-center page-section">
-                <h2>{{ spectacles.titreSpect }}</h2>
+                <h2>{{ spectacle.titreSpect }}</h2>
                 <span></span>
             </div>
 
-            <p class="bottommargin">{{ spectacles.descriptionSpect }}</p>
+            <p class="bottommargin">{{ spectacle.descriptionSpect }}</p>
 
             <!--===========================Personnages==================================== -->
 

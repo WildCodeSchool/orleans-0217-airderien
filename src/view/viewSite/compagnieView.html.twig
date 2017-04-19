@@ -78,9 +78,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Les spectacles <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="index.php?route=spectacle&id=1">Devine qui vient dîner ce soir</a></li>
-                            <li><a href="#">Un autre spectacle</a></li>
-                            <li><a href="#">Encore un autre spectacle</a></li>
+                            {% for spectacle in spectacles %}
+                            <li><a href="index.php?route=spectacle&id={{ spectacle.Id }}">{{ spectacle.titreSpect }}</a></li>
+                            {% endfor %}
                         </ul>
                     </li>
                 </ul>

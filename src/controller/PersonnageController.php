@@ -47,7 +47,6 @@ class PersonnageController extends Controller
         $requete = new PersonnageRequete();
         $db = new DB();
 
-//        if ($form->isValid()) {
             if (!empty($_POST)) {
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = htmlentities(trim($val));
@@ -55,7 +54,6 @@ class PersonnageController extends Controller
                 $requete->addPersonnage($postClean);
                 header('Location:admin.php?route=showPersonnage');
             }
-//        }
 
         $personnages = $requete->findAll('personnage');
         $personnage = new Personnage();
@@ -89,15 +87,13 @@ class PersonnageController extends Controller
         $requete = new PersonnageRequete();
         $db = new DB();
 
-//        if ($form->isValid()) {
-            if (!empty($_POST)) {
-                foreach ($_POST as $key => $val) {
-                    $postClean[$key] = htmlentities(trim($val));
-                }
-                $requete->updatePersonnage($postClean);
-                header('Location:admin.php?route=showPersonnage');
+        if (!empty($_POST)) {
+            foreach ($_POST as $key => $val) {
+                $postClean[$key] = htmlentities(trim($val));
             }
-//        }
+            $requete->updatePersonnage($postClean);
+            header('Location:admin.php?route=showPersonnage');
+        }
 
         $personnages = $requete->findAll('personnage');
         $personnage = $requete->findOne('personnage', $id);
