@@ -20,7 +20,7 @@ class DB
     /**
      * @return \PDO
      */
-    public function getDb()
+    public function getDb() : \PDO
     {
         return $this->db;
     }
@@ -29,7 +29,7 @@ class DB
      * @param \PDO $db
      * @return DB
      */
-    public function setDb($db)
+    public function setDb(\PDO $db)
     {
         $this->db = $db;
         return $this;
