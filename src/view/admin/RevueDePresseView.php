@@ -96,11 +96,21 @@ var_dump($_POST);
     <div class="form-group">
         <label for="spectacleId" class="col-sm-2 control-label">Spectacle :</label>
         <div class="col-sm-2">
-            <select id="spectacleId" class="form-control" name="spectacleId>
+            <select id="spectacleId" class="form-control" name="spectacleId">
                 <?php foreach ($spectacles as $spectacle) :?>
                     <option value="<?php echo $spectacle->getId();?>" ><?php echo $spectacle->getTitreSpect();?></option>
                 <?php endforeach ?>
             </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label name="spectacleId">
+                    <input value="1" type="checkbox"> Afficher
+                </label>
+            </div>
         </div>
     </div>
 
