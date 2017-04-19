@@ -1,6 +1,6 @@
 
 
-<form name="addPartForm" method="post" action="admin.php?route={{ typeAction }}Partenaire" class="form-horizontal">
+<form name="addPartForm" method="post" action="admin.php?route={{ typeAction }}Partenaire" class="form-horizontal" style="width: 200%; margin-top: 30px">
     <div class="form-group">
         <label for="nomPartenaire" class="col-sm-2 control-label">Nom :</label>
         <div class="col-sm-2">
@@ -54,7 +54,7 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-10 col-lg-offset-2">
+    <div class="col-lg-10 col-lg-offset-1">
         {% for partenaire in partenaires %}
             <div class="col-lg-4 thumbnail text-center">
                 <img src="{{ partenaire.LienLogoPartenaire }}" alt="{{ partenaire.NomPartenaire }}">
