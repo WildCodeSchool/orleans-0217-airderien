@@ -1,0 +1,118 @@
+
+
+<!-- Header
+    ============================================= -->
+<header id="header">
+    <div id="header-wrap">
+        <div class="container-fluid clearfix">
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+            <div id="logo"> <a href=""> <img src="images/logo_airderien.png" ></a> </div>
+
+            <!-- Primary Navigation ============================================= -->
+            <nav id="primary-menu" class="style-2 center">
+                <ul class="one-page-menu">
+                    <li><a href="#" data-href="#most-toppest"><div class="compagnie">La compagnie</div></a></li>
+                    <li><a href="#" data-href="#most-toppest"><div class="spectacle">Les spectacles</div></a></li>
+                </ul>
+            </nav><!-- #primary-menu end -->
+        </div>
+    </div>
+</header>
+
+
+<div id="page-menu">
+
+    <div id="page-menu-wrap">
+
+        <div class="container-fluid clearfix">
+
+            <div class="menu-title">Administration</div>
+
+            <nav>
+                <ul>
+                    <li class="content"><a  href="#" data-href="#"><div>Infos principales</div></a></li>
+                    <li><a href="#" data-href="#personnages"><div>Les Personnages</div></a></li>
+                    <li><a href="#" data-href="#galerie"><div>Galerie Multimedia</div></a></li>
+                    <li><a href="#" data-href="#calendrier"><div>Le Calendrier</div></a></li>
+                    <li><a href="#" data-href="#presse"><div>Les articles de presse</div></a></li>
+                </ul>
+            </nav>
+
+            <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
+
+        </div>
+
+    </div>
+
+</div><!-- #page-menu end -->
+
+
+<form name="addSpectForm" method="post" action="admin.php?route={{ typeAction }}Spectacle" class="form-horizontal">
+    <div class="form-group">
+        <label for="titreSpect" class="col-sm-2 control-label">Nom :</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" name="titreSpect" id="titreSpect"
+                   placeholder="Titre" value="{{ spectacle.titreSpect }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="descriptionSpect" class="col-sm-2 control-label">Description :</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" name="descriptionSpect" id="descriptionSpect"
+                   placeholder="Présentation Spectacle" value="{{ spectacle.descriptionSpect }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="photoSpect" class="col-sm-2 control-label">Photo :</label>
+        <div class="col-sm-2">
+            <input type="file" name="photoSpect" id="photoSpect"
+                   value="{{ spectacle.photoSpect }}" />
+        </div>
+    </div>
+
+        <input type="hidden" name="csrf" value="{{ form.csrf.value }}">
+
+    <input type="hidden" name="id" value="{{ spectacle.Id }}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" name="submit" value="submit" class="btn btn-default">Ajouter</button>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+
+<div class="row titre">
+    <div class="col-xs-12 text-center">
+        <h3>Liste des spectacles</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-2">
+        {% for spectacle in spectacles %}
+            <div class="col-lg-4 thumbnail text-center">
+                <img src="{{ spectacle.PhotoSpect }}" alt="{{ spectacle.titreSpect }}">
+                <h3>{{ spectacle.titreSpect }}</h3>
+                <p>{{ spectacle.DescriptionSpect }}</p>
+
+                <form action="admin.php" method="GET">
+                    <input type="hidden" name="route" value="updateSpectacle">
+                    <input type="hidden" name="id" value="{{ spectacle.Id }}">
+                    <input class="btn btn-warning" type="submit" name="updateSpectacle" value="Modifier">
+                </form>
+                <form action="admin.php?route=deleteSpectacle" method="post">
+                    <input type="hidden" name="id" value="{{ spectacle.Id }}">
+                    <input class="btn btn-danger" type="submit" name="deleteSpectacle" value="Supprimer">
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

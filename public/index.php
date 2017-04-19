@@ -11,13 +11,8 @@ $renderFooter = '';
 $renderHeader = '';
 
 
-if ($route == 'listSpectacle') {
-$spectacle = new \air_de_rien\controller\SpectacleController();
-$render = $spectacle->listAll();
 
-}
-
-elseif ($route == 'hub') {
+if ($route == 'hub') {
     $hub = new \air_de_rien\controller\HubController();
     $render = $hub->hubRender();
 
