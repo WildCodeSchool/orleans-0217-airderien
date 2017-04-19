@@ -10,6 +10,15 @@ use air_de_rien\model\SpectacleRequete;
 
 class SpectacleController extends Controller
 {
+
+    public function listAll()
+    {
+        $db = new DB();
+        $spectacles = $db -> findAll('spectacle');
+        return $this->getTwig()
+            ->render('admin/spectacleView.html.twig', ['spectacles'=>$spectacles]);
+    }
+
     /**
      * récupération de viewSite correspondant à l'id $id et affichage des informations de ce viewSite uniquement
      * @param $id
@@ -22,11 +31,11 @@ class SpectacleController extends Controller
         $form->setInputFilter($filter);
 
         $requete = new SpectacleRequete();
-        $db = new DB();
+
 
         $spectacles = $requete-> findAll('spectacle');
         $spectacle = new Spectacle();
-        $spectacles = $db -> findAll('spectacle');
+
 
         return $this->getTwig()
             ->render('admin/SpectacleView.html.twig',
@@ -43,7 +52,7 @@ class SpectacleController extends Controller
         $form->setInputFilter($filter);
 
         $requete = new SpectacleRequete();
-        $db = new DB();
+
 
 //        if ($form->isValid()) {
         if (!empty($_POST)) {
@@ -57,12 +66,13 @@ class SpectacleController extends Controller
 
         $spectacles = $requete->findAll('spectacle');
         $spectacle = new Spectacle();
-        $spectacles = $db -> findAll('spectacle');
+
 
         return $this->getTwig()
             ->render('admin/SpectacleView.html.twig',
-                [   'form'=>$form,
-                    'spectacles'=>$spectacles,
+                [   'spectacles'=>$spectacles,
+                    'form'=>$form,
+                    'spectacle'=>$spectacle,
                     'typeAction'=>'add'
                 ]);
     }
@@ -81,7 +91,7 @@ class SpectacleController extends Controller
         $form->setInputFilter($filter);
 
         $requete = new SpectacleRequete();
-        $db = new DB();
+
 
 //        if ($form->isValid()) {
         if (!empty($_POST)) {
@@ -95,11 +105,12 @@ class SpectacleController extends Controller
 
         $spectacles = $requete->findAll('spectacle');
         $spectacle = $requete->findOne('spectacle', $id);
-        $spectacles = $db -> findAll('spectacle');
+
 
         return $this->getTwig()
             ->render('admin/SpectacleView.html.twig',
-                [   'form'=>$form,
+                [   'spectacle'=>$spectacle,
+                    'form'=>$form,
                     'spectacles'=>$spectacles,
                     'typeAction'=>'update'
                 ]);

@@ -14,7 +14,7 @@ use air_de_rien\model\PartenaireRequete;
 class PartenaireController extends Controller
 {
     /**
-     * récupération de tous les partenaires
+     * récupération de tous les spectacles
      * @return string
      */
     public function listAll()
@@ -33,7 +33,7 @@ class PartenaireController extends Controller
         $form->setInputFilter($filter);
 
         $requete = new PartenaireRequete();
-        $db = new DB();
+
 
         $partenaires = $requete-> findAll('partenaire');
         $partenaire = new Partenaire();
@@ -54,7 +54,7 @@ class PartenaireController extends Controller
         $form->setInputFilter($filter);
 
         $requete = new PartenaireRequete();
-        $db = new DB();
+
 
 //        if ($form->isValid()) {
             if (!empty($_POST)) {
@@ -93,7 +93,7 @@ class PartenaireController extends Controller
         $form->setInputFilter($filter);
 
         $requete = new PartenaireRequete();
-        $db = new DB();
+
 
 //        if ($form->isValid()) {
             if (!empty($_POST)) {
