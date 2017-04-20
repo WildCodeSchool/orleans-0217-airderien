@@ -85,7 +85,7 @@
             <div class="home-title fittext block-1 w100">
                 <div class="wrapper-1">
                     <div class="home-box1">
-                        <p class="p1 first">Devine qui vient diner se soir</p>
+                        <p class="p1 first">{{ spectacle.titreSpect }}</p>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                     <div class="home-title fittext block-2 w100">
                         <div class="wrapper-2">
                             <div class="home-box">
-                                <p class="p1 first">Devine qui vient diner se soir</p>
+                                <p class="p1 first">{{ spectacle.titreSpect }}</p>
                             </div>
                         </div>
                     </div>
@@ -162,9 +162,8 @@
         </div>
         <div class="home-mobile-title w50 txtcenter wrapper">
             <div class="home-box">
-                <h3><a href="/la-compagnie">Spectacle</a></h3>
-                <h2><a href="/la-compagnie">Devine qui</a></h2>
-                <h4><a href="/la-compagnie">vient diner se soir</a></h4>
+                <h1><a href="/la-compagnie">Spectacle</a></h1>
+                <h2 class="p1 first" ><a href="/la-compagnie">{{ spectacle.titreSpect }}</a></h2>
             </div>
         </div>
     </section>
