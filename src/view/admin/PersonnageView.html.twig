@@ -1,6 +1,6 @@
 
 
-<form name="addPersoForm" method="post" action="admin.php?route={{ typeAction }}Personnage" class="form-horizontal" style="width: 200%;margin-top: 30px">
+<form name="addPersoForm" method="post" action="admin.php?route={{ typeAction }}Personnage" class="form-horizontal" enctype="multipart/form-data" style="width: 200%;margin-top: 30px">
     <div class="form-group">
         <label for="nomPersonnage" class="col-sm-2 control-label">Nom :</label>
         <div class="col-sm-2">
@@ -24,7 +24,9 @@
                    placeholder="Description" value="{{ personnage.DescriptionPersonnage }}" />
         </div>
     </div>
-
+    {% if personnage.PhotoPersonnage %}
+        Image actuelle <img src="images/photos/{{ personnage.PhotoPersonnage }}" alt=""/>
+    {% endif %}
     <div class="form-group">
         <label for="photoPersonnage" class="col-sm-2 control-label">Photo :</label>
         <div class="col-sm-2">
@@ -82,7 +84,7 @@
     <div class="col-lg-10 col-lg-offset-1">
         {% for personnage in personnages %}
             <div class="col-lg-4 thumbnail text-center">
-                <img src="{{ personnage.PhotoPersonnage }}" alt="{{ personnage.PrenomPersonnage }}">
+                <img src="images/photos/{{ personnage.PhotoPersonnage }}" alt="{{ personnage.PrenomPersonnage }}">
                 <h3>{{ personnage.NomPersonnage }} {{ personnage.PrenomPersonnage }}</h3>
                 <p>{{ personnage.DescriptionPersonnage }}</p>
 
