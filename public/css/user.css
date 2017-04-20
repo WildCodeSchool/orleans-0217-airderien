@@ -164,7 +164,28 @@ p{
     line-height: 1.5;
 }
 
-.tp-caption { white-space: nowrap; }
+.tp-caption {
+    white-space: nowrap;
+}
+
+element.style {
+    background-size: 100% auto;
+}
+
+.div-titre-photo{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.titre-photo{
+    margin-top: -200px;
+    margin-left: 25%;
+    color: white;
+
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 50px;
+    font-weight: 400;
+    opacity: 1;
+}
 
 
 /*************************MEDIA QUERIES ********************************************************/
