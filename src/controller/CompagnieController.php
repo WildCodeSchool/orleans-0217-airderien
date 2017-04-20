@@ -69,7 +69,7 @@ class CompagnieController extends Controller
 
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
             }
             $requete->updateCompagnie($postClean);
             header('Location:admin.php?route=compagnie');

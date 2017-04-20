@@ -1,7 +1,5 @@
-
-
-
-<form name="addSpectForm" method="post" action="admin.php?route={{ typeAction }}Spectacle" class="form-horizontal" style="width: 200%;margin-top: 30px">
+<form name="addSpectForm" method="post" action="admin.php?route={{ typeAction }}Spectacle" class="form-horizontal"
+      style="width: 200%;margin-top: 30px" xmlns="http://www.w3.org/1999/html">
     <div class="form-group">
         <label for="titreSpect" class="col-sm-2 control-label">Nom :</label>
         <div class="col-sm-2">
@@ -13,8 +11,8 @@
     <div class="form-group">
         <label for="descriptionSpect" class="col-sm-2 control-label">Description :</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" name="descriptionSpect" id="descriptionSpect"
-                   placeholder="Présentation Spectacle" value="{{ spectacle.descriptionSpect }}" />
+            <textarea class="form-control" name="descriptionSpect" id="descriptionSpect" rows="13"
+                   placeholder="Présentation Spectacle"> "{{ spectacle.descriptionSpect }}" </textarea>
         </div>
     </div>
 

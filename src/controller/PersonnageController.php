@@ -50,7 +50,7 @@ class PersonnageController extends Controller
 
             if (!empty($_POST)) {
                 foreach ($_POST as $key => $val) {
-                    $postClean[$key] = htmlentities(trim($val));
+                    $postClean[$key] = trim($val);
                 }
                 if(isset($_FILES['photoPersonnage'])){
                     $errors= array();
@@ -126,7 +126,7 @@ class PersonnageController extends Controller
 
             if (!empty($_POST)) {
                 foreach ($_POST as $key => $val) {
-                    $postClean[$key] = htmlentities(trim($val));
+                    $postClean[$key] = trim($val);
                 }
                 if(isset($_FILES['photoPersonnage'])){
                     $errors= array();

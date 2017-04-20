@@ -46,7 +46,7 @@ class MembreController extends Controller
 
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
             }
             $requete->addMembre($postClean);
             header('Location:admin.php?route=showMembre');
@@ -85,7 +85,7 @@ class MembreController extends Controller
 
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
             }
             $requete->updateMembre($postClean);
             header('Location:admin.php?route=showMembre');
