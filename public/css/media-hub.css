@@ -1,5 +1,5 @@
 
-h1, h2, h3, h4 {font-family:'Fredericka the Great', 'cursive'; color:white; Line-Height:0.5; text-shadow:8px 8px 1px black;}
+h1, h2, h3, h4 {font-family:'Fredericka the Great', 'cursive'; color:white; Line-Height:0.5; text-shadow:8px 4px 3px black;}
 h1 {font-size:1.50em; margin-left: 10%; margin-right: 10%; Line-Height:0.81;}
 h2 {font-size:2em; margin:30px 0;}
 h3 {font-size:1em;}
@@ -35,8 +35,8 @@ h6 {font-size:.9em; opacity:.5;}
     .home-mobile-title {text-align: center;}
     .home-box {line-height:1.2; display:inline-block; vertical-align:middle; *display:inline; *zoom:1;}
     .home-mobile-logo h2 {font-family:'OrangeJuice'; text-transform:lowercase; text-align:center; padding:0;}
-    #home-mobile-top .home-mobile-title h2 {font-size:3em; line-height:.1em;}
-    #home-mobile-bottom .home-mobile-title h2 {font-size:3.5em; line-height:.1em;}
+    #home-mobile-top .home-mobile-title h2 {font-size:3em; line-height:1em;}
+    #home-mobile-bottom .home-mobile-title h2 {font-size:3.5em; line-height:1em;}
     #home-mobile-top .home-mobile-title h3, #home-mobile-bottom .home-mobile-title h3 {font-size:1.7em; line-height:.4em;}
     #home-mobile-top .home-mobile-title h4, #home-mobile-bottom .home-mobile-title h4 {font-size:1.3em; line-height:.1em;}
 }
@@ -53,7 +53,7 @@ h6 {font-size:.9em; opacity:.5;}
     .home-mobile-logo h2 {font-size:2.5em; line-height:.2em;}
 }
 @media screen and (max-width: 500px) and (max-height: 480px) {
-    .home-mobile-logo h2 {font-size:2em; line-height:0px;}
+    .home-mobile-logo h2 {font-size:2em; line-height:2em;}
 }
 @media screen and (max-width: 420px) and (max-height: 480px) {
     .home-mobile-logo {display:none;}

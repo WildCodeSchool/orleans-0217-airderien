@@ -58,7 +58,7 @@ class SpectacleController extends Controller
 //        if ($form->isValid()) {
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
             }
             $requete->addSpectacle($postClean);
             header('Location:admin.php?route=showSpectacle');
@@ -97,7 +97,7 @@ class SpectacleController extends Controller
 //        if ($form->isValid()) {
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
             }
             $requete->updateSpectacle($postClean);
             header('Location:admin.php?route=showSpectacle');

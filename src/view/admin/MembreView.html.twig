@@ -1,58 +1,58 @@
 
 
 
-<form name="addMembreForm" method="post" action="admin.php?route={{ typeAction }}Membre" class="form-horizontal" style="width: 200%; margin-top: 30px">
+<form name="addMembreForm" method="post" action="admin.php?route={{ typeAction }}Membre" class="form-horizontal" enctype="multipart/form-data" style=" margin-top: 30px">
     <div class="form-group">
-        <label for="nomMembre" class="col-sm-2 control-label">Nom :</label>
-        <div class="col-sm-2">
+        <label for="nomMembre" class="col-sm-4 control-label">Nom :</label>
+        <div class="col-sm-4">
             <input type="text" class="form-control" name="nomMembre" id="nomMembre"
                    placeholder="Nom" value="{{ membre.NomMembre }}" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="prenomMembre" class="col-sm-2 control-label">Prenom :</label>
-        <div class="col-sm-2">
+        <label for="prenomMembre" class="col-sm-4 control-label">Prenom :</label>
+        <div class="col-sm-4">
             <input type="text" class="form-control" name="prenomMembre" id="prenomMembre"
                    placeholder="Prenom" value="{{ membre.PrenomMembre }}" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="descriptionMembre" class="col-sm-2 control-label">Description :</label>
-        <div class="col-sm-2">
+        <label for="descriptionMembre" class="col-sm-4 control-label">Description :</label>
+        <div class="col-sm-4">
             <input type="text" class="form-control" name="descriptionMembre" id="descriptionMembre"
                    placeholder="Description" value="{{ membre.DescriptionMembre }}" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="facebookMembre" class="col-sm-2 control-label">Facebook :</label>
-        <div class="col-sm-2">
+        <label for="facebookMembre" class="col-sm-4 control-label">Facebook :</label>
+        <div class="col-sm-4">
             <input type="text" class="form-control" name="facebookMembre" id="facebookMembre"
                    placeholder="www.facebook.com" value="{{ membre.FacebookMembre }}" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="mailMembre" class="col-sm-2 control-label">Mail :</label>
-        <div class="col-sm-2">
+        <label for="mailMembre" class="col-sm-4 control-label">Mail :</label>
+        <div class="col-sm-4">
             <input type="text" class="form-control" name="mailMembre" id="mailMembre"
                    placeholder="123@mail.com" value="{{ membre.MailMembre }}" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="lienMembre" class="col-sm-2 control-label">Site :</label>
-        <div class="col-sm-2">
+        <label for="lienMembre" class="col-sm-4 control-label">Site :</label>
+        <div class="col-sm-4">
             <input type="text" class="form-control" name="lienMembre" id="lienMembre"
                    placeholder="www.123.com" value="{{ membre.LienMembre }}" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="LienPhotoMembre" class="col-sm-2 control-label">Photo :</label>
-        <div class="col-sm-2">
+        <label for="LienPhotoMembre" class="col-sm-4 control-label">Photo :</label>
+        <div class="col-sm-4">
             <input type="file"  name="LienPhotoMembre" id="LienPhotoMembre"
                    value="{{ membre.LienPhotoMembre }}" />
         </div>
@@ -63,7 +63,7 @@
     <input type="hidden" name="id" value="{{ membre.Id }}">
 
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="col-sm-offset-4 col-sm-2">
             <button type="submit" name="submit" value="submit" class="btn btn-default">{{  titreButton }}</button>
         </div>
     </div>

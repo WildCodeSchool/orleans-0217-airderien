@@ -46,8 +46,34 @@ class MembreController extends Controller
 
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
             }
+
+            if (isset($_FILES['photoMembre'])) {
+                $errors = array();
+                $file_name = $_FILES['photoMembre']['name'];
+                $file_tmp = $_FILES['photoMembre']['tmp_name'];
+                $path_parts = pathinfo($file_name);
+                $file_ext = $path_parts['extension'];
+                $newFileName = rand(0, 1000000) . '.' . $file_ext;
+
+                $extensions = array("jpeg", "jpg", "png");
+
+                if (in_array($file_ext, $extensions) === false) {
+                    $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+
+                }
+
+                if (empty($errors)) {
+
+                    move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
+                    $postClean['photoMembre'] = $newFileName;
+                    echo "Success";
+                } else {
+                    print_r($errors);
+                }
+            }
+
             $requete->addMembre($postClean);
             header('Location:admin.php?route=showMembre');
         }
@@ -74,6 +100,54 @@ class MembreController extends Controller
         header('Location:admin.php?route=showMembre');
     }
 
+    public function doUpdateMembre()
+    {
+        if (!empty($_POST)) {
+            $requete = new MembreRequete();
+
+            $membre = $requete->findOne('membre', $_POST['id']);
+            foreach ($_POST as $key => $val) {
+                $postClean[$key] = htmlentities(trim($val));
+            }
+
+
+            if (!empty($_POST)) {
+                foreach ($_POST as $key => $val) {
+                    $postClean[$key] = trim($val);
+
+                    if (isset($_FILES['photoMembre'])) {
+                        $errors = array();
+                        $file_name = $_FILES['photoMembre']['name'];
+                        $file_tmp = $_FILES['photoMembre']['tmp_name'];
+                        $path_parts = pathinfo($file_name);
+                        $file_ext = $path_parts['extension'];
+                        $newFileName = rand(0, 1000000) . '.' . $file_ext;
+
+                        $extensions = array("jpeg", "jpg", "png");
+
+                        if (in_array($file_ext, $extensions) === false) {
+                            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+
+                        }
+
+                        if (empty($errors)) {
+                            if (file_exists('images/photos/' . $membre->getPhotoMembre())) {
+                                unlink('images/photos/' . $membre->getPhotoMembre());
+                            }
+                            move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
+                            $postClean['photoMembre'] = $newFileName;
+                            echo "Success";
+                        } else {
+                            print_r($errors);
+                        }
+                    }
+                    $requete->updateMembre($postClean);
+                    header('Location:admin.php?route=showMembre');
+                }
+            }
+        }
+    }
+
     public function updateMembre($id)
     {
         $form = new MembreForm();
@@ -85,7 +159,7 @@ class MembreController extends Controller
 
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
             }
             $requete->updateMembre($postClean);
             header('Location:admin.php?route=showMembre');
@@ -102,7 +176,7 @@ class MembreController extends Controller
                 'membre'=>$membre,
                 'spectacles'=>$spectacles,
                 'titreButton'=>'Modifier',
-                'typeAction'=>'update'
+                'typeAction'=>'doUpdate'
             ]);
     }
 

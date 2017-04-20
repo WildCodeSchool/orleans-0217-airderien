@@ -66,6 +66,10 @@ elseif ($route == 'addMembre') {
     $membre = new \air_de_rien\controller\MembreController();
     $render = $membre->addMembre();
 }
+elseif ($route == 'doUpdateMembre') {
+    $membre = new \air_de_rien\controller\MembreController();
+    $render = $membre->doUpdateMembre();
+}
 elseif ($route == 'updateMembre') {
     $membre = new \air_de_rien\controller\MembreController();
     $render = $membre->updateMembre($_GET['id']);

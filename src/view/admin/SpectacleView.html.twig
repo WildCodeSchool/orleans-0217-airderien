@@ -1,26 +1,24 @@
-
-
-
-<form name="addSpectForm" method="post" action="admin.php?route={{ typeAction }}Spectacle" class="form-horizontal" style="width: 200%;margin-top: 30px">
+<form name="addSpectForm" method="post" action="admin.php?route={{ typeAction }}Spectacle" class="form-horizontal" enctype="multipart/form-data"
+      style="margin-top: 30px" xmlns="http://www.w3.org/1999/html">
     <div class="form-group">
-        <label for="titreSpect" class="col-sm-2 control-label">Nom :</label>
-        <div class="col-sm-2">
+        <label for="titreSpect" class="col-sm-4 control-label">Nom :</label>
+        <div class="col-sm-4">
             <input type="text" class="form-control" name="titreSpect" id="titreSpect"
                    placeholder="Titre" value="{{ spectacle.titreSpect }}" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="descriptionSpect" class="col-sm-2 control-label">Description :</label>
-        <div class="col-sm-2">
-            <input type="text" class="form-control" name="descriptionSpect" id="descriptionSpect"
-                   placeholder="Présentation Spectacle" value="{{ spectacle.descriptionSpect }}" />
+        <label for="descriptionSpect" class="col-sm-4 control-label">Description :</label>
+        <div class="col-sm-4">
+            <textarea class="form-control" name="descriptionSpect" id="descriptionSpect" rows="13"
+                   placeholder="Présentation Spectacle"> {{ spectacle.descriptionSpect }} </textarea>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="photoSpect" class="col-sm-2 control-label">Photo :</label>
-        <div class="col-sm-2">
+        <label for="photoSpect" class="col-sm-4 control-label">Photo :</label>
+        <div class="col-sm-4">
             <input type="file" name="photoSpect" id="photoSpect"
                    value="{{ spectacle.photoSpect }}" />
         </div>
@@ -31,7 +29,7 @@
     <input type="hidden" name="id" value="{{ spectacle.Id }}">
 
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="col-sm-offset-4 col-sm-4">
             <button type="submit" name="submit" value="submit" class="btn btn-default">{{ titreButton }}</button>
         </div>
     </div>

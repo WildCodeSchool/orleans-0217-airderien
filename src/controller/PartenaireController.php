@@ -60,7 +60,7 @@ class PartenaireController extends Controller
 //        if ($form->isValid()) {
             if (!empty($_POST)) {
                 foreach ($_POST as $key => $val) {
-                    $postClean[$key] = htmlentities(trim($val));
+                    $postClean[$key] = trim($val);
                 }
                 $requete->addPartenaire($postClean);
                 header('Location:admin.php?route=showPartenaire');
@@ -100,7 +100,7 @@ class PartenaireController extends Controller
 //        if ($form->isValid()) {
             if (!empty($_POST)) {
                 foreach ($_POST as $key => $val) {
-                    $postClean[$key] = htmlentities(trim($val));
+                    $postClean[$key] = trim($val);
                 }
                 $requete->updatePartenaire($postClean);
                 header('Location:admin.php?route=showPartenaire');
