@@ -31,35 +31,35 @@ class HeaderController extends  Controller
         switch ($route)
         {
             case 'compagnie':
-                $route = 'Compagnie';
+                $route = 'La Compagnie';
             break;
 
             case 'showSpectacle':
-                $route = 'Spectacles';
+                $route = ' La Spectacles';
                 break;
 
             case 'showMembre':
-                $route = 'Nos Membres';
+                $route = ' Les Membres';
                 break;
 
             case 'showPersonnage':
-                $route = 'Nos Personnages';
+                $route = 'Les Personnages';
                 break;
 
             case 'Médias':
-                $route = 'Médias';
+                $route = 'Les Médias';
                 break;
 
             case 'RevuedePresse':
-                $route = 'Revue de Presse';
+                $route = 'Les Revue de Presse';
                 break;
 
             case 'dateListe':
-                $route = 'Calendrier';
+                $route = 'Le Calendrier';
                 break;
 
             case 'showPartenaire':
-                $route = 'Partenaires';
+                $route = 'Les Partenaires';
                 break;
         }
         return $this->getTwig()
