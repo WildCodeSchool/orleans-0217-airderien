@@ -1,0 +1,54 @@
+
+
+
+<form name="compagnieForm" method="post" action="admin.php?route=updateCompagnie" class="form-horizontal" style="width: 200%;margin-top: 30px">
+    <div class="form-group">
+        <label for="descriptionCompagnie" class="col-sm-2 control-label">Description Compagnie :</label>
+        <div class="col-sm-2">
+            <textarea  class="form-control" name="descriptionCompagnie" id="descriptionCompagnie" rows="13" cols="1" >
+                {{ compagnie.descriptionCompagnie }} </textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="emailCompagnie" class="col-sm-2 control-label">Email :</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" name="emailCompagnie" id="emailCompagnie"
+                   placeholder="Email" value="{{ compagnie.emailCompagnie }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="telCompagnie" class="col-sm-2 control-label">Tel :</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" name="telCompagnie" id="telCompagnie"
+                   placeholder="Tel" value="{{ compagnie.telCompagnie }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lienPhotoCompagnie" class="col-sm-2 control-label">Photo :</label>
+        <div class="col-sm-2">
+            <input type="file" name="lienPhotoCompagnie" id="lienPhotoCompagnie"
+                   value="{{ compagnie.lienPhotoCompagnie }}" />
+        </div>
+    </div>
+
+        <input type="hidden" name="csrf" value="{{ form.csrf.value }}">
+
+    <input type="hidden" name="id" value="{{ compagnie.Id }}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" name="submit" value="submit" class="btn btn-default" data-container="body"
+                    data-toggle="popover" data-placement="bottom" data-content="Modifications enregistrées."
+                    data-original-title="VALIDER !!!"
+                    title="jjjjj">Modifier</button>
+        </div>
+    </div>
+
+</form>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+<script type="text/javascript" src="js/main.js"></script>

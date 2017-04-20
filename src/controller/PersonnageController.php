@@ -13,18 +13,6 @@ use air_de_rien\model\PersonnageRequete;
 
 class PersonnageController extends Controller
 {
-    /**
-     * récupération de tous les personnages
-     * @return string
-     */
-    public function listAll()
-    {
-        $db = new DB();
-        $personnages = $db -> findAll('personnage');
-        return $this->getTwig()
-            ->render('admin/personnageView.html.twig', ['personnages'=>$personnages]);
-    }
-
 
     public function index()
     {
@@ -47,6 +35,7 @@ class PersonnageController extends Controller
             'spectacles'=>$spectacles,
             'membres'=>$membres,
             'typeAction'=>'add',
+            'titreButton'=>'Ajouter',
             'form'=>$form]);
     }
 
@@ -104,6 +93,7 @@ class PersonnageController extends Controller
             'personnage'=>$personnage,
             'spectacles'=>$spectacles,
             'membres'=>$membres,
+            'titreButton'=>'Ajouter',
             'typeAction'=>'add'
         ]);
     }
@@ -179,6 +169,7 @@ class PersonnageController extends Controller
             'personnage'=>$personnage,
             'spectacles'=>$spectacles,
             'membres'=>$membres,
+            'titreButton'=>'Modifier',
             'typeAction'=>'update'
             ]);
     }

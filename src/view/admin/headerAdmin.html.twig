@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="fr_Fr">
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/user.css">
+    <link rel="stylesheet" type="text/css" href="css/{{ route }}.css">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&amp;subset=latin-ext" rel="stylesheet">
+
+
+    <!-- Document Title
+    ============================================= -->
+    <title>Comme l'air de rien</title>
+
+</head>
+
+<body class="stretched">
+
+
+<!--===========================1er nav==================================== -->
+
+<header id="header">
+    <div id="header-wrap">
+        <div class="container-fluid clearfix">
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+            <div id="logo">
+                <a href="index.php"> <img src="images/logo_airderien.png"></a> </div>            <nav id="primary-menu" class="style-2 center">
+                <ul class="one-page-menu">
+                    <li><a href="#" data-href="#most-toppest"><div class="spectacle">Administration</div></a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!--===========================2éme nav==================================== -->
+
+<div id="page-menu">
+    <div id="page-menu-wrap">
+        <div class="container-fluid clearfix">
+            <div class="menu-title">{{ route }}</div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="admin.php?route=compagnie"><div>Compagnie</div></a></li>
+                    <li><a href="admin.php?route=showSpectacle"><div>Spectacles</div></a></li>
+                    <li><a href="admin.php?route=showMembre"><div>Nos Membres</div></a></li>
+                    <li><a href="admin.php?route=showPersonnage"><div>Nos Personnages</div></a></li>
+                    <li><a href="admin.php?route="><div>Médias</div></a></li>
+                    <li><a href="admin.php?route="><div>Revue de Presse</div></a></li>
+                    <li><a href="admin.php?route=dateListe"><div>Calendrier</div></a></li>
+                    <li><a href="admin.php?route=showPartenaire"><div>Partenaires</div></a></li>
+                </ul>
+            </nav>
+            <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
+        </div>
+    </div>
+</div>

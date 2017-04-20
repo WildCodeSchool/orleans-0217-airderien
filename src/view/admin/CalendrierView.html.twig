@@ -1,0 +1,72 @@
+
+
+<form name="addDateForm" method="post" action="admin.php?route={{ typeAction }}Date" class="form-horizontal" style="width: 200%; margin-top: 30px">
+    <div class="form-group">
+        <label for="lieuSpectacle" class="col-sm-2 control-label">Lieu du spectacle :</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" name="lieuSpectacle" id="lieuSpectacle"
+                   placeholder="Lieu" value="{{ date.lieuSpectacle }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="dateSpectacle" class="col-sm-2 control-label">Date du spectacle :</label>
+        <div class="col-sm-2">
+            <input type="datetime" class="form-control" name="dateSpectacle" id="dateSpectacle"
+                   placeholder="Date et heur" value="{{ date.dateSpectacle }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="spectacleId" class="col-sm-2 control-label">Spectacle :</label>
+        <div class="col-sm-2">
+            <select id="spectacleId" class="form-control" name="spectacleId">
+                {% for spectacle in spectacles %}
+                    <option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+        <input type="hidden" name="csrf" value="{{ form.csrf.value }}">
+
+    <input type="hidden" name="id" value="{{ date.Id }}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" name="submit" value="submit" class="btn btn-default">Envoyer</button>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+
+<div class="row titre">
+    <div class="col-xs-12 text-center">
+        <h3>Liste des dates</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+            {% for date in dates %}
+                <div class="col-lg-4 thumbnail text-center">
+                            <h3>{{ date.dateformat }}</h3>
+                            <p><span class="subtitle">{{ date.lieuSpectacle }}</span></p>
+                <form action="admin.php" method="GET">
+                    <input type="hidden" name="route" value="updateDate">
+                    <input type="hidden" name="id" value="{{ date.Id }}">
+                    <input class="btn btn-warning" type="submit" name="updateDate" value="Modifier">
+                </form>
+                <form action="admin.php?route=deleteDate" method="post">
+                    <input type="hidden" name="id" value="{{ date.Id }}">
+                    <input class="btn btn-danger" type="submit" name="deleteDate" value="Supprimer">
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
