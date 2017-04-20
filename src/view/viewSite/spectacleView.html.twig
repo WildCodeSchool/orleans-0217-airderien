@@ -6,7 +6,7 @@
 
 <div id="wrapper" class="clearfix">
 
-    <section id="slider" class="slider-parallax revslider-wrap full-screen clearfix">
+    <section id="slider" class="slider-parallax revslider-wrap full-screen clearfix visible-lg-block">
 
         <div class="tp-banner-container">
             <div class="tp-banner" >
@@ -60,6 +60,12 @@
             </div>
         </div>
     </section>
+
+    <section class="hidden-lg">
+        <img src="images/{{ spectacle.photoSpect }}" alt="{{ spectacle.photoSpect }}"/>
+        <div class="div-titre-photo"><p class="titre-photo">{{ spectacle.titreSpect }}</p></div>
+
+    </section>
 </div>
 
 <!--===========================1er nav==================================== -->
@@ -96,7 +102,7 @@
 
         <div class="container-fluid clearfix">
 
-            <div class="menu-title">Devine qui vient dîner ce soir</div>
+            <div class="menu-title">{{ spectacle.titreSpect }}</div>
 
             <nav>
                 <ul>
