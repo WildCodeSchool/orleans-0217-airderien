@@ -39,11 +39,11 @@ elseif ($route == 'deletePersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->deletePersonnage();
 }
+
 elseif ($route == 'showSpectacle') {
     $spectacle = new \air_de_rien\controller\SpectacleController;
     $render = $spectacle->index();
 }
-
 elseif ($route == 'addSpectacle') {
     $spectacle = new \air_de_rien\controller\SpectacleController();
     $render = $spectacle->addSpectacle();
