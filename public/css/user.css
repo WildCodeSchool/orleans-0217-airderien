@@ -80,11 +80,6 @@ p{
 
 }
 
-.mfp-close {
-    color: inherit;
-    width: 754px;
-}
-
 #soundcloud{
     margin-top: 60px;
 }
@@ -149,10 +144,6 @@ p{
 
  */
 
-/*font-family: 'Fredericka the Great', cursive;*/
-/*font-family: 'Amatic SC', cursive;*/
-/*font-family: 'Josefin Slab', serif;*/
-/*font-family: 'Raleway', sans-serif;*/
 
 .fbb{
     margin-left: 40px;
@@ -161,7 +152,6 @@ p{
 #footer .footer-widgets-wrap{
     padding: 20px;
 }
-
 
 
 /*************************BANNIER ********************************************************/
@@ -174,7 +164,7 @@ p{
     line-height: 1.5;
 }
 
-
-
-
 .tp-caption { white-space: nowrap; }
+
+
+/*************************MEDIA QUERIES ********************************************************/

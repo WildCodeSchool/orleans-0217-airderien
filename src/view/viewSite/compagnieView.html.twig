@@ -208,29 +208,21 @@
                     <div class="col_one_third" style="max-width: 180px;">
                         <div class="feature-box center media-box fbox-bg">
                             <div class="fbox-desc" style="padding: 5px;">
-                                <a data-toggle="modal" href="#modal-video{{ video.id }}" data-lightbox="inline">
-                                    <img src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg"
-                                         style="height: 150px; width: 200px;"></a>
+                                <a href="#modal-video{{ video.id }}" data-lightbox="inline"><img src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg" style="height: 150px; width: 200px;"></a>
+                                <div class="modal" data-target="#modal-video{{ video.id }}"></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="modal fade" id="modal-video{{ video.id }}" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">{{ video.titreMedia }}</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>test</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
+                    <div class="modal1 mfp-hide" id="modal-video{{ video.id }}">
+                        <div class="block divcenter" style="background-color: #FFF; max-width: 600px;">
+                            <div class="center clearfix" style="padding: 50px;">
+                                <h4 class="modal-title">{{ video.titreMedia }}</h4>
+                                <iframe src="https://player.vimeo.com/video/139208268?badge=0" width="500" height="210" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                <p class="lead nobottommargin topmargin-sm">Media embedded from Vimeo</p>
+                            </div>
+                        </div>
+                    </div>
 
                 {% endfor %}
             </div>
@@ -299,7 +291,7 @@
 
             <div class="heading-block title-center topmargin-lg page-section" style="padding-top: 50px;">
 
-                <span id="calendrier" class="ancre"></span>
+                <span id="presse" class="ancre"></span>
 
                 <h2>Revue De Presse</h2>
                 <span></span>
