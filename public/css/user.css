@@ -135,26 +135,11 @@ p{
     color: #bc1a3a;
 }
 
-.container-fluid .pti-footer{
+.container-fluid .pti-footer {
     background-color: white;
     border-top: 2px solid #a70000;
 }
 
-@media screen and (max-width:1350px) {
-    #page-menu nav li a{font-size: 14px;}
-}
-
-@media screen and (max-width:1090px) {
-    #page-menu nav li a{font-size: 12px;}
-}
-
-@media screen and (max-width:1165px){
-    #page-menu-wrap .menu-title{font-size: 16px}
-}
-
-@media screen and (max-width:1090px){
-    #page-menu-wrap .menu-title{font-size: 13px}
-}
 /*************************  FOOTER ********************************************************
 
  */
@@ -183,3 +168,21 @@ p{
 
 
 /*************************MEDIA QUERIES ********************************************************/
+
+
+@media screen and (max-width:1350px) {
+    #page-menu nav li a{font-size: 14px;}
+}
+
+@media screen and (max-width:1090px) {
+    #page-menu nav li a{font-size: 12px;}
+}
+
+@media screen and (max-width:1165px){
+    #page-menu-wrap .menu-title{font-size: 16px}
+}
+
+@media screen and (max-width:1090px){
+    #page-menu-wrap .menu-title{font-size: 13px}
+}
+
