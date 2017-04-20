@@ -31,12 +31,16 @@ elseif ($route == 'updatePersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->updatePersonnage($_GET['id']);
 }
+elseif ($route == 'doUpdatePersonnage') {
+    $personnage = new \air_de_rien\controller\PersonnageController();
+    $render = $personnage->doUpdatePersonnage();
+}
 elseif ($route == 'deletePersonnage') {
     $personnage = new \air_de_rien\controller\PersonnageController();
     $render = $personnage->deletePersonnage();
 }
 elseif ($route == 'showSpectacle') {
-    $spectacle = new \air_de_rien\controller\SpectacleController();
+    $spectacle = new \air_de_rien\controller\SpectacleController;
     $render = $spectacle->index();
 }
 

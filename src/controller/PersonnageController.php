@@ -23,20 +23,20 @@ class PersonnageController extends Controller
         $requete = new PersonnageRequete();
         $db = new DB();
 
-        $personnages = $requete-> findAll('personnage');
+        $personnages = $requete->findAll('personnage');
         $personnage = new Personnage();
-        $spectacles = $db -> findAll('spectacle');
-        $membres = $db -> findAll('membre');
+        $spectacles = $db->findAll('spectacle');
+        $membres = $db->findAll('membre');
 
         return $this->getTwig()
             ->render('admin/PersonnageView.html.twig',
-            ['personnages'=>$personnages,
-            'personnage'=>$personnage,
-            'spectacles'=>$spectacles,
-            'membres'=>$membres,
-            'typeAction'=>'add',
-            'titreButton'=>'Ajouter',
-            'form'=>$form]);
+                ['personnages' => $personnages,
+                    'personnage' => $personnage,
+                    'spectacles' => $spectacles,
+                    'membres' => $membres,
+                    'typeAction' => 'add',
+                    'titreButton' => 'Ajouter',
+                    'form' => $form]);
     }
 
     public function addPersonnage()
@@ -48,54 +48,57 @@ class PersonnageController extends Controller
         $requete = new PersonnageRequete();
         $db = new DB();
 
+
             if (!empty($_POST)) {
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
-                }
-                if(isset($_FILES['photoPersonnage'])){
-                    $errors= array();
-                    $file_name = $_FILES['photoPersonnage']['name'];
-                    $file_tmp =$_FILES['photoPersonnage']['tmp_name'];
-                    $path_parts = pathinfo($file_name);
-                    $file_ext= $path_parts['extension'];
-                    $newFileName = rand(0,1000000).'.'.$file_ext;
-
-                    $extensions= array("jpeg","jpg","png");
-
-                    if(in_array($file_ext,$extensions)=== false){
-                        $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-                    }
-
-                    if(empty($errors)){
-                        // if (file_exist('images/photos/'.$personnage->getPhotoPersonnage()) {
-                        // unlink ('images/photos/'.$personnage->getPhotoPersonnage());
-                        // }
-                        move_uploaded_file($file_tmp,"images/photos/".$newFileName);
-                        $postClean['photoPersonnage'] = $newFileName;
-                        echo "Success";
-                    }else{
-                        print_r($errors);
-                    }
-                }
-                $requete->addPersonnage($postClean);
-                header('Location:admin.php?route=showPersonnage');
             }
+
+            if (isset($_FILES['photoPersonnage'])) {
+                $errors = array();
+                $file_name = $_FILES['photoPersonnage']['name'];
+                $file_tmp = $_FILES['photoPersonnage']['tmp_name'];
+                $path_parts = pathinfo($file_name);
+                $file_ext = $path_parts['extension'];
+                $newFileName = rand(0, 1000000) . '.' . $file_ext;
+
+                $extensions = array("jpeg", "jpg", "png");
+
+                if (in_array($file_ext, $extensions) === false) {
+                    $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+
+                }
+
+                if (empty($errors)) {
+                    // if (file_exist('images/photos/'.$personnage->getPhotoPersonnage()) {
+                    // unlink ('images/photos/'.$personnage->getPhotoPersonnage());
+                    // }
+                    move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
+                    $postClean['photoPersonnage'] = $newFileName;
+                    echo "Success";
+                } else {
+                    print_r($errors);
+                }
+            }
+            $requete->addPersonnage($postClean);
+            header('Location:admin.php?route=showPersonnage');
+        }
 
         $personnages = $requete->findAll('personnage');
         $personnage = new Personnage();
-        $spectacles = $db -> findAll('spectacle');
-        $membres = $db -> findAll('membre');
+        $spectacles = $db->findAll('spectacle');
+        $membres = $db->findAll('membre');
 
         return $this->getTwig()
-        ->render('admin/PersonnageView.html.twig',
-            ['personnages'=>$personnages,
-            'form'=>$form,
-            'personnage'=>$personnage,
-            'spectacles'=>$spectacles,
-            'membres'=>$membres,
-            'titreButton'=>'Ajouter',
-            'typeAction'=>'add'
-        ]);
+            ->render('admin/PersonnageView.html.twig',
+                ['personnages' => $personnages,
+                    'form' => $form,
+                    'personnage' => $personnage,
+                    'spectacles' => $spectacles,
+                    'membres' => $membres,
+                    'titreButton' => 'Ajouter',
+                    'typeAction' => 'add'
+                ]);
     }
 
     public function deletePersonnage()
@@ -104,6 +107,56 @@ class PersonnageController extends Controller
         $del->deletePersonnage();
         header('Location:admin.php?route=showPersonnage');
     }
+
+    public function doUpdatePersonnage()
+    {
+        if (!empty($_POST)) {
+            $requete = new PersonnageRequete();
+
+            $personnage = $requete->findOne('personnage', $_POST['id']);
+            foreach ($_POST as $key => $val) {
+                $postClean[$key] = htmlentities(trim($val));
+            }
+
+
+            if (!empty($_POST)) {
+                foreach ($_POST as $key => $val) {
+                    $postClean[$key] = trim($val);
+
+                    if (isset($_FILES['photoPersonnage'])) {
+                        $errors = array();
+                        $file_name = $_FILES['photoPersonnage']['name'];
+                        $file_tmp = $_FILES['photoPersonnage']['tmp_name'];
+                        $path_parts = pathinfo($file_name);
+                        $file_ext = $path_parts['extension'];
+                        $newFileName = rand(0, 1000000) . '.' . $file_ext;
+
+                        $extensions = array("jpeg", "jpg", "png");
+
+                        if (in_array($file_ext, $extensions) === false) {
+                            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+
+                        }
+
+                        if (empty($errors)) {
+                            if (file_exists('images/photos/' . $personnage->getPhotoPersonnage())) {
+                                unlink('images/photos/' . $personnage->getPhotoPersonnage());
+                            }
+                            move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
+                            $postClean['photoPersonnage'] = $newFileName;
+                            echo "Success";
+                        } else {
+                            print_r($errors);
+                        }
+                    }
+                    $requete->updatePersonnage($postClean);
+                    header('Location:admin.php?route=showPersonnage');
+                }
+            }
+        }
+    }
+
+
 
     public function updatePersonnage($id)
     {
@@ -116,64 +169,21 @@ class PersonnageController extends Controller
 
         $personnages = $requete->findAll('personnage');
         $personnage = $requete->findOne('personnage', $id);
-        $spectacles = $db -> findAll('spectacle');
-        $membres = $db -> findAll('membre');
-
-        if (!empty($_POST)) {
-            foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
-            }
-
-            if (!empty($_POST)) {
-                foreach ($_POST as $key => $val) {
-                    $postClean[$key] = trim($val);
-                }
-                if(isset($_FILES['photoPersonnage'])){
-                    $errors= array();
-                    $file_name = $_FILES['photoPersonnage']['name'];
-                    $file_tmp =$_FILES['photoPersonnage']['tmp_name'];
-                    $path_parts = pathinfo($file_name);
-                    $file_ext= $path_parts['extension'];
-                    $newFileName = rand(0,1000000).'.'.$file_ext;
-
-                    $extensions= array("jpeg","jpg","png");
-
-                    if(in_array($file_ext,$extensions)=== false){
-                        $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-                    }
-
-                    if(empty($errors)){
-                         if (file_exists('images/photos/'.$personnage->getPhotoPersonnage())) {
-                         unlink ('images/photos/'.$personnage->getPhotoPersonnage());
-                         }
-                        move_uploaded_file($file_tmp,"images/photos/".$newFileName);
-                        $postClean['photoPersonnage'] = $newFileName;
-                        echo "Success";
-                    }else{
-                        print_r($errors);
-                    }
-                }
-                $requete->addPersonnage($postClean);
-                header('Location:admin.php?route=showPersonnage');
-            }
-            $requete->updatePersonnage($postClean);
-            header('Location:admin.php?route=showPersonnage');
-        }
-
+        $spectacles = $db->findAll('spectacle');
+        $membres = $db->findAll('membre');
 
 
         return $this->getTwig()
-        ->render('admin/PersonnageView.html.twig',
-            ['personnages'=>$personnages,
-            'form'=>$form,
-            'personnage'=>$personnage,
-            'spectacles'=>$spectacles,
-            'membres'=>$membres,
-            'titreButton'=>'Modifier',
-            'typeAction'=>'update'
-            ]);
+            ->render('admin/PersonnageView.html.twig',
+                ['personnages' => $personnages,
+                    'form' => $form,
+                    'personnage' => $personnage,
+                    'spectacles' => $spectacles,
+                    'membres' => $membres,
+                    'titreButton' => 'Modifier',
+                    'typeAction' => 'doUpdate'
+                ]);
     }
-
 
 
 }
