@@ -1,3 +1,6 @@
+/**
+ * Created by biovor on 20/04/17.
+ */
 $(document).ready(function() {
 
     if ($('#home-over-left').css('opacity') == '0') {
@@ -58,4 +61,3 @@ $(document).ready(function() {
 });
 
 $ ( function () { $ ( '[data-toggle="popover"]' ). popover () });
-
