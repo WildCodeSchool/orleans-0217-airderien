@@ -20,8 +20,9 @@
     <div class="form-group">
         <label for="descriptionPersonnage" class="col-sm-4 control-label">Description :</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
-                   placeholder="Description" value="{{ personnage.DescriptionPersonnage }}" />
+            <textarea type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
+                   placeholder="Description" value="{{ personnage.DescriptionPersonnage }}">
+            </textarea>
         </div>
     </div>
     {% if personnage.PhotoPersonnage %}
