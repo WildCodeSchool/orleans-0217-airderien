@@ -58,6 +58,54 @@ class CompagnieController extends Controller
                     'form'=>$form]);
     }
 
+    public function doUpdatePersonnage()
+    {
+        if (!empty($_POST)) {
+            $requete = new CompagnieRequete();
+
+            $compagnie = $requete->findOne('compagnie', $_POST['id']);
+            foreach ($_POST as $key => $val) {
+                $postClean[$key] = htmlentities(trim($val));
+            }
+
+
+            if (!empty($_POST)) {
+                foreach ($_POST as $key => $val) {
+                    $postClean[$key] = trim($val);
+
+                    if (isset($_FILES['photoCompagnie'])) {
+                        $errors = array();
+                        $file_name = $_FILES['photoCompagnie']['name'];
+                        $file_tmp = $_FILES['photoCompagnie']['tmp_name'];
+                        $path_parts = pathinfo($file_name);
+                        $file_ext = $path_parts['extension'];
+                        $newFileName = rand(0, 1000000) . '.' . $file_ext;
+
+                        $extensions = array("jpeg", "jpg", "png");
+
+                        if (in_array($file_ext, $extensions) === false) {
+                            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+
+                        }
+
+                        if (empty($errors)) {
+                            if (file_exists('images/photos/' . $compagnie->getPhotoCompagnie())) {
+                                unlink('images/photos/' . $compagnie->getPhotoCompagnie());
+                            }
+                            move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
+                            $postClean['photoCompagnie'] = $newFileName;
+                            echo "Success";
+                        } else {
+                            print_r($errors);
+                        }
+                    }
+                    $requete->updateCompagnie($postClean);
+                    header('Location:admin.php?route=compagnie');
+                }
+            }
+        }
+    }
+
     public function updateCompagnie($id)
     {
         $form = new CompagnieForm();

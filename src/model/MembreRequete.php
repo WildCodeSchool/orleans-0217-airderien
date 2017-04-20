@@ -16,7 +16,9 @@ class MembreRequete extends DB
         $query = "DELETE FROM membre WHERE id=:id" ;
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $_POST['id'], \PDO::PARAM_INT);
-        $prep->execute();
+        if (!$prep->execute()) {
+
+        }
     }
 
     public function addMembre($postClean)
