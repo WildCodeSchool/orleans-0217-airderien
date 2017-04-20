@@ -80,17 +80,29 @@ p{
 
 }
 
-.mfp-close {
-    color: inherit;
-    width: 754px;
-}
-
 #soundcloud{
     margin-top: 60px;
 }
 
 .feature-box.media-box.fbox-bg .fbox-desc{
     margin: 5px;
+}
+
+.carousel-inner {
+    padding: 30px;
+    height: 450px;
+}
+
+.carousel-control.left {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%)
+}
+
+.carousel-control.right {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%)
+}
+
+.carousel-control {
+    color: #bc1a3a;
 }
 
 
@@ -132,10 +144,6 @@ p{
 
  */
 
-/*font-family: 'Fredericka the Great', cursive;*/
-/*font-family: 'Amatic SC', cursive;*/
-/*font-family: 'Josefin Slab', serif;*/
-/*font-family: 'Raleway', sans-serif;*/
 
 .fbb{
     margin-left: 40px;
@@ -144,7 +152,6 @@ p{
 #footer .footer-widgets-wrap{
     padding: 20px;
 }
-
 
 
 /*************************BANNIER ********************************************************/
@@ -157,7 +164,7 @@ p{
     line-height: 1.5;
 }
 
-
-
-
 .tp-caption { white-space: nowrap; }
+
+
+/*************************MEDIA QUERIES ********************************************************/

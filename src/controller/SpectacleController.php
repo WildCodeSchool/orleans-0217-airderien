@@ -24,7 +24,7 @@ class SpectacleController extends Controller
      * @param $id
      * @return string
      */
-        public function index()
+    public function index()
     {
         $form = new SpectacleForm();
         $filter = new SpectacleFilter();
@@ -33,7 +33,7 @@ class SpectacleController extends Controller
         $requete = new SpectacleRequete();
 
 
-/*        $spectacles = $requete-> findAll('spectacle');*/
+        $spectacles = $requete-> findAll('spectacle');
         $spectacle = new Spectacle();
 
 
@@ -42,6 +42,7 @@ class SpectacleController extends Controller
                 ['spectacles'=>$spectacles,
                     'spectacle'=>$spectacle,
                     'typeAction'=>'add',
+                    'titreButton'=>'Ajouter',
                     'form'=>$form]);
     }
 
@@ -72,7 +73,8 @@ class SpectacleController extends Controller
                 [   'spectacles'=>$spectacles,
                     'form'=>$form,
                     'spectacle'=>$spectacle,
-                    'typeAction'=>'add'
+                    'typeAction'=>'add',
+                    'titreButton'=>'Ajouter'
                 ]);
     }
 
@@ -110,7 +112,8 @@ class SpectacleController extends Controller
                 [   'spectacle'=>$spectacle,
                     'form'=>$form,
                     'spectacles'=>$spectacles,
-                    'typeAction'=>'update'
+                    'typeAction'=>'update',
+                    'titreButton'=>'Modifier'
                 ]);
     }
 

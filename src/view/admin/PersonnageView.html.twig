@@ -1,11 +1,11 @@
 
 
-<form name="addPersoForm" method="post" action="admin.php?route={{ typeAction }}Personnage" class="form-horizontal">
+<form name="addPersoForm" method="post" action="admin.php?route={{ typeAction }}Personnage" class="form-horizontal" enctype="multipart/form-data" style="width: 200%;margin-top: 30px">
     <div class="form-group">
         <label for="nomPersonnage" class="col-sm-2 control-label">Nom :</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="nomPersonnage" id="nomPersonnage"
-                   placeholder="Nom" value="{{ personnage.NomPersonnage }}" />
+                   placeholder="Nom" value="{{ personnage.NomPersonnage }}"  />
         </div>
     </div>
 
@@ -24,7 +24,9 @@
                    placeholder="Description" value="{{ personnage.DescriptionPersonnage }}" />
         </div>
     </div>
-
+    {% if personnage.PhotoPersonnage %}
+        Image actuelle <img src="images/photos/{{ personnage.PhotoPersonnage }}" alt=""/>
+    {% endif %}
     <div class="form-group">
         <label for="photoPersonnage" class="col-sm-2 control-label">Photo :</label>
         <div class="col-sm-2">
@@ -61,7 +63,8 @@
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" name="submit" value="submit" class="btn btn-default">Envoyer</button>
+            <button type="submit" name="submit" value="submit" class="btn btn-default"> {{ titreButton }}
+            </button>
         </div>
     </div>
 
@@ -78,10 +81,10 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-10 col-lg-offset-2">
+    <div class="col-lg-10 col-lg-offset-1">
         {% for personnage in personnages %}
             <div class="col-lg-4 thumbnail text-center">
-                <img src="{{ personnage.PhotoPersonnage }}" alt="{{ personnage.PrenomPersonnage }}">
+                <img src="images/photos/{{ personnage.PhotoPersonnage }}" alt="{{ personnage.PrenomPersonnage }}">
                 <h3>{{ personnage.NomPersonnage }} {{ personnage.PrenomPersonnage }}</h3>
                 <p>{{ personnage.DescriptionPersonnage }}</p>
 

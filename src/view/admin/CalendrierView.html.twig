@@ -1,6 +1,6 @@
 
 
-<form name="addDateForm" method="post" action="admin.php?route={{ typeAction }}Date" class="form-horizontal">
+<form name="addDateForm" method="post" action="admin.php?route={{ typeAction }}Date" class="form-horizontal" style="width: 200%; margin-top: 30px">
     <div class="form-group">
         <label for="lieuSpectacle" class="col-sm-2 control-label">Lieu du spectacle :</label>
         <div class="col-sm-2">
@@ -51,15 +51,11 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-10 col-lg-offset-2">
+    <div class="col-lg-10 col-lg-offset-1">
             {% for date in dates %}
-                <div class="col-md-4 center">
-                    <div class="feature-box center media-box fbox-bg">
-                        <div class="fbox-desc">
-                            <h3>{{ date.dateformat }}<span class="subtitle">{{ date.lieuSpectacle }}</span></h3>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-lg-4 thumbnail text-center">
+                            <h3>{{ date.dateformat }}</h3>
+                            <p><span class="subtitle">{{ date.lieuSpectacle }}</span></p>
                 <form action="admin.php" method="GET">
                     <input type="hidden" name="route" value="updateDate">
                     <input type="hidden" name="id" value="{{ date.Id }}">

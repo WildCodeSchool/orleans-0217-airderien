@@ -1,4 +1,4 @@
-{#{{ dump() }}#}
+
 
 <body class="stretched">
 
@@ -24,8 +24,8 @@
                         <!-- LAYERS -->
                         <div class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder"
 
-                             data-x="0"
-                             data-y="300"
+                             data-x="center"
+                             data-y="center"
                              data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.
                              easeOutQuad;"
                              data-speed="800"
@@ -37,11 +37,11 @@
                              data-endelementdelay="0.1"
                              data-endspeed="1000"
 
-                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; background-color: rgba(0,0,0,0.6); border-radius: 10px;">Comme L'Air De Rien
+                             data-endeasing="Power4.easeIn" style="z-index: 3; font-size: 90px; font-family: 'Fredericka the Great', cursive; background-color: rgba(0,0,0,0.6); border-radius: 10px;">Comme L'Air 2 Rien
                         </div>
 
                         <div class="tp-caption customin ltl tp-resizeme"
-                             data-x="0"
+                             data-x="500"
                              data-y="450"
                              data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.
                              easeOutQuad;"
@@ -94,7 +94,7 @@
 <div id="page-menu">
     <div id="page-menu-wrap">
         <div class="container-fluid clearfix">
-            <div class="menu-title">Comme L'Air De Rien</div>
+            <div class="menu-title">Comme L'Air 2 Rien</div>
             <nav>
                 <ul>
                     <li class="current"><a href="#"><div>Acceuil</div></a></li>
@@ -122,7 +122,7 @@
             <span id="titre"></span>
 
             <div class="heading-block title-center page-section">
-                <h2>Comme L'air De Rien</h2>
+                <h2>Comme L'air 2 Rien</h2>
                 <span></span>
             </div>
 
@@ -149,11 +149,14 @@
                                 <div class="team-title"><h4>{{ membre.prenomMembre }}</h4><span></span></div>
                                 <div class="team-content">{{ membre.descriptionMembre }}</div>
                                 <div class="line topmargin-sm nobottommargin"></div>
+                                {% if membre.facebookMembre != ' '  %}
                                 <a href="{{ membre.facebookMembre }}" class="social-icon si-borderless si-small
                                 si-facebook" title="Facebook">
                                     <i class="icon-facebook"></i>
                                     <i class="icon-facebook"></i>
                                 </a>
+                                {% endif %}
+
                                 <a href="{{ membre.mailMembre }}" class="social-icon si-borderless si-small si-email3"
                                    title="Email">
                                     <i class="icon-email3"></i>
@@ -205,29 +208,22 @@
                     <div class="col_one_third" style="max-width: 180px;">
                         <div class="feature-box center media-box fbox-bg">
                             <div class="fbox-desc" style="padding: 5px;">
-                                <a data-toggle="modal" href="#modal-video{{ video.id }}" data-lightbox="inline">
-                                    <img src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg"
-                                         style="height: 180px;"></a>
+                                <a href="#modal-video{{ video.id }}" data-lightbox="inline"><img src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg" style="height: 150px; width: 200px;"></a>
+                                <div class="modal" data-target="#modal-video{{ video.id }}"></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="modal fade" id="modal-video{{ video.id }}" style="display: none;">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer
-                                        <i class="fa fa-times"></i></button>
-                                </div>
-                                <div class="modal-body">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video
-                                    .lienMedia }}" frameborder="0" allowfullscreen></iframe>
-
-                                    <p>{{ video.titreMedia }}</p>
-                                </div>
+                    <div class="modal1 mfp-hide" id="modal-video{{ video.id }}">
+                        <div class="block divcenter" style="background-color: #FFF; max-width: 600px;">
+                            <div class="center clearfix" style="padding: 50px;">
+                                <h4 class="modal-title">{{ video.titreMedia }}</h4>
+                                <iframe src="https://player.vimeo.com/video/139208268?badge=0" width="500" height="210" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                <p class="lead nobottommargin topmargin-sm">Media embedded from Vimeo</p>
                             </div>
                         </div>
                     </div>
+
                 {% endfor %}
             </div>
 
@@ -293,36 +289,36 @@
 
             <!--===========================Revue de Presse================================ -->
 
-            <div class="noborder footer-stick topmargin-lg" style=" padding: 80px;" data-stellar-background-ratio="0.3">
-                <div class=" nobottommargin">
+            <div class="heading-block title-center topmargin-lg page-section" style="padding-top: 50px;">
 
-                    <span id="presse" class="ancre"></span>
+                <span id="presse" class="ancre"></span>
 
-                    <div class="heading-block title-center nobottomborder" style="margin-top: -60px;">
-                        <h2>Revue de Presse</h2>
-                    </div>
-
-                    <div class="fslider restaurant-reviews" data-arrows="false" data-animation="slide">
-                        <div class="flexslider">
-                            <div class="slider-wrap">
-                                {% for revue in revues %}
-                                    <div class="slide" style="margin-top: -20px;">
-                                        <h4>{{ revue.titreArticle }}</h4>
-                                        <p class="lead">"{{ revue.texteArticle }}"</p>
-                                        <span class="auteur"><strong>{{ revue.auteur }}</strong>, {{ revue.journal }},
-                                            {{ revue.dateArticle }}
-                                    </span><br>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                <h2>Revue De Presse</h2>
+                <span></span>
             </div>
 
+            <div id="carousel-presse" class="carousel slide fade in" data-ride="carousel" data-interval="false">
 
+                <div class="carousel-inner" role="listbox">
+                    {% for article in articles %}
+                        <div class="item col-xs-8 col-xs-offset-2 {% if loop.index == 1 %}active{% endif %}">
+                            <div class="caption">
+                                <h4>{{ article.titreArticle }}</h4>
+                                <p class="lead">"{{ article.texteArticle }}"</p>
+                                <span class="auteur"><strong>{{ article.auteur }}</strong>,
+                                    {{ article.journal }},{{ article.dateArticle }}</span><br>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
 
+                <a class="left carousel-control" href="#carousel-presse" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-presse" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                </a>
+            </div>
             <!--======================Calendrier========================================== -->
 
             <div class="heading-block title-center topmargin-lg page-section" style="padding-top: 50px;">
