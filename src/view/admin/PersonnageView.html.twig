@@ -20,8 +20,9 @@
     <div class="form-group">
         <label for="descriptionPersonnage" class="col-sm-4 control-label">Description :</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
-                   placeholder="Description" value="{{ personnage.DescriptionPersonnage }}" />
+            <textarea type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
+                   placeholder="Description" value="{{ personnage.DescriptionPersonnage}}">
+            </textarea>
         </div>
     </div>
     {% if personnage.PhotoPersonnage %}
@@ -86,7 +87,7 @@
             <div class="col-lg-4 thumbnail text-center">
                 <img src="images/photos/{{ personnage.PhotoPersonnage }}" alt="{{ personnage.PrenomPersonnage }}">
                 <h3>{{ personnage.NomPersonnage }} {{ personnage.PrenomPersonnage }}</h3>
-                <p>{{ personnage.DescriptionPersonnage }}</p>
+                {#<p>{{ personnage.DescriptionPersonnage}}</p>#}
 
                 <form action="admin.php" method="GET">
                     <input type="hidden" name="route" value="updatePersonnage">
