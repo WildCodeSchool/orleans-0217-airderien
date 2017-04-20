@@ -24,7 +24,7 @@ class SpectacleController extends Controller
      * @param $id
      * @return string
      */
-        public function index()
+    public function index()
     {
         $form = new SpectacleForm();
         $filter = new SpectacleFilter();
