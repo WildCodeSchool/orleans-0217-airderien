@@ -150,7 +150,7 @@
                                 <div class="team-title"><h4>{{ membre.prenomMembre }}</h4><span></span></div>
                                 <div class="team-content">{{ membre.descriptionMembre }}</div>
                                 <div class="line topmargin-sm nobottommargin"></div>
-                                {% if membre.facebookMembre != ' '  %}
+                                {% if membre.facebookMembre %}
                                 <a href="{{ membre.facebookMembre }}" class="social-icon si-borderless si-small
                                 si-facebook" title="Facebook">
                                     <i class="icon-facebook"></i>
@@ -197,46 +197,6 @@
                 </div>
             </div>
 
-            <!--==============================Videos================================== -->
-
-            <div class="heading-block title-center topmargin-lg page-section">
-                <h2></h2>
-                <span>Nos videos</span>
-            </div>
-
-            <div style="display:flex; justify-content: center;">
-                {% for video in videos %}
-                    <div class="col_one_third" style="max-width: 180px;">
-                        <div class="feature-box center media-box fbox-bg">
-                            <div class="fbox-desc" style="padding: 5px;">
-                                <a href="#modal-video{{ video.id }}" data-lightbox="inline"><img src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg" style="height: 150px; width: 200px;"></a>
-                                <div class="modal" data-target="#modal-video{{ video.id }}"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal1 mfp-hide" id="modal-video{{ video.id }}">
-                        <div class="block divcenter" style="background-color: #FFF; max-width: 600px;">
-                            <div class="center clearfix" style="padding: 50px;">
-                                <h4 class="modal-title">{{ video.titreMedia }}</h4>
-                                <iframe src="https://player.vimeo.com/video/139208268?badge=0" width="500" height="210" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                <p class="lead nobottommargin topmargin-sm">Media embedded from Vimeo</p>
-                            </div>
-                        </div>
-                    </div>
-
-                {% endfor %}
-            </div>
-
-            <!--==============================Son================================== -->
-
-            <div>
-                <iframe id="soundcloud" width="100%" height="300" scrolling="no" frameborder="no"
-                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/302536635&amp;
-                    color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true
-                    &amp;show_reposts=false"></iframe>
-            </div>
-
             <!--============================123 Soleil================================== -->
 
             <div class="heading-block title-center page-section" style="padding-top: 50px;">
@@ -267,7 +227,7 @@
                 <div class="col-md-2 col-md-offset-1 center">
                     <div class="feature-box center media-box fbox-bg">
                         <div class="fbox-desc">
-                            <img src="images/photos/P1040461.JPG" alt="photo" id="photo" width="150">
+                            <a href="images/photos/P1040461.JPG" target="_blank"><img src="images/photos/P1040461.JPG" alt="photo" id="photo" width="150"></a>
                         </div>
                     </div>
                 </div>
@@ -275,7 +235,7 @@
                 <div class="col-md-2 center">
                     <div class="feature-box center media-box fbox-bg">
                         <div class="fbox-desc">
-                            <img src="images/photos/P1040465.JPG" alt="photo" id="photo" width="150">
+                            <a href="images/photos/P1040465.JPG" target="_blank"><img src="images/photos/P1040465.JPG" alt="photo" id="photo" width="150"></a>
                         </div>
                     </div>
                 </div>
@@ -283,7 +243,7 @@
                 <div class="col-md-2 center">
                     <div class="feature-box center media-box fbox-bg">
                         <div class="fbox-desc">
-                            <img src="images/photos/P1040469.JPG" alt="photo" id="photo" width="150">
+                            <a href="images/photos/P1040469.JPG" target="_blank"><img src="images/photos/P1040469.JPG" alt="photo" id="photo" width="150"></a>
                         </div>
                     </div>
                 </div>
@@ -291,7 +251,7 @@
                 <div class="col-md-2 center">
                     <div class="feature-box center media-box fbox-bg">
                         <div class="fbox-desc">
-                            <img src="images/photos/P1040479.JPG" alt="photo" id="photo" width="150">
+                            <a href="images/photos/P1040479.JPG" target="_blank"><img src="images/photos/P1040479.JPG" alt="photo" id="photo" width="150"></a>
                         </div>
                     </div>
                 </div>
@@ -299,7 +259,7 @@
                 <div class="col-md-2 center">
                     <div class="feature-box center media-box fbox-bg">
                         <div class="fbox-desc">
-                            <img src="images/photos/P1040481.JPG" alt="photo" id="photo" width="150">
+                            <a href="images/photos/P1040481.JPG" target="_blank"><img src="images/photos/P1040481.JPG" alt="photo" id="photo" width="150"></a>
                         </div>
                     </div>
                 </div>
@@ -324,41 +284,7 @@
                 peut prédire l' évolution Le degré de handicap peut aller d' une simple gêne à la marche jusqu'à
                 l' usage d' un fauteuil roulant,peu fréquent,10 % environ des cas</p>
 
-            <a href="http://www.cmt-france.org/">Association CMT France</a>
-
-
-            <!--===========================Revue de Presse================================ -->
-
-            <div class="heading-block title-center topmargin-lg page-section" style="padding-top: 50px;">
-
-                <span id="presse" class="ancre"></span>
-
-                <h2>Revue De Presse</h2>
-                <span></span>
-            </div>
-
-            <div id="carousel-presse" class="carousel slide fade in" data-ride="carousel" data-interval="false">
-
-                <div class="carousel-inner" role="listbox">
-                    {% for article in articles %}
-                        <div class="item col-xs-8 col-xs-offset-2 {% if loop.index == 1 %}active{% endif %}">
-                            <div class="caption">
-                                <h4>{{ article.titreArticle }}</h4>
-                                <p class="lead">"{{ article.texteArticle }}"</p>
-                                <span class="auteur"><strong>{{ article.auteur }}</strong>,
-                                    {{ article.journal }},{{ article.dateArticle }}</span><br>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-
-                <a class="left carousel-control" href="#carousel-presse" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                </a>
-                <a class="right carousel-control" href="#carousel-presse" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                </a>
-            </div>
+            <a href="http://www.cmt-france.org/" target="_blank">Association CMT France</a>
 
             <!--======================Partenaires========================================== -->
 

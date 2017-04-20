@@ -135,26 +135,11 @@ p{
     color: #bc1a3a;
 }
 
-.container-fluid .pti-footer{
+.container-fluid .pti-footer {
     background-color: white;
     border-top: 2px solid #a70000;
 }
 
-@media screen and (max-width:1350px) {
-    #page-menu nav li a{font-size: 14px;}
-}
-
-@media screen and (max-width:1090px) {
-    #page-menu nav li a{font-size: 12px;}
-}
-
-@media screen and (max-width:1165px){
-    #page-menu-wrap .menu-title{font-size: 16px}
-}
-
-@media screen and (max-width:1090px){
-    #page-menu-wrap .menu-title{font-size: 13px}
-}
 /*************************  FOOTER ********************************************************
 
  */
@@ -179,7 +164,53 @@ p{
     line-height: 1.5;
 }
 
-.tp-caption { white-space: nowrap; }
+.tp-caption {
+    white-space: nowrap;
+}
+
+element.style {
+    background-size: 100% auto;
+}
+
+.div-titre-photo{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.titre-photo{
+    margin-top: -200px;
+    margin-left: 25%;
+    color: white;
+
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 50px;
+    font-weight: 400;
+    opacity: 1;
+}
 
 
 /*************************MEDIA QUERIES ********************************************************/
+
+
+@media screen and (max-width:1350px) {
+    #page-menu nav li a{font-size: 14px;}
+}
+
+@media screen and (max-width:1090px) {
+    #page-menu nav li a{font-size: 12px;}
+}
+
+@media screen and (max-width:1165px){
+    #page-menu-wrap .menu-title{font-size: 16px}
+}
+
+@media screen and (max-width:1090px){
+    #page-menu-wrap .menu-title{font-size: 13px}
+}
+
+@media screen and (max-width:495px){
+    iframe{width: 300px;}
+}
+
+@media screen and (max-width:440px){
+    .mailsize h2{font-size: 18px;}
+}
