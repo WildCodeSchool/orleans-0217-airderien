@@ -24,7 +24,7 @@ h6 {font-size:.9em; opacity:.5;}
 }
 
 
-@media screen and (max-height:480px) {
+@media screen and (max-width:640px) {
     .desktop {display:none;}
     .mobile {display:block;}
     #home-mobile-top {background:rgba(40,213,227,1);}
@@ -32,7 +32,7 @@ h6 {font-size:.9em; opacity:.5;}
     .block {position:relative;}
     .wrapper {position:absolute; top:50%; height:240px; margin-top:-120px; line-height:240px;}
     .home-mobile-logo {left:0;}
-    .home-mobile-title {left:50%;}
+    .home-mobile-title {text-align: center;}
     .home-box {line-height:1.2; display:inline-block; vertical-align:middle; *display:inline; *zoom:1;}
     .home-mobile-logo h2 {font-family:'OrangeJuice'; text-transform:lowercase; text-align:center; padding:0;}
     #home-mobile-top .home-mobile-title h2 {font-size:3em; line-height:.1em;}
@@ -61,7 +61,7 @@ h6 {font-size:.9em; opacity:.5;}
 }
 
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 480px) {
     h1, .h1-like {font-size:2.5em;}
     h2, .h2-like {font-size:1.5em;}
 
