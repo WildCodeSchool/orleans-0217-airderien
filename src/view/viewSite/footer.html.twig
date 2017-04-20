@@ -14,7 +14,7 @@
         <div class="contact-widget">
             <div class="contact-form-result"></div>
 
-            <form id="wedding-rsvp-form" action="mailto:team.wcs.cladr@gmail.com" method="post" style="max-width: 700px;"
+            <form id="wedding-rsvp-form" name="contact-form" action="" method="post" style="max-width: 700px;"
                   class="bottommargin-lg divcenter" enctype="text/plain" role="form">
 
                 <div class="form-process"></div>
@@ -30,22 +30,14 @@
                 </div>
 
                 <div class="col_full">
-                    <input type="text" name="objet" id="guests" required class="form-control required input-lg"
-                           placeholder="Objet">
-                </div>
-
-                <div class="col_full">
                             <textarea class="form-control input-lg" rows="5" name="message" required>
                             </textarea>
                 </div>
 
-                <div class="col_full hidden">
-                    <input type="text" id="botcheck" name="botcheck" value="" class="form-control" />
-                </div>
 
                 <div class="col_full nobottommargin">
-                    <button type="submit" name="btn-submit" id="btn-submit" class="button button-3d btn-block
-                    nomargin button-dark button-xlarge" value="submit">Submit
+                    <button type="submit" name="valid_contact" id="btn-submit" class="button button-3d btn-block
+                    nomargin button-dark button-xlarge" value="valid_contact">Submit
                     </button>
                 </div>
             </form>
@@ -62,7 +54,8 @@
             <div class="row">
                 <div class="col-md-7 col-sm-12">
                     <div class="heading-block center nobottommargin">
-                        <h2>{{ compagnie.emailCompagnie }} <strong>{{ compagnie.telCompagnie }}</strong></h2>
+                        <h2>{{ compagnie.emailCompagnie }} </h2>
+                        <p><strong>{{ compagnie.telCompagnie }}</strong></p>
                         <img style="width:170px;" src="images/logo_airderien.png"/>
                     </div>
                 </div>
