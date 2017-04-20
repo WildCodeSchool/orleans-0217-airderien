@@ -3,9 +3,7 @@
 
 
 AuthUserFile /home/wilder14/Projets/air_de_rien/orleans-0217-airderien/config/.htpasswd
-
-
-AAuthName "Accès protégé trouve le MDP Banane !!"
+AuthName "Accès protégé trouve le MDP Banane !!"
 AuthType Basic
 Require valid-user
 </FilesMatch>
