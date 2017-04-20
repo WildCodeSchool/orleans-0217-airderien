@@ -11,7 +11,7 @@ body {font-family:'ProximaNovaRegular', sans-serif; font-size:100%;}
 
 li {color:#fff;}
 hr {border:none; border-bottom:1px solid #fff;}
-img {max-width:100%; height:auto; width:auto\9; opacity: 0.95;}
+img {max-width:40%; height:auto; width:auto\9; opacity: 0.95;}
 a:hover img {opacity:.90;}
 
 
