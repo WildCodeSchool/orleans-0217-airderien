@@ -186,3 +186,10 @@ p{
     #page-menu-wrap .menu-title{font-size: 13px}
 }
 
+@media screen and (max-width:495px){
+    iframe{width: 300px;}
+}
+
+@media screen and (max-width:440px){
+    .mailsize h2{font-size: 18px;}
+}
