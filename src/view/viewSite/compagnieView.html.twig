@@ -102,7 +102,7 @@
                     <li><a href="#galerie"><div>Galerie Multimedia</div></a></li>
                     <li><a href="#handicap"><div>La Maladie de ...</div></a></li>
                     <li><a href="#presse"><div>Revue de Presse</div></a></li>
-                    <li><a href="#calendrier"><div>Nos Réalisations</div></a></li>
+                    <li><a href="#calendrier"><div>Nos Partenaires</div></a></li>
                     <li><a href="#contact"><div>Contact</div></a></li>
                 </ul>
             </nav>
@@ -304,15 +304,6 @@
                 </div>
             </div>
 
-            {#<div class="center">#}
-            {#<img src="images/photos/P1040461.JPG" alt="photo" id="photo" width="300">#}
-            {#<img src="images/photos/P1040465.JPG" alt="photo" id="photo" width="300">#}
-            {#<img src="images/photos/P1040469.JPG" alt="photo" id="photo" width="300">#}
-
-            {#<img src="images/photos/P1040479.JPG" alt="photo" id="photo" width="300">#}
-            {#<img src="images/photos/P1040481.JPG" alt="photo" id="photo" width="300">#}
-            {#</div>#}
-
             <!--============================Le handicap=================================== -->
 
             <div class="heading-block title-center page-section" style="padding-top: 50px;">
@@ -332,8 +323,7 @@
                 peut prédire l' évolution Le degré de handicap peut aller d' une simple gêne à la marche jusqu'à
                 l' usage d' un fauteuil roulant,peu fréquent,10 % environ des cas</p>
 
-            <p>Association CMT France</p>
-            <a href="http://www.cmt-france.org/"></a>
+            <a href="http://www.cmt-france.org/">Association CMT France</a>
 
 
             <!--===========================Revue de Presse================================ -->
@@ -368,22 +358,23 @@
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 </a>
             </div>
-            <!--======================Calendrier========================================== -->
+
+            <!--======================Partenaires========================================== -->
 
             <div class="heading-block title-center topmargin-lg page-section" style="padding-top: 50px;">
 
                 <span id="calendrier" class="ancre"></span>
 
-                <h2>Nos réalisations</h2>
-                <span>Liste de nos évènements</span>
+                <h2>Nos partenaires</h2>
+                <span></span>
             </div>
             <div class="row">
-                {% for spectacle in spectacles %}
+                {% for partenaire in partenaires %}
                     <div class="col-md-4 center">
                         <div class="feature-box center media-box fbox-bg">
                             <div class="fbox-desc">
-                                <h3>{{ spectacle.titreSpect }}<span class="subtitle"><a href="#">
-                                    Plus d'informations</a></span></h3>
+                                <h3>{{ partenaire.NomPartenaire }}</h3>
+                                <a href="{{ partenaire.LienSitePartenaire }}"><img src="{{ partenaire.LienLogoPartenaire }}"></a>
                             </div>
                         </div>
                     </div>

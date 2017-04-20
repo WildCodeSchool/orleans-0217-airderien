@@ -28,6 +28,7 @@ class CompagnieController extends Controller
         $galerie = $compagnieRequete->findAllMediaCompagnie('media','photo');
         $video = $compagnieRequete->findAllMediaCompagnie('media','video');
         $revue = $compagnieRequete->findAllPresse('revueDePresse');
+        $partenaires = $db->findAll('partenaire');
         return $this->getTwig()
                     ->render('viewSite/compagnieView.html.twig',
                              ['compagnie'=> $compagnie,
@@ -35,6 +36,7 @@ class CompagnieController extends Controller
                               'medias'  => $galerie,
                               'videos'   =>$video,
                               'revues'   =>$revue,
+                              'partenaires' =>$partenaires,
                               'spectacles'=>$spectacles
                              ]);
 
