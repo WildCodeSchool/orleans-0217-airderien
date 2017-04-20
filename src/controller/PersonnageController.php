@@ -140,7 +140,7 @@ class PersonnageController extends Controller
                             if (file_exists('images/photos/' . $personnage->getPhotoPersonnage())) {
                                 unlink('images/photos/' . $personnage->getPhotoPersonnage());
                             }
-                            move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
+                            move_uploaded_file($file_tmp, 'images/photos/' . $newFileName);
                             $postClean['photoPersonnage'] = $newFileName;
                             echo "Success";
                         } else {
