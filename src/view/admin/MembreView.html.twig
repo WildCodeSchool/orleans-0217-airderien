@@ -22,7 +22,7 @@
         <label for="descriptionMembre" class="col-sm-4 control-label">Description :</label>
         <div class="col-sm-4">
             <textarea type="text" class="form-control" name="descriptionMembre" id="descriptionMembre"
-                   placeholder="Description" value="{{ membre.DescriptionMembre }}" >
+                   placeholder="Description">{{ membre.DescriptionMembre }}
             </textarea>
         </div>
     </div>
@@ -85,7 +85,7 @@
     <div class="col-lg-10 col-lg-offset-1">
         {% for membre in membres %}
             <div class="col-lg-4 thumbnail text-center">
-                <img src="{{ membre.LienPhotoMembre }}" alt="{{ membre.PrenomMembre }}">
+                <img src="images/photos/{{ membre.LienPhotoMembre }}" alt="{{ membre.PrenomMembre }}" style="height: 200px">
                 <h3>{{ membre.NomMembre }}  {{ membre.PrenomMembre }}</h3>
                 {#<p>{{ membre.DescriptionMembre }}</p>#}
 
