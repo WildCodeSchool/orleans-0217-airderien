@@ -98,5 +98,3 @@ tpj(document).ready(function() {
         });
 
 });
-
-
