@@ -60,7 +60,7 @@ class CompagnieController extends Controller
                     'form'=>$form]);
     }
 
-    public function doUpdatePersonnage()
+    public function doUpdateCompagnie()
     {
         if (!empty($_POST)) {
             $requete = new CompagnieRequete();

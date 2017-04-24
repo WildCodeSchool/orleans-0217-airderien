@@ -158,15 +158,20 @@
                                 </a>
                                 {% endif %}
 
+                                {% if membre.mailMembre %}
                                 <a href="{{ membre.mailMembre }}" class="social-icon si-borderless si-small si-email3"
                                    title="Email">
                                     <i class="icon-email3"></i>
                                     <i class="icon-email3"></i>
                                 </a>
+                                {% endif %}
+
+                                {% if membre.lienMembre %}
                                 <a href="{{ membre.lienMembre }}" target="lien" class="social-icon si-borderless
                                 si-small" style="width: 150px; color: #1abc9c">
-                                    Ma compagnie
+                                    {{ membre.lienMembre }}
                                 </a>
+                                {% endif %}
 
                             </div>
                         </div>
@@ -301,7 +306,7 @@
                         <div class="feature-box center media-box fbox-bg">
                             <div class="fbox-desc">
                                 <h3>{{ partenaire.NomPartenaire }}</h3>
-                                <a href="{{ partenaire.LienSitePartenaire }}"><img src="{{ partenaire.LienLogoPartenaire }}"></a>
+                                <a href="{{ partenaire.LienSitePartenaire }}"><img src="images/{{ partenaire.LienLogoPartenaire }}"></a>
                             </div>
                         </div>
                     </div>
