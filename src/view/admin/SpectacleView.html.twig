@@ -37,7 +37,7 @@
     <div class="form-group">
         <label for="checkhidden" class="col-sm-4 control-label">Masquer :</label>
         <div class="col-sm-4">
-            <input type="radio" name="active" value="2" id="checkhidden" {{ checkedhidden }}/>
+            <input type="radio" name="active" value="2" id="checkhidden" {{ checkhidden }}/>
         </div>
     </div>
 
@@ -87,8 +87,11 @@
                     <img src="{{ spectacle.PhotoSpect }}" alt="{{ spectacle.titreSpect }}">
                     <h3>{{ spectacle.titreSpect }}</h3>
                     <p>{{ spectacle.DescriptionSpect }}</p>
-                    <p>{{ spectacle.Active }}</p>
-
+                    {% if spectacle.Active == 1  %}
+                    <p>Spectacle en 1er page</p>
+                    {% elseif spectacle.Active == 2 %}
+                    <p>Spectacle NON mis en ligne</p>
+                    {% endif %}
                     {#<form action="admin.php" method="GET">#}
                         {#<input type="hidden" name="route" value="updateSpectacle">#}
                         {#<input type="hidden" name="id" value="{{ spectacle.Id }}">#}
