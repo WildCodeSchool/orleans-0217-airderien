@@ -3,7 +3,7 @@
 
 namespace air_de_rien\controller;
 
-/*require __DIR__ . '/../../vendor/swiftmailer/swiftmailer/lib/swift_required.php';*/
+require __DIR__ . '/../../vendor/swiftmailer/swiftmailer/lib/swift_required.php';
 
 use air_de_rien\model\CompagnieRequete;
 
