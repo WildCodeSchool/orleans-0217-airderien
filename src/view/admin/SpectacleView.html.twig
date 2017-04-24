@@ -1,4 +1,7 @@
-<form name="addSpectForm" method="post" action="admin.php?route={{ typeAction }}Spectacle" class="form-horizontal" enctype="multipart/form-data"
+
+<form name="addSpectForm" method="post" action="admin.php?route={{ typeAction }}Spectacle&id={{ spectacle.Id }}"
+      class="form-horizontal"
+      enctype="multipart/form-data"
       style="margin-top: 30px" xmlns="http://www.w3.org/1999/html">
     <div class="form-group">
         <label for="titreSpect" class="col-sm-4 control-label">Nom :</label>
@@ -21,6 +24,14 @@
         <div class="col-sm-4">
             <input type="file" name="photoSpect" id="photoSpect"
                    value="{{ spectacle.photoSpect }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="photoSpect" class="col-sm-4 control-label">1er: :</label>
+        <div class="col-sm-4">
+            <input type="checkbox" name="active" id="active"
+                   value="1" {{ checked }} /> Selection spect.
         </div>
     </div>
 
@@ -48,23 +59,27 @@
 
 <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
-        {% for spectacle in spectacles %}
-            <div class="col-lg-4 thumbnail text-center">
-                <img src="{{ spectacle.PhotoSpect }}" alt="{{ spectacle.titreSpect }}">
-                <h3>{{ spectacle.titreSpect }}</h3>
-                <p>{{ spectacle.DescriptionSpect }}</p>
+            {% for spectacle in spectacles %}
+                <div class="col-lg-4 thumbnail text-center">
+                    <img src="{{ spectacle.PhotoSpect }}" alt="{{ spectacle.titreSpect }}">
+                    <h3>{{ spectacle.titreSpect }}</h3>
+                    <p>{{ spectacle.DescriptionSpect }}</p>
+                    <p>{{ spectacle.Active }}</p>
 
-                <form action="admin.php" method="GET">
-                    <input type="hidden" name="route" value="updateSpectacle">
-                    <input type="hidden" name="id" value="{{ spectacle.Id }}">
-                    <input class="btn btn-warning" type="submit" name="updateSpectacle" value="Modifier">
-                </form>
-                <form action="admin.php?route=deleteSpectacle" method="post">
-                    <input type="hidden" name="id" value="{{ spectacle.Id }}">
-                    <input class="btn btn-danger" type="submit" name="deleteSpectacle" value="Supprimer">
-                </form>
-            </div>
-        {% endfor %}
+                    {#<form action="admin.php" method="GET">#}
+                        {#<input type="hidden" name="route" value="updateSpectacle">#}
+                        {#<input type="hidden" name="id" value="{{ spectacle.Id }}">#}
+                        {#<input type="hidden" name="check" value="{{ spectacle.active }}">#}
+                        {#<input class="btn btn-warning" type="submit" name="updateSpectacle" value="Modifier">#}
+                    {#</form>#}
+                    <a  class="btn btn-warning" href="admin.php?route=updateSpectacle&id={{ spectacle.Id }}&check={{
+                    spectacle.active }}">Modifier</a>
+                    <form action="admin.php?route=deleteSpectacle" method="post">
+                        <input type="hidden" name="id" value="{{ spectacle.Id }}">
+                        <input class="btn btn-danger" type="submit" name="deleteSpectacle" value="Supprimer">
+                    </form>
+                </div>
+            {% endfor %}
     </div>
 
 </div>

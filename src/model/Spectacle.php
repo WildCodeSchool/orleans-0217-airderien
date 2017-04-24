@@ -15,6 +15,25 @@ class Spectacle
     private $titreSpect;
     private $photoSpect;
     private $descriptionSpect;
+    private $active;
+
+    /**
+     * @return mixed
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param mixed $active
+     * @return Spectacle
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+        return $this;
+    }
 
     /**
      * @return mixed

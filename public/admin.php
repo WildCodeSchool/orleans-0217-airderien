@@ -44,6 +44,10 @@ elseif ($route == 'showSpectacle') {
     $spectacle = new \air_de_rien\controller\SpectacleController;
     $render = $spectacle->index();
 }
+elseif ($route == 'choixSpectacle') {
+    $spectacle = new \air_de_rien\controller\SpectacleController;
+    $render = $spectacle->choixSpectacle($_GET['id']);
+}
 elseif ($route == 'addSpectacle') {
     $spectacle = new \air_de_rien\controller\SpectacleController();
     $render = $spectacle->addSpectacle();
