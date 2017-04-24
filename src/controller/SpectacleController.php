@@ -90,19 +90,19 @@ class SpectacleController extends Controller
         header('Location:admin.php?route=showSpectacle');
     }
 
-        public function updateSpectacle($id)
+    public function updateSpectacle($id)
     {
 
         $form = new SpectacleForm();
         $filter = new SpectacleFilter();
         $form->setInputFilter($filter);
-
+        $check='';
         $requete = new SpectacleRequete();
         if ($_GET['check'] == '1'){
             $check ='checked="checked"';
         }
 
-        if ($_POST['active'] == '1'){
+        if (isset($_POST['active']) == '1'){
             $requete->choixSpectacle();
         }
 
