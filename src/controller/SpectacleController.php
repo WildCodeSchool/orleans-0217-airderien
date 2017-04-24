@@ -55,15 +55,19 @@ class SpectacleController extends Controller
         $requete = new SpectacleRequete();
 
 
-//        if ($form->isValid()) {
         if (!empty($_POST)) {
+            if ($_POST['active'] == '1'){
+                $requete->choixSpectacle();
+            }
+
+            else ($_POST['active'] = '0');
+
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = trim($val);
             }
             $requete->addSpectacle($postClean);
             header('Location:admin.php?route=showSpectacle');
         }
-//        }
 
         $spectacles = $requete->findAll('spectacle');
         $spectacle = new Spectacle();
@@ -74,6 +78,7 @@ class SpectacleController extends Controller
                     'form'=>$form,
                     'spectacle'=>$spectacle,
                     'typeAction'=>'add',
+                    'dump'=>$_POST,
                     'titreButton'=>'Ajouter'
                 ]);
     }
@@ -87,14 +92,21 @@ class SpectacleController extends Controller
 
         public function updateSpectacle($id)
     {
+
         $form = new SpectacleForm();
         $filter = new SpectacleFilter();
         $form->setInputFilter($filter);
 
         $requete = new SpectacleRequete();
+        if ($_GET['check'] == '1'){
+            $check ='checked="checked"';
+        }
+
+        if ($_POST['active'] == '1'){
+            $requete->choixSpectacle();
+        }
 
 
-//        if ($form->isValid()) {
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = trim($val);
@@ -102,7 +114,7 @@ class SpectacleController extends Controller
             $requete->updateSpectacle($postClean);
             header('Location:admin.php?route=showSpectacle');
         }
-//        }
+
 
         $spectacles = $requete->findAll('spectacle');
         $spectacle = $requete->findOne('spectacle', $id);
@@ -113,6 +125,7 @@ class SpectacleController extends Controller
                     'form'=>$form,
                     'spectacles'=>$spectacles,
                     'typeAction'=>'update',
+                    'checked'=>$check,
                     'titreButton'=>'Modifier'
                 ]);
     }
