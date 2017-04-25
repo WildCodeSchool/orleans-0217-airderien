@@ -51,7 +51,6 @@ elseif ($route == 'choixSpectacle') {
 elseif ($route == 'addSpectacle') {
     $spectacle = new \air_de_rien\controller\SpectacleController();
     $render = $spectacle->addSpectacle();
-
 }
 elseif ($route == 'updateSpectacle') {
     $spectacle = new \air_de_rien\controller\SpectacleController();
