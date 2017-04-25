@@ -44,6 +44,15 @@ elseif ($route == 'mentionsLegales') {
     $renderHeader = $header->headerRender($route);
 }
 
+elseif ($route == 'contact') {
+    $contact = new \air_de_rien\controller\ContactController;
+    $footer = new \air_de_rien\controller\FooterController();
+    $header = new \air_de_rien\controller\HeaderController();
+    $render = $contact->sendMail();
+    $renderFooter = $footer->footerRender();
+    $renderHeader = $header->headerRender($route);
+}
+
 echo $renderHeader;
 echo $render;
 echo $renderFooter;

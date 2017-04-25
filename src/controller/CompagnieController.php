@@ -75,13 +75,12 @@ class CompagnieController extends Controller
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
 
-                    if (isset($_FILES['photoCompagnie'])) {
+                    if (isset($_FILES['lienPhotoCompagnie'])) {
                         $errors = array();
-                        $file_name = $_FILES['photoCompagnie']['name'];
-                        $file_tmp = $_FILES['photoCompagnie']['tmp_name'];
+                        $file_name = $_FILES['lienPhotoCompagnie']['name'];
+                        $file_tmp = $_FILES['lienPhotoCompagnie']['tmp_name'];
                         $path_parts = pathinfo($file_name);
                         $file_ext = $path_parts['extension'];
-                        $newFileName = rand(0, 1000000) . '.' . $file_ext;
 
                         $extensions = array("jpeg", "jpg", "png");
 
@@ -91,11 +90,8 @@ class CompagnieController extends Controller
                         }
 
                         if (empty($errors)) {
-                            if (file_exists('images/photos/' . $compagnie->getPhotoCompagnie())) {
-                                unlink('images/photos/' . $compagnie->getPhotoCompagnie());
-                            }
-                            move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
-                            $postClean['photoCompagnie'] = $newFileName;
+                            move_uploaded_file($file_tmp, "images/" . $compagnie->getPhotoCompagnie());
+                            $postClean['lienPhotoCompagnie'] = $compagnie->getPhotoCompagnie();
                             echo "Success";
                         } else {
                             print_r($errors);
@@ -115,7 +111,6 @@ class CompagnieController extends Controller
         $form->setInputFilter($filter);
 
         $requete = new CompagnieRequete();
-        $db = new DB();
 
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {

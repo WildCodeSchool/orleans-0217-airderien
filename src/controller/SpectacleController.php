@@ -99,9 +99,14 @@ class SpectacleController extends Controller
 
         $check='';
         $checkhidden='';
+        $checklist='';
         $requete = new SpectacleRequete();
         if ($_GET['active'] == '1'){
             $check ='checked="checked"';
+        }
+
+        if ($_GET['active'] == '0'){
+            $checklist ='checked="checked"';
         }
 
         if ($_GET['active'] == '2'){
@@ -128,6 +133,7 @@ class SpectacleController extends Controller
                     'typeAction'=>'doUpdate',
                     'checked'=>$check,
                     'checkhidden'=>$checkhidden,
+                    'checklist'=>$checklist,
                     'titreButton'=>'Modifier'
                 ]);
     }
@@ -160,7 +166,6 @@ class SpectacleController extends Controller
                         $file_tmp = $_FILES['photoSpect']['tmp_name'];
                         $path_parts = pathinfo($file_name);
                         $file_ext = $path_parts['extension'];
-                        $newFileName = rand(0, 1000000) . '.' . $file_ext;
 
                         $extensions = array("jpeg", "jpg", "png");
 
@@ -170,11 +175,8 @@ class SpectacleController extends Controller
                         }
 
                         if (empty($errors)) {
-                            if (file_exists('images/photos/' . $spectacle->getPhotoSpect())) {
-                                unlink('images/photos/' . $spectacle->getPhotoSpect());
-                            }
-                            move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
-                            $postClean['photoSpect'] = $newFileName;
+                            move_uploaded_file($file_tmp, "images/photos/" . $spectacle->getPhotoSpect());
+                            $postClean['photoSpect'] = $spectacle->getPhotoSpect();
                             echo "Success";
                         } else {
                             print_r($errors);

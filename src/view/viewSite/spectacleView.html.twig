@@ -85,8 +85,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Les spectacles <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            {% for spectacle in spectacles %}
-                            <li><a href="#">{{ spectacle.titreSpect }}</a></li>
+                            {% for spectacle in spectacles if spectacle.active == 0 or spectacle.active == 1%}
+                            <li><a href="index.php?route=spectacle&id={{ spectacle.Id }}">{{ spectacle.titreSpect }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
@@ -210,7 +210,9 @@
                     <div class="col_one_third" style="max-width: 180px;">
                         <div class="feature-box center media-box fbox-bg">
                             <div class="fbox-desc" style="padding: 5px;">
-                                <a href="#modal-video{{ video.id }}" data-lightbox="inline"><img src="images/logo_airderien.png" style="height: 150px; width: 200px;"></a>
+                                <a href="#modal-video{{ video.id }}" data-lightbox="inline"><img
+                                src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg" style="height: 150px; width: 200px;"></a>
+
                                 <div class="modal" data-target="#modal-video{{ video.id }}"></div>
                             </div>
                         </div>
@@ -220,11 +222,14 @@
                         <div class="block divcenter" style="background-color: #FFF; max-width: 600px;">
                             <div class="center clearfix" style="padding: 50px;">
                                 <h4 class="modal-title">{{ video.titreMedia }}</h4>
-                                <iframe src="https://player.vimeo.com/video/139208268?badge=0" width="500" height="210" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video
+                                .lienMedia }}" frameborder="0" allowfullscreen></iframe>
                                 <p class="lead nobottommargin topmargin-sm">Media embedded from Vimeo</p>
                             </div>
                         </div>
                     </div>
+
+
 
                 {% endfor %}
             </div>
@@ -236,10 +241,10 @@
             </div>
 
             <div>
-                <iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/28348766&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&visual=true"></iframe>
+                <iframe width="100%" height="300" scrolling="no" frameborder="no"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/302536635&amp;auto_play=false
+                 &amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
             </div>
-
-
 
 
             <!--===========================Revue de presse==================================== -->

@@ -20,14 +20,14 @@
     <div class="form-group">
         <label for="descriptionPersonnage" class="col-sm-4 control-label">Description :</label>
         <div class="col-sm-4">
-            <textarea type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage"
-                   placeholder="Description" value="{{ personnage.DescriptionPersonnage}}">
+            <textarea type="text" class="form-control" name="descriptionPersonnage" id="descriptionPersonnage" rows="8"
+                   placeholder="Description">{{ personnage.DescriptionPersonnage}}
             </textarea>
         </div>
     </div>
-    {% if personnage.PhotoPersonnage %}
-        Image actuelle <img src="images/photos/{{ personnage.PhotoPersonnage }}" alt=""/>
-    {% endif %}
+    <div class="form-group" style="margin-left: 29%"> {% if personnage.PhotoPersonnage %}
+            <label for="imageactuelle">Image actuelle </label> <img src="images/photos/{{ personnage.PhotoPersonnage}}" alt="" id="imageactuelle" style="height: 200px"/>
+    {% endif %}</div>
     <div class="form-group">
         <label for="photoPersonnage" class="col-sm-4 control-label">Photo :</label>
         <div class="col-sm-4">

@@ -29,19 +29,28 @@
 
     <div class="form-group">
 
-        <label for="check1er" class="col-sm-4 control-label">1er :</label>
+        <label for="check1er" class="col-sm-4 control-label">Affichage des spectacles :</label>
         <div class="col-sm-4">
-            <input type="radio" name="active" value="1" id="check1er" {{ checked }}/>
+            <input type="radio" name="active" value="1" id="check1er" {{ checked }}/>  Afficher ce spectacle en priorité sur la page d'acceuil
 
         </div>
     </div>
 
     <div class="form-group">
-        <label for="checkhidden" class="col-sm-4 control-label">Masquer :</label>
+        <label for="checklist" class="col-sm-4 control-label"></label>
         <div class="col-sm-4">
-            <input type="radio" name="active" value="2" id="checkhidden" {{ checkhidden }}/>
+            <input type="radio" name="active" value="0" id="checklist" {{ checklist }}/>  Afficher ce spectacle dans la liste des spectacles
         </div>
     </div>
+
+    <div class="form-group">
+        <label for="checkhidden" class="col-sm-4 control-label"></label>
+        <div class="col-sm-4">
+            <input type="radio" name="active" value="2" id="checkhidden" {{ checkhidden }}/>  Retirer ce spectacle de la liste des spectacles qui s'affichent
+        </div>
+    </div>
+
+
 
 
     {#<div class="form-group">#}
@@ -90,9 +99,11 @@
                     <h3>{{ spectacle.titreSpect }}</h3>
                     <p>{{ spectacle.DescriptionSpect }}</p>
                     {% if spectacle.Active == 1  %}
-                    <p>Spectacle en 1er page</p>
+                    <p>CE SPECTACLE S'AFFICHE EN PRIORITE</p>
+                    {% elseif spectacle.Active ==0 %}
+                    <p>CE SPECTACLE APPARAIT DANS LA LISTE DES SPECTACLES</p>
                     {% elseif spectacle.Active == 2 %}
-                    <p>Spectacle NON mis en ligne</p>
+                    <p>CE SPECTACLE N'APPARAIT PAS SUR LE SITE</p>
                     {% endif %}
                     {#<form action="admin.php" method="GET">#}
                         {#<input type="hidden" name="route" value="updateSpectacle">#}
