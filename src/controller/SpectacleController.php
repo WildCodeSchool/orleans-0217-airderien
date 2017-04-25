@@ -99,9 +99,14 @@ class SpectacleController extends Controller
 
         $check='';
         $checkhidden='';
+        $checklist='';
         $requete = new SpectacleRequete();
         if ($_GET['active'] == '1'){
             $check ='checked="checked"';
+        }
+
+        if ($_GET['active'] == '0'){
+            $checklist ='checked="checked"';
         }
 
         if ($_GET['active'] == '2'){
@@ -128,6 +133,7 @@ class SpectacleController extends Controller
                     'typeAction'=>'doUpdate',
                     'checked'=>$check,
                     'checkhidden'=>$checkhidden,
+                    'checklist'=>$checklist,
                     'titreButton'=>'Modifier'
                 ]);
     }
