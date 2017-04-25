@@ -4,8 +4,8 @@
 <form name="compagnieForm" method="post" action="admin.php?route=updateCompagnie" class="form-horizontal" enctype="multipart/form-data" style="margin-top: 30px">
     <div class="form-group">
         <label for="descriptionCompagnie" class="col-sm-4 control-label">Description Compagnie :</label>
-        <div class="col-sm-4">
-            <textarea  class="form-control" name="descriptionCompagnie" id="descriptionCompagnie" rows="13" cols="1" >
+        <div class="col-sm-6">
+            <textarea  class="form-control" name="descriptionCompagnie" id="descriptionCompagnie" rows="13" >
                 {{ compagnie.descriptionCompagnie }} </textarea>
         </div>
     </div>
@@ -25,9 +25,16 @@
                    placeholder="Tel" value="{{ compagnie.telCompagnie }}" />
         </div>
     </div>
-    <div class="form-group" style="margin-left: 29%"> {% if compagnie.lienPhotoCompagnie  %}
-            <label for="imageactuelle">Image actuelle </label> <img src="images/photos/{{ compagnie.lienPhotoCompagnie }}" alt="" id="imageactuelle" style="height: 200px"/>
-        {% endif %}</div>
+
+    <div class="form-group">
+        {% if compagnie.lienPhotoCompagnie  %}
+            <label for="imageactuelle" class="col-sm-4 control-label">Photo actuelle :</label>
+        <div class="col-sm-4">
+            <img src="images/{{ compagnie.lienPhotoCompagnie }}" alt="" id="imageactuelle" style="height: 200px"/>
+        {% endif %}
+        </div>
+    </div>
+
     <div class="form-group">
         <label for="lienPhotoCompagnie" class="col-sm-4 control-label">Photo :</label>
         <div class="col-sm-4">

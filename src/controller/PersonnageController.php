@@ -54,7 +54,7 @@ class PersonnageController extends Controller
                     $postClean[$key] = trim($val);
             }
 
-            if (isset($_FILES['photoPersonnage'])) {
+            if (!empty($_FILES['photoPersonnage'])) {
                 $errors = array();
                 $file_name = $_FILES['photoPersonnage']['name'];
                 $file_tmp = $_FILES['photoPersonnage']['tmp_name'];
@@ -121,13 +121,12 @@ class PersonnageController extends Controller
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
 
-                    if (isset($_FILES['photoPersonnage'])) {
+                    if (!empty($_FILES['photoPersonnage'])) {
                         $errors = array();
                         $file_name = $_FILES['photoPersonnage']['name'];
                         $file_tmp = $_FILES['photoPersonnage']['tmp_name'];
                         $path_parts = pathinfo($file_name);
                         $file_ext = $path_parts['extension'];
-
 
                         $extensions = array("jpeg", "jpg", "png");
 

@@ -115,6 +115,7 @@ class MembreController extends Controller
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
 
+
                     if (isset($_FILES['lienPhotoMembre'])) {
                         $errors = array();
                         $file_name = $_FILES['lienPhotoMembre']['name'];
