@@ -51,7 +51,6 @@ elseif ($route == 'choixSpectacle') {
 elseif ($route == 'addSpectacle') {
     $spectacle = new \air_de_rien\controller\SpectacleController();
     $render = $spectacle->addSpectacle();
-
 }
 elseif ($route == 'updateSpectacle') {
     $spectacle = new \air_de_rien\controller\SpectacleController();
@@ -95,7 +94,10 @@ elseif ($route == 'showPartenaire') {
 elseif ($route == 'addPartenaire') {
     $partenaire = new \air_de_rien\controller\PartenaireController();
     $render = $partenaire->addPartenaire();
-
+}
+elseif ($route == 'doUpdatePartenaire') {
+    $membre = new \air_de_rien\controller\PartenaireController();
+    $render = $membre->doUpdatePartenaire();
 }
 elseif ($route == 'updatePartenaire') {
     $partenaire = new \air_de_rien\controller\PartenaireController();
@@ -134,6 +136,27 @@ elseif ($route == 'compagnie') {
 elseif ($route == 'updateCompagnie') {
     $compagnie = new \air_de_rien\controller\CompagnieController();
     $render = $compagnie->updateCompagnie($_GET['id']);
+}
+
+elseif ($route == 'showMedia') {
+    $media = new \air_de_rien\controller\MediaController();
+    $render = $media->index();
+}
+elseif ($route == 'addMedia') {
+    $media = new \air_de_rien\controller\MediaController();
+    $render = $media->addMedia();
+}
+elseif ($route == 'doUpdateMedia') {
+    $media = new \air_de_rien\controller\MediaController();
+    $render = $media->doUpdateMedia();
+}
+elseif ($route == 'updateMedia') {
+    $media = new \air_de_rien\controller\MediaController();
+    $render = $media->updateMedia($_GET['id']);
+}
+elseif ($route == 'deleteMedia') {
+    $media = new \air_de_rien\controller\MediaController();
+    $render = $media->deleteMedia();
 }
 
 

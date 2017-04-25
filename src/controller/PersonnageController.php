@@ -54,7 +54,7 @@ class PersonnageController extends Controller
                     $postClean[$key] = trim($val);
             }
 
-            if (isset($_FILES['photoPersonnage'])) {
+            if (!empty($_FILES['photoPersonnage'])) {
                 $errors = array();
                 $file_name = $_FILES['photoPersonnage']['name'];
                 $file_tmp = $_FILES['photoPersonnage']['tmp_name'];
@@ -121,13 +121,12 @@ class PersonnageController extends Controller
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
 
-                    if (isset($_FILES['photoPersonnage'])) {
+                    if (!empty($_FILES['photoPersonnage'])) {
                         $errors = array();
                         $file_name = $_FILES['photoPersonnage']['name'];
                         $file_tmp = $_FILES['photoPersonnage']['tmp_name'];
                         $path_parts = pathinfo($file_name);
                         $file_ext = $path_parts['extension'];
-                        $newFileName = rand(0, 1000000) . '.' . $file_ext;
 
                         $extensions = array("jpeg", "jpg", "png");
 
@@ -137,11 +136,9 @@ class PersonnageController extends Controller
                         }
 
                         if (empty($errors)) {
-                            if (file_exists('images/photos/' . $personnage->getPhotoPersonnage())) {
-                                unlink('images/photos/' . $personnage->getPhotoPersonnage());
-                            }
-                            move_uploaded_file($file_tmp, 'images/photos/' . $newFileName);
-                            $postClean['photoPersonnage'] = $newFileName;
+
+                            move_uploaded_file($file_tmp, 'images/photos/' . $personnage->getPhotoPersonnage());
+                            $postClean['photoPersonnage'] = $personnage->getPhotoPersonnage();
                             echo "Success";
                         } else {
                             print_r($errors);

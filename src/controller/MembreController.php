@@ -49,10 +49,10 @@ class MembreController extends Controller
                 $postClean[$key] = trim($val);
             }
 
-            if (isset($_FILES['photoMembre'])) {
+            if (isset($_FILES['lienPhotoMembre'])) {
                 $errors = array();
-                $file_name = $_FILES['photoMembre']['name'];
-                $file_tmp = $_FILES['photoMembre']['tmp_name'];
+                $file_name = $_FILES['lienPhotoMembre']['name'];
+                $file_tmp = $_FILES['lienPhotoMembre']['tmp_name'];
                 $path_parts = pathinfo($file_name);
                 $file_ext = $path_parts['extension'];
                 $newFileName = rand(0, 1000000) . '.' . $file_ext;
@@ -67,7 +67,7 @@ class MembreController extends Controller
                 if (empty($errors)) {
 
                     move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
-                    $postClean['photoMembre'] = $newFileName;
+                    $postClean['lienPhotoMembre'] = $newFileName;
                     echo "Success";
                 } else {
                     print_r($errors);
@@ -115,13 +115,14 @@ class MembreController extends Controller
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
 
-                    if (isset($_FILES['photoMembre'])) {
+
+                    if (isset($_FILES['lienPhotoMembre'])) {
                         $errors = array();
-                        $file_name = $_FILES['photoMembre']['name'];
-                        $file_tmp = $_FILES['photoMembre']['tmp_name'];
+                        $file_name = $_FILES['lienPhotoMembre']['name'];
+                        $file_tmp = $_FILES['lienPhotoMembre']['tmp_name'];
                         $path_parts = pathinfo($file_name);
                         $file_ext = $path_parts['extension'];
-                        $newFileName = rand(0, 1000000) . '.' . $file_ext;
+
 
                         $extensions = array("jpeg", "jpg", "png");
 
@@ -131,11 +132,9 @@ class MembreController extends Controller
                         }
 
                         if (empty($errors)) {
-                            if (file_exists('images/photos/' . $membre->getPhotoMembre())) {
-                                unlink('images/photos/' . $membre->getPhotoMembre());
-                            }
-                            move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
-                            $postClean['photoMembre'] = $newFileName;
+
+                            move_uploaded_file($file_tmp, "images/photos/" . $membre->getLienPhotoMembre());
+                            $postClean['lienPhotoMembre'] = $membre->getLienPhotoMembre();
                             echo "Success";
                         } else {
                             print_r($errors);
