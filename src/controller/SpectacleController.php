@@ -96,21 +96,17 @@ class SpectacleController extends Controller
         $form = new SpectacleForm();
         $filter = new SpectacleFilter();
         $form->setInputFilter($filter);
-        $checkactive='';
-        $checkmasquer='';
+
+        $check='';
+        $checkhidden='';
         $requete = new SpectacleRequete();
-        if ($_GET['check'] == '1'){
-            $checkactive ='checked="checked"';
+        if ($_GET['active'] == '1'){
+            $check ='checked="checked"';
         }
 
-        if ($_GET['$checkactive'] == '2'){
-            $checkmasquer ='checked="checked"';
+        if ($_GET['active'] == '2'){
+            $checkhidden ='checked="checked"';
         }
-
-        if (isset($_POST['active']) == '1'){
-            $requete->choixSpectacle();
-        }
-
 
         if (!empty($_POST)) {
             foreach ($_POST as $key => $val) {
@@ -129,12 +125,67 @@ class SpectacleController extends Controller
                 [   'spectacle'=>$spectacle,
                     'form'=>$form,
                     'spectacles'=>$spectacles,
-                    'typeAction'=>'update',
-                    'checked'=>$checkactive,
+                    'typeAction'=>'doUpdate',
+                    'checked'=>$check,
+                    'checkhidden'=>$checkhidden,
                     'titreButton'=>'Modifier'
                 ]);
     }
 
+    public function doUpdateSpectacle()
+    {
+
+        if (!empty($_POST)) {
+            $requete = new SpectacleRequete();
+
+
+            if ($_POST['active'] == '1'){
+                $requete->choixSpectacle();
+            }
+
+
+            $spectacle = $requete->findOne('spectacle', $_POST['id']);
+            foreach ($_POST as $key => $val) {
+                $postClean[$key] = htmlentities(trim($val));
+            }
+
+
+            if (!empty($_POST)) {
+                foreach ($_POST as $key => $val) {
+                    $postClean[$key] = trim($val);
+
+                    if (isset($_FILES['photoSpect'])) {
+                        $errors = array();
+                        $file_name = $_FILES['photoSpect']['name'];
+                        $file_tmp = $_FILES['photoSpect']['tmp_name'];
+                        $path_parts = pathinfo($file_name);
+                        $file_ext = $path_parts['extension'];
+                        $newFileName = rand(0, 1000000) . '.' . $file_ext;
+
+                        $extensions = array("jpeg", "jpg", "png");
+
+                        if (in_array($file_ext, $extensions) === false) {
+                            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+
+                        }
+
+                        if (empty($errors)) {
+                            if (file_exists('images/photos/' . $spectacle->getPhotoSpect())) {
+                                unlink('images/photos/' . $spectacle->getPhotoSpect());
+                            }
+                            move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
+                            $postClean['photoSpect'] = $newFileName;
+                            echo "Success";
+                        } else {
+                            print_r($errors);
+                        }
+                    }
+                    $requete->updateSpectacle($postClean);
+                    header('Location:admin.php?route=showSpectacle');
+                }
+            }
+        }
+    }
 
 
     }

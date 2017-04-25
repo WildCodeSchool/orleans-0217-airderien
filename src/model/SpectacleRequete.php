@@ -54,7 +54,7 @@ class SpectacleRequete extends DB
     public function choixSpectacle()
     {
         $pdo = new DB();
-        $query = "UPDATE spectacle SET active=:active";
+        $query = "UPDATE spectacle SET active=:active WHERE active=1";
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':active', 0, \PDO::PARAM_INT);

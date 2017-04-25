@@ -57,6 +57,10 @@ elseif ($route == 'updateSpectacle') {
     $spectacle = new \air_de_rien\controller\SpectacleController();
     $render = $spectacle->updateSpectacle($_GET['id']);
 }
+elseif ($route == 'doUpdateSpectacle') {
+    $spectacle = new \air_de_rien\controller\SpectacleController();
+    $render = $spectacle->doUpdateSpectacle();
+}
 elseif ($route == 'deleteSpectacle') {
     $spectacle = new \air_de_rien\controller\SpectacleController();
     $render = $spectacle->deleteSpectacle();
