@@ -128,6 +128,27 @@ elseif ($route == 'updateCompagnie') {
     $render = $compagnie->updateCompagnie($_GET['id']);
 }
 
+elseif ($route == 'showMedia') {
+    $media = new \air_de_rien\controller\MediaController();
+    $render = $media->index();
+}
+elseif ($route == 'addMedia') {
+    $media = new \air_de_rien\controller\MediaController();
+    $render = $media->addMedia();
+}
+elseif ($route == 'doUpdateMedia') {
+    $media = new \air_de_rien\controller\MediaController();
+    $render = $media->doUpdateMedia();
+}
+elseif ($route == 'updateMedia') {
+    $media = new \air_de_rien\controller\MediaController();
+    $render = $media->updateMedia($_GET['id']);
+}
+elseif ($route == 'deleteMedia') {
+    $media = new \air_de_rien\controller\MediaController();
+    $render = $media->deleteMedia();
+}
+
 
 echo $renderHeader;
 echo $render;

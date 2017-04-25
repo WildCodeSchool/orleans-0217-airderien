@@ -1,0 +1,42 @@
+
+
+<body class="stretched">
+
+
+<!--===========================1er nav==================================== -->
+
+<header id="header">
+    <div id="header-wrap">
+        <div class="container-fluid clearfix">
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+            <div id="logo">
+                <a href="index.php"> <img src="images/logo_airderien.png"></a> </div>
+            <nav id="primary-menu" class="style-2" style="">
+                <ul class="one-page-menu">
+                    <li><a href="index.php?route=compagnie" data-href="#most-toppest"><div class="compagnie">
+                                La compagnie</div></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Les spectacles <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            {% for spectacle in spectacles %}
+                                <li><a href="index.php?route=spectacle&id={{ spectacle.Id }}">{{ spectacle.titreSpect }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!--======================================================================== -->
+
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix center">
+            <h2>Message envoyé</h2>
+
+        </div>
+    </div>
+</section>
