@@ -94,7 +94,10 @@ elseif ($route == 'showPartenaire') {
 elseif ($route == 'addPartenaire') {
     $partenaire = new \air_de_rien\controller\PartenaireController();
     $render = $partenaire->addPartenaire();
-
+}
+elseif ($route == 'doUpdatePartenaire') {
+    $membre = new \air_de_rien\controller\PartenaireController();
+    $render = $membre->doUpdatePartenaire();
 }
 elseif ($route == 'updatePartenaire') {
     $partenaire = new \air_de_rien\controller\PartenaireController();

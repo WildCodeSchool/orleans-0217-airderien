@@ -85,7 +85,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Les spectacles <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            {% for spectacle in spectacles %}
+                            {% for spectacle in spectacles if spectacle.active == 0 or spectacle.active == 1%}
                             <li><a href="index.php?route=spectacle&id={{ spectacle.Id }}">{{ spectacle.titreSpect }}</a></li>
                             {% endfor %}
                         </ul>
