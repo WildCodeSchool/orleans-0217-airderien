@@ -86,7 +86,7 @@
     <div class="col-lg-10 col-lg-offset-1">
             {% for spectacle in spectacles %}
                 <div class="col-lg-4 thumbnail text-center">
-                    <img src="{{ spectacle.PhotoSpect }}" alt="{{ spectacle.titreSpect }}">
+                    <img src="images/photos{{ spectacle.PhotoSpect }}" alt="{{ spectacle.titreSpect }}">
                     <h3>{{ spectacle.titreSpect }}</h3>
                     <p>{{ spectacle.DescriptionSpect }}</p>
                     {% if spectacle.Active == 1  %}

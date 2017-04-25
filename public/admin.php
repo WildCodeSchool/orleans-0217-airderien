@@ -134,6 +134,10 @@ elseif ($route == 'updateCompagnie') {
     $compagnie = new \air_de_rien\controller\CompagnieController();
     $render = $compagnie->updateCompagnie($_GET['id']);
 }
+elseif ($route == 'doUpdateCompagnie') {
+    $compagnie = new \air_de_rien\controller\CompagnieController();
+    $render = $compagnie->doUpdateCompagnie();
+}
 
 elseif ($route == 'showMedia') {
     $media = new \air_de_rien\controller\MediaController();

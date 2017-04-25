@@ -66,6 +66,7 @@ class CompagnieController extends Controller
             $requete = new CompagnieRequete();
 
             $compagnie = $requete->findOne('compagnie', $_POST['id']);
+
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = htmlentities(trim($val));
             }
@@ -75,7 +76,10 @@ class CompagnieController extends Controller
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
 
-                    if (isset($_FILES['lienPhotoCompagnie'])) {
+                    var_dump($_FILES['lienPhotoCompagnie']);
+
+                    if (!empty($_FILES['lienPhotoCompagnie']['name'])) {
+
                         $errors = array();
                         $file_name = $_FILES['lienPhotoCompagnie']['name'];
                         $file_tmp = $_FILES['lienPhotoCompagnie']['tmp_name'];
@@ -90,13 +94,14 @@ class CompagnieController extends Controller
                         }
 
                         if (empty($errors)) {
-                            move_uploaded_file($file_tmp, "images/" . $compagnie->getPhotoCompagnie());
-                            $postClean['lienPhotoCompagnie'] = $compagnie->getPhotoCompagnie();
+                            move_uploaded_file($file_tmp, "images/" . $compagnie->getLienPhotoCompagnie());
+                            $postClean['lienPhotoCompagnie'] = $compagnie->getLienPhotoCompagnie();
                             echo "Success";
                         } else {
                             print_r($errors);
                         }
                     }
+
                     $requete->updateCompagnie($postClean);
                     header('Location:admin.php?route=compagnie');
                 }

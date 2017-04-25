@@ -144,6 +144,7 @@ class PersonnageController extends Controller
                             print_r($errors);
                         }
                     }
+
                     $requete->updatePersonnage($postClean);
                     header('Location:admin.php?route=showPersonnage');
                 }

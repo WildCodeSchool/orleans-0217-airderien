@@ -10,6 +10,7 @@ namespace air_de_rien\model;
 
 
 use air_de_rien\model\DB;
+use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 
 class CompagnieRequete extends DB
 {
@@ -63,12 +64,18 @@ class CompagnieRequete extends DB
     {
         $pdo = new DB();
 
-        $query = "UPDATE compagnie SET lienPhotoCompagnie=:lienPhotoCompagnie,descriptionCompagnie=:descriptionCompagnie, 
+        $query = "UPDATE compagnie SET ";
+        if (isset($postClean['lienPhotoCompagnie'])) {
+            $query .= "lienPhotoCompagnie =:lienPhotoCompagnie,";
+            }
+        $query .= "descriptionCompagnie=:descriptionCompagnie, 
         emailCompagnie=:emailCompagnie, telCompagnie=:telCompagnie WHERE id=:id";
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
-        $prep->bindValue(':lienPhotoCompagnie', $postClean['lienPhotoCompagnie'], \PDO::PARAM_STR);
+        if (isset($postClean['lienPhotoCompagnie'])){
+            $prep->bindValue(':lienPhotoCompagnie', $postClean['lienPhotoCompagnie'], \PDO::PARAM_STR);
+        }
         $prep->bindValue(':descriptionCompagnie', $postClean['descriptionCompagnie'], \PDO::PARAM_STR);
         $prep->bindValue(':emailCompagnie', $postClean['emailCompagnie'], \PDO::PARAM_STR);
         $prep->bindValue(':telCompagnie', $postClean['telCompagnie'], \PDO::PARAM_STR);

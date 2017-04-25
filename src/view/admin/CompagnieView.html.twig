@@ -1,7 +1,7 @@
 
 
 
-<form name="compagnieForm" method="post" action="admin.php?route=updateCompagnie" class="form-horizontal" enctype="multipart/form-data" style="margin-top: 30px">
+<form name="compagnieForm" method="post" action="admin.php?route=doUpdateCompagnie" class="form-horizontal" enctype="multipart/form-data" style="margin-top: 30px">
     <div class="form-group">
         <label for="descriptionCompagnie" class="col-sm-4 control-label">Description Compagnie :</label>
         <div class="col-sm-6">
@@ -43,7 +43,7 @@
         </div>
     </div>
 
-        <input type="hidden" name="csrf" value="{{ form.csrf.value }}">
+    <input type="hidden" name="csrf" value="{{ form.csrf.value }}">
 
     <input type="hidden" name="id" value="{{ compagnie.Id }}">
 
