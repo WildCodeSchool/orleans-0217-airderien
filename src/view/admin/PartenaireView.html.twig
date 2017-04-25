@@ -18,7 +18,9 @@
                    placeholder="Lien Site" value="{{ partenaire.LienSitePartenaire }}" />
         </div>
     </div>
-
+    <div class="form-group" style="margin-left: 29%"> {% if partenaire.LienLogoPartenaire  %}
+            <label for="imageactuelle">Image actuelle </label> <img src="images/photos/{{ partenaire.LienLogoPartenaire}}" alt="" id="imageactuelle" style="height: 200px"/>
+        {% endif %}</div>
     <div class="form-group">
         <label for="lienLogoPartenaire" class="col-sm-4 control-label">Logo :</label>
         <div class="col-sm-4">

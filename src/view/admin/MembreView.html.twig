@@ -21,7 +21,7 @@
     <div class="form-group">
         <label for="descriptionMembre" class="col-sm-4 control-label">Description :</label>
         <div class="col-sm-4">
-            <textarea type="text" class="form-control" name="descriptionMembre" id="descriptionMembre"
+            <textarea type="text" class="form-control" name="descriptionMembre" id="descriptionMembre" rows="8"
                    placeholder="Description">{{ membre.DescriptionMembre }}</textarea>
 
         </div>
@@ -50,11 +50,13 @@
                    placeholder="www.123.com" value="{{ membre.LienMembre }}" />
         </div>
     </div>
-
+    <div class="form-group" style="margin-left: 29%"> {% if membre.LienPhotoMembre   %}
+            <label for="imageactuelle">Image actuelle </label> <img src="images/photos/{{ membre.LienPhotoMembre }}" alt="" id="imageactuelle" style="height: 200px"/>
+        {% endif %}</div>
     <div class="form-group">
-        <label for="LienPhotoMembre" class="col-sm-4 control-label">Photo :</label>
+        <label for="lienPhotoMembre" class="col-sm-4 control-label">Photo :</label>
         <div class="col-sm-4">
-            <input type="file"  name="LienPhotoMembre" id="LienPhotoMembre"
+            <input type="file"  name="lienPhotoMembre" id="lienPhotoMembre"
                    value="{{ membre.LienPhotoMembre }}" />
         </div>
     </div>
