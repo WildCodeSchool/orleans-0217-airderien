@@ -1,19 +1,6 @@
 
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
 
-<script src="js/moment-with-locales.js"></script>
-<script src="js/jquery-3.1.1.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/collapse.js"></script>
-<script src="js/transition.js"></script>
-<script src="js/npm.js"></script>
-<script src="js/fr.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-
-
-
-<form name="addDateForm" method="post" action="admin.php?route={{ typeAction }}Date" class="form-horizontal"  style="margin-top: 30px">
+<form name="dateForm" method="post" action="admin.php?route=addDate" class="form-horizontal"  style="margin-top: 30px">
     <div class="form-group">
         <label for="lieuSpectacle" class="col-sm-4 control-label">Lieu du spectacle :</label>
         <div class="col-sm-4">
@@ -23,50 +10,24 @@
     </div>
 
     {#<div class="form-group">#}
-        {#<label for="dateSpectacle" class="col-sm-2 control-label">Date du spectacle :</label>#}
-        {#<div class="col-sm-2">#}
-            {#<input type="datetime" class="form-control" name="dateSpectacle" id="dateSpectacle"#}
-                   {#placeholder="Date et heur" value="{{ date.dateSpectacle }}" />#}
+        {#<label for="dateSpectacle" class="col-sm-4 control-label">Date du spectacle :</label>#}
+        {#<div class="col-sm-4">#}
+            {#<div class='input-group date' id='datetimepicker2'>#}
+                {#<input type='datetime' class="form-control" name="dateSpectacle" placeholder="Date et heure" value="{{ date.dateSpectacle }}"/>#}
+                {#<span class="input-group-addon">#}
+                {#<span class="glyphicon glyphicon-calendar"></span>#}
+                {#</span>#}
+            {#</div>#}
         {#</div>#}
-    {#</div>     #}
+    {#</div>#}
 
-
-    <div class="container">
-        <div class="row">
-            <div class='col-sm-6'>
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker2'>
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                    </div>
-                </div>
-            </div>
-            <script type="text/javascript">
-                $(function () {
-                    $('#datetimepicker2').datetimepicker({
-                        locale: 'fr'
-                    });
-                });
-            </script>
-        </div>
-    </div>
-
-    <div class="form-group">
-
-        <label for="dateSpectacle" class="col-sm-4 control-label">Date du spectacle :</label>
-        <div class="col-sm-4">
-            <input type="datetime" class="form-control" name="dateSpectacle" id="dateSpectacle"
-                   placeholder="Date et heur" value="{{ date.dateSpectacle }}" />
-
-        <label for="heurSpectacle" class="col-sm-2 control-label">Heur du spectacle :</label>
-        <div class="col-sm-2">
-            <input type="text" class="form-control" name="heurSpectacle" id="heurSpectacle"
-                   placeholder="heur" value="{{ date.dateSpectacle }}" />
-
-        </div>
-    </div>
+    {#<script type="text/javascript">#}
+        {#$(function () {#}
+            {#$('#datetimepicker2').datetimepicker({#}
+                {#locale: 'fr'#}
+            {#});#}
+        {#});#}
+    {#</script>#}
 
     <div class="form-group">
         <label for="spectacleId" class="col-sm-4 control-label">Spectacle :</label>
@@ -105,17 +66,19 @@
     <div class="col-lg-10 col-lg-offset-1">
             {% for date in dates %}
                 <div class="col-lg-4 thumbnail text-center">
+                    <div class="row">
                             <h3>{{ date.dateformat }}</h3>
                             <p><span class="subtitle">{{ date.lieuSpectacle }}</span></p>
-                <form action="admin.php" method="GET">
+                <form action="admin.php" method="GET" class="col-lg-3 col-lg-offset-3">
                     <input type="hidden" name="route" value="updateDate">
                     <input type="hidden" name="id" value="{{ date.Id }}">
                     <input class="btn btn-warning" type="submit" name="updateDate" value="Modifier">
                 </form>
-                <form action="admin.php?route=deleteDate" method="post">
+                <form action="admin.php?route=deleteDate" method="post"class="col-lg-3 ">
                     <input type="hidden" name="id" value="{{ date.Id }}">
                     <input class="btn btn-danger" type="submit" name="deleteDate" value="Supprimer">
                 </form>
+                    </div>
             </div>
         {% endfor %}
     </div>

@@ -41,8 +41,9 @@ class CalendrierController extends Controller
 
         $requete = new CalendrierRequete();
         $db = new DB();
-
+        var_dump($_POST);
             if (!empty($_POST)) {
+                var_dump($_POST);
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
                 }
