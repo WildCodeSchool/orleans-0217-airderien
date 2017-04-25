@@ -1,6 +1,7 @@
 
 
-<form name="dateForm" method="post" action="admin.php?route=addDate" class="form-horizontal"  style="margin-top: 30px">
+<form name="dateForm" method="post" action="admin.php?route={{ typeAction }}Date&id={{ date.Id }}"
+      class="form-horizontal"  style="margin-top: 30px">
     <div class="form-group">
         <label for="lieuSpectacle" class="col-sm-4 control-label">Lieu du spectacle :</label>
         <div class="col-sm-4">
@@ -70,12 +71,14 @@
                     <div class="row">
                             <h3>{{ date.dateformat }}</h3>
                             <p><span class="subtitle">{{ date.lieuSpectacle }}</span></p>
-                <form action="admin.php" method="GET" class="col-lg-3 col-lg-offset-3">
-                    <input type="hidden" name="route" value="updateDate">
-                    <input type="hidden" name="id" value="{{ date.Id }}">
-                    <input class="btn btn-warning" type="submit" name="updateDate" value="Modifier">
-                </form>
-                <form action="admin.php?route=deleteDate" method="post"class="col-lg-3 ">
+                {#<form action="admin.php" method="GET" class="col-lg-3 col-lg-offset-3">#}
+                    {#<input type="hidden" name="route" value="updateDate">#}
+                    {#<input type="hidden" name="id" value="{{ date.Id }}">#}
+                    {#<input class="btn btn-warning" type="submit" name="updateDate" value="Modifier">#}
+                {#</form>#}
+                        <a  class="btn btn-warning" href="admin.php?route=updateDate&id={{ date.Id }}">Modifier</a>
+
+                <form action="admin.php?route=deleteDate" method="post" class="col-lg-3 ">
                     <input type="hidden" name="id" value="{{ date.Id }}">
                     <input class="btn btn-danger" type="submit" name="deleteDate" value="Supprimer">
                 </form>
