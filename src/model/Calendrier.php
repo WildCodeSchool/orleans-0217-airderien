@@ -114,8 +114,8 @@ class Calendrier
         $datesql=$this->getDateSpectacle();
 
         list($date, $time) = explode(" ", $datesql);
-        list($year, $month, $day) = explode("-", $date);
-        list($hour, $min, $sec) = explode(":", $time);
+        list($day, $month, $year) = explode("/", $date);
+        list($hour, $min) = explode(":", $time);
 
         $months = array("janvier", "février", "mars", "avril", "mai", "juin",
             "juillet", "août", "septembre", "octobre", "novembre", "décembre");

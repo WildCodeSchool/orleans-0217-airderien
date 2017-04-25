@@ -34,18 +34,17 @@ class CalendrierRequete extends DB
         $prep->execute();
     }
 
-    public function updateDate($postClean)
+    public function updateDate($post)
     {
         $pdo = new DB();
-var_dump($postClean);
         $query = "UPDATE calendrier SET lieuSpectacle=:lieuSpectacle,dateSpectacle=:dateSpectacle, 
         spectacleId=:spectacleId WHERE id=:id";
 
         $prep = $pdo->db->prepare($query);
-        $prep->bindValue(':lieuSpectacle', $postClean['lieuSpectacle'], \PDO::PARAM_STR);
-        $prep->bindValue(':dateSpectacle', $postClean['dateSpectacle'], \PDO::PARAM_STR);
-        $prep->bindValue(':spectacleId', $postClean['spectacleId'], \PDO::PARAM_INT);
-        $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
+        $prep->bindValue(':lieuSpectacle', $post['lieuSpectacle'], \PDO::PARAM_STR);
+        $prep->bindValue(':dateSpectacle', $post['dateSpectacle'], \PDO::PARAM_STR);
+        $prep->bindValue(':spectacleId', $post['spectacleId'], \PDO::PARAM_INT);
+        $prep->bindValue(':id', $post['id'], \PDO::PARAM_INT);
         return $prep->execute();
     }
 }

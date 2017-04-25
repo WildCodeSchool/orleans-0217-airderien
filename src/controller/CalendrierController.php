@@ -30,6 +30,7 @@ class CalendrierController extends Controller
              'date'=>$date,
              'spectacles' =>$spectacles,
             'typeAction'=>'add',
+            'titreButton'=>'Ajouter',
             'form'=>$form]);
     }
 
@@ -41,7 +42,6 @@ class CalendrierController extends Controller
 
         $requete = new CalendrierRequete();
         $db = new DB();
-        var_dump($_POST);
             if (!empty($_POST)) {
                 var_dump($_POST);
                 foreach ($_POST as $key => $val) {
@@ -59,6 +59,7 @@ class CalendrierController extends Controller
         ->render('admin/CalendrierView.html.twig',
             ['dates'=>$dates,
              'date'=>$date,
+             'titreButton'=>'Ajouter',
              'spectacles'=> $spectacles,
              'typeAction'=>'add']);
     }
@@ -80,13 +81,8 @@ class CalendrierController extends Controller
         $db = new DB();
 
         if (!empty($_POST)) {
-            foreach ($_POST as $key => $val) {
-                $postClean[$key] = trim($val);
-            }
-            if (!$requete->updateDate($postClean)) {
-                var_dump($db->getDb()->errorInfo());
-                die();
-            }
+            $requete->updateDate($_POST);
+
             header('Location:admin.php?route=dateListe');
         }
         $date = $requete->findOne('calendrier', $id);
@@ -97,6 +93,7 @@ class CalendrierController extends Controller
             ['date'=>$date,
              'spectacles' => $spectacles,
             'form'=>$form,
+            'titreButton'=>'Modifier',
             'typeAction'=>'update'
             ]);
     }

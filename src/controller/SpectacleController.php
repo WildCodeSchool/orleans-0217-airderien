@@ -154,7 +154,7 @@ class SpectacleController extends Controller
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
 
-                    if (isset($_FILES['photoSpect'])) {
+                    if (!empty($_FILES['photoSpect'])) {
                         $errors = array();
                         $file_name = $_FILES['photoSpect']['name'];
                         $file_tmp = $_FILES['photoSpect']['tmp_name'];
