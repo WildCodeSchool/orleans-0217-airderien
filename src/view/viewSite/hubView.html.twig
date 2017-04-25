@@ -1,4 +1,4 @@
-{{ dump() }}
+{#{{ dump() }}#}
 <html lang="fr-FR">
 <head>
 
@@ -80,7 +80,7 @@
             <div class="home-title fittext block-1 w100">
                 <div class="wrapper-1">
                     <div class="home-box1">
-                     <p class="p1 first">{{ spectacle.titreSpect }}</p>
+                     <p class="p1 first">{% for spectacle in spectacles if spectacle.active == 1 %} {{ spectacle.titreSpect }} {% endfor %} </p>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                     <div class="home-title fittext block-2 w100">
                         <div class="wrapper-2">
                             <div class="home-box">
-                                <p class="p1 first">{{ spectacle.titreSpect }}</p>
+                                <p class="p1 first">{% for spectacle in spectacles if spectacle.active == 1 %} {{ spectacle.titreSpect }}</p>
                             </div>
                         </div>
                     </div>
@@ -100,8 +100,8 @@
                         <div class="wrapper-3">
                             <div class="home-box fittext w60">
 
-                                <h5><a href="index.php?route=spectacle&id=1"> Plus d'infos sur notre spectacle ici ...</a></h5>
-
+                                <h5><a href="index.php?route=spectacle&id={{ spectacle.id }}"> Plus d'infos sur notre spectacle ici ...</a></h5>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -112,11 +112,9 @@
                                 <hr>
 
                                 <nav id="nav-see">
-                                    <ul>
-                                        <li ><a href="#">Plus d'infos sur notre</a></li>
-                                        <li ><a href="#">Plus d'infos sur notre</a></li>
-                                        <li ><a href="#">Plus d'infos sur notre</a></li>
-                                        <li ><a href="#">Plus d'infos sur notre</a></li>
+                                    <ul>{% for spectacle in spectacles if spectacle.active == 0 %}
+                                        <li ><a href="index.php?route=spectacle&id={{ spectacle.id }}">{{spectacle.titrespect}}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </nav>
 
@@ -159,8 +157,10 @@
         </div>#}
         <div class="home-mobile-title w100 txtcenter wrapper">
             <div class="home-box">
-                <h3><a href="/la-compagnie">Spectacle</a></h3>
-                <h2 class="pHub {#p1 first#}" ><a href="/la-compagnie">{{ spectacle.titreSpect }}</a></h2>
+                {% if spectacle.active == 1 %}
+                <h3><a href="index.php?route=spectacle&id={{ spectacle.id }}">Spectacle</a></h3>
+                <h2 class="pHub {#p1 first#}" ><a href="index.php?route=spectacle&id={{ spectacle.id }}"> {{ spectacle.titreSpect }}</a></h2>
+                {% endif %}
             </div>
         </div>
     </section>
@@ -171,7 +171,10 @@
 <script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript">
-    setBgImage("images/{{ compagnie.lienPhotoCompagnie }}", "images/{{ spectacle.photoSpect }}")
+    setBgImage("images/{{ compagnie.lienPhotoCompagnie }}","images/{% for spectacle in spectacles if spectacle.active == 1 %}{{ spectacle.photoSpect }}{% endfor %}")
+
+
 </script>
+
 </body>
 </html>

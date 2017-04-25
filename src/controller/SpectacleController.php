@@ -96,10 +96,15 @@ class SpectacleController extends Controller
         $form = new SpectacleForm();
         $filter = new SpectacleFilter();
         $form->setInputFilter($filter);
-        $check='';
+        $checkactive='';
+        $checkmasquer='';
         $requete = new SpectacleRequete();
         if ($_GET['check'] == '1'){
-            $check ='checked="checked"';
+            $checkactive ='checked="checked"';
+        }
+
+        if ($_GET['$checkactive'] == '2'){
+            $checkmasquer ='checked="checked"';
         }
 
         if (isset($_POST['active']) == '1'){
@@ -125,7 +130,7 @@ class SpectacleController extends Controller
                     'form'=>$form,
                     'spectacles'=>$spectacles,
                     'typeAction'=>'update',
-                    'checked'=>$check,
+                    'checked'=>$checkactive,
                     'titreButton'=>'Modifier'
                 ]);
     }

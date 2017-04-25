@@ -19,12 +19,12 @@ class HubController extends Controller
     public function hubRender() {
         $compagnieRequete = new CompagnieRequete();
         $spectacleRequete = new DB();
-        $spectacle = $spectacleRequete->findOne('spectacle','1');
+        $spectacles = $spectacleRequete->findAll('spectacle');
         $compagnie = $compagnieRequete->findCompagnie();
         return $this->getTwig()
             ->render('viewSite/hubView.html.twig',
                 ['compagnie'=> $compagnie,
-                 'spectacle'=> $spectacle
+                 'spectacles'=> $spectacles
                 ]);
     }
 }
