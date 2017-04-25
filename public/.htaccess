@@ -1,5 +1,6 @@
 <FilesMatch admin.php>
 
+
 AuthUserFile /home/wilder14/Projets/air_de_rien/orleans-0217-airderien/config/.htpasswd
 AuthName "Accès protégé trouve le MDP!!"
 AuthType Basic
