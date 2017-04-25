@@ -1,0 +1,109 @@
+
+
+
+<form name="addMediaForm" method="post" action="admin.php?route={{ typeAction }}Media" class="form-horizontal" enctype="multipart/form-data" style=" margin-top: 30px">
+    <div class="form-group">
+        <label for="titreMedia" class="col-sm-4 control-label">Titre :</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="titreMedia" id="titreMedia"
+                   placeholder="Titre" value="{{ media.titreMedia }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="genre" class="col-sm-4 control-label">Genre :</label>
+        <div class="col-sm-4">
+            <input type="radio" name="genre" value="{{ media.genre }}" checked> Photo<br>
+            <input type="radio" name="genre" value="{{ media.genre }}"> Video<br>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lienMedia" class="col-sm-4 control-label">Lien Photo :</label>
+        <div class="col-sm-4">
+            <input type="file"  name="lienMedia" id="lienMedia"
+                   value="{{ media.lienMedia }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lienMedia" class="col-sm-4 control-label">Lien Video:</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="lienMedia" id="lienMedia"
+                   placeholder="Jc-2VY_TDYQ" value="{{ media.lienMedia }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="spectacleId" class="col-sm-4 control-label">Spectacle :</label>
+        <div class="col-sm-4">
+            <select id="spectacleId" class="form-control" name="spectacleId">
+                <option value="{{ spectacle.Id }}">aucun</option>
+                {% for spectacle in spectacles %}
+                    <option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="afficher" class="col-sm-4 control-label">Masquer ?</label>
+        <div class="col-sm-4">
+            <input type="checkbox" name="afficher" id="afficher" value="1"/>{{ media.afficher }}  </div>
+    </div>
+
+    <div class="form-group">
+        <label for="affectation" class="col-sm-4 control-label">Afficher dans la compagnie ?</label>
+        <div class="col-sm-4">
+            <input type="checkbox" name="affectation" id="affectation" value="1"/>{{ media.affectation }} </div>
+    </div>
+
+
+    <input type="hidden" name="csrf" value="{{ form.csrf.value }}">
+
+    <input type="hidden" name="id" value="{{ media.Id }}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-2">
+            <button type="submit" name="submit" value="submit" class="btn btn-default">{{  titreButton }}</button>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+
+<div class="row titre">
+    <div class="col-xs-12 text-center">
+        <h3>Liste des medias</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        {% for media in medias %}
+            <div class="col-lg-4 thumbnail text-center">
+                {%  if media.genre == 'photo' %}
+                <img src="images/photos/{{ media.LienMedia }}" alt="{{ media.TitreMedia }}" style="height: 200px">
+                {% endif %}
+                {%  if media.genre == 'video' %}
+                    <img src="http://img.youtube.com/vi/{{ media.lienMedia }}/hqdefault.jpg" alt="{{ media.TitreMedia }}" style="height: 200px">
+                {% endif %}
+                <h3>{{ media.TitreMedia }}</h3>
+
+                <form action="admin.php" method="GET">
+                    <input type="hidden" name="route" value="updateMedia">
+                    <input type="hidden" name="id" value="{{ media.Id }}">
+                    <input class="btn btn-warning" type="submit" name="updateMedia" value="Modifier">
+                </form>
+                <form action="admin.php?route=deleteMedia" method="post">
+                    <input type="hidden" name="id" value="{{ media.Id}}">
+                    <input class="btn btn-danger" type="submit" name="deleteMedia" value="Supprimer">
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
