@@ -39,13 +39,22 @@ class SpectacleRequete extends DB
     {
         $pdo = new DB();
 
-        $query = "UPDATE spectacle SET titreSpect=:titreSpect,photoSpect=:photoSpect, 
-        descriptionSpect=:descriptionSpect, active=:active WHERE id=:id";
+        $query = "UPDATE spectacle SET";
+
+        if (isset($postClean['photoSpect'])) {
+            $query .= "photoSpect =:photoSpect,";
+        }
+
+        $query .= "titreSpect=:titreSpect, descriptionSpect=:descriptionSpect, active=:active WHERE id=:id";
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
         $prep->bindValue(':titreSpect', $postClean['titreSpect'], \PDO::PARAM_STR);
-        $prep->bindValue(':photoSpect', $postClean['photoSpect'], \PDO::PARAM_STR);
+
+        if (isset($postClean['photoSpect'])) {
+            $prep->bindValue(':photoSpect', $postClean['photoSpect'], \PDO::PARAM_STR);
+        }
+
         $prep->bindValue(':descriptionSpect', $postClean['descriptionSpect'], \PDO::PARAM_STR);
         $prep->bindValue(':active', $postClean['active'], \PDO::PARAM_INT);
         $prep->execute();

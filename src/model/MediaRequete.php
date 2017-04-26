@@ -26,7 +26,7 @@ class MediaRequete extends DB
         $pdo = new DB();
 
         $query = "INSERT INTO media (titreMedia, lienPhoto, lienVideo, spectacleId, afficher, 
-        affectation, genre) VALUES (:titreMedia, :lienPhoto, :lienVideo,:spectacleId, :afficher, 
+        affectation, genre) VALUES (:titreMedia, :lienPhoto, :lienVideo, :spectacleId, :afficher, 
         :affectation, :genre)";
 
         $prep = $pdo->db->prepare($query);

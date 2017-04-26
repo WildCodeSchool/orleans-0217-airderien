@@ -54,9 +54,6 @@ class PersonnageController extends Controller
                     $postClean[$key] = trim($val);
             }
 
-
-
-
             if ($_FILES['photoPersonnage']['name'] != '') {
                 $errors = array();
                 $file_name = $_FILES['photoPersonnage']['name'];
@@ -69,11 +66,9 @@ class PersonnageController extends Controller
 
                 if (in_array($file_ext, $extensions) === false) {
                     $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
                 }
 
                 if (empty($errors)) {
-
                     move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
                     $postClean['photoPersonnage'] = $newFileName;
                 }
@@ -113,11 +108,8 @@ class PersonnageController extends Controller
             $requete = new PersonnageRequete();
 
 
-
-
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = trim($val);
-
             }
 
             if ($_FILES['photoPersonnage']['name'] != '') {
@@ -131,7 +123,6 @@ class PersonnageController extends Controller
 
                 if (in_array($file_ext, $extensions) === false) {
                     $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
                 }
 
                 if (empty($errors)) {
@@ -140,7 +131,6 @@ class PersonnageController extends Controller
 
                 }
             }
-
             $requete->updatePersonnage($postClean);
             header('Location:admin.php?route=showPersonnage');
         }
