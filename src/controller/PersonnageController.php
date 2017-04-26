@@ -115,9 +115,6 @@ class PersonnageController extends Controller
         if (!empty($_POST)) {
             $requete = new PersonnageRequete();
 
-            $personnage = $requete->findOne('personnage', $_POST['id']);
-
-
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = trim($val);
 
@@ -140,7 +137,6 @@ class PersonnageController extends Controller
                 if (empty($errors)) {
                     move_uploaded_file($file_tmp, 'images/photos/' . $file_name);
                     $postClean['photoPersonnage'] = $file_name;
-                    echo "Success";
                 } else {
                     print_r($errors);
                 }
