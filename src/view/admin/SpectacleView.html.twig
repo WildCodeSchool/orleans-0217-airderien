@@ -81,16 +81,17 @@
                     </div>
                     <div class="col-lg-5 col-sm-12">
                         <h3>{{ spectacle.titreSpect }}</h3>
-                            <p>{{ spectacle.DescriptionSpect }}</p>
-                            {% if spectacle.Active == 1 %}
-                                <p class="affichage"><strong>CE SPECTACLE S'AFFICHE EN PRIORITE</strong></p>
-                            {% elseif spectacle.Active ==0 %}
-                                <p class="affichage"><strong>CE SPECTACLE APPARAIT DANS LA LISTE DES SPECTACLES</strong></p>
-                            {% elseif spectacle.Active == 2 %}
-                                <p class="affichage"><strong>CE SPECTACLE N'APPARAIT PAS SUR LE SITE</strong></p>
-                            {% endif %}
+                        <p>{{ spectacle.DescriptionSpect }}</p>
+                        {% if spectacle.Active == 1 %}
+                            <p class="affichage"><strong>CE SPECTACLE S'AFFICHE EN PRIORITE</strong></p>
+                        {% elseif spectacle.Active ==0 %}
+                            <p class="affichage"><strong>CE SPECTACLE APPARAIT DANS LA LISTE DES SPECTACLES</strong></p>
+                        {% elseif spectacle.Active == 2 %}
+                            <p class="affichage"><strong>CE SPECTACLE N'APPARAIT PAS SUR LE SITE</strong></p>
+                        {% endif %}
                         <a class="btn btn-warning"
-                               href="admin.php?route=updateSpectacle&id={{ spectacle.Id }}&active={{ spectacle.active }}">Modifier</a>
+                           href="admin.php?route=updateSpectacle&id={{ spectacle.Id }}&active={{ spectacle.active }}">Modifier</a>
+
                         <form action="admin.php?route=deleteSpectacle" method="post">
                             <input type="hidden" name="id" value="{{ spectacle.Id }}">
                             <input class="btn btn-danger" type="submit" name="deleteSpectacle" value="Supprimer">
@@ -100,5 +101,4 @@
             </div>
         {% endfor %}
     </div>
-
 </div>
