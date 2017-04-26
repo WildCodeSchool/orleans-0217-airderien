@@ -6,7 +6,7 @@
         <label for="lieuSpectacle" class="col-sm-4 control-label">Lieu du spectacle :</label>
         <div class="col-sm-4">
             <input type="text" class="form-control" name="lieuSpectacle" id="lieuSpectacle"
-                   placeholder="Lieu" value="{{ date.lieuSpectacle }}" />
+                   placeholder="Lieu" value="{{ date.lieuSpectacle }}" required />
         </div>
     </div>
 
@@ -15,7 +15,7 @@
         <div class="col-sm-4">
             <div class='input-group date' id='datetimepicker2'>
                 <input type='text' class="form-control" name="dateSpectacle" placeholder="Date et heure" value="{{ date
-                .dateSpectacle }}"/>
+                .dateSpectacle }}" required/>
                 <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -66,23 +66,23 @@
 
 <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
-            {% for date in dates %}
-                <div class="col-lg-4 thumbnail text-center">
-                    <div class="row">
-                            <h3>{{ date.dateformat }}</h3>
-                            <p><span class="subtitle">{{ date.lieuSpectacle }}</span></p>
-                {#<form action="admin.php" method="GET" class="col-lg-3 col-lg-offset-3">#}
-                    {#<input type="hidden" name="route" value="updateDate">#}
-                    {#<input type="hidden" name="id" value="{{ date.Id }}">#}
-                    {#<input class="btn btn-warning" type="submit" name="updateDate" value="Modifier">#}
-                {#</form>#}
-                        <a  class="btn btn-warning" href="admin.php?route=updateDate&id={{ date.Id }}">Modifier</a>
-
-                <form action="admin.php?route=deleteDate" method="post" class="col-lg-3 ">
-                    <input type="hidden" name="id" value="{{ date.Id }}">
-                    <input class="btn btn-danger" type="submit" name="deleteDate" value="Supprimer">
-                </form>
-                    </div>
+        {% for date in dates %}
+            <div class="col-lg-4 thumbnail text-center">
+                <div class="row">
+                <h3>{{ date.dateformat }}</h3>
+                <p><span class="subtitle">{{ date.lieuSpectacle }}</span></p>
+                </div>
+                <div class="row">
+                    <form action="admin.php" method="GET" class="col-lg-3 col-lg-offset-3">
+                        <input type="hidden" name="route" value="updateDate">
+                        <input type="hidden" name="id" value="{{ date.Id }}">
+                        <input class="btn btn-warning" type="submit" name="updateDate" value="Modifier">
+                    </form>
+                    <form action="admin.php?route=deleteDate" method="post" class="col-lg-3" style="margin-top: -10px;">
+                        <input type="hidden" name="id" value="{{ date.Id }}">
+                        <input class="btn btn-danger" type="submit" name="deleteDate" value="Supprimer">
+                    </form>
+                </div>
             </div>
         {% endfor %}
     </div>

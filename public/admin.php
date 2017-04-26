@@ -234,29 +234,7 @@ switch ($route) {
         $title = 'Les Partenaires';
         break;
 
-    /*case 'addFicheTechnique':
-        $partenaire = new \air_de_rien\controller\FicheTechniqueController();
-        $render = $partenaire->addFicheTechnique();
-        $title = 'La Fiche Technique';
-        break;
 
-    case 'doUpdateFicheTechnique':
-        $membre = new \air_de_rien\controller\FicheTechniqueController();
-        $render = $membre->doUpdateFicheTechnique();
-        $title = 'La Fiche Technique';
-        break;
-
-    case 'updateFicheTechnique':
-        $partenaire = new \air_de_rien\controller\FicheTechniqueController();
-        $render = $partenaire->updateFicheTechnique($_GET['id']);
-        $title = 'La Fiche Technique';
-        break;
-
-    case 'deleteFicheTechnique':
-        $partenaire = new \air_de_rien\controller\FicheTechniqueController();
-        $render = $partenaire->deleteFicheTechnique();
-        $title = 'La Fiche Technique';
-        break;*/
 }
 
 

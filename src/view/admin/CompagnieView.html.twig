@@ -1,7 +1,8 @@
 
 
 
-<form name="compagnieForm" method="post" action="admin.php?route=doUpdateCompagnie" class="form-horizontal" enctype="multipart/form-data" style="margin-top: 30px">
+<form name="compagnieForm" method="post" action="admin.php?route=doUpdateCompagnie" class="form-horizontal"
+      enctype="multipart/form-data" style="margin-top: 30px">
     <div class="form-group">
         <label for="descriptionCompagnie" class="col-sm-4 control-label">Description Compagnie :</label>
         <div class="col-sm-6">
@@ -44,6 +45,14 @@
     </div>
 
     <div class="form-group">
+        {% if compagnie.ficheTechnique  %}
+        <label for="ficheactuelle" class="col-sm-4 control-label">Fiche Technique:</label>
+        <div class="col-sm-4">
+            <p>{{ compagnie.ficheTechnique }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group">
         <label for="ficheTechnique" class="col-sm-4 control-label">Fiche Technique :</label>
         <div class="col-sm-4">
             <input type="file" name="ficheTechnique" id="ficheTechnique"
@@ -57,10 +66,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-2">
-            <button type="submit" name="submit" value="submit" class="btn btn-default" data-container="body"
-                    data-toggle="popover" data-placement="bottom" data-content="Modifications enregistrées."
-                    data-original-title="VALIDER !!!"
-                    title="jjjjj">Modifier</button>
+            <button type="submit" name="submit" value="submit" class="btn btn-default">Modifier</button>
         </div>
     </div>
 

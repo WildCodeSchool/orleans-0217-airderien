@@ -47,7 +47,7 @@ class MediaController extends Controller
                 $postClean[$key] = trim($val);
             }
 
-            if (!empty($_FILES['lienPhoto'])) {
+            if ($_FILES['lienPhoto']['name'] != '') {
                 $errors = array();
                 $file_name = $_FILES['lienPhoto']['name'];
                 $file_tmp = $_FILES['lienPhoto']['tmp_name'];
@@ -59,19 +59,14 @@ class MediaController extends Controller
 
                 if (in_array($file_ext, $extensions) === false) {
                     $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
                 }
 
                 if (empty($errors)) {
 
                     move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
                     $postClean['lienPhoto'] = $newFileName;
-                    echo "Success";
-                } else {
-                    print_r($errors);
                 }
             }
-
             $requete->addMedia($postClean);
             header('Location:admin.php?route=showMedia');
         }
@@ -103,44 +98,34 @@ class MediaController extends Controller
         if (!empty($_POST)) {
             $requete = new MediaRequete();
 
-            $media = $requete->findOne('media', $_POST['id']);
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
             }
 
+            if ($_FILES['lienPhoto']['name'] != '') {
+                $errors = array();
+                $file_name = $_FILES['lienPhoto']['name'];
+                $file_tmp = $_FILES['lienPhoto']['tmp_name'];
+                $path_parts = pathinfo($file_name);
+                $file_ext = $path_parts['extension'];
 
-            if (!empty($_POST)) {
-                foreach ($_POST as $key => $val) {
-                    $postClean[$key] = trim($val);
+                $extensions = array("jpeg", "jpg", "png");
 
-                    if (isset($_FILES['lienPhoto'])) {
-                        $errors = array();
-                        $file_name = $_FILES['lienPhoto']['name'];
-                        $file_tmp = $_FILES['lienPhoto']['tmp_name'];
-                        $path_parts = pathinfo($file_name);
-                        $file_ext = $path_parts['extension'];
+                if (in_array($file_ext, $extensions) === false) {
+                    $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+                }
 
-                        $extensions = array("jpeg", "jpg", "png");
-
-                        if (in_array($file_ext, $extensions) === false) {
-                            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
-                        }
-
-                        if (empty($errors)) {
-                            move_uploaded_file($file_tmp, "images/photos/" . $media->getLienPhoto());
-                            $postClean['lienPhoto'] = $media->getLienPhoto();
-                            echo "Success";
-                        } else {
-                            print_r($errors);
-                        }
-                    }
-                    if (!isset($postClean['afficher'])) $postClean['afficher'] = 0;
-                    if (!isset($postClean['affectation'])) $postClean['afficher'] = 0;
-                    $requete->updateMedia($postClean);
-                    header('Location:admin.php?route=showMedia');
+                if (empty($errors)) {
+                    move_uploaded_file($file_tmp, "images/photos/" . $file_name);
+                    $postClean['lienPhoto'] = $file_name;
                 }
             }
+
+            if (!isset($postClean['afficher'])) $postClean['afficher'] = 0;
+            if (!isset($postClean['affectation'])) $postClean['afficher'] = 0;
+
+            $requete->updateMedia($postClean);
+            header('Location:admin.php?route=showMedia');
         }
     }
 
@@ -161,16 +146,24 @@ class MediaController extends Controller
             header('Location:admin.php?route=showMedia');
         }
 
+        $checkComp='';
+        $checkphoto = '';
+        $checkvideo = '';
         $medias = $requete->findAll('media');
         $media = $requete->findOne('media', $id);
         $spectacles = $db -> findAll('spectacle');
 
-        if ($_GET['afficher'] == '1'){
-            $check ='checked="checked"';
-        }
 
         if ($_GET['affectation'] == '1'){
             $checkComp ='checked="checked"';
+        }
+
+        if ($_GET['genre'] == 'photo'){
+            $checkphoto ='checked="checked"';
+        }
+
+        if ($_GET['genre'] == 'video'){
+            $checkvideo ='checked="checked"';
         }
 
         return $this->getTwig()
@@ -179,8 +172,9 @@ class MediaController extends Controller
                     'form'=>$form,
                     'media'=>$media,
                     'spectacles'=>$spectacles,
-                    'checked'=>$check,
-                    'checkedComp'=>$checkComp,
+                    'checkComp'=>$checkComp,
+                    'checkphoto'=>$checkphoto,
+                    'checkvideo'=>$checkvideo,
                     'titreButton'=>'Modifier',
                     'typeAction'=>'doUpdate'
                 ]);

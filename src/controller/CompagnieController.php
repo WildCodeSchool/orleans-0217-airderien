@@ -71,7 +71,7 @@ class CompagnieController extends Controller
                 $postClean[$key] = trim($val);
             }
 
-            if (!empty($_FILES['lienPhotoCompagnie']['name'])) {
+            if ($_FILES['lienPhotoCompagnie']['name'] != '') {
 
                 $errors = array();
                 $file_name = $_FILES['lienPhotoCompagnie']['name'];
@@ -88,13 +88,11 @@ class CompagnieController extends Controller
                 if (empty($errors)) {
                     move_uploaded_file($file_tmp, "images/" . $compagnie->getLienPhotoCompagnie());
                     $postClean['lienPhotoCompagnie'] = $compagnie->getLienPhotoCompagnie();
-                    echo "Success";
-                } else {
-                    print_r($errors);
                 }
             }
 
-            if ($_FILES['ficheTechnique']['name'] != 'name') {
+
+            if ($_FILES['ficheTechnique']['name'] != '') {
 
                 $errors = array();
                 $file_name = $_FILES['ficheTechnique']['name'];
@@ -109,13 +107,14 @@ class CompagnieController extends Controller
                 }
 
                 if (empty($errors)) {
-                    move_uploaded_file($file_tmp, "images/" . $compagnie->getFicheTechnique());
-                    $postClean['ficheTechnique'] = $compagnie->getFicheTechnique();
-                    echo "Success";
-                } else {
-                    print_r($errors);
+                    move_uploaded_file($file_tmp, "images/" . $file_name);
+                    $postClean['ficheTechnique'] = $file_name;
+
                 }
+
             }
+
+
 
             $requete->updateCompagnie($postClean);
             header('Location:admin.php?route=compagnie');

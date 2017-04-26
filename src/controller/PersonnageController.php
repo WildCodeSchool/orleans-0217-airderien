@@ -54,7 +54,7 @@ class PersonnageController extends Controller
                     $postClean[$key] = trim($val);
             }
 
-            if (!empty($_FILES['photoPersonnage'])) {
+            if ($_FILES['photoPersonnage']['name'] != '') {
                 $errors = array();
                 $file_name = $_FILES['photoPersonnage']['name'];
                 $file_tmp = $_FILES['photoPersonnage']['tmp_name'];
@@ -66,16 +66,11 @@ class PersonnageController extends Controller
 
                 if (in_array($file_ext, $extensions) === false) {
                     $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
                 }
 
                 if (empty($errors)) {
-
                     move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
                     $postClean['photoPersonnage'] = $newFileName;
-                    echo "Success";
-                } else {
-                    print_r($errors);
                 }
             }
             $requete->addPersonnage($postClean);
@@ -86,6 +81,7 @@ class PersonnageController extends Controller
         $personnage = new Personnage();
         $spectacles = $db->findAll('spectacle');
         $membres = $db->findAll('membre');
+
 
         return $this->getTwig()
             ->render('admin/PersonnageView.html.twig',
@@ -111,48 +107,33 @@ class PersonnageController extends Controller
         if (!empty($_POST)) {
             $requete = new PersonnageRequete();
 
-            $personnage = $requete->findOne('personnage', $_POST['id']);
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
             }
 
+            if ($_FILES['photoPersonnage']['name'] != '') {
+                $errors = array();
+                $file_name = $_FILES['photoPersonnage']['name'];
+                $file_tmp = $_FILES['photoPersonnage']['tmp_name'];
+                $path_parts = pathinfo($file_name);
+                $file_ext = $path_parts['extension'];
 
-            if (!empty($_POST)) {
-                foreach ($_POST as $key => $val) {
-                    $postClean[$key] = trim($val);
+                $extensions = array("jpeg", "jpg", "png");
 
-                    if (!empty($_FILES['photoPersonnage'])) {
-                        $errors = array();
-                        $file_name = $_FILES['photoPersonnage']['name'];
-                        $file_tmp = $_FILES['photoPersonnage']['tmp_name'];
-                        $path_parts = pathinfo($file_name);
-                        $file_ext = $path_parts['extension'];
+                if (in_array($file_ext, $extensions) === false) {
+                    $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+                }
 
-                        $extensions = array("jpeg", "jpg", "png");
+                if (empty($errors)) {
+                    move_uploaded_file($file_tmp, 'images/photos/' . $file_name);
+                    $postClean['photoPersonnage'] = $file_name;
 
-                        if (in_array($file_ext, $extensions) === false) {
-                            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
-                        }
-
-                        if (empty($errors)) {
-
-                            move_uploaded_file($file_tmp, 'images/photos/' . $personnage->getPhotoPersonnage());
-                            $postClean['photoPersonnage'] = $personnage->getPhotoPersonnage();
-                            echo "Success";
-                        } else {
-                            print_r($errors);
-                        }
-                    }
-
-                    $requete->updatePersonnage($postClean);
-                    header('Location:admin.php?route=showPersonnage');
                 }
             }
+            $requete->updatePersonnage($postClean);
+            header('Location:admin.php?route=showPersonnage');
         }
     }
-
-
 
     public function updatePersonnage($id)
     {
