@@ -127,6 +127,7 @@ class PersonnageController extends Controller
                 if (empty($errors)) {
                     move_uploaded_file($file_tmp, 'images/photos/' . $file_name);
                     $postClean['photoPersonnage'] = $file_name;
+
                 }
             }
             $requete->updatePersonnage($postClean);
