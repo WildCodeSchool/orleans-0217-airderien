@@ -70,8 +70,12 @@ class CompagnieRequete extends DB
             $query .= "lienPhotoCompagnie =:lienPhotoCompagnie,";
             }
 
+        if (isset($postClean['ficheTechnique'])) {
+            $query .= "ficheTechnique =:ficheTechnique,";
+        }
+
         $query .= "descriptionCompagnie=:descriptionCompagnie, 
-        emailCompagnie=:emailCompagnie, telCompagnie=:telCompagnie WHERE id=:id";
+        emailCompagnie=:emailCompagnie, ficheTechnique=:ficheTechnique, telCompagnie=:telCompagnie WHERE id=:id";
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
@@ -82,6 +86,10 @@ class CompagnieRequete extends DB
         $prep->bindValue(':descriptionCompagnie', $postClean['descriptionCompagnie'], \PDO::PARAM_STR);
         $prep->bindValue(':emailCompagnie', $postClean['emailCompagnie'], \PDO::PARAM_STR);
         $prep->bindValue(':telCompagnie', $postClean['telCompagnie'], \PDO::PARAM_STR);
+
+        if (isset($postClean['ficheTechnique'])) {
+            $prep->bindValue(':ficheTechnique', $postClean['ficheTechnique'], \PDO::PARAM_STR);
+        }
         $prep->execute();
     }
 }

@@ -49,6 +49,15 @@ class CompagnieFilter extends InputFilter
             ]],
         ]);
 
+        $this->add([
+            'name' => 'ficheTechnique',
+            'allow_empty' => false,
+            'required' => true,
+            'validators' => [[
+                'name' => NotEmpty::class
+            ]],
+        ]);
+
 
     }
 }

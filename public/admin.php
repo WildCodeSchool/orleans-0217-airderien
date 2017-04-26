@@ -4,16 +4,12 @@ require '../config/connect.php';
 require __DIR__ . '/../vendor/autoload.php';
 
 
-$route = $_GET['route'] ?? 'indexAdmin';
+$route = $_GET['route'] ?? 'compagnie';
 $title ='';
 $render = '';
 
 switch ($route) {
 
-    case 'indexAdmin':
-        $index = new \air_de_rien\controller\IndexAdminController();
-        $render = $index->pageIndexAdmin();
-        break;
 
     case 'compagnie':
         $date = new \air_de_rien\controller\CompagnieController();
@@ -237,6 +233,30 @@ switch ($route) {
         $render = $partenaire->deletePartenaire();
         $title = 'Les Partenaires';
         break;
+
+    /*case 'addFicheTechnique':
+        $partenaire = new \air_de_rien\controller\FicheTechniqueController();
+        $render = $partenaire->addFicheTechnique();
+        $title = 'La Fiche Technique';
+        break;
+
+    case 'doUpdateFicheTechnique':
+        $membre = new \air_de_rien\controller\FicheTechniqueController();
+        $render = $membre->doUpdateFicheTechnique();
+        $title = 'La Fiche Technique';
+        break;
+
+    case 'updateFicheTechnique':
+        $partenaire = new \air_de_rien\controller\FicheTechniqueController();
+        $render = $partenaire->updateFicheTechnique($_GET['id']);
+        $title = 'La Fiche Technique';
+        break;
+
+    case 'deleteFicheTechnique':
+        $partenaire = new \air_de_rien\controller\FicheTechniqueController();
+        $render = $partenaire->deleteFicheTechnique();
+        $title = 'La Fiche Technique';
+        break;*/
 }
 
 
