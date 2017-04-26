@@ -170,16 +170,19 @@ class SpectacleController extends Controller
         if (!empty($_POST)) {
             $requete = new SpectacleRequete();
 
+            $spectacle = $requete->findOne('spectacle', $_POST['id']);
+
             if ($_POST['active'] == '1'){
                 $requete->choixSpectacle();
             }
-            $spectacle = $requete->findOne('spectacle', $_POST['id']);
+
 
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = trim($val);
             }
 
-            if (!empty($_FILES['photoSpect']['name'])) {
+
+            if ($_FILES['photoSpect']['name'] != '') {
                 $errors = array();
                 $file_name = $_FILES['photoSpect']['name'];
                 $file_tmp = $_FILES['photoSpect']['tmp_name'];
