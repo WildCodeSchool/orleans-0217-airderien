@@ -118,12 +118,14 @@ class PersonnageController extends Controller
             $personnage = $requete->findOne('personnage', $_POST['id']);
 
 
+
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = trim($val);
-
             }
 
             if ($_FILES['photoPersonnage']['name'] != '') {
+                var_dump($_FILES);
+                die();
                 $errors = array();
                 $file_name = $_FILES['photoPersonnage']['name'];
                 $file_tmp = $_FILES['photoPersonnage']['tmp_name'];
@@ -141,7 +143,6 @@ class PersonnageController extends Controller
                     $file_name = '';
                     move_uploaded_file($file_tmp, 'images/photos/' . $file_name);
                     $postClean['photoPersonnage'] = $file_name;
-                    echo "Success";
                 } else {
                     print_r($errors);
                 }

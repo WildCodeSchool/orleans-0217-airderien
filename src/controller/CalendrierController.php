@@ -82,15 +82,17 @@ class CalendrierController extends Controller
             header('Location:admin.php?route=dateListe');
         }
         $date = $requete->findOne('calendrier', $id);
+        $dates = $db -> findAll('calendrier');
         $spectacles = $db -> findAll('spectacle');
 
         return $this->getTwig()
         ->render('admin/CalendrierView.html.twig',
             ['date'=>$date,
+             'dates'=>$dates,
              'spectacles' => $spectacles,
-            'form'=>$form,
-            'titreButton'=>'Modifier',
-            'typeAction'=>'update'
+             'form'=>$form,
+             'titreButton'=>'Modifier',
+             'typeAction'=>'update'
             ]);
     }
 

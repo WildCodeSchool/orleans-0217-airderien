@@ -96,6 +96,9 @@
             <div class="col-lg-4 thumbnail text-center">
                 <img src="images/photos/{{ membre.LienPhotoMembre }}" alt="{{ membre.PrenomMembre }}" style="height: 200px">
                 <h3>{{ membre.NomMembre }}  {{ membre.PrenomMembre }}</h3>
+                <p>{{ membre.FacebookMembre }}</p>
+                <p>{{ membre.MailMembre }}</p>
+                <p>{{ membre.LienMembre }}</p>
 
                 <form action="admin.php" method="GET">
                     <input type="hidden" name="route" value="updateMembre">

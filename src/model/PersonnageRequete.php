@@ -53,6 +53,7 @@ class PersonnageRequete extends DB
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
+
         if (isset($postClean['photoPersonnage'])){
             $prep->bindValue(':photoPersonnage', $postClean['photoPersonnage'], \PDO::PARAM_STR);
         }
