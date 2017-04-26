@@ -38,13 +38,19 @@ class PartenaireRequete extends DB
     {
         $pdo = new DB();
 
-        $query = "UPDATE partenaire SET nomPartenaire=:nomPartenaire,lienLogoPartenaire=:lienLogoPartenaire, 
+        $query = "UPDATE partenaire SET ";
+        if (isset($postClean['lienLogoPartenaire'])) {
+            $query .="lienLogoPartenaire=:lienLogoPartenaire,";
+        }
+        $query .= "nomPartenaire=:nomPartenaire, 
         lienSitePartenaire=:lienSitePartenaire WHERE id=:id";
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
+        if (isset($postClean['lienLogoPartenaire'])){
+            $prep->bindValue(':lienLogoPartenaire', $postClean['lienLogoPartenaire'], \PDO::PARAM_STR);
+        }
         $prep->bindValue(':nomPartenaire', $postClean['nomPartenaire'], \PDO::PARAM_STR);
-        $prep->bindValue(':lienLogoPartenaire', $postClean['lienLogoPartenaire'], \PDO::PARAM_STR);
         $prep->bindValue(':lienSitePartenaire', $postClean['lienSitePartenaire'], \PDO::PARAM_STR);
         $prep->execute();
     }

@@ -43,11 +43,7 @@ class CalendrierController extends Controller
         $requete = new CalendrierRequete();
         $db = new DB();
             if (!empty($_POST)) {
-                var_dump($_POST);
-                foreach ($_POST as $key => $val) {
-                    $postClean[$key] = trim($val);
-                }
-                $requete->addDate($postClean);
+                $requete->addDate($_POST);
                 header('Location:admin.php?route=dateListe');
             }
 
