@@ -190,7 +190,7 @@ class PartenaireController extends Controller
             'form'=>$form,
             'partenaire'=>$partenaire,
             'titreButton'=>'Modifier',
-            'typeAction'=>'update'
+            'typeAction'=>'doUpdate'
             ]);
     }
 
