@@ -13,9 +13,18 @@
     <div class="form-group">
         <label for="genre" class="col-sm-4 control-label">Genre :</label>
         <div class="col-sm-4">
-            <input type="radio" name="genre" value="{{ media.genre }}" checked> Photo<br>
-            <input type="radio" name="genre" value="{{ media.genre }}"> Video<br>
+            <input type="radio" name="genre" value="Photo" {{ checkphoto }}> Photo<br>
+            <input type="radio" name="genre" value="Video" {{ checkvideo }}> Video<br>
         </div>
+    </div>
+
+    <div class="form-group">
+        {% if  media.LienPhoto  %}
+            <label for="imageactuelle" class="col-sm-4 control-label">Image actuelle :</label>
+            <div class="col-sm-4">
+                <img src="images/photos/{{ media.lienPhoto }}" alt="" id="imageactuelle" style="height: 200px"/>
+            </div>
+        {% endif %}
     </div>
 
     <div class="form-group">
@@ -24,6 +33,15 @@
             <input type="file"  name="lienPhoto" id="lienPhoto"
                    value="{{ media.lienPhoto }}" />
         </div>
+    </div>
+
+    <div class="form-group">
+        {% if media.LienVideo  %}
+            <label for="imageactuelle" class="col-sm-4 control-label">Video actuelle :</label>
+            <div class="col-sm-4">
+                <img src="http://img.youtube.com/vi/{{ media.lienVideo }}/hqdefault.jpg" alt="" id="imageactuelle" style="height: 200px"/>
+            </div>
+        {% endif %}
     </div>
 
     <div class="form-group">
@@ -38,7 +56,7 @@
         <label for="spectacleId" class="col-sm-4 control-label">Spectacle :</label>
         <div class="col-sm-4">
             <select id="spectacleId" class="form-control" name="spectacleId">
-                <option value="{{ spectacle.Id }}">aucun</option>
+                <option value="0">aucun</option>
                 {% for spectacle in spectacles %}
                     <option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>
                 {% endfor %}
@@ -95,11 +113,10 @@
                 {% endif %}
                 <h3>{{ media.TitreMedia }}</h3>
 
-                <form action="admin.php" method="GET">
-                    <input type="hidden" name="route" value="updateMedia">
-                    <input type="hidden" name="id" value="{{ media.Id }}">
-                    <input class="btn btn-warning" type="submit" name="updateMedia" value="Modifier">
-                </form>
+                <a class="btn btn-warning"
+                   href="admin.php?route=updateMedia&id={{ media.Id }}&afficher={{ media.afficher }}
+                   &affectation={{ media.affectation }}&genre={{ media.genre }}">Modifier</a>
+
                 <form action="admin.php?route=deleteMedia" method="post">
                     <input type="hidden" name="id" value="{{ media.Id}}">
                     <input class="btn btn-danger" type="submit" name="deleteMedia" value="Supprimer">

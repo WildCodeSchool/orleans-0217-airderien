@@ -19,6 +19,15 @@
     </div>
 
     <div class="form-group">
+        {% if spectacle.photoSpect %}
+            <label for="imageactuelle" class="col-sm-4 control-label">Image actuelle </label>
+            <div class="col-sm-4">
+                <img src="images/photos/{{  spectacle.photoSpect }}" alt="" id="imageactuelle" style="height: 200px"/>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
         <label for="photoSpect" class="col-sm-4 control-label">Photo :</label>
         <div class="col-sm-4">
             <input type="file" name="photoSpect" id="photoSpect"
@@ -89,6 +98,7 @@
                         {% elseif spectacle.Active == 2 %}
                             <p class="affichage"><strong>CE SPECTACLE N'APPARAIT PAS SUR LE SITE</strong></p>
                         {% endif %}
+
                         <a class="btn btn-warning"
                            href="admin.php?route=updateSpectacle&id={{ spectacle.Id }}&active={{ spectacle.active }}">Modifier</a>
 

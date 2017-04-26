@@ -47,7 +47,7 @@ class MediaController extends Controller
                 $postClean[$key] = trim($val);
             }
 
-            if (!empty($_FILES['lienPhoto'])) {
+            if (!empty($_FILES['lienPhoto']['name'])) {
                 $errors = array();
                 $file_name = $_FILES['lienPhoto']['name'];
                 $file_tmp = $_FILES['lienPhoto']['tmp_name'];
@@ -104,43 +104,39 @@ class MediaController extends Controller
             $requete = new MediaRequete();
 
             $media = $requete->findOne('media', $_POST['id']);
+
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
             }
 
+            if (isset($_FILES['lienPhoto']['name'])) {
+                $errors = array();
+                $file_name = $_FILES['lienPhoto']['name'];
+                $file_tmp = $_FILES['lienPhoto']['tmp_name'];
+                $path_parts = pathinfo($file_name);
+                $file_ext = $path_parts['extension'];
 
-            if (!empty($_POST)) {
-                foreach ($_POST as $key => $val) {
-                    $postClean[$key] = trim($val);
+                $extensions = array("jpeg", "jpg", "png");
 
-                    if (isset($_FILES['lienPhoto'])) {
-                        $errors = array();
-                        $file_name = $_FILES['lienPhoto']['name'];
-                        $file_tmp = $_FILES['lienPhoto']['tmp_name'];
-                        $path_parts = pathinfo($file_name);
-                        $file_ext = $path_parts['extension'];
+                if (in_array($file_ext, $extensions) === false) {
+                    $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
 
-                        $extensions = array("jpeg", "jpg", "png");
+                }
 
-                        if (in_array($file_ext, $extensions) === false) {
-                            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
-                        }
-
-                        if (empty($errors)) {
-                            move_uploaded_file($file_tmp, "images/photos/" . $media->getLienPhoto());
-                            $postClean['lienPhoto'] = $media->getLienPhoto();
-                            echo "Success";
-                        } else {
-                            print_r($errors);
-                        }
-                    }
-                    if (!isset($postClean['afficher'])) $postClean['afficher'] = 0;
-                    if (!isset($postClean['affectation'])) $postClean['afficher'] = 0;
-                    $requete->updateMedia($postClean);
-                    header('Location:admin.php?route=showMedia');
+                if (empty($errors)) {
+                    move_uploaded_file($file_tmp, "images/photos/" . $media->getLienPhoto());
+                    $postClean['lienPhoto'] = $media->getLienPhoto();
+                    echo "Success";
+                } else {
+                    print_r($errors);
                 }
             }
+
+            if (!isset($postClean['afficher'])) $postClean['afficher'] = 0;
+            if (!isset($postClean['affectation'])) $postClean['afficher'] = 0;
+
+            $requete->updateMedia($postClean);
+            header('Location:admin.php?route=showMedia');
         }
     }
 
@@ -161,6 +157,10 @@ class MediaController extends Controller
             header('Location:admin.php?route=showMedia');
         }
 
+        $check='';
+        $checkComp='';
+        $checkphoto = '';
+        $checkvideo = '';
         $medias = $requete->findAll('media');
         $media = $requete->findOne('media', $id);
         $spectacles = $db -> findAll('spectacle');
@@ -173,6 +173,14 @@ class MediaController extends Controller
             $checkComp ='checked="checked"';
         }
 
+        if ($_GET['genre'] == 'photo'){
+            $checkphoto ='checked="checked"';
+        }
+
+        if ($_GET['genre'] == 'video'){
+            $checkvideo ='checked="checked"';
+        }
+
         return $this->getTwig()
             ->render('admin/MediaView.html.twig',
                 ['medias'=>$medias,
@@ -181,6 +189,8 @@ class MediaController extends Controller
                     'spectacles'=>$spectacles,
                     'checked'=>$check,
                     'checkedComp'=>$checkComp,
+                    'checkedphoto'=>$checkphoto,
+                    'checkedvideo'=>$checkvideo,
                     'titreButton'=>'Modifier',
                     'typeAction'=>'doUpdate'
                 ]);
