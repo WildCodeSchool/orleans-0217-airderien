@@ -50,9 +50,16 @@
                    placeholder="www.123.com" value="{{ membre.LienMembre }}" />
         </div>
     </div>
-    <div class="form-group" style="margin-left: 29%"> {% if membre.LienPhotoMembre   %}
-            <label for="imageactuelle">Image actuelle </label> <img src="images/photos/{{ membre.LienPhotoMembre }}" alt="" id="imageactuelle" style="height: 200px"/>
-        {% endif %}</div>
+
+    <div class="form-group" >
+        {% if membre.LienPhotoMembre   %}
+            <label for="imageactuelle" class="col-sm-4 control-label">Image actuelle :</label>
+            <div class="col-sm-4">
+                <img src="images/photos/{{ membre.LienPhotoMembre }}" alt="" id="imageactuelle" style="height: 200px"/>
+            </div>
+        {% endif %}
+    </div>
+
     <div class="form-group">
         <label for="lienPhotoMembre" class="col-sm-4 control-label">Photo :</label>
         <div class="col-sm-4">
@@ -89,7 +96,6 @@
             <div class="col-lg-4 thumbnail text-center">
                 <img src="images/photos/{{ membre.LienPhotoMembre }}" alt="{{ membre.PrenomMembre }}" style="height: 200px">
                 <h3>{{ membre.NomMembre }}  {{ membre.PrenomMembre }}</h3>
-                {#<p>{{ membre.DescriptionMembre }}</p>#}
 
                 <form action="admin.php" method="GET">
                     <input type="hidden" name="route" value="updateMembre">

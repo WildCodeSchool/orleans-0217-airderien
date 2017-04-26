@@ -11,5 +11,16 @@
 }
 .btn-danger{
     margin-top: 10px;
+    background-color:#a70000;
+    border: none;
 }
 
+.btn-warning{
+    background-color:#1abc9c;
+    border: none;
+}
+.btn-default{
+    background-color:#1abc9c;
+    border: none;
+    color: white;
+}
