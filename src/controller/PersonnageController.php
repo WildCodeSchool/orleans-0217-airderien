@@ -121,7 +121,7 @@ class PersonnageController extends Controller
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
 
-                    if (!empty($_FILES['photoPersonnage'])) {
+                    if (!empty($_FILES['photoPersonnage']['name'])) {
                         $errors = array();
                         $file_name = $_FILES['photoPersonnage']['name'];
                         $file_tmp = $_FILES['photoPersonnage']['tmp_name'];

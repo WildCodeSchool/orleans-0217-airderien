@@ -58,7 +58,10 @@ class MediaRequete extends DB
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
         $prep->bindValue(':titreMedia', $postClean['titreMedia'], \PDO::PARAM_STR);
-        $prep->bindValue(':lienPhoto', $postClean['lienPhoto'], \PDO::PARAM_STR);
+
+        if (isset($postClean['lienPhoto'])) {
+            $prep->bindValue(':lienPhoto', $postClean['lienPhoto'], \PDO::PARAM_STR);
+        }
         $prep->bindValue(':lienVideo', $postClean['lienVideo'], \PDO::PARAM_STR);
         $prep->bindValue(':spectacleId', $postClean['spectacleId'], \PDO::PARAM_INT);
         $prep->bindValue(':afficher', $postClean['afficher'], \PDO::PARAM_INT);
