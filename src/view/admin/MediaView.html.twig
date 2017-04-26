@@ -49,13 +49,15 @@
     <div class="form-group">
         <label for="afficher" class="col-sm-4 control-label">Masquer ?</label>
         <div class="col-sm-4">
-            <input type="checkbox" name="afficher" id="afficher" value="1"/>{{ media.afficher }}  </div>
+            <input type="checkbox" name="afficher" id="afficher" value="1" {{ checked }}/>
+        </div>
     </div>
 
     <div class="form-group">
         <label for="affectation" class="col-sm-4 control-label">Afficher dans la compagnie ?</label>
         <div class="col-sm-4">
-            <input type="checkbox" name="affectation" id="affectation" value="1"/>{{ media.affectation }} </div>
+            <input type="checkbox" name="affectation" id="affectation" value="1" {{ checkedComp }}/>
+        </div>
     </div>
 
 

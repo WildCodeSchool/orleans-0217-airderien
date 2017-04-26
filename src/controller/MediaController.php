@@ -135,6 +135,8 @@ class MediaController extends Controller
                             print_r($errors);
                         }
                     }
+                    if (!isset($postClean['afficher'])) $postClean['afficher'] = 0;
+                    if (!isset($postClean['affectation'])) $postClean['afficher'] = 0;
                     $requete->updateMedia($postClean);
                     header('Location:admin.php?route=showMedia');
                 }
@@ -163,12 +165,22 @@ class MediaController extends Controller
         $media = $requete->findOne('media', $id);
         $spectacles = $db -> findAll('spectacle');
 
+        if ($_GET['afficher'] == '1'){
+            $check ='checked="checked"';
+        }
+
+        if ($_GET['affectation'] == '1'){
+            $checkComp ='checked="checked"';
+        }
+
         return $this->getTwig()
             ->render('admin/MediaView.html.twig',
                 ['medias'=>$medias,
                     'form'=>$form,
                     'media'=>$media,
                     'spectacles'=>$spectacles,
+                    'checked'=>$check,
+                    'checkedComp'=>$checkComp,
                     'titreButton'=>'Modifier',
                     'typeAction'=>'doUpdate'
                 ]);
