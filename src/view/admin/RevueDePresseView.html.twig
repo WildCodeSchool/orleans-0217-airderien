@@ -1,0 +1,119 @@
+
+
+<form name="addPersoForm" method="post" action="admin.php?route={{ typeAction }}Presse" class="form-horizontal" enctype="multipart/form-data" style="margin-top: 30px">
+    <div class="form-group">
+        <label for="titreArticle" class="col-sm-4 control-label">Titre :</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="titreArticle" id="titreArticle"
+                   placeholder="Titre" value="{{ presse.TitreArticle }}"  />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="texteArticle" class="col-sm-4 control-label">Texte :</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="texteArticle" id="texteArticle"
+                   placeholder="Texte" value="{{ presse.TexteArticle }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="dateArticle" class="col-sm-4 control-label">Date :</label>
+        <div class="col-sm-4">
+            <div class='input-group date' id='datetimepicker2'>
+                <input type='text' class="form-control" name="dateArticle" placeholder="Date" value="{{ presse
+                .DateArticle }}"/>
+                <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker2').datetimepicker({
+                locale: 'fr'
+            });
+        });
+    </script>
+
+    <div class="form-group">
+        <label for="journal" class="col-sm-4 control-label">Journal :</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="journal" id="journal"
+                   placeholder="Texte" value="{{ presse.Journal }}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="auteur" class="col-sm-4 control-label">Auteur :</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="auteur" id="auteur"
+                   placeholder="Texte" value="{{ presse.Auteur }}" />
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="spectacleId" class="col-sm-4 control-label">Spectacle :</label>
+        <div class="col-sm-4">
+            <select id="spectacleId" class="form-control" name="spectacleId">
+                {% for spectacle in spectacles %}
+                    <option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="afficher" class="col-sm-4 control-label">Afficher ?</label>
+        <div class="col-sm-4">
+            <input type="checkbox" name="afficher" id="afficher" value="1" {{ checked }}/>
+        </div>
+    </div>
+
+    <input type="hidden" name="csrf" value="{{ form.csrf.value }}">
+
+    <input type="hidden" name="id" value="{{ presse.Id }}">
+
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-2">
+            <button type="submit" name="submit" value="submit" class="btn btn-default"> {{ titreButton }}
+            </button>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+
+<div class="row titre">
+    <div class="col-xs-12 text-center">
+        <h3>Liste des articles</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        {% for presse in presses %}
+            <div class="col-lg-4 thumbnail text-center">
+                <h3>{{ presse.TitreArticle }}</h3>
+                <p>{{ presse.texteArticle}}</p>
+                <p>{{ presse.dateArticle}}</p>
+                <p>{{ presse.journal}}</p>
+                <p>{{ presse.auteur}}</p>
+
+                <a  class="btn btn-warning" href="admin.php?route=updatePresse&id={{ presse.Id }}&afficher={{
+                presse.afficher }}">Modifier</a>
+                <form action="admin.php?route=deletePresse" method="post">
+                    <input type="hidden" name="id" value="{{ presse.Id }}">
+                    <input class="btn btn-danger" type="submit" name="deletePresse" value="Supprimer">
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

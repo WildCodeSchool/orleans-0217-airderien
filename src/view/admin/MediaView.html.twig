@@ -19,18 +19,18 @@
     </div>
 
     <div class="form-group">
-        <label for="lienMedia" class="col-sm-4 control-label">Lien Photo :</label>
+        <label for="lienPhoto" class="col-sm-4 control-label">Lien Photo :</label>
         <div class="col-sm-4">
-            <input type="file"  name="lienMedia" id="lienMedia"
-                   value="{{ media.lienMedia }}" />
+            <input type="file"  name="lienPhoto" id="lienPhoto"
+                   value="{{ media.lienPhoto }}" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="lienMedia" class="col-sm-4 control-label">Lien Video:</label>
+        <label for="lienVideo" class="col-sm-4 control-label">Lien Video:</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" name="lienMedia" id="lienMedia"
-                   placeholder="Jc-2VY_TDYQ" value="{{ media.lienMedia }}" />
+            <input type="text" class="form-control" name="lienVideo" id="lienVideo"
+                   placeholder="Jc-2VY_TDYQ" value="{{ media.lienVideo }}" />
         </div>
     </div>
 
@@ -49,13 +49,15 @@
     <div class="form-group">
         <label for="afficher" class="col-sm-4 control-label">Masquer ?</label>
         <div class="col-sm-4">
-            <input type="checkbox" name="afficher" id="afficher" value="1"/>{{ media.afficher }}  </div>
+            <input type="checkbox" name="afficher" id="afficher" value="1" {{ checked }}/>
+        </div>
     </div>
 
     <div class="form-group">
         <label for="affectation" class="col-sm-4 control-label">Afficher dans la compagnie ?</label>
         <div class="col-sm-4">
-            <input type="checkbox" name="affectation" id="affectation" value="1"/>{{ media.affectation }} </div>
+            <input type="checkbox" name="affectation" id="affectation" value="1" {{ checkedComp }}/>
+        </div>
     </div>
 
 
@@ -86,10 +88,10 @@
         {% for media in medias %}
             <div class="col-lg-4 thumbnail text-center">
                 {%  if media.genre == 'photo' %}
-                <img src="images/photos/{{ media.LienMedia }}" alt="{{ media.TitreMedia }}" style="height: 200px">
+                <img src="images/photos/{{ media.LienPhoto }}" alt="{{ media.TitreMedia }}" style="height: 200px">
                 {% endif %}
                 {%  if media.genre == 'video' %}
-                    <img src="http://img.youtube.com/vi/{{ media.lienMedia }}/hqdefault.jpg" alt="{{ media.TitreMedia }}" style="height: 200px">
+                    <img src="http://img.youtube.com/vi/{{ media.lienVideo }}/hqdefault.jpg" alt="{{ media.TitreMedia }}" style="height: 200px">
                 {% endif %}
                 <h3>{{ media.TitreMedia }}</h3>
 

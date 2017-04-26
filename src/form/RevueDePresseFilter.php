@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: fanny
  * Date: 25/04/17
- * Time: 09:37
+ * Time: 22:19
  */
 
 namespace air_de_rien\form;
@@ -11,12 +11,12 @@ namespace air_de_rien\form;
 use Zend\InputFilter\InputFilter;
 use Zend\Validator\NotEmpty;
 
-class MediaFilter extends InputFilter
+class RevueDePresseFilter extends InputFilter
 {
     public function __construct()
     {
         $this->add([
-            'name' => 'titreMedia',
+            'name' => 'titreArticle',
             'allow_empty' => false,
             'required' => true,
             'validators' => [[
@@ -26,7 +26,7 @@ class MediaFilter extends InputFilter
         ]);
 
         $this->add([
-            'name' => 'lienPhoto',
+            'name' => 'texteArticle',
             'allow_empty' => false,
             'required' => true,
             'validators' => [[
@@ -36,7 +36,16 @@ class MediaFilter extends InputFilter
         ]);
 
         $this->add([
-            'name' => 'lienVideo',
+            'name' => 'dateArticle',
+            'allow_empty' => false,
+            'required' => true,
+            'validators' => [[
+                'name' => NotEmpty::class
+            ]],
+        ]);
+
+        $this->add([
+            'name' => 'spectacleId',
             'allow_empty' => false,
             'required' => true,
             'validators' => [[
@@ -45,14 +54,24 @@ class MediaFilter extends InputFilter
 
         ]);
 
-
         $this->add([
-            'name' => 'genre',
+            'name' => 'journal',
             'allow_empty' => false,
             'required' => true,
             'validators' => [[
                 'name' => NotEmpty::class
             ]],
+
+        ]);
+
+        $this->add([
+            'name' => 'auteur',
+            'allow_empty' => false,
+            'required' => true,
+            'validators' => [[
+                'name' => NotEmpty::class
+            ]],
+
         ]);
 
         $this->add([
@@ -62,18 +81,8 @@ class MediaFilter extends InputFilter
             'validators' => [[
                 'name' => NotEmpty::class
             ]],
+
         ]);
-
-        $this->add([
-            'name' => 'affectation',
-            'allow_empty' => false,
-            'required' => true,
-            'validators' => [[
-                'name' => NotEmpty::class
-            ]],
-        ]);
-
-
 
     }
 }

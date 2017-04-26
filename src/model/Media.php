@@ -13,11 +13,48 @@ class Media
 {
     private $id;
     private $titreMedia;
-    private $lienMedia;
+    private $lienPhoto;
+    private $lienVideo;
     private $spectacleId;
     private $afficher;
     private $affectation;
     private $genre;
+
+    /**
+     * @return mixed
+     */
+    public function getLienPhoto()
+    {
+        return $this->lienPhoto;
+    }
+
+    /**
+     * @param mixed $lienPhoto
+     * @return Media
+     */
+    public function setLienPhoto($lienPhoto)
+    {
+        $this->lienPhoto = $lienPhoto;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLienVideo()
+    {
+        return $this->lienVideo;
+    }
+
+    /**
+     * @param mixed $lienVideo
+     * @return Media
+     */
+    public function setLienVideo($lienVideo)
+    {
+        $this->lienVideo = $lienVideo;
+        return $this;
+    }
 
     /**
      * @return mixed
@@ -70,24 +107,6 @@ class Media
     public function setTitreMedia($titreMedia)
     {
         $this->titreMedia = $titreMedia;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLienMedia()
-    {
-        return $this->lienMedia;
-    }
-
-    /**
-     * @param mixed $lienMedia
-     * @return Media
-     */
-    public function setLienMedia($lienMedia)
-    {
-        $this->lienMedia = $lienMedia;
         return $this;
     }
 
