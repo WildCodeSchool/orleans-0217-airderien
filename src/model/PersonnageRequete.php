@@ -39,22 +39,28 @@ class PersonnageRequete extends DB
         $prep->execute();
     }
 
-    public function updatePersonnage($postClean)
+        public function updatePersonnage($postClean)
     {
         $pdo = new DB();
 
-        $query = "UPDATE personnage SET nomPersonnage=:nomPersonnage,prenomPersonnage=:prenomPersonnage, 
-        descriptionPersonnage=:descriptionPersonnage, photoPersonnage=:photoPersonnage, spectacleId=:spectacleId, 
-        membreId=:membreId WHERE id=:id";
+        $query = "UPDATE personnage SET ";
+        if (isset($postClean['photoPersonnage'])) {
+            $query .= "photoPersonnage =:photoPersonnage,";
+        }
+        $query .= "nomPersonnage=:nomPersonnage, 
+        prenomPersonnage=:prenomPersonnage, descriptionPersonnage=:descriptionPersonnage,
+        spectacleId=:spectacleId, membreId=:membreId WHERE id=:id";
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
+        if (isset($postClean['photoPersonnage'])){
+            $prep->bindValue(':photoPersonnage', $postClean['photoPersonnage'], \PDO::PARAM_STR);
+        }
         $prep->bindValue(':nomPersonnage', $postClean['nomPersonnage'], \PDO::PARAM_STR);
         $prep->bindValue(':prenomPersonnage', $postClean['prenomPersonnage'], \PDO::PARAM_STR);
         $prep->bindValue(':descriptionPersonnage', $postClean['descriptionPersonnage'], \PDO::PARAM_STR);
-        $prep->bindValue(':photoPersonnage', $postClean['photoPersonnage'], \PDO::PARAM_STR);
-        $prep->bindValue(':spectacleId', $postClean['spectacleId'], \PDO::PARAM_INT);
-        $prep->bindValue(':membreId', $postClean['membreId'], \PDO::PARAM_INT);
+        $prep->bindValue(':spectacleId', $postClean['spectacleId'], \PDO::PARAM_STR);
+        $prep->bindValue(':membreId', $postClean['membreId'], \PDO::PARAM_STR);
         $prep->execute();
     }
 }

@@ -6,4 +6,10 @@
     margin-left: 0px;
     margin-right: 0px;
 }
+.affichage{
+    color: red;
+}
+.btn-danger{
+    margin-top: 10px;
+}
 

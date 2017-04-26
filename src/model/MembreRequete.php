@@ -45,20 +45,26 @@ class MembreRequete extends DB
     {
         $pdo = new DB();
 
-        $query = "UPDATE membre SET nomMembre=:nomMembre,prenomMembre=:prenomMembre, 
-        descriptionMembre=:descriptionMembre, lienPhotoMembre=:lienPhotoMembre, 
-        facebookMembre=:facebookMembre, mailMembre=:mailMembre, lienMembre=:lienMembre WHERE id=:id";
+        $query = "UPDATE membre SET ";
+        if (isset($postClean['lienPhotoMembre'])) {
+            $query .= "lienPhotoMembre =:lienPhotoMembre,";
+        }
+        $query .= "nomMembre=:nomMembre, 
+        prenomMembre=:prenomMembre, descriptionMembre=:descriptionMembre, 
+        facebookMembre=:facebookMembre, mailMembre=:mailMembre, 
+        lienMembre=:lienMembre WHERE id=:id";
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
+        if (isset($postClean['lienPhotoMembre'])){
+            $prep->bindValue(':lienPhotoMembre', $postClean['lienPhotoMembre'], \PDO::PARAM_STR);
+        }
         $prep->bindValue(':nomMembre', $postClean['nomMembre'], \PDO::PARAM_STR);
         $prep->bindValue(':prenomMembre', $postClean['prenomMembre'], \PDO::PARAM_STR);
         $prep->bindValue(':descriptionMembre', $postClean['descriptionMembre'], \PDO::PARAM_STR);
-        $prep->bindValue(':lienPhotoMembre', $postClean['lienPhotoMembre'], \PDO::PARAM_STR);
         $prep->bindValue(':facebookMembre', $postClean['facebookMembre'], \PDO::PARAM_STR);
         $prep->bindValue(':mailMembre', $postClean['mailMembre'], \PDO::PARAM_STR);
         $prep->bindValue(':lienMembre', $postClean['lienMembre'], \PDO::PARAM_STR);
-
         $prep->execute();
     }
 }

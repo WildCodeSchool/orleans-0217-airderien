@@ -142,9 +142,9 @@
         </div>#}
         <div class="home-mobile-title w100 txtcenter wrapper">
             <div class="home-box">
-                <h3><a href="/les-ateliers">Compagnie</a></h3>
-                <h2><a href="/les-ateliers">Comme l'air</a></h2>
-                <h4><a href="/les-ateliers">2 rien</a></h4>
+                <h3><a href="index.php?route=compagnie">Compagnie</a></h3>
+                <h2><a href="index.php?route=compagnie">Comme l'air</a></h2>
+                <h2><a href="index.php?route=compagnie">2 rien</a></h2>
             </div>
         </div>
     </section>
@@ -157,10 +157,16 @@
         </div>#}
         <div class="home-mobile-title w100 txtcenter wrapper">
             <div class="home-box">
-                {% if spectacle.active == 1 %}
+                {% for spectacle in spectacles if spectacle.active == 1 %}
                 <h3><a href="index.php?route=spectacle&id={{ spectacle.id }}">Spectacle</a></h3>
                 <h2 class="pHub {#p1 first#}" ><a href="index.php?route=spectacle&id={{ spectacle.id }}"> {{ spectacle.titreSpect }}</a></h2>
-                {% endif %}
+                {% endfor %}
+                <nav id="nav-see">
+                    <ul>{% for spectacle in spectacles if spectacle.active == 0 %}
+                            <li ><a href="index.php?route=spectacle&id={{ spectacle.id }}">{{spectacle.titrespect}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </nav>
             </div>
         </div>
     </section>
