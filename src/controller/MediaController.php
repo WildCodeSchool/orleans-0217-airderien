@@ -47,6 +47,10 @@ class MediaController extends Controller
                 $postClean[$key] = trim($val);
             }
 
+//            if ($postClean['spectacleId'] === 0){
+//                $postClean['spectacleId'] = null;
+//            }
+
             if (!empty($_FILES['lienPhoto']['name'])) {
                 $errors = array();
                 $file_name = $_FILES['lienPhoto']['name'];
@@ -74,6 +78,7 @@ class MediaController extends Controller
 
             $requete->addMedia($postClean);
             header('Location:admin.php?route=showMedia');
+
         }
 
         $medias = $requete->findAll('media');
@@ -157,7 +162,6 @@ class MediaController extends Controller
             header('Location:admin.php?route=showMedia');
         }
 
-        $check='';
         $checkComp='';
         $checkphoto = '';
         $checkvideo = '';
@@ -165,9 +169,6 @@ class MediaController extends Controller
         $media = $requete->findOne('media', $id);
         $spectacles = $db -> findAll('spectacle');
 
-        if ($_GET['afficher'] == '1'){
-            $check ='checked="checked"';
-        }
 
         if ($_GET['affectation'] == '1'){
             $checkComp ='checked="checked"';
@@ -187,10 +188,9 @@ class MediaController extends Controller
                     'form'=>$form,
                     'media'=>$media,
                     'spectacles'=>$spectacles,
-                    'checked'=>$check,
-                    'checkedComp'=>$checkComp,
-                    'checkedphoto'=>$checkphoto,
-                    'checkedvideo'=>$checkvideo,
+                    'checkComp'=>$checkComp,
+                    'checkphoto'=>$checkphoto,
+                    'checkvideo'=>$checkvideo,
                     'titreButton'=>'Modifier',
                     'typeAction'=>'doUpdate'
                 ]);
