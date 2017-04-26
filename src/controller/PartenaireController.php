@@ -63,7 +63,7 @@ class PartenaireController extends Controller
                     $postClean[$key] = trim($val);
                 }
 
-                if (isset($_FILES['lienLogoPartenaire'])) {
+                if ($_FILES['lienLogoPartenaire']['name'] != '') {
                     $errors = array();
                     $file_name = $_FILES['lienLogoPartenaire']['name'];
                     $file_tmp = $_FILES['lienLogoPartenaire']['tmp_name'];
@@ -75,16 +75,11 @@ class PartenaireController extends Controller
 
                     if (in_array($file_ext, $extensions) === false) {
                         $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
                     }
 
                     if (empty($errors)) {
-
                         move_uploaded_file($file_tmp, "images/" . $newFileName);
                         $postClean['lienLogoPartenaire'] = $newFileName;
-                        echo "Success";
-                    } else {
-                        print_r($errors);
                     }
                 }
                 $requete->addPartenaire($postClean);
@@ -118,46 +113,35 @@ class PartenaireController extends Controller
         if (!empty($_POST)) {
             $requete = new PartenaireRequete();
 
-            $partenaire = $requete->findOne('partenaire', $_POST['id']);
-            foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
-            }
-
-
             if (!empty($_POST)) {
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
-
-                    if (isset($_FILES['lienLogoPartenaire'])) {
-                        $errors = array();
-                        $file_name = $_FILES['lienLogoPartenaire']['name'];
-                        $file_tmp = $_FILES['lienLogoPartenaire']['tmp_name'];
-                        $path_parts = pathinfo($file_name);
-                        $file_ext = $path_parts['extension'];
-
-
-                        $extensions = array("jpeg", "jpg", "png");
-
-                        if (in_array($file_ext, $extensions) === false) {
-                            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
-                        }
-
-                        if (empty($errors)) {
-
-                            move_uploaded_file($file_tmp, "images/" . $partenaire->getLienLogoPartenaire());
-                            $postClean['lienLogoPartenaire'] = $partenaire->getLienLogoPartenaire();
-                            echo "Success";
-                        } else {
-                            print_r($errors);
-                        }
-                    }
-                    $requete->updatePartenaire($postClean);
-                    header('Location:admin.php?route=showPartenaire');
                 }
+
+                if ($_FILES['lienLogoPartenaire']['name'] != '') {
+                    $errors = array();
+                    $file_name = $_FILES['lienLogoPartenaire']['name'];
+                    $file_tmp = $_FILES['lienLogoPartenaire']['tmp_name'];
+                    $path_parts = pathinfo($file_name);
+                    $file_ext = $path_parts['extension'];
+
+                    $extensions = array("jpeg", "jpg", "png");
+
+                    if (in_array($file_ext, $extensions) === false) {
+                        $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+                    }
+
+                    if (empty($errors)) {
+                        move_uploaded_file($file_tmp, "images/" . $file_name);
+                        $postClean['lienLogoPartenaire'] = $file_name;
+                    }
+                }
+                $requete->updatePartenaire($postClean);
+                header('Location:admin.php?route=showPartenaire');
             }
         }
     }
+
 
 
 

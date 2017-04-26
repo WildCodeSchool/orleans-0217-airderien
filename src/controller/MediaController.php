@@ -47,11 +47,7 @@ class MediaController extends Controller
                 $postClean[$key] = trim($val);
             }
 
-//            if ($postClean['spectacleId'] === 0){
-//                $postClean['spectacleId'] = null;
-//            }
-
-            if (!empty($_FILES['lienPhoto']['name'])) {
+            if ($_FILES['lienPhoto']['name'] != '') {
                 $errors = array();
                 $file_name = $_FILES['lienPhoto']['name'];
                 $file_tmp = $_FILES['lienPhoto']['tmp_name'];
@@ -63,22 +59,16 @@ class MediaController extends Controller
 
                 if (in_array($file_ext, $extensions) === false) {
                     $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
                 }
 
                 if (empty($errors)) {
 
                     move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
                     $postClean['lienPhoto'] = $newFileName;
-                    echo "Success";
-                } else {
-                    print_r($errors);
                 }
             }
-
             $requete->addMedia($postClean);
             header('Location:admin.php?route=showMedia');
-
         }
 
         $medias = $requete->findAll('media');
@@ -108,13 +98,11 @@ class MediaController extends Controller
         if (!empty($_POST)) {
             $requete = new MediaRequete();
 
-            $media = $requete->findOne('media', $_POST['id']);
-
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = trim($val);
             }
 
-            if (isset($_FILES['lienPhoto']['name'])) {
+            if ($_FILES['lienPhoto']['name'] != '') {
                 $errors = array();
                 $file_name = $_FILES['lienPhoto']['name'];
                 $file_tmp = $_FILES['lienPhoto']['tmp_name'];
@@ -125,15 +113,11 @@ class MediaController extends Controller
 
                 if (in_array($file_ext, $extensions) === false) {
                     $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
                 }
 
                 if (empty($errors)) {
-                    move_uploaded_file($file_tmp, "images/photos/" . $media->getLienPhoto());
-                    $postClean['lienPhoto'] = $media->getLienPhoto();
-                    echo "Success";
-                } else {
-                    print_r($errors);
+                    move_uploaded_file($file_tmp, "images/photos/" . $file_name);
+                    $postClean['lienPhoto'] = $file_name;
                 }
             }
 
