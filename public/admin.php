@@ -4,16 +4,11 @@ require '../config/connect.php';
 require __DIR__ . '/../vendor/autoload.php';
 
 
-$route = $_GET['route'] ?? 'indexAdmin';
+$route = $_GET['route'] ?? 'compagnie';
 $title ='';
 $render = '';
 
 switch ($route) {
-
-    case 'indexAdmin':
-        $index = new \air_de_rien\controller\IndexAdminController();
-        $render = $index->pageIndexAdmin();
-        break;
 
     case 'compagnie':
         $date = new \air_de_rien\controller\CompagnieController();

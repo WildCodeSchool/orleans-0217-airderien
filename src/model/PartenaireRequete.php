@@ -25,7 +25,8 @@ class PartenaireRequete extends DB
     {
         $pdo = new DB();
 
-        $query = "INSERT INTO partenaire (nomPartenaire, lienLogoPartenaire, lienSitePartenaire) VALUES (:nomPartenaire,:lienLogoPartenaire, :lienSitePartenaire)";
+        $query = "INSERT INTO partenaire (nomPartenaire, lienLogoPartenaire, lienSitePartenaire) VALUES (:nomPartenaire,
+        :lienLogoPartenaire, :lienSitePartenaire)";
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':nomPartenaire', $postClean['nomPartenaire'], \PDO::PARAM_STR);

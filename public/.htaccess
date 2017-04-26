@@ -1,7 +1,5 @@
 <FilesMatch admin.php>
-
-
-AuthUserFile /home/fanny/Documents/PROJET/AirDeRien/orleans-0217-airderien/config/.htpasswd
+AuthUserFile /home/biovor/PhpstormProjects/Air-de-rien/config/.htpasswd
 AuthName "Accès protégé trouve le MDP!!"
 AuthType Basic
 Require valid-user
