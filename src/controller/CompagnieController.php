@@ -26,7 +26,6 @@ class CompagnieController extends Controller
         $membres = $db->findAll('membre');
         $spectacles = $db->findAll('spectacle');
         $galerie = $compagnieRequete->findAllMediaCompagnie('media','photo');
-        $video = $compagnieRequete->findAllMediaCompagnie('media','video');
         $revue = $compagnieRequete->findAllPresse('revueDePresse');
         $partenaires = $db->findAll('partenaire');
         return $this->getTwig()
@@ -34,7 +33,6 @@ class CompagnieController extends Controller
                              ['compagnie'=> $compagnie,
                               'membres' => $membres,
                               'medias'  => $galerie,
-                              'videos'   =>$video,
                               'revues'   =>$revue,
                               'partenaires' =>$partenaires,
                               'spectacles'=>$spectacles
@@ -68,44 +66,34 @@ class CompagnieController extends Controller
             $compagnie = $requete->findOne('compagnie', $_POST['id']);
 
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
             }
 
+            if (!empty($_FILES['lienPhotoCompagnie']['name'])) {
 
-            if (!empty($_POST)) {
-                foreach ($_POST as $key => $val) {
-                    $postClean[$key] = trim($val);
+                $errors = array();
+                $file_name = $_FILES['lienPhotoCompagnie']['name'];
+                $file_tmp = $_FILES['lienPhotoCompagnie']['tmp_name'];
+                $path_parts = pathinfo($file_name);
+                $file_ext = $path_parts['extension'];
 
-                    var_dump($_FILES['lienPhotoCompagnie']);
+                $extensions = array("jpeg", "jpg", "png");
 
-                    if (!empty($_FILES['lienPhotoCompagnie']['name'])) {
+                if (in_array($file_ext, $extensions) === false) {
+                    $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+                }
 
-                        $errors = array();
-                        $file_name = $_FILES['lienPhotoCompagnie']['name'];
-                        $file_tmp = $_FILES['lienPhotoCompagnie']['tmp_name'];
-                        $path_parts = pathinfo($file_name);
-                        $file_ext = $path_parts['extension'];
-
-                        $extensions = array("jpeg", "jpg", "png");
-
-                        if (in_array($file_ext, $extensions) === false) {
-                            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
-
-                        }
-
-                        if (empty($errors)) {
-                            move_uploaded_file($file_tmp, "images/" . $compagnie->getLienPhotoCompagnie());
-                            $postClean['lienPhotoCompagnie'] = $compagnie->getLienPhotoCompagnie();
-                            echo "Success";
-                        } else {
-                            print_r($errors);
-                        }
-                    }
-
-                    $requete->updateCompagnie($postClean);
-                    header('Location:admin.php?route=compagnie');
+                if (empty($errors)) {
+                    move_uploaded_file($file_tmp, "images/" . $compagnie->getLienPhotoCompagnie());
+                    $postClean['lienPhotoCompagnie'] = $compagnie->getLienPhotoCompagnie();
+                    echo "Success";
+                } else {
+                    print_r($errors);
                 }
             }
+
+            $requete->updateCompagnie($postClean);
+            header('Location:admin.php?route=compagnie');
         }
     }
 

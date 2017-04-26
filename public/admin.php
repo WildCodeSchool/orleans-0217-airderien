@@ -163,6 +163,27 @@ elseif ($route == 'deleteMedia') {
     $render = $media->deleteMedia();
 }
 
+elseif ($route == 'showPresse') {
+    $presse = new \air_de_rien\controller\RevueDePresseController();
+    $render = $presse->index();
+}
+elseif ($route == 'addPresse') {
+    $presse = new \air_de_rien\controller\RevueDePresseController();
+    $render = $presse->addPresse();
+}
+elseif ($route == 'doUpdatePresse') {
+    $presse = new \air_de_rien\controller\RevueDePresseController();
+    $render = $presse->doUpdatePresse();
+}
+elseif ($route == 'updatePresse') {
+    $presse = new \air_de_rien\controller\RevueDePresseController();
+    $render = $presse->updatePresse($_GET['id']);
+}
+elseif ($route == 'deletePresse') {
+    $presse = new \air_de_rien\controller\RevueDePresseController();
+    $render = $presse->deletePresse();
+}
+
 
 echo $renderHeader;
 echo $render;

@@ -1,15 +1,19 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: fanny
+ * Date: 25/04/17
+ * Time: 22:18
+ */
 
 namespace air_de_rien\form;
 
 use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Text;
 use Zend\Form\Element\File;
-use Zend\Form\Element\Email;
 use Zend\Form\Form;
 
-class MediaForm extends Form
+class RevueDePresseForm extends Form
 {
     public function __construct($name = null, array $options = [])
     {
@@ -17,57 +21,56 @@ class MediaForm extends Form
 
         $this->add([
             'type'  => Text::class,
-            'name' => 'titreMedia',
+            'name' => 'titreArticle',
             'options' => [
-                'label' => 'titreMedia',
+                'label' => 'titreArticle',
             ],
         ]);
 
         $this->add([
             'type'  => Text::class,
-            'name' => 'lienMedia',
+            'name' => 'texteArticle',
             'options' => [
-                'label' => 'lienMedia',
+                'label' => 'texteArticle',
+            ],
+        ]);
+        $this->add([
+            'type'  => Text::class,
+            'name' => 'dateArticle',
+            'options' => [
+                'label' => 'dateArticle',
             ],
         ]);
 
         $this->add([
             'type'  => File::class,
-            'name' => 'lienPhoto',
+            'name' => 'spectacleId',
             'options' => [
-                'label' => 'lienPhoto',
+                'label' => 'spectacleId',
             ],
         ]);
 
         $this->add([
             'type'  => File::class,
-            'name' => 'lienVideo',
+            'name' => 'journal',
             'options' => [
-                'label' => 'lienVideo',
+                'label' => 'journal',
             ],
         ]);
 
         $this->add([
-            'type'  => Text::class,
-            'name' => 'genre',
+            'type'  => File::class,
+            'name' => 'auteur',
             'options' => [
-                'label' => 'genre',
+                'label' => 'auteur',
             ],
         ]);
 
         $this->add([
-            'type'  => Text::class,
+            'type'  => File::class,
             'name' => 'afficher',
             'options' => [
                 'label' => 'afficher',
-            ],
-        ]);
-
-        $this->add([
-            'type'  => Text::class,
-            'name' => 'affectation',
-            'options' => [
-                'label' => 'affectation',
             ],
         ]);
 

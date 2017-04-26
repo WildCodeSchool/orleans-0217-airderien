@@ -191,8 +191,8 @@
                 <div class="flexslider">
                     <div class="slider-wrap">
                         {% for photo in photos %}
-                            <div class="slide" data-thumb="images/photos/{{ photo.lienMedia }}">
-                                <img src="images/photos/{{ photo.lienMedia }}" alt="{{ photo.ltitreMedia }}"></div>
+                            <div class="slide" data-thumb="images/photos/{{ photo.lienPhoto }}">
+                                <img src="images/photos/{{ photo.lienPhoto }}" alt="{{ photo.titreMedia }}"></div>
                         {% endfor %}
                     </div>
                 </div>
@@ -211,7 +211,7 @@
                         <div class="feature-box center media-box fbox-bg">
                             <div class="fbox-desc" style="padding: 5px;">
                                 <a href="#modal-video{{ video.id }}" data-lightbox="inline"><img
-                                src="http://img.youtube.com/vi/{{ video.lienMedia }}/hqdefault.jpg" style="height: 150px; width: 200px;"></a>
+                                src="http://img.youtube.com/vi/{{ video.lienVideo }}/hqdefault.jpg" style="height: 150px; width: 200px;"></a>
 
                                 <div class="modal" data-target="#modal-video{{ video.id }}"></div>
                             </div>
@@ -223,7 +223,7 @@
                             <div class="center clearfix" style="padding: 50px;">
                                 <h4 class="modal-title">{{ video.titreMedia }}</h4>
                                 <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video
-                                .lienMedia }}" frameborder="0" allowfullscreen></iframe>
+                                .lienVideo }}" frameborder="0" allowfullscreen></iframe>
                                 <p class="lead nobottommargin topmargin-sm">Media embedded from Vimeo</p>
                             </div>
                         </div>

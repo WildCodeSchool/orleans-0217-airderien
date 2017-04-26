@@ -65,14 +65,17 @@ class CompagnieRequete extends DB
         $pdo = new DB();
 
         $query = "UPDATE compagnie SET ";
+
         if (isset($postClean['lienPhotoCompagnie'])) {
             $query .= "lienPhotoCompagnie =:lienPhotoCompagnie,";
             }
+
         $query .= "descriptionCompagnie=:descriptionCompagnie, 
         emailCompagnie=:emailCompagnie, telCompagnie=:telCompagnie WHERE id=:id";
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
+
         if (isset($postClean['lienPhotoCompagnie'])){
             $prep->bindValue(':lienPhotoCompagnie', $postClean['lienPhotoCompagnie'], \PDO::PARAM_STR);
         }
