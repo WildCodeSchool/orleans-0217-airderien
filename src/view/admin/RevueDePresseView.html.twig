@@ -60,6 +60,9 @@
         <div class="col-sm-4">
             <select id="spectacleId" class="form-control" name="spectacleId">
                 {% for spectacle in spectacles %}
+                    {% if presse.SpectacleId == spectacle.Id %}
+                        <option value="{{ spectacle.Id }}" selected="selected">{{ spectacle.TitreSpect }}</option>
+                    {% endif %}
                     <option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>
                 {% endfor %}
             </select>

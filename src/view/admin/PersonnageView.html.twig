@@ -49,7 +49,7 @@
             <select id="spectacleId" class="form-control" name="spectacleId">
                 {% for spectacle in spectacles %}
                     {% if personnage.SpectacleId == spectacle.Id %}
-                    <option value="{{ spectacle.Id }}" selected>{{ spectacle.TitreSpect }}</option>
+                    <option value="{{ spectacle.Id }}" selected="selected">{{ spectacle.TitreSpect }}</option>
                     {% endif %}
                     <option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>
                 {% endfor %}
@@ -62,7 +62,7 @@
         <div class="col-sm-4">
             <select id="membreId" class="form-control" name="membreId">
                 {% for membre in membres %}
-                    {%  if membreId == personnage.MembreId %}
+                    {%  if membre.Id == personnage.MembreId %}
                     <option value="{{ membre.Id }}" selected="selected">{{ membre.PrenomMembre }}</option>
                     {% else %}
                     <option value="{{ membre.Id }}">{{ membre.PrenomMembre }}</option>
@@ -94,6 +94,27 @@
         <h3>Liste des personnages</h3>
     </div>
 </div>
+
+
+{#<div>#}
+    {#<form name="SpectacleList" method="post" class="form-horizontal">#}
+        {#<div class="form-group">#}
+            {#<label class="col-sm-4 control-label">Spectacle :</label>#}
+            {#<div class="col-sm-4">#}
+                {#<select  class="form-control">#}
+                    {#{% for spectacle in spectacles %}#}
+                        {#<option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>#}
+                    {#{% endfor %}#}
+                {#</select>#}
+            {#</div>#}
+            {#<div class="col-sm-4 ">#}
+                {#<a class="btn btn-warning" href="admin.php?route=listSpectacle&id={{ spectacle.Id }}">Go !</a>#}
+            {#</div>#}
+        {#</div>#}
+    {#</form>#}
+{#</div>#}
+
+
 
 <div class="row">
     <div class="col-lg-10 col-lg-offset-1">

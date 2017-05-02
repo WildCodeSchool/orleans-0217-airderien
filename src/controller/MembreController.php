@@ -71,6 +71,14 @@ class MembreController extends Controller
                 }
             }
 
+            if (empty($_FILES['lienPhotoMembre']['name'])){
+                $postClean['lienPhotoMembre'] = 'null';
+            }
+
+            if ($_POST['affectation']){
+                $postClean['lienPhotoMembre'] = 'null';
+            }
+
             $requete->addMembre($postClean);
             header('Location:admin.php?route=showMembre');
         }

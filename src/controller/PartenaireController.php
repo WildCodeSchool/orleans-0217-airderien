@@ -154,7 +154,6 @@ class PartenaireController extends Controller
         $requete = new PartenaireRequete();
 
 
-//        if ($form->isValid()) {
             if (!empty($_POST)) {
                 foreach ($_POST as $key => $val) {
                     $postClean[$key] = trim($val);
@@ -162,7 +161,7 @@ class PartenaireController extends Controller
                 $requete->updatePartenaire($postClean);
                 header('Location:admin.php?route=showPartenaire');
             }
-//        }
+
 
         $partenaires = $requete->findAll('partenaire');
         $partenaire = $requete->findOne('partenaire', $id);
