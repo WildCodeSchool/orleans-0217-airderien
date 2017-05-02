@@ -62,10 +62,11 @@
         <div class="col-sm-4">
             <select id="membreId" class="form-control" name="membreId">
                 {% for membre in membres %}
-                    {%  if personnage.MembreId == membreId %}
-                    <option value="{{ membre.Id }}" selected>{{ membre.PrenomMembre }}</option>
-                    {% endif %}
+                    {%  if membreId == personnage.MembreId %}
+                    <option value="{{ membre.Id }}" selected="selected">{{ membre.PrenomMembre }}</option>
+                    {% else %}
                     <option value="{{ membre.Id }}">{{ membre.PrenomMembre }}</option>
+                    {% endif %}
                 {% endfor %}
             </select>
         </div>
@@ -97,21 +98,25 @@
 <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
         {% for personnage in personnages %}
-            <div class="col-lg-4 thumbnail text-center">
-                <img src="images/photos/{{ personnage.PhotoPersonnage }}" alt="{{ personnage.PrenomPersonnage }} "style="height: 200px;">
-                <h3>{{ personnage.NomPersonnage }} {{ personnage.PrenomPersonnage }}</h3>
-                {#<p>{{ personnage.DescriptionPersonnage}}</p>#}
+            {% for membre in membres %}
+                {% if membre.id == personnage.membreId  %}
+                    <div class="col-lg-4 thumbnail text-center">
+                        <img src="images/photos/{{ personnage.PhotoPersonnage }}" alt="{{ personnage.PrenomPersonnage }} "style="height: 200px;">
+                        <h3>{{ personnage.NomPersonnage }} {{ personnage.PrenomPersonnage }}</h3>
+                        <span>{{ membre.prenomMembre}} </span>
 
-                <form action="admin.php" method="GET">
-                    <input type="hidden" name="route" value="updatePersonnage">
-                    <input type="hidden" name="id" value="{{ personnage.Id }}">
-                    <input class="btn btn-warning" type="submit" name="updatePersonnage" value="Modifier">
-                </form>
-                <form action="admin.php?route=deletePersonnage" method="post">
-                    <input type="hidden" name="id" value="{{ personnage.Id }}">
-                    <input class="btn btn-danger" type="submit" name="deletePersonnage" value="Supprimer">
-                </form>
-            </div>
+                        <form action="admin.php" method="GET">
+                            <input type="hidden" name="route" value="updatePersonnage">
+                            <input type="hidden" name="id" value="{{ personnage.Id }}">
+                            <input class="btn btn-warning" type="submit" name="updatePersonnage" value="Modifier">
+                        </form>
+                        <form action="admin.php?route=deletePersonnage" method="post">
+                            <input type="hidden" name="id" value="{{ personnage.Id }}">
+                            <input class="btn btn-danger" type="submit" name="deletePersonnage" value="Supprimer">
+                        </form>
+                    </div>
+                {% endif %}
+            {% endfor %}
         {% endfor %}
     </div>
 
