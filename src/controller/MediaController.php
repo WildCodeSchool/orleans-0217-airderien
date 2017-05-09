@@ -68,6 +68,7 @@ class MediaController extends Controller
                     move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
                     $postClean['lienPhoto'] = $newFileName;
                     $postClean['genre'] = 'photo';
+                    $postClean['lienVideo'] = '';
                 }
             }else {
                 $postClean['lienPhoto'] = '';
@@ -76,15 +77,11 @@ class MediaController extends Controller
 
             if ($_POST['spectacleId'] == 'compagnie'){
                 $postClean['affectation'] = 1;
-                $postClean['spectacleId'] = 0;
-            }
-
-            if (!empty($_POST['lienPhoto']) && !empty($_POST['lienVideo'])){
-                $postClean['lienVideo'] = '';
+                $postClean['spectacleId'] = null;
             }
 
             $requete->addMedia($postClean);
-//            header('Location:admin.php?route=showMedia');
+            header('Location:admin.php?route=showMedia');
         }
 
         $medias = $requete->findAll('media');
