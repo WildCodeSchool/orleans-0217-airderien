@@ -1,10 +1,6 @@
 <FilesMatch admin.php>
-
-
-
-
 AuthUserFile /home/biovor/PhpstormProjects/Air-de-rien/config/.htpasswd
-AuthName "Accès protégé trouve le MDP!!"
+AuthName "Accès protégé."
 AuthType Basic
 Require valid-user
 </FilesMatch>
