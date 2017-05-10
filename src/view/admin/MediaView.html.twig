@@ -118,8 +118,31 @@
     </div>
 </div>
 
+<div>
 
-{% for spectacle in spectacles %}
+    <!-- Nav tabs -->
+    <ul class="nav nav-pills" role="tablist" style=" margin-bottom: 30px; margin-left: 10%">
+
+{% for mediaTypeName, medias in  displayMedia %}
+    {% if loop.first %}
+    <li role="presentation" class="active"><a href="#{{ loop.index }}" aria-controls="{{ loop.index }}" role="tab"
+                               data-toggle="tab">{{ mediaTypeName }}</a></li>
+      {% else %}
+
+            <li role="presentation"><a href="#{{ loop.index }}" aria-controls="{{ loop.index }}" role="tab"
+                                       data-toggle="tab">{{ mediaTypeName }}</a></li>
+        {% endif %}
+{% endfor %}
+    </ul>
+<div class="tab-content">
+
+{% for mediaTypeName, medias in  displayMedia %}
+
+    {% if loop.first %}
+<div role="tabpanel" class="tab-pane active" id="{{ loop.index }}">
+    {% else %}
+<div role="tabpanel" class="tab-pane" id="{{ loop.index }}">
+    {% endif %}
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
             {% for media in medias %}
@@ -149,4 +172,110 @@
             {% endfor %}
         </div>
     </div>
+          </div>
 {% endfor %}
+
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
