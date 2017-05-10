@@ -10,6 +10,7 @@ $render = '';
 
 switch ($route) {
 
+
     case 'compagnie':
         $date = new \air_de_rien\controller\CompagnieController();
         $render = $date->index();
@@ -232,6 +233,8 @@ switch ($route) {
         $render = $partenaire->deletePartenaire();
         $title = 'Les Partenaires';
         break;
+
+
 }
 
 

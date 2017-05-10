@@ -20,6 +20,7 @@ class MediaController extends Controller
         $db = new DB();
 
         $medias = $requete-> findAll('media');
+        $mediaComp = $requete->findAllMediaCompagnie('media');
         $media = new Media();
         $spectacles = $db -> findAll('spectacle');
 
@@ -27,6 +28,7 @@ class MediaController extends Controller
             ->render('admin/MediaView.html.twig',
                 ['medias'=>$medias,
                     'media'=>$media,
+                    'mediaComp'=>$mediaComp,
                     'spectacles'=>$spectacles,
                     'typeAction'=>'add',
                     'titreButton'=>'Ajouter',
@@ -65,8 +67,19 @@ class MediaController extends Controller
 
                     move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
                     $postClean['lienPhoto'] = $newFileName;
+                    $postClean['genre'] = 'photo';
+                    $postClean['lienVideo'] = '';
                 }
+            }else {
+                $postClean['lienPhoto'] = '';
+                $postClean['genre'] = 'video';
             }
+
+            if ($_POST['spectacleId'] == 'compagnie'){
+                $postClean['affectation'] = 1;
+                $postClean['spectacleId'] = null;
+            }
+
             $requete->addMedia($postClean);
             header('Location:admin.php?route=showMedia');
         }
@@ -119,10 +132,19 @@ class MediaController extends Controller
                     move_uploaded_file($file_tmp, "images/photos/" . $file_name);
                     $postClean['lienPhoto'] = $file_name;
                 }
+            }else {
+                $postClean['lienPhoto'] = '';
+                $postClean['genre'] = 'video';
             }
 
-            if (!isset($postClean['afficher'])) $postClean['afficher'] = 0;
-            if (!isset($postClean['affectation'])) $postClean['afficher'] = 0;
+            if ($_POST['spectacleId'] == 'compagnie'){
+                $postClean['affectation'] = 1;
+                $postClean['spectacleId'] = 0;
+            }
+
+            if (!empty($_POST['lienPhoto']) && !empty($_POST['lienVideo'])){
+                $postClean['lienVideo'] = '';
+            }
 
             $requete->updateMedia($postClean);
             header('Location:admin.php?route=showMedia');
@@ -146,25 +168,10 @@ class MediaController extends Controller
             header('Location:admin.php?route=showMedia');
         }
 
-        $checkComp='';
-        $checkphoto = '';
-        $checkvideo = '';
         $medias = $requete->findAll('media');
         $media = $requete->findOne('media', $id);
         $spectacles = $db -> findAll('spectacle');
 
-
-        if ($_GET['affectation'] == '1'){
-            $checkComp ='checked="checked"';
-        }
-
-        if ($_GET['genre'] == 'photo'){
-            $checkphoto ='checked="checked"';
-        }
-
-        if ($_GET['genre'] == 'video'){
-            $checkvideo ='checked="checked"';
-        }
 
         return $this->getTwig()
             ->render('admin/MediaView.html.twig',
@@ -172,9 +179,6 @@ class MediaController extends Controller
                     'form'=>$form,
                     'media'=>$media,
                     'spectacles'=>$spectacles,
-                    'checkComp'=>$checkComp,
-                    'checkphoto'=>$checkphoto,
-                    'checkvideo'=>$checkvideo,
                     'titreButton'=>'Modifier',
                     'typeAction'=>'doUpdate'
                 ]);

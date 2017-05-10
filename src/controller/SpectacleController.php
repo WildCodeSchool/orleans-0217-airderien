@@ -80,7 +80,7 @@ class SpectacleController extends Controller
                 }
 
                 if (empty($errors)) {
-                    move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
+                    move_uploaded_file($file_tmp, "images/" . $newFileName);
                     $postClean['photoSpect'] = $newFileName;
                 }
             }
@@ -187,7 +187,7 @@ class SpectacleController extends Controller
                 }
 
                 if (empty($errors)) {
-                    move_uploaded_file($file_tmp, "images/photos/" . $file_name);
+                    move_uploaded_file($file_tmp, "images/" . $file_name);
                     $postClean['photoSpect'] = $file_name;
                 }
             }

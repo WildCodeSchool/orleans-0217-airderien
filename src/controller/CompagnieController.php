@@ -28,6 +28,8 @@ class CompagnieController extends Controller
         $galerie = $compagnieRequete->findAllMediaCompagnie('media','photo');
         $revue = $compagnieRequete->findAllPresse('revueDePresse');
         $partenaires = $db->findAll('partenaire');
+
+
         return $this->getTwig()
                     ->render('viewSite/compagnieView.html.twig',
                              ['compagnie'=> $compagnie,
@@ -88,6 +90,32 @@ class CompagnieController extends Controller
                     $postClean['lienPhotoCompagnie'] = $compagnie->getLienPhotoCompagnie();
                 }
             }
+
+
+            if ($_FILES['ficheTechnique']['name'] != '') {
+
+                $errors = array();
+                $file_name = $_FILES['ficheTechnique']['name'];
+                $file_tmp = $_FILES['ficheTechnique']['tmp_name'];
+                $path_parts = pathinfo($file_name);
+                $file_ext = $path_parts['extension'];
+
+                $extensions = array("txt", "pdf", "doc");
+
+                if (in_array($file_ext, $extensions) === false) {
+                    $errors[] = "extension not allowed, please choose a TXT or PDF or DOC file.";
+                }
+
+                if (empty($errors)) {
+                    move_uploaded_file($file_tmp, "images/" . $file_name);
+                    $postClean['ficheTechnique'] = $file_name;
+
+                }
+
+            }
+
+
+
             $requete->updateCompagnie($postClean);
             header('Location:admin.php?route=compagnie');
         }

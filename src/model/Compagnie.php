@@ -16,6 +16,7 @@ class Compagnie
     private $descriptionCompagnie;
     private $emailCompagnie;
     private $telCompagnie;
+    private $ficheTechnique;
 
     /**
      * @return mixed
@@ -107,6 +108,23 @@ class Compagnie
         return $this;
     }
 
+    /**
+     *     * @return mixed
+     */
+    public function getFicheTechnique()
+    {
+        return $this->ficheTechnique;
+    }
+
+    /**
+     * @param mixed $ficheTechique
+     * @return Compagnie
+     */
+    public function setFicheTechnique($ficheTechnique)
+    {
+        $this->ficheTechnique = $ficheTechnique;
+        return $this;
+    }
 
 
 

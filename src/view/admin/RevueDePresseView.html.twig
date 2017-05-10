@@ -12,8 +12,8 @@
     <div class="form-group">
         <label for="texteArticle" class="col-sm-4 control-label">Texte :</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" name="texteArticle" id="texteArticle"
-                   placeholder="Texte" value="{{ presse.TexteArticle }}" />
+            <textarea class="form-control" name="texteArticle" id="texteArticle" rows="10"
+                      placeholder="Texte"> {{ presse.TexteArticle }} </textarea>
         </div>
     </div>
 
@@ -60,6 +60,9 @@
         <div class="col-sm-4">
             <select id="spectacleId" class="form-control" name="spectacleId">
                 {% for spectacle in spectacles %}
+                    {% if presse.SpectacleId == spectacle.Id %}
+                        <option value="{{ spectacle.Id }}" selected="selected">{{ spectacle.TitreSpect }}</option>
+                    {% endif %}
                     <option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>
                 {% endfor %}
             </select>
@@ -97,9 +100,9 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-10 col-lg-offset-1">
+    <div class="col-lg-10 col-lg-offset-3">
         {% for presse in presses %}
-            <div class="col-lg-4 thumbnail text-center">
+            <div class="col-lg-7 thumbnail text-center">
                 <h3>{{ presse.TitreArticle }}</h3>
                 <p>{{ presse.texteArticle}}</p>
                 <p>{{ presse.dateArticle}}</p>

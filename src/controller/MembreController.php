@@ -49,7 +49,7 @@ class MembreController extends Controller
                 $postClean[$key] = trim($val);
             }
 
-            if (isset($_FILES['lienPhotoMembre'])) {
+            if ($_FILES['lienPhotoMembre']['name'] !='') {
                 $errors = array();
                 $file_name = $_FILES['lienPhotoMembre']['name'];
                 $file_tmp = $_FILES['lienPhotoMembre']['tmp_name'];
@@ -68,10 +68,15 @@ class MembreController extends Controller
 
                     move_uploaded_file($file_tmp, "images/photos/" . $newFileName);
                     $postClean['lienPhotoMembre'] = $newFileName;
-                    echo "Success";
-                } else {
-                    print_r($errors);
                 }
+            }
+
+            if (empty($_FILES['lienPhotoMembre']['name'])){
+                $postClean['lienPhotoMembre'] = 'null';
+            }
+
+            if ($_POST['affectation']){
+                $postClean['lienPhotoMembre'] = 'null';
             }
 
             $requete->addMembre($postClean);
@@ -105,47 +110,38 @@ class MembreController extends Controller
         if (!empty($_POST)) {
             $requete = new MembreRequete();
 
-            $membre = $requete->findOne('membre', $_POST['id']);
             foreach ($_POST as $key => $val) {
-                $postClean[$key] = htmlentities(trim($val));
+                $postClean[$key] = trim($val);
+
             }
 
-
-            if (!empty($_POST)) {
-                foreach ($_POST as $key => $val) {
-                    $postClean[$key] = trim($val);
-
-
-                    if (isset($_FILES['lienPhotoMembre'])) {
-                        $errors = array();
-                        $file_name = $_FILES['lienPhotoMembre']['name'];
-                        $file_tmp = $_FILES['lienPhotoMembre']['tmp_name'];
-                        $path_parts = pathinfo($file_name);
-                        $file_ext = $path_parts['extension'];
+            if ($_FILES['lienPhotoMembre']['name'] != '') {
+                $errors = array();
+                $file_name = $_FILES['lienPhotoMembre']['name'];
+                $file_tmp = $_FILES['lienPhotoMembre']['tmp_name'];
+                $path_parts = pathinfo($file_name);
+                $file_ext = $path_parts['extension'];
 
 
-                        $extensions = array("jpeg", "jpg", "png");
+                $extensions = array("jpeg", "jpg", "png");
 
-                        if (in_array($file_ext, $extensions) === false) {
-                            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+                if (in_array($file_ext, $extensions) === false) {
+                    $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
 
-                        }
+                }
 
-                        if (empty($errors)) {
+                if (empty($errors)) {
+                    move_uploaded_file($file_tmp, "images/photos/" . $file_name);
+                    $postClean['lienPhotoMembre'] = $file_name;
 
-                            move_uploaded_file($file_tmp, "images/photos/" . $membre->getLienPhotoMembre());
-                            $postClean['lienPhotoMembre'] = $membre->getLienPhotoMembre();
-                            echo "Success";
-                        } else {
-                            print_r($errors);
-                        }
-                    }
-                    $requete->updateMembre($postClean);
-                    header('Location:admin.php?route=showMembre');
                 }
             }
+            $requete->updateMembre($postClean);
+            header('Location:admin.php?route=showMembre');
+
         }
     }
+
 
     public function updateMembre($id)
     {
@@ -155,14 +151,6 @@ class MembreController extends Controller
 
         $requete = new MembreRequete();
         $db = new DB();
-
-        if (!empty($_POST)) {
-            foreach ($_POST as $key => $val) {
-                $postClean[$key] = trim($val);
-            }
-            $requete->updateMembre($postClean);
-            header('Location:admin.php?route=showMembre');
-        }
 
         $membres = $requete->findAll('membre');
         $membre = $requete->findOne('membre', $id);

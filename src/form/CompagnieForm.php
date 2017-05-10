@@ -46,6 +46,14 @@ class CompagnieForm extends Form
         ]);
 
         $this->add([
+            'type'  => File::class,
+            'name' => 'ficheTechnique',
+            'options' => [
+                'label' => 'ficheTechnique',
+            ],
+        ]);
+
+        $this->add([
             'type'  => Csrf::class,
             'name' => 'csrf',
         ]);

@@ -107,6 +107,7 @@ class PersonnageController extends Controller
         if (!empty($_POST)) {
             $requete = new PersonnageRequete();
 
+
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = trim($val);
             }
