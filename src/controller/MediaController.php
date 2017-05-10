@@ -10,6 +10,8 @@ use air_de_rien\model\MediaRequete;
 
 class MediaController extends Controller
 {
+    const COMPAGNIE_NAME = "Comme l'air 2 rien";
+
     public function index()
     {
         $form = new MediaForm();
@@ -20,15 +22,27 @@ class MediaController extends Controller
         $db = new DB();
 
         $medias = $requete-> findAll('media');
-        $mediaComp = $requete->findAllMediaCompagnie('media');
+        $displayMedia = [];
+        foreach ($medias as $media) {
+            $spectacleId = $media->getSpectacleId();
+            if ($spectacleId) {
+                $spectacle = $db -> findOne('spectacle', $spectacleId);
+                $mediaTypeName = $spectacle->getTitreSpect();
+            } else {
+                $mediaTypeName = self::COMPAGNIE_NAME;
+            }
+
+            $displayMedia[$mediaTypeName][] = $media;
+        }
+       // $mediaComp = $requete->findAllMediaCompagnie('media');
         $media = new Media();
         $spectacles = $db -> findAll('spectacle');
 
         return $this->getTwig()
             ->render('admin/MediaView.html.twig',
-                ['medias'=>$medias,
+                ['displayMedia'=>$displayMedia,
                     'media'=>$media,
-                    'mediaComp'=>$mediaComp,
+                    //'mediaComp'=>$mediaComp,
                     'spectacles'=>$spectacles,
                     'typeAction'=>'add',
                     'titreButton'=>'Ajouter',
