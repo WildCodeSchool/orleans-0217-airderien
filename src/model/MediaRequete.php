@@ -55,7 +55,7 @@ class MediaRequete extends DB
     {
         $pdo = new DB();
 
-        $query = "UPDATE media SET";
+        $query = "UPDATE media SET ";
 
         if (isset($postClean['lienPhoto'])) {
            $query .= "lienPhoto =:lienPhoto,";
