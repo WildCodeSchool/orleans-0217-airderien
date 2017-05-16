@@ -90,6 +90,12 @@ class CompagnieRequete extends DB
         if (isset($postClean['ficheTechnique'])) {
             $prep->bindValue(':ficheTechnique', $postClean['ficheTechnique'], \PDO::PARAM_STR);
         }
+
+//        var_dump($postClean);
+//        var_dump($query);
+//        var_dump($prep);
+//        var_dump($prep->errorInfo());
+//        die();
         $prep->execute();
     }
 }

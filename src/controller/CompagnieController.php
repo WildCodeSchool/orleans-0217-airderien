@@ -114,12 +114,13 @@ class CompagnieController extends Controller
 
             }
 
-
-
             $requete->updateCompagnie($postClean);
             header('Location:admin.php?route=compagnie');
         }
     }
+
+
+
 
     public function updateCompagnie($id)
     {
@@ -129,13 +130,16 @@ class CompagnieController extends Controller
 
         $requete = new CompagnieRequete();
 
-        if (!empty($_POST)) {
-            foreach ($_POST as $key => $val) {
-                $postClean[$key] = trim($val);
-            }
-            $requete->updateCompagnie($postClean);
-            header('Location:admin.php?route=compagnie');
-        }
+//        if (!empty($_POST['submit'])) {
+//            foreach ($_POST as $key => $val) {
+//                $postClean[$key] = trim($val);
+//            }
+//            var_dump($postClean);
+//            die();
+//
+//            $requete->updateCompagnie($postClean);
+//            header('Location:admin.php?route=compagnie');
+//        }
 
         $compagnies = $requete->findAll('compagnie');
         $compagnie = $requete->findOne('compagnie', $id);

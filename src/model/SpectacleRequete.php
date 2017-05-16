@@ -39,7 +39,7 @@ class SpectacleRequete extends DB
     {
         $pdo = new DB();
 
-        $query = "UPDATE spectacle SET";
+        $query = "UPDATE spectacle SET ";
 
         if (isset($postClean['photoSpect'])) {
             $query .= "photoSpect =:photoSpect,";
@@ -57,7 +57,10 @@ class SpectacleRequete extends DB
 
         $prep->bindValue(':descriptionSpect', $postClean['descriptionSpect'], \PDO::PARAM_STR);
         $prep->bindValue(':active', $postClean['active'], \PDO::PARAM_INT);
+
+
         $prep->execute();
+
     }
 
     public function choixSpectacle()
