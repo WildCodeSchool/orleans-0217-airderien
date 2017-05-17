@@ -9,7 +9,8 @@ body {font-family:'ProximaNovaRegular', sans-serif; font-size:100%;}
 .p5 {font-size:1.2em; opacity:.75; font-family: 'cursive'}
 .p6 {font-size:.9em; opacity:.5;}
 
-li {color:#fff;}
+li:hover{color:#fff; border: 2px solid #ffffff; background: #000000; opacity: 0.5; margin-bottom: 10px; border-radius: 5px;}
+
 hr {border:none; border-bottom:1px solid #fff;}
 img {max-width:40%; height:auto; width:auto\9; opacity: 0.95;}
 a:hover img {opacity:.90;}
@@ -51,7 +52,7 @@ a:hover img {opacity:.90;}
 #home-right .home-over {background:rgba(188,26,58,0.8); left:50%;}
 
 
-#home a {color:#fff;}
+#home a {color:#fff; font-size: 30px;}
 .home-title h2, .home-title h3, .home-title h4 {text-shadow:8px 8px 1px black;}
 #home-left h2 {font-size:1.7em; line-height:1em; margin:0;}
 #home-right h2 {font-size:1.9em; line-height:.9em; margin:0;}

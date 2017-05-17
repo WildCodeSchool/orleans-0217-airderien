@@ -1,6 +1,0 @@
-<FilesMatch admin.php>
-AuthUserFile /home/ubuntu/airderien/config/.htpasswd
-AuthName "Accès protégé."
-AuthType Basic
-Require valid-user
-</FilesMatch>
