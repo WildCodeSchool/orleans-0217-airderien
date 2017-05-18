@@ -75,7 +75,7 @@ class CompagnieRequete extends DB
         }
 
         $query .= "descriptionCompagnie=:descriptionCompagnie, 
-        emailCompagnie=:emailCompagnie, ficheTechnique=:ficheTechnique, telCompagnie=:telCompagnie WHERE id=:id";
+        emailCompagnie=:emailCompagnie, telCompagnie=:telCompagnie WHERE id=:id";
 
         $prep = $pdo->db->prepare($query);
         $prep->bindValue(':id', $postClean['id'], \PDO::PARAM_INT);
@@ -90,6 +90,7 @@ class CompagnieRequete extends DB
         if (isset($postClean['ficheTechnique'])) {
             $prep->bindValue(':ficheTechnique', $postClean['ficheTechnique'], \PDO::PARAM_STR);
         }
+
         $prep->execute();
     }
 }

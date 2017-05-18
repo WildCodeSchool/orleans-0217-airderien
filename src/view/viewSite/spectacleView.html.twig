@@ -6,7 +6,7 @@
 
 <div id="wrapper" class="clearfix">
 
-    <section id="slider" class="slider-parallax revslider-wrap full-screen clearfix visible-lg-block">
+    <section id="slider" class="slider-parallax revslider-wrap full-screen clearfix visible-lg-block visible-md-block">
 
         <div class="tp-banner-container">
             <div class="tp-banner" >
@@ -52,18 +52,16 @@
                              data-elementdelay="0.01"
                              data-endelementdelay="0.1"
                              data-endspeed="1000"
-                             data-endeasing="Power4.easeIn" style="z-index: 3; background-color: rgba(0,0,0,0.6);"><a href="#titre" class="button button-white
-                             button-light button-border button-large button-rounded tright nomargin"><span>Continuer
-                                </span> <i class="icon-angle-right"></i></a></div>
+                             data-endeasing="Power4.easeIn" style="z-index: 3; background-color: rgba(0,0,0,0.6);"></div>
                     </li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="hidden-lg">
+    <section class="visible-sm visible-xs">
         <img src="images/{{ spectacle.photoSpect }}" alt="{{ spectacle.photoSpect }}"/>
-        <div class="div-titre-photo"><p class="titre-photo">{{ spectacle.titreSpect }}</p></div>
+        <div class="center"><p class="titre-photo">{{ spectacle.titreSpect }}</p></div>
 
     </section>
 </div>

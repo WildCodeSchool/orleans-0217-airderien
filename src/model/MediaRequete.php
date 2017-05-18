@@ -55,7 +55,7 @@ class MediaRequete extends DB
     {
         $pdo = new DB();
 
-        $query = "UPDATE media SET";
+        $query = "UPDATE media SET ";
 
         if (isset($postClean['lienPhoto'])) {
            $query .= "lienPhoto =:lienPhoto,";
@@ -76,6 +76,9 @@ class MediaRequete extends DB
         $prep->bindValue(':affectation', $postClean['affectation'], \PDO::PARAM_INT);
         $prep->bindValue(':genre', $postClean['genre'], \PDO::PARAM_STR);
 
+
         $prep->execute();
+
+
     }
 }

@@ -119,7 +119,9 @@ class SpectacleController extends Controller
         $check='';
         $checkhidden='';
         $checklist='';
+
         $requete = new SpectacleRequete();
+
         if ($_GET['active'] == '1'){
             $check ='checked="checked"';
         }
@@ -131,16 +133,6 @@ class SpectacleController extends Controller
         if ($_GET['active'] == '2'){
             $checkhidden ='checked="checked"';
         }
-
-        if (!empty($_POST)) {
-            foreach ($_POST as $key => $val) {
-                $postClean[$key] = trim($val);
-            }
-
-            $requete->updateSpectacle($postClean);
-            header('Location:admin.php?route=showSpectacle');
-        }
-
 
         $spectacles = $requete->findAll('spectacle');
         $spectacle = $requete->findOne('spectacle', $id);
@@ -191,6 +183,7 @@ class SpectacleController extends Controller
                     $postClean['photoSpect'] = $file_name;
                 }
             }
+
             $requete->updateSpectacle($postClean);
             header('Location:admin.php?route=showSpectacle');
         }

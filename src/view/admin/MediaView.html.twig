@@ -35,25 +35,9 @@
 
             <div class="form-group">
                 <label for="lienPhoto" class="col-sm-4 control-label">Lien Photo :</label>
-                <div class="col-sm-4">
+                <div class="col-sm-4"><i>(Format: paysage; Taille max: 2mo)</i>
                     <input type="file"  name="lienPhoto" id="lienPhoto"
                            value="{{ media.lienPhoto }}" />
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="spectacleId" class="col-sm-4 control-label">Afficher dans :</label>
-                <div class="col-sm-4">
-                    <select id="spectacleId" class="form-control" name="spectacleId">
-                        <optgroup label="Compagnie">
-                            <option value="compagnie">Comme l'air 2 rien</option>
-                        </optgroup>
-                        <optgroup label="Spectacles">
-                            {% for spectacle in spectacles %}
-                                <option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>
-                            {% endfor %}
-                        </optgroup>
-                    </select>
                 </div>
             </div>
 
@@ -78,21 +62,22 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="spectacleId" class="col-sm-4 control-label">Afficher dans :</label>
-                <div class="col-sm-4">
+        </div>
+    </div>
 
-                    <select id="spectacleId" class="form-control" name="spectacleId">
-                        {% for spectacle in spectacles %}
-                            {% if media.SpectacleId == spectacle.Id %}
-                                <option value="{{ spectacle.Id }}" selected="selected">{{ spectacle.TitreSpect }}</option>
-                            {% endif %}
-                            <option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-
+    <div class="form-group">
+        <label for="spectacleId" class="col-sm-4 control-label">Afficher dans :</label>
+        <div class="col-sm-4">
+            <select id="spectacleId" class="form-control" name="spectacleId">
+                <optgroup label="Compagnie">
+                    <option value="compagnie">Comme l'air 2 rien</option>
+                </optgroup>
+                <optgroup label="Spectacles">
+                    {% for spectacle in spectacles %}
+                        <option value="{{ spectacle.Id }}">{{ spectacle.TitreSpect }}</option>
+                    {% endfor %}
+                </optgroup>
+            </select>
         </div>
     </div>
 
@@ -125,11 +110,10 @@
 
 {% for mediaTypeName, medias in  displayMedia %}
     {% if loop.first %}
-    <li role="presentation" class="active"><a href="#{{ loop.index }}" aria-controls="{{ loop.index }}" role="tab"
+        <li role="presentation" class="active"><a href="#{{ loop.index }}" aria-controls="{{ loop.index }}" role="tab"
                                data-toggle="tab">{{ mediaTypeName }}</a></li>
       {% else %}
-
-            <li role="presentation"><a href="#{{ loop.index }}" aria-controls="{{ loop.index }}" role="tab"
+        <li role="presentation"><a href="#{{ loop.index }}" aria-controls="{{ loop.index }}" role="tab"
                                        data-toggle="tab">{{ mediaTypeName }}</a></li>
         {% endif %}
 {% endfor %}

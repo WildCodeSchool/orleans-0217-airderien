@@ -62,10 +62,11 @@
 
     <div class="form-group">
         <label for="lienPhotoMembre" class="col-sm-4 control-label">Photo :</label>
-        <div class="col-sm-4">
+        <div class="col-sm-4"><i>(Format: portrait; Taille max: 2mo)</i>
             <input type="file"  name="lienPhotoMembre" id="lienPhotoMembre"
                    value="{{ membre.LienPhotoMembre }}" />
         </div>
+
     </div>
 
     <input type="hidden" name="csrf" value="{{ form.csrf.value }}">
