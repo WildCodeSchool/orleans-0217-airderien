@@ -1,5 +1,6 @@
 <FilesMatch admin.php>
-AuthUserFile /home/ubuntu/airderien/config/.htpasswd
+#AuthUserFile /home/ubuntu/airderien/config/.htpasswd
+AuthUserFile /home/biovor/PhpstormProjects/Air-de-rien/config/.htpasswd
 AuthName "Accès protégé."
 AuthType Basic
 Require valid-user
