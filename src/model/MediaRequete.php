@@ -76,6 +76,9 @@ class MediaRequete extends DB
         $prep->bindValue(':affectation', $postClean['affectation'], \PDO::PARAM_INT);
         $prep->bindValue(':genre', $postClean['genre'], \PDO::PARAM_STR);
 
+
         $prep->execute();
+
+
     }
 }

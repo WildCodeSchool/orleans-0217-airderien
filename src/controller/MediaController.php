@@ -22,6 +22,7 @@ class MediaController extends Controller
         $db = new DB();
 
         $medias = $requete-> findAll('media');
+
         $displayMedia = [];
         foreach ($medias as $media) {
             $spectacleId = $media->getSpectacleId();
@@ -34,15 +35,15 @@ class MediaController extends Controller
 
             $displayMedia[$mediaTypeName][] = $media;
         }
-       // $mediaComp = $requete->findAllMediaCompagnie('media');
+
         $media = new Media();
         $spectacles = $db -> findAll('spectacle');
 
         return $this->getTwig()
             ->render('admin/MediaView.html.twig',
-                ['displayMedia'=>$displayMedia,
+                [
+                    'displayMedia'=>$displayMedia,
                     'media'=>$media,
-                    //'mediaComp'=>$mediaComp,
                     'spectacles'=>$spectacles,
                     'typeAction'=>'add',
                     'titreButton'=>'Ajouter',
@@ -85,6 +86,7 @@ class MediaController extends Controller
                     $postClean['lienVideo'] = '';
                 }
             }else {
+
                 $postClean['lienPhoto'] = '';
                 $postClean['genre'] = 'video';
             }
@@ -92,6 +94,10 @@ class MediaController extends Controller
             if ($_POST['spectacleId'] == 'compagnie'){
                 $postClean['affectation'] = 1;
                 $postClean['spectacleId'] = null;
+            }
+
+            if (!empty($_POST['lienPhoto']) && !empty($_POST['lienVideo'])){
+                $postClean['lienVideo'] = '';
             }
 
             $requete->addMedia($postClean);
@@ -122,12 +128,16 @@ class MediaController extends Controller
 
     public function doUpdateMedia()
     {
+
         if (!empty($_POST)) {
             $requete = new MediaRequete();
 
             foreach ($_POST as $key => $val) {
                 $postClean[$key] = trim($val);
             }
+
+            $media = $requete->findOne('media', $postClean['id']);
+
 
             if ($_FILES['lienPhoto']['name'] != '') {
                 $errors = array();
@@ -145,15 +155,23 @@ class MediaController extends Controller
                 if (empty($errors)) {
                     move_uploaded_file($file_tmp, "images/photos/" . $file_name);
                     $postClean['lienPhoto'] = $file_name;
+                    $postClean['genre'] = 'photo';
+                    $postClean['lienVideo'] = '';
                 }
             }else {
-                $postClean['lienPhoto'] = '';
+                $image = $media->getLienPhoto();
+                $postClean['lienPhoto'] = $image;
+                $postClean['genre'] = 'photo';
+            }
+
+            if (!empty($_POST['lienVideo'])){
                 $postClean['genre'] = 'video';
             }
 
+
             if ($_POST['spectacleId'] == 'compagnie'){
                 $postClean['affectation'] = 1;
-                $postClean['spectacleId'] = 0;
+                $postClean['spectacleId'] = null;
             }
 
             if (!empty($_POST['lienPhoto']) && !empty($_POST['lienVideo'])){
@@ -174,13 +192,6 @@ class MediaController extends Controller
         $requete = new MediaRequete();
         $db = new DB();
 
-        if (!empty($_POST)) {
-            foreach ($_POST as $key => $val) {
-                $postClean[$key] = trim($val);
-            }
-            $requete->updateMedia($postClean);
-            header('Location:admin.php?route=showMedia');
-        }
 
         $medias = $requete->findAll('media');
         $media = $requete->findOne('media', $id);

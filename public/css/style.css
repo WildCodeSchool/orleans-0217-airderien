@@ -283,7 +283,7 @@ span.middot {
 
 .rightmargin { margin-right: 50px !important; }
 
-.topmargin { margin-top: 50px !important; }
+
 
 .bottommargin { margin-bottom: 50px !important; }
 
@@ -307,7 +307,7 @@ span.middot {
 
 .rightmargin-lg { margin-right: 80px !important; }
 
-.topmargin-lg { margin-top: 80px !important; }
+
 
 .bottommargin-lg { margin-bottom: 80px !important; }
 
@@ -1539,7 +1539,7 @@ body:not(.stretched) .slider-parallax .slider-parallax-inner { left: auto; }
 
 #content .container {
 	position: relative;
-	padding-bottom: 50px;
+
 }
 
 .grid-container {
