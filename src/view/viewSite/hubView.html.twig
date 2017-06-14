@@ -85,14 +85,14 @@
                 </div>
             </div>
             <!-- >>> Over <<< -->
-            {% for spectacle in spectacles if spectacle.active == 1 %} {{ spectacle.titreSpect }}
+            {% for spectacle in spectacles if spectacle.active == 1 %}
             <a href="index.php?route=spectacle&id={{ spectacle.id }}"><div id="home-over-right" class="home-over w50 h100">
                 <div class="home-over-content w100 h100">
                     <!-- >>> Titre <<< -->
                     <div class="home-title fittext block-2 w100">
                         <div class="wrapper-2">
                             <div class="home-box">
-                                <p class="p1 first"></p>
+                                <p class="p1 first">{{ spectacle.titreSpect }}</p>
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,6 @@
                     <div id="home-logo-right" class="home-logo block-3 w100">
                         <div class="wrapper-3">
                             <div class="home-box fittext w60">
-
                                 <h5>Notre spectacle ici ...</h5>
                                 {% endfor %}
                             </div>
