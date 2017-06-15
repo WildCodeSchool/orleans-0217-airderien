@@ -43,7 +43,7 @@ a:hover img {opacity:.90;}
 .wrapper-4 {position:absolute; top:50%; height:160px; margin-top:-80px; line-height:160px; width:100%; text-align:center;}
 .wrapper-5 {position:absolute; top:50%; height:40px; margin-top:-20px; line-height:40px; width:100%; text-align:center;}
 
-.home-box, .home-box1 {line-height:1.2; display:inline-block; vertical-align:middle; *display:inline; *zoom:1;}
+.home-box, .home-box1 {line-height:1.2; margin-top: 5%; display:inline-block; vertical-align:middle; *display:inline; *zoom:1;}
 .home-box1 h2,.home-box1 h3,.home-box1 h4 {color: white }
 .home-box2 h2,.home-box2 h3,.home-box2 h4 {color: white }
 
