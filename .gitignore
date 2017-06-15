@@ -5,5 +5,5 @@ composer.json
 .htaccess
 /config/connect.php
 /public/.htaccess
-puclic/images/photos/*
+/public/images/photos/*
 
