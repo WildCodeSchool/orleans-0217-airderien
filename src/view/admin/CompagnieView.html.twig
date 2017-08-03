@@ -28,9 +28,9 @@
     </div>
 
     <div class="form-group">
+        <div class="col-sm-4">
         {% if compagnie.lienPhotoCompagnie  %}
             <label for="imageactuelle" class="col-sm-4 control-label">Photo actuelle :</label>
-        <div class="col-sm-4">
             <img src="images/{{ compagnie.lienPhotoCompagnie }}" alt="" id="imageactuelle" style="height: 200px"/>
         {% endif %}
         </div>
@@ -45,9 +45,9 @@
     </div>
 
     <div class="form-group">
+        <div class="col-sm-4">
         {% if compagnie.ficheTechnique  %}
         <label for="ficheactuelle" class="col-sm-4 control-label">Fiche Technique:</label>
-        <div class="col-sm-4">
             <p>{{ compagnie.ficheTechnique }}</p>
             {% endif %}
         </div>
@@ -72,6 +72,13 @@
 
 </form>
 
-<script type="text/javascript" src="js/jquery.js"></script>
+{#<script type="text/javascript" src="js/jquery.js"></script>#}
 <script type="text/javascript" src="js/plugins.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#descriptionCompagnie').summernote();
+    });
+</script>
