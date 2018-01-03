@@ -104,7 +104,7 @@
         {% for presse in presses %}
             <div class="col-lg-7 thumbnail text-center">
                 <h3>{{ presse.TitreArticle }}</h3>
-                <p>{{ presse.texteArticle}}</p>
+                <p>{{ presse.texteArticle|raw}}</p>
                 <p>{{ presse.dateArticle}}</p>
                 <p>{{ presse.journal}}</p>
                 <p>{{ presse.auteur}}</p>
@@ -120,3 +120,11 @@
     </div>
 
 </div>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#texteArticle').summernote();
+    });
+</script>

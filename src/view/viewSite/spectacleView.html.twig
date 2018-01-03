@@ -262,7 +262,7 @@
                         <div class="item col-xs-8 col-xs-offset-2 {% if loop.index == 1 %}active{% endif %}">
                             <div class="caption">
                                 <h4>{{ article.titreArticle }}</h4>
-                                <p class="lead">"{{ article.texteArticle }}"</p>
+                                <p class="lead">"{{ article.texteArticle|raw }}"</p>
                                 <span class="auteur"><strong>{{ article.auteur }}</strong>,
                                     {{ article.journal }},{{ article.dateArticle }}</span><br>
                             </div>
