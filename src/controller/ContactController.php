@@ -22,7 +22,7 @@ class ContactController extends Controller
         if (isset($_POST['contact'])) {
 
             $db = new DB();
-            $mailAirDeRien = $db -> findAll('compagnie');
+            $mailAirDeRien = $db -> findAll('compagnie')[0];
             $spectacles = $db->findAll('spectacle');
 
             $contact = Swift_SmtpTransport::newInstance('smtp.googlemail.com', 465, 'ssl')
